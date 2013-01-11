@@ -1,0 +1,12 @@
+﻿.tooltipsy
+{
+padding: 5px;
+width: 300px;
+color: #303030;
+background-color: #EBEBEB;
+border: 1px solid #EBEBEB;
+-moz-box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+text-shadow: none;
+}
