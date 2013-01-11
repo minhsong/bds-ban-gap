@@ -346,7 +346,7 @@
 }
 
 #result_detail #image_gallery{
-	width:420px;
+	width:470px;
 	float:left
 }
 #result_detail .detail_info {
@@ -370,7 +370,7 @@
 	height:65px;
 }
 #result_detail .detail_info .right {
-	width:322px;
+	width:272px;
 	float:left;
 }
 
