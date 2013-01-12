@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using BDSBanGap.Models.DBContext;
 
 namespace BDSBanGap
 {
@@ -31,6 +33,7 @@ namespace BDSBanGap
 
         protected void Application_Start()
         {
+            Database.SetInitializer<BDSDBContext>(new DBInitializer());
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
