@@ -67,7 +67,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\UserIdentity.cs" />
+    <Compile Include="Security\UserIdentity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -82,7 +82,7 @@
     <Compile Include="Models\DBContext\Product.cs" />
     <Compile Include="Models\DBContext\Role.cs" />
     <Compile Include="Models\DBContext\Ward.cs" />
-    <Compile Include="Models\UserPrincipal.cs" />
+    <Compile Include="Security\UserPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
