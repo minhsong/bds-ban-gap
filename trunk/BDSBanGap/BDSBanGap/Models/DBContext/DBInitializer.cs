@@ -10,7 +10,8 @@ namespace BDSBanGap.Models.DBContext
     {
         protected override void Seed(DbContext context)
         {
-
+            //user and role
+            #region User and role init data
             Role role = new Role()
             {
                 CreatedBy = "System",
@@ -40,6 +41,16 @@ namespace BDSBanGap.Models.DBContext
 
             context.Entry(user).State = System.Data.EntityState.Added;
             context.SaveChanges();
+            #endregion
+
+            //product
+            #region Product init data
+
+            Product pd = new Product()
+            {
+            }
+
+            #endregion
             base.Seed(context);
         }
     }
