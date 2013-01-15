@@ -17,6 +17,12 @@ namespace BDSBanGap.Controllers
             get { return HttpContext.User as UserPrincipal; }
         }
 
+        [NonAction]
+        protected ActionResult Error(string message)
+        {
+            return View(message);
+        }
+
         protected override void ExecuteCore()
         {
             base.ExecuteCore();

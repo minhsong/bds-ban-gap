@@ -8,6 +8,13 @@ namespace BDSBanGap.Models.DBContext
     public class Product:BaseModel
     {
         public int ProductID { get; set; }
+
+        public string Titile { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsSold { get; set; }
+
         //So do khuong vien
         public double KVNgangTruoc { get; set; }
         public double KVNgangSau { get; set; }
@@ -45,9 +52,9 @@ namespace BDSBanGap.Models.DBContext
         public bool TienLamVanPhong { get; set; }
         public bool TienSanXuat { get; set; }
         public bool ChoSinhVienThue { get; set; }
+
         public int? ContactId { get; set; }
         public int WardId { get; set; }
-        public int? DistrictId { get; set; }
 
         //realtionship object
 

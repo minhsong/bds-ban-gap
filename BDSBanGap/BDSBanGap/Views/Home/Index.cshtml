@@ -4,210 +4,83 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+	<div class="list-house-content mt5 pt5">
+    	<div class="list-house-header-left left pb10">
+        	<h3 class="blue bold left">
+            	Có <span class="list-house-count" id="house-sell-count">@Model.Count()</span> nhà đăng bán
+            </h3>
+        	<br class="clearBoth" />
+        </div> <!-- end .house-sell-header-left -->
+        <div class="list-house-header-right right">
+        	<div class="paginator-number">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    @*<tr>
-        <th>
-            KVNgangTruoc
-        </th>
-        <th>
-            KVNgangSau
-        </th>
-        <th>
-            KVDai
-        </th>
-        <th>
-            CNNgangTruoc
-        </th>
-        <th>
-            CNNgangSau
-        </th>
-        <th>
-            CNDai
-        </th>
-        <th>
-            XDNgangTruoc
-        </th>
-        <th>
-            XDNgangSau
-        </th>
-        <th>
-            XDDai
-        </th>
-        <th>
-            LoaiDiaOc
-        </th>
-        <th>
-            TinhTrangPhapLy
-        </th>
-        <th>
-            Huong
-        </th>
-        <th>
-            DuongTruocNha
-        </th>
-        <th>
-            ViTriDiaOc
-        </th>
-        <th>
-            SoLau
-        </th>
-        <th>
-            SoPhongKhach
-        </th>
-        <th>
-            SoPhongNgu
-        </th>
-        <th>
-            SoPhongTam
-        </th>
-        <th>
-            SoPhongKhac
-        </th>
-        <th>
-            DayDuTienNghi
-        </th>
-        <th>
-            ChoDauXeHoi
-        </th>
-        <th>
-            SanVuon
-        </th>
-        <th>
-            HoBoi
-        </th>
-        <th>
-            TienKinhDoanh
-        </th>
-        <th>
-            TienDeO
-        </th>
-        <th>
-            TienLamVanPhong
-        </th>
-        <th>
-            TienSanXuat
-        </th>
-        <th>
-            ChoSinhVienThue
-        </th>
-        <th>
-            ContactId
-        </th>
-        <th>
-            WardId
-        </th>
-        <th>
-            DistrictId
-        </th>
-        <th></th>
-    </tr>
+            </div> <!-- end .paginator-number -->
+        </div> <!-- end .house-sell-header-right -->
+        <br class="clearBoth" />
+        <div class="list-items">
+        @foreach (var item in Model)
+          {
+              <div id="house-id" class="item">
+            	<div class="item-image left ml6">
+                	<div class="item-image-border">
+                    	<a href="/Home/Deatil/@item.ProductID">
+                        @if (item.Images == null)
+                        {
+                            <img width="88px" height="66px" src="images/list-item.jpg" />
+                        }
+                        else
+                        {
+                            	<img width="88px" height="66px" src="@item.Images.First().ThumblLink" />
+                        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KVNgangTruoc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KVNgangSau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KVDai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CNNgangTruoc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CNNgangSau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CNDai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.XDNgangTruoc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.XDNgangSau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.XDDai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoaiDiaOc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TinhTrangPhapLy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Huong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DuongTruocNha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ViTriDiaOc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoPhongKhach)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoPhongNgu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoPhongTam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoPhongKhac)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DayDuTienNghi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChoDauXeHoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SanVuon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoBoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TienKinhDoanh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TienDeO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TienLamVanPhong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TienSanXuat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChoSinhVienThue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WardId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DistrictId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-        </td>
-    </tr>
-}*@
+                        
+                        </a>
+                    </div> <!-- end .item-image-border -->
+                    <p class="item-id">Mã số:</p>
+                </div> <!--end .item-image -->
+                <div class="item-description left ml10">
+                	<strong>
+                    	<a href="">@item.Titile</a>
+                        <br />
+                    </strong>
+                    <p class="mt5">@item.Description</p>
+                    <div class="clearBoth"></div>
+                    <div class="mt10">
+                    	<div class="view-detail">
+                        	<div style="position:absolute;top:3px;z-index:100;">
+							<a style="font-family: Verdana; font-size: 10px;text-align:left;" href="">
+								Xem chi tiết
+							</a>
+						</div>
+                        </div> <!-- end .view-detail -->
+                    </div> <!-- end .mt10 -->
+                </div> <!--end .item-description -->
 
-</table>
+
+                <div class="border-right-dashed left pl10"></div> <!--end .border-right-dashed -->
+                <div class="item-status left">
+                	<p style="text-align:center">@item.Ward.WardName</p>
+                    <br />
+                    <p style="text-align:center">@item.Ward.District.DistrictName</p>
+                </div> <!--end .item-status -->
+                <div class="border-right-dashed left"></div> <!--end .border-right-dashed -->
+                <div class="price-place left pl10">
+                	<div class="price blue left">@item.Price Tỉ VNĐ</div>
+                    <br class="clearBoth" />
+                    <div class="place-city pt10"> @item.Contact.FullName</div>
+                    <div class="place-distric-road">@item.Contact.Address</div>
+
+                </div> <!--end .price-place -->
+                <br class="clearLeft" />
+            </div> <!-- end .item -->
+          }
+        	
+        </div> <!-- end .list-items -->
+        <div class="border-top-end"></div>
+        <div class="pagin-end right">
+        	<div class="paginator-number">
+
+            </div> <!-- end .paginator-number -->
+        </div> <!-- end .pagin-end -->
+
+    </div> <!-- end .house-sell-content -->
