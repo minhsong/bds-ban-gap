@@ -30,9 +30,9 @@ namespace BDSBanGap.Models.DBContext
         public double XDNgangSau { get; set; }
         public double XDDai { get; set; }
 
-        public int LoaiDiaOc { get; set; }
-        public int TinhTrangPhapLy { get; set; }
-        public int Huong { get; set; }
+        public string LoaiDiaOc { get; set; }
+        public string TinhTrangPhapLy { get; set; }
+        public string Huong { get; set; }
         public string DuongTruocNha { get; set; }
         public string ViTriDiaOc { get; set; }
 

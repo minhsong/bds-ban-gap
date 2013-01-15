@@ -67,7 +67,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Helpers\ComboItem.cs" />
+    <Compile Include="Helpers\ConfigHelper.cs" />
+    <Compile Include="Helpers\DataConvertHelper.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\DBContext\ProductImage.cs" />
+    <Compile Include="Models\Enum\Huong.cs" />
+    <Compile Include="Models\Enum\LoaiDiaOc.cs" />
+    <Compile Include="Models\Enum\TinhTrangPhapLy.cs" />
     <Compile Include="Security\UserIdentity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
