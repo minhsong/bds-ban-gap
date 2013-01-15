@@ -24,7 +24,7 @@
             	<div class="item-image left ml6">
                 	<div class="item-image-border">
                     	<a href="/Home/Deatil/@item.ProductID">
-                        @if (item.Images == null)
+                        @if (item.Images.Count==0)
                         {
                             <img width="88px" height="66px" src="/Content/images/Default-image.jpg" />
                         }
@@ -36,7 +36,6 @@
                         
                         </a>
                     </div> <!-- end .item-image-border -->
-                    <p class="item-id">Mã số:</p>
                 </div> <!--end .item-image -->
                 <div class="item-description left ml10">
                 	<strong>
@@ -67,8 +66,8 @@
                 <div class="price-place left pl10">
                 	<div class="price blue left">@item.Price Tỉ VNĐ</div>
                     <br class="clearBoth" />
-                    <div class="place-city pt10"> @item.Contact.FullName</div>
-                    <div class="place-distric-road">@item.Contact.Address</div>
+                    <div class="place-city pt10"> @item.Huong</div>
+                    <div class="place-distric-road">@item.TinhTrangPhapLy</div>
 
                 </div> <!--end .price-place -->
                 <br class="clearLeft" />
