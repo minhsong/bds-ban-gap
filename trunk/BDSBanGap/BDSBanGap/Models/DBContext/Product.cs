@@ -53,6 +53,7 @@ namespace BDSBanGap.Models.DBContext
 
         public virtual Ward Ward { get; set; }
         public virtual Contact Contact { get; set; }
+        public virtual ICollection<ProductImage> Images { get; set; }
 
     }
 }
