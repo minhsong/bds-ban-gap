@@ -33,8 +33,8 @@ namespace BDSBanGap
 
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
             Database.SetInitializer<BDSDBContext>(new DBInitializer());
+            AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BDSBanGap.Models.DBContext
 {
-    public class Configuration
+    public class Configuration:BaseModel
     {
         [Key]
         public string Key { get; set; }
