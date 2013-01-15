@@ -22,13 +22,18 @@ namespace BDSBanGap.Security
             _Identity = new UserIdentity(username, password);
         }
 
+        public UserPrincipal(string username)
+        {
+            _Identity = new UserIdentity(username);
+        }
+
 
  
         public bool IsInRole(string role)
         {
             if (_Identity.Role != null)
             {
-                if (_Identity.Role.RoleName.Equals(role, StringComparison.CurrentCultureIgnoreCase))
+                if (_Identity.Role.Equals(role, StringComparison.CurrentCultureIgnoreCase))
                 {
                     return true;
                 }

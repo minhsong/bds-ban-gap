@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Data.Entity;
 using BDSBanGap.Models.DBContext;
+using System.Web.Security;
+using System.Web.Script.Serialization;
+using BDSBanGap.Security;
 
 namespace BDSBanGap
 {
@@ -37,6 +40,24 @@ namespace BDSBanGap
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                UserIdentity serializeModel = serializer.Deserialize<UserIdentity>(authTicket.UserData);
+
+                UserPrincipal newUser = new UserPrincipal(authTicket.Name);
+
+                HttpContext.Current.User = newUser;
+            }
         }
     }
 }

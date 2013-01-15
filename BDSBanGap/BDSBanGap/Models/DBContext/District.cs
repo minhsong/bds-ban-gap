@@ -10,5 +10,8 @@ namespace BDSBanGap.Models.DBContext
         public int DistrictID { get; set; }
         public string DistrictName { get; set; }
         public string Description { get; set; }
+
+        //Realtionship object
+        public virtual ICollection<Ward> Wards { get; set; }
     }
 }

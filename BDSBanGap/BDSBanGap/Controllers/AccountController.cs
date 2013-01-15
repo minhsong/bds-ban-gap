@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using BDSBanGap.Models;
+using BDSBanGap.Security;
+using System.Web.Script.Serialization;
 
 namespace BDSBanGap.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         //
         // GET: /Account/LogOn
@@ -27,22 +29,29 @@ namespace BDSBanGap.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                var user = db.Users.Where(u => u.Username.Equals(model.UserName,StringComparison.CurrentCultureIgnoreCase)&&u.Password==model.Password).FirstOrDefault();
+
+                if (user != null)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                    {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    UserIdentity serializeModel = new UserIdentity(model.UserName,model.Password);
+
+                    JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                    string userData = serializer.Serialize(serializeModel);
+
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                             1,
+                             model.UserName,
+                             DateTime.Now,
+                             DateTime.Now.AddMinutes(15),
+                             false,
+                             userData);
+
+                    string encTicket = FormsAuthentication.Encrypt(authTicket);
+                    HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+                    Response.Cookies.Add(faCookie);
+
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
