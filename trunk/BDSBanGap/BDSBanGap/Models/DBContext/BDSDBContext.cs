@@ -9,11 +9,12 @@ namespace BDSBanGap.Models.DBContext
 {
     public class BDSDBContext:DbContext
     {
-        public DbSet Configuration { get; set; }
+        public DbSet<Configuration> BDSConfigurations { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<Ward> Wards { get; set; }
+        public DbSet<BDSUser> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

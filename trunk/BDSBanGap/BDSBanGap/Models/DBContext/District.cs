@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BDSBanGap.Models.DBContext
 {
-    public class District
+    public class District:BaseModel
     {
         public int DistrictID { get; set; }
         public string DistrictName { get; set; }

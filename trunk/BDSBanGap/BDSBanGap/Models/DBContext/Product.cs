@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BDSBanGap.Models.DBContext
 {
-    public class Product
+    public class Product:BaseModel
     {
         public int ProductID { get; set; }
         //So do khuong vien

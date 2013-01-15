@@ -6,13 +6,13 @@ using System.Web.Mvc;
 
 namespace BDSBanGap.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
-            return View();
+            return View(db.Products.ToList());
         }
 
         public ActionResult About()
@@ -20,4 +20,5 @@ namespace BDSBanGap.Controllers
             return View();
         }
     }
+
 }

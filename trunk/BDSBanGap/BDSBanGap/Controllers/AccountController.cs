@@ -11,7 +11,6 @@ namespace BDSBanGap.Controllers
 {
     public class AccountController : Controller
     {
-
         //
         // GET: /Account/LogOn
 
