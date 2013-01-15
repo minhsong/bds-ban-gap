@@ -5,7 +5,7 @@ using System.Web;
 using System.Security.Principal;
 using BDSBanGap.Models.DBContext;
 
-namespace BDSBanGap.Models
+namespace BDSBanGap.Security
 {
     public class UserIdentity : IIdentity
     {

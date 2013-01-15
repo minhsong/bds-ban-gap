@@ -5,7 +5,7 @@ using System.Web;
 using System.Security.Principal;
 using BDSBanGap.Controllers;
 
-namespace BDSBanGap.Models
+namespace BDSBanGap.Security
 {
     public class UserPrincipal: IPrincipal
     {
