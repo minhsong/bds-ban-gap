@@ -15,6 +15,7 @@ namespace BDSBanGap.Models.DBContext
         public DbSet<District> Districts { get; set; }
         public DbSet<Ward> Wards { get; set; }
         public DbSet<BDSUser> Users { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
