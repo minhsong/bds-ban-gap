@@ -15,6 +15,16 @@ namespace BDSBanGap.Controllers
             return View(db.Products.ToList());
         }
 
+        public ActionResult Deatil(int id)
+        {
+            var product = db.Products.Find(id);
+            if (product != null)
+            {
+                return View(product);
+            }
+            return Error("Product not existed!");
+        }
+
         public ActionResult About()
         {
             return View();
