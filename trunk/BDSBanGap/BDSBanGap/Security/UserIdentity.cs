@@ -12,8 +12,10 @@ namespace BDSBanGap.Security
         private string _UserName = "";
         private string _FullName= "";
         private bool _IsAuthenticated = false ;
-        private Role _Role = null;
+        private string _Role = null;
 
+
+        public UserIdentity() { }
         public UserIdentity(string username, string password) 
         {
             BDSDBContext db = new BDSDBContext();
@@ -26,7 +28,22 @@ namespace BDSBanGap.Security
                 _UserName = user.Username;
                 _FullName = user.FullName;
                 _IsAuthenticated = true;
-                _Role = user.Role;
+                _Role = user.Role.RoleName;
+            }
+        }
+
+        public UserIdentity(string username)
+        {
+            BDSDBContext db = new BDSDBContext();
+            BDSUser user = (from s in db.Users
+                            where username.Equals(s.Username, StringComparison.CurrentCultureIgnoreCase)
+                            select s).SingleOrDefault();
+            if (user != null)
+            {
+                _UserName = user.Username;
+                _FullName = user.FullName;
+                _IsAuthenticated = true;
+                _Role = user.Role.RoleName;
             }
         }
 
@@ -51,7 +68,7 @@ namespace BDSBanGap.Security
             get { return _FullName; }
         }
 
-        public Role Role
+        public string Role
         {
             get { return _Role; }
         }

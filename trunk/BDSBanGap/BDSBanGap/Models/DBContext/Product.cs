@@ -49,5 +49,10 @@ namespace BDSBanGap.Models.DBContext
         public int WardId { get; set; }
         public int? DistrictId { get; set; }
 
+        //realtionship object
+
+        public virtual Ward Ward { get; set; }
+        public virtual Contact Contact { get; set; }
+
     }
 }
