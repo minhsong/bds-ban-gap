@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using BDSBanGap.Models.Enum;
 
 namespace BDSBanGap.Models.DBContext
 {
@@ -90,13 +91,13 @@ namespace BDSBanGap.Models.DBContext
                 Description = "nha day du tien nghi, mat tien thoang mat, an ninh",
                 DuongTruocNha = "Nguy Van Troi",
                 HoBoi = false,
-                Huong = 1,
+                Huong = Huong.Huong_Bac.ToString(),
                 IsActive = true,
                 IsSold = false,
                 KVDai = 16,
                 KVNgangSau = 5,
                 KVNgangTruoc = 4.5,
-                LoaiDiaOc = 1,
+                LoaiDiaOc = LoaiDiaOc.Nha_O.ToString(),
                 Price = 12.5,
                 SanVuon = false,
                 SoLau = 4,
@@ -108,7 +109,7 @@ namespace BDSBanGap.Models.DBContext
                 TienKinhDoanh = true,
                 TienLamVanPhong = true,
                 TienSanXuat = true,
-                TinhTrangPhapLy = 1,
+                TinhTrangPhapLy = TinhTrangPhapLy.So_Do.ToString(),
                 Titile = "Ban nha nguyen can mat tien duong Nguyen Van Troi",
                 ViTriDiaOc = "Mat tien",
                 XDDai = 16,
