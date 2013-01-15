@@ -54,7 +54,7 @@ namespace BDSBanGap.Models.DBContext
         public bool ChoSinhVienThue { get; set; }
 
         public int? ContactId { get; set; }
-        public int WardId { get; set; }
+        public int WardID { get; set; }
 
         //realtionship object
 

@@ -14,5 +14,6 @@ namespace BDSBanGap.Models.DBContext
 
       //realationship object
         public virtual District District { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
