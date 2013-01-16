@@ -7,12 +7,20 @@ using System.Web;
 using System.Web.Mvc;
 using BDSBanGap.Models.DBContext;
 using BDSBanGap.Models.Enum;
+using System.Drawing;
+using System.IO;
 
 namespace BDSBanGap.Controllers
 { 
     [ValidateInput(false)]
     public class ProductController : BaseController
     {
+        public bool HasFile(HttpPostedFileBase file)
+        {
+
+            return (file != null && file.ContentLength > 0) ? true : false;
+
+        }
         //
         // GET: /Product/
 
@@ -50,10 +58,13 @@ namespace BDSBanGap.Controllers
         // POST: /Product/Create
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(Product product, IEnumerable<HttpPostedFileBase> files, FormCollection collection)
         {
             if (ModelState.IsValid)
             {
+                int productID;
+                int orderCaption = 1;
+                //Create project
                 product.CreatedBy = User.Identity.Name;
                 product.CreatedDate = DateTime.Now;
                 product.UpdatedBy = User.Identity.Name;
@@ -61,6 +72,59 @@ namespace BDSBanGap.Controllers
 
                 db.Products.Add(product);
                 db.SaveChanges();
+
+                productID = product.ProductID;
+
+
+                foreach (var file in files)
+                {
+
+                    if (!HasFile(file))
+                    {
+                        orderCaption++;
+                        continue;
+                    }
+
+                    ProductImage proImage = new ProductImage();
+
+                    if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
+                        (file.ContentType == "image/png" || (file.ContentType == "image/jpg")))//check allow jpg, gif, png, jpeg
+                    {
+                        // make thumb image
+                        Image image = Image.FromStream(file.InputStream);
+                        Bitmap thumbImage = new Bitmap(image, 100, 75);
+
+                        // make projet image - product detail page
+                        Bitmap projectImage = new Bitmap(image, 440, 330);
+
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                        var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
+                        var pathImageThumb = Path.Combine(Server.MapPath("~/Upload/Thumb/"), fileName);
+
+                        //Save image to ProjectImages folder
+                        projectImage.Save(pathImageProject);
+
+                        // Save image to ImageThumb folder
+                        thumbImage.Save(pathImageThumb);
+
+                        // Save slide image to ImageSlide
+
+                        // Set ProjectImage model
+                        proImage.ImageLink = "/Upload/Images/" + fileName;
+                        proImage.Caption = collection["caption" + orderCaption];
+                        proImage.ThumblLink = "/Upload/Thumb/" + fileName;
+
+                        proImage.ProductID = productID;
+
+                        // Insert project image to db
+                        db.ProductImages.Add(proImage);//add Image object to database (content image path)
+                        db.SaveChanges();
+
+                        orderCaption++;// update order
+                    }
+
+                }
+
                 return RedirectToAction("Index");  
             }
 
