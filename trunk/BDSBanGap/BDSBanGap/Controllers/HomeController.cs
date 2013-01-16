@@ -15,12 +15,18 @@ namespace BDSBanGap.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult Deatil(int id)
+        public ActionResult DetailProduct(int productId)
         {
-            var product = db.Products.Find(id);
+            var product = db.Products.Find(productId);
+            
             if (product != null)
             {
-                return View(product);
+                var ward = db.Wards.Find(product.WardID);
+                var district = db.Districts.Find(ward.DistrictID);
+                ViewBag.product = product;
+                ViewBag.ward = ward;
+                ViewBag.district = district;
+                return View();
             }
             return Error("Product not existed!");
         }
