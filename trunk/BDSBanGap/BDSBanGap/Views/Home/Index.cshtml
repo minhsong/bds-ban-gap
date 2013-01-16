@@ -58,16 +58,16 @@
 
                 <div class="border-right-dashed left pl10"></div> <!--end .border-right-dashed -->
                 <div class="item-status left">
-                	<p style="text-align:center">@item.Ward.WardName</p>
+                	<p style="text-align:center">Phường: @item.Ward.WardName</p>
                     <br />
-                    <p style="text-align:center">@item.Ward.District.DistrictName</p>
+                    <p style="text-align:center">Quận: @item.Ward.District.DistrictName</p>
                 </div> <!--end .item-status -->
                 <div class="border-right-dashed left"></div> <!--end .border-right-dashed -->
                 <div class="price-place left pl10">
                 	<div class="price blue left">@item.Price Tỉ VNĐ</div>
                     <br class="clearBoth" />
-                    <div class="place-city pt10"> @item.Huong</div>
-                    <div class="place-distric-road">@item.TinhTrangPhapLy</div>
+                    <div class="place-city pt10"> @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
+                    <div class="place-distric-road">@BDSBanGap.Models.Enum.TinhTrangPhapLy.GetTinhTrangPhapLy(item.TinhTrangPhapLy)</div>
 
                 </div> <!--end .price-place -->
                 <br class="clearLeft" />
