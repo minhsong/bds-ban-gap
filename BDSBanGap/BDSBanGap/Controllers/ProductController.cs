@@ -41,6 +41,7 @@ namespace BDSBanGap.Controllers
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue");
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
             ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue");
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
             return View();
         } 
 
@@ -115,6 +116,12 @@ namespace BDSBanGap.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        public ActionResult GetWardOnChange(int district)
+        {
+            ViewBag.Ward = new SelectList(from s in db.Wards where s.DistrictID == district select s, "WardID", "WardName");
+            return PartialView("WardsArea");
         }
     }
 }
