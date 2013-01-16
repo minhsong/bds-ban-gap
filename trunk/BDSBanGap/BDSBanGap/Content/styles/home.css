@@ -484,3 +484,9 @@ border-left:1px solid #b1bdc9;
 	clear:both;
 }
 /*end footer*/
+.list-items
+{
+    border-left: 1px dashed #CCCCCC;
+    border-right: 1px dashed #CCCCCC;
+}
+    
