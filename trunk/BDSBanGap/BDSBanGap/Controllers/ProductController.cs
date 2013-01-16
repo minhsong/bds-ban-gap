@@ -92,10 +92,10 @@ namespace BDSBanGap.Controllers
                     {
                         // make thumb image
                         Image image = Image.FromStream(file.InputStream);
-                        Bitmap thumbImage = new Bitmap(image, 100, 75);
+                        Bitmap thumbImage = new Bitmap(image, 120, 90);
 
                         // make projet image - product detail page
-                        Bitmap projectImage = new Bitmap(image, 440, 330);
+                        Bitmap projectImage = new Bitmap(image, 480, 360);
 
                         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                         var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
