@@ -33,7 +33,7 @@ namespace BDSBanGap.Controllers
 
         //
         // GET: /Product/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName");
