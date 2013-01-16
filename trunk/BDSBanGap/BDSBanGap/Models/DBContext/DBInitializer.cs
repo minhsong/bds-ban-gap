@@ -110,7 +110,7 @@ namespace BDSBanGap.Models.DBContext
                 TienLamVanPhong = true,
                 TienSanXuat = true,
                 TinhTrangPhapLy = (byte)TinhTrangPhapLyEnum.TinhTrangPhapLy_So_Hong,
-                Titile = "Ban nha nguyen can mat tien duong Nguyen Van Troi",
+                Tittle = "Ban nha nguyen can mat tien duong Nguyen Van Troi",
                 ViTriDiaOc = (byte)ViTriDiaOcEnum.MatTienDuong,
                 XDDai = 16,
                 XDNgangSau = 5,

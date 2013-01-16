@@ -47,28 +47,31 @@
         </div>
             
 		<div id="sidebar">
-			<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i> CHỨ NĂNG</a>
 			<ul>
-				<li class="active"><a href="index-2.html"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
+				<li class="active"><a href="index-2.html"><i class="icon icon-home"></i> <span>Thống kê</span></a></li>
 				<li class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Form elements</span> <span class="label">3</span></a>
+					<a href="#"><i class="icon icon-th-list"></i> <span>Sản Phẩm</span> <span class="label">4</span></a>
 					<ul>
-						<li>@Ajax.ActionLink("Create product","CreateGet","Product",new AjaxOptions(){HttpMethod = "POST",UpdateTargetId = "content",InsertionMode = InsertionMode.Replace }) <a href="form-common.html">Common elements</a></li>
-						<li><a href="form-validation.html">Validation</a></li>
-						<li><a href="form-wizard.html">Wizard</a></li>
+                        <li><a href="form-validation.html">Danh sách SP</a></li>
+                        <li><a href="form-wizard.html">Nhà Đang Rao</a></li>
+                        <li><a href="form-wizard.html">Nhà đã bán</a></li>
+						<li>@Ajax.ActionLink("Tạo sản phẩm mới","CreateGet","Product",new AjaxOptions(){HttpMethod = "POST",UpdateTargetId = "content",InsertionMode = InsertionMode.Replace })</li>
 					</ul>
 				</li>
-				<li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-				<li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Interface elements</span></a></li>
-				<li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-				<li><a href="grid.html"><i class="icon icon-th-list"></i> <span>Grid Layout</span></a></li>
 				<li class="submenu">
-					<a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>
+					<a href="#"><i class="icon icon-file"></i> <span>Phường/Quận</span> <span class="label">3</span></a>
 					<ul>
-						<li><a href="invoice.html">Invoice</a></li>
-						<li><a href="chat.html">Support chat</a></li>
-						<li><a href="calendar.html">Calendar</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="invoice.html">Danh sách Quận</a></li>
+						<li><a href="chat.html">Tạo Quận Mới</a></li>
+						<li><a href="calendar.html">Tạo Phường Mới</a></li>
+					</ul>
+				</li>
+                <li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>Người Dùng</span> <span class="label">2</span></a>
+					<ul>
+						<li><a href="invoice.html">Danh sách Người Dùng</a></li>
+						<li><a href="chat.html">Tạo Mới</a></li>
 					</ul>
 				</li>
 				<li>

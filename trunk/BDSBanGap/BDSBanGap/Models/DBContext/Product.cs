@@ -9,7 +9,7 @@ namespace BDSBanGap.Models.DBContext
     {
         public int ProductID { get; set; }
 
-        public string Titile { get; set; }
+        public string Tittle { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
         public bool IsActive { get; set; }
