@@ -10,6 +10,7 @@ using BDSBanGap.Models.Enum;
 
 namespace BDSBanGap.Controllers
 { 
+    [ValidateInput(false)]
     public class ProductController : BaseController
     {
         //
@@ -53,6 +54,11 @@ namespace BDSBanGap.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.CreatedBy = User.Identity.Name;
+                product.CreatedDate = DateTime.Now;
+                product.UpdatedBy = User.Identity.Name;
+                product.UpdatedDate = DateTime.Now;
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
