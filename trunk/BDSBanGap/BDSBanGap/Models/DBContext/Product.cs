@@ -14,6 +14,7 @@ namespace BDSBanGap.Models.DBContext
         public double Price { get; set; }
         public bool IsActive { get; set; }
         public bool IsSold { get; set; }
+        public int Views { get; set; }
 
         //So do khuong vien
         public double? KVNgangTruoc { get; set; }
