@@ -301,9 +301,10 @@
             $.ajax({
                 url: '/Product/GetWardOnChange',
                 type: 'POST',
-                data: { id: $('#District').value() },
+                data: { district: $('#District').val() },
                 success: function (result) {
-                    $('#Ward-Area').hml(result);
+                    $('#Ward-Area').html('');
+                    $('#Ward-Area').html(result);
                 }
             });
             // then either disabled or enable them in the second loop:
