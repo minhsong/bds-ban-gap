@@ -16,19 +16,19 @@ namespace BDSBanGap.Models.DBContext
         public bool IsSold { get; set; }
 
         //So do khuong vien
-        public double KVNgangTruoc { get; set; }
-        public double KVNgangSau { get; set; }
-        public double KVDai { get; set; }
+        public double? KVNgangTruoc { get; set; }
+        public double? KVNgangSau { get; set; }
+        public double? KVDai { get; set; }
 
         //so do DT cong nhan
-        public double CNNgangTruoc { get; set; }
-        public double CNNgangSau { get; set; }
-        public double CNDai { get; set; }
+        public double? CNNgangTruoc { get; set; }
+        public double? CNNgangSau { get; set; }
+        public double? CNDai { get; set; }
 
         //So do dien tich xay dung
-        public double XDNgangTruoc { get; set; }
-        public double XDNgangSau { get; set; }
-        public double XDDai { get; set; }
+        public double? XDNgangTruoc { get; set; }
+        public double? XDNgangSau { get; set; }
+        public double? XDDai { get; set; }
 
         public int LoaiDiaOc { get; set; }
         public int TinhTrangPhapLy { get; set; }
@@ -36,11 +36,11 @@ namespace BDSBanGap.Models.DBContext
         public string DuongTruocNha { get; set; }
         public int ViTriDiaOc { get; set; }
 
-        public int SoLau { get; set; }
-        public int SoPhongKhach { get; set; }
-        public int SoPhongNgu { get; set; }
-        public int SoPhongTam { get; set; }
-        public int SoPhongKhac { get; set; }
+        public int? SoLau { get; set; }
+        public int? SoPhongKhach { get; set; }
+        public int? SoPhongNgu { get; set; }
+        public int? SoPhongTam { get; set; }
+        public int? SoPhongKhac { get; set; }
 
         //Thong Tin tien ich
         public bool DayDuTienNghi { get; set; }
