@@ -210,7 +210,7 @@
             @Html.LabelFor(model => model.DayDuTienNghi)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DayDuTienNghi)
+            @Html.CheckBoxFor(model => model.DayDuTienNghi)
             @Html.ValidationMessageFor(model => model.DayDuTienNghi)
         </div>
 
@@ -218,7 +218,7 @@
             @Html.LabelFor(model => model.ChoDauXeHoi)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ChoDauXeHoi)
+            @Html.CheckBoxFor(model => model.ChoDauXeHoi)
             @Html.ValidationMessageFor(model => model.ChoDauXeHoi)
         </div>
 
@@ -226,7 +226,7 @@
             @Html.LabelFor(model => model.SanVuon)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.SanVuon)
+            @Html.CheckBoxFor(model => model.SanVuon)
             @Html.ValidationMessageFor(model => model.SanVuon)
         </div>
 
@@ -234,7 +234,7 @@
             @Html.LabelFor(model => model.HoBoi)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.HoBoi)
+            @Html.CheckBoxFor(model => model.HoBoi)
             @Html.ValidationMessageFor(model => model.HoBoi)
         </div>
 
@@ -242,15 +242,15 @@
             @Html.LabelFor(model => model.TienKinhDoanh)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TienKinhDoanh)
+            @Html.CheckBoxFor(model => model.TienKinhDoanh)
             @Html.ValidationMessageFor(model => model.TienKinhDoanh)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TienDeO)
+            @Html.CheckBoxFor(model => model.TienDeO)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TienDeO)
+            @Html.CheckBoxFor(model => model.TienDeO)
             @Html.ValidationMessageFor(model => model.TienDeO)
         </div>
 
@@ -258,7 +258,7 @@
             @Html.LabelFor(model => model.TienLamVanPhong)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TienLamVanPhong)
+            @Html.CheckBoxFor(model => model.TienLamVanPhong)
             @Html.ValidationMessageFor(model => model.TienLamVanPhong)
         </div>
 
@@ -266,7 +266,7 @@
             @Html.LabelFor(model => model.TienSanXuat)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TienSanXuat)
+            @Html.CheckBoxFor(model => model.TienSanXuat)
             @Html.ValidationMessageFor(model => model.TienSanXuat)
         </div>
 
@@ -274,7 +274,7 @@
             @Html.LabelFor(model => model.ChoSinhVienThue)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ChoSinhVienThue)
+            @Html.CheckBoxFor(model => model.ChoSinhVienThue)
             @Html.ValidationMessageFor(model => model.ChoSinhVienThue)
         </div>
 
@@ -292,38 +292,6 @@
         <div class="editor-field">
             @Html.DropDownList("WardID", String.Empty)
             @Html.ValidationMessageFor(model => model.WardID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreatedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CreatedDate)
-            @Html.ValidationMessageFor(model => model.CreatedDate)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreatedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CreatedBy)
-            @Html.ValidationMessageFor(model => model.CreatedBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedDate)
-            @Html.ValidationMessageFor(model => model.UpdatedDate)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedBy)
-            @Html.ValidationMessageFor(model => model.UpdatedBy)
         </div>
 
         <p>
