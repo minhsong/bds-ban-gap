@@ -19,6 +19,7 @@ namespace BDSBanGap.Models.DBContext
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Product>().HasMany(s => s.Images).WithRequired(s => s.Product).HasForeignKey(s => s.ProductID);
             base.OnModelCreating(modelBuilder);
         }
     }

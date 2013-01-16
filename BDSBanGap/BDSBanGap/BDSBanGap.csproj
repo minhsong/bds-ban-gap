@@ -427,6 +427,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\admin\" />
+    <Folder Include="Upload\Images\" />
+    <Folder Include="Upload\Thumb\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
