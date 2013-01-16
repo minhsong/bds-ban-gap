@@ -130,7 +130,7 @@
             @Html.LabelFor(model => model.LoaiDiaOc)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.LoaiDiaOc)
+            @Html.DropDownListFor(model => model.LoaiDiaOc, ViewBag.LoaiDiaOc as SelectList)
             @Html.ValidationMessageFor(model => model.LoaiDiaOc)
         </div>
 
@@ -138,7 +138,7 @@
             @Html.LabelFor(model => model.TinhTrangPhapLy)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TinhTrangPhapLy)
+            @Html.DropDownListFor(model => model.TinhTrangPhapLy, ViewBag.Phaply as SelectList)
             @Html.ValidationMessageFor(model => model.TinhTrangPhapLy)
         </div>
 
@@ -146,7 +146,7 @@
             @Html.LabelFor(model => model.Huong)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Huong)
+            @Html.DropDownListFor(model => model.Huong, ViewBag.Huong as SelectList)
             @Html.ValidationMessageFor(model => model.Huong)
         </div>
 
@@ -162,7 +162,7 @@
             @Html.LabelFor(model => model.ViTriDiaOc)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ViTriDiaOc)
+            @Html.DropDownListFor(model => model.ViTriDiaOc, ViewBag.VitriDiaOc as SelectList)
             @Html.ValidationMessageFor(model => model.ViTriDiaOc)
         </div>
 
@@ -299,7 +299,3 @@
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
