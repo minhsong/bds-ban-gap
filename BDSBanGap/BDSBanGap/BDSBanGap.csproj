@@ -100,6 +100,7 @@
     <Content Include="Content\images\allbody_bg.jpg" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\btn-search-content.gif" />
+    <Content Include="Content\images\btn.png" />
     <Content Include="Content\images\btn_timxe.gif" />
     <Content Include="Content\images\Default-image.jpg" />
     <Content Include="Content\images\Footer46.jpg" />
@@ -108,6 +109,7 @@
     <Content Include="Content\images\img-demo.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\priority-hou.jpg" />
+    <Content Include="Content\images\sprite.png" />
     <Content Include="Content\images\TimKiemNangCao.png" />
     <Content Include="Content\images\topmenu2.png" />
     <Content Include="Content\images\villa1.jpg" />
@@ -412,6 +414,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\slideshow\ad_next.png" />
+    <Content Include="Scripts\slideshow\ad_prev.png" />
+    <Content Include="Scripts\slideshow\ad_scroll_back.png" />
+    <Content Include="Scripts\slideshow\ad_scroll_forward.png" />
+    <Content Include="Scripts\slideshow\jquery.ad-gallery.css" />
+    <Content Include="Scripts\slideshow\jquery.ad-gallery.js" />
+    <Content Include="Scripts\slideshow\jquery.ad-gallery.min.js" />
+    <Content Include="Scripts\slideshow\LICENSE.txt" />
+    <Content Include="Scripts\slideshow\loader.gif" />
+    <Content Include="Scripts\slideshow\opa75.png" />
+    <Content Include="Scripts\slideshow\trans.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -462,7 +475,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\DetailProduct.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Create.cshtml" />

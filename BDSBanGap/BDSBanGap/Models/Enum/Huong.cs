@@ -22,55 +22,55 @@ namespace BDSBanGap.Models.Enum
             List<ComboItem> result = new List<ComboItem>();
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Bắc",
+                DisplayValue = "Bắc",
                 ItemValue = (int)HuongEnum.Huong_Bac
             });
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Đông",
+                DisplayValue = "Đông",
                 ItemValue = (int)HuongEnum.Huong_Dong
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Đông Bắc",
+                DisplayValue = "Đông Bắc",
                 ItemValue = (int)HuongEnum.Huong_Dong_Bac
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Đông Nam",
+                DisplayValue = "Đông Nam",
                 ItemValue = (int)HuongEnum.Huong_Dong_Nam
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Nam",
+                DisplayValue = "Nam",
                 ItemValue = (int)HuongEnum.Huong_Nam
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Tây",
+                DisplayValue = "Tây",
                 ItemValue = (int)HuongEnum.Huong_Tay
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Tây Bắc",
+                DisplayValue = "Tây Bắc",
                 ItemValue = (int)HuongEnum.Huong_Tay_Bac
             });
 
 
             result.Add(new ComboItem()
             {
-                DisplayValue = "Hướng Tây Nam",
+                DisplayValue = "Tây Nam",
                 ItemValue = (int)HuongEnum.Huong_Tay_Nam
             });
 

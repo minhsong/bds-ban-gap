@@ -370,7 +370,7 @@
 	height:65px;
 }
 #result_detail .detail_info .right {
-	width:272px;
+	width:215px;
 	float:left;
 }
 
@@ -433,9 +433,9 @@
 	width:368px;
 }
 #result_detail .detail_info .right .features .feat_item dt{
-	width:138px;
+	width:100px;
 	font-size:12px;
-	padding:7px 10px;
+	padding:7px 5px;
 	text-align:right;
 	float:left;
 }
@@ -495,12 +495,22 @@
 }
 
 #feature_detail .block {
-	width:235px;
+	/*width:215px;*/
 	margin-right:10px;
 	float:left;
 	position:relative
 }
+#feature_detail .bl1 {
+    width:198px;
+}
 
+#feature_detail .bl2 {
+    width:289px;
+}
+
+#feature_detail .bl3 {
+    width:158px;
+}
 #feature_detail .block dl, #feature_detail table {
 	border:1px solid #d9d9d9;
 	width:100%;
