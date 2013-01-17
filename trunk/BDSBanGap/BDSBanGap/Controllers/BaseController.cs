@@ -22,7 +22,7 @@ namespace BDSBanGap.Controllers
         {
             HandleErrorInfo er = new HandleErrorInfo(ex, HttpContext.Request.RequestContext.RouteData.Values["controller"].ToString(), HttpContext.Request.RequestContext.RouteData.Values["Action"].ToString());
 
-            return View("Error,"er);
+            return View("Error",er);
         }
 
         protected override void ExecuteCore()
