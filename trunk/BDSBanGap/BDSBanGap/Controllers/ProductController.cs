@@ -42,7 +42,6 @@ namespace BDSBanGap.Controllers
         //
         // GET: /Product/Create
         [Authorize]
-        [HttpPost]
         public ActionResult CreateGet()
         {
             ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName");
@@ -52,7 +51,7 @@ namespace BDSBanGap.Controllers
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
             ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue");
             ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
-            return PartialView("Create");
+            return View("Create");
         } 
 
         //
