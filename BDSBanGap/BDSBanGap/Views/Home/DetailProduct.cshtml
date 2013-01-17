@@ -1,10 +1,8 @@
-﻿
+﻿@model BDSBanGap.Models.DBContext.Product
+
 @{
     ViewBag.Title = "DetailProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var productdetail = ViewBag.product;
-    var ward = ViewBag.ward;
-    var district = ViewBag.district;
 }
 
 
@@ -136,8 +134,8 @@
     </style>
                          <div class="body">
                          
-        <h2 class="larger_title">@productdetail.Titile</h2>
-        <span class="location">Vị trí: @productdetail.DuongTruocNha , phường @ward.WardName, Quận @district.DistrictName, TP.HCM</span>
+        <h2 class="larger_title">@Model.Tittle</h2>
+        <span class="location">Vị trí: @Model.DuongTruocNha , phường @Model.Ward.WardName, Quận @Model.Ward.District.DistrictName, TP.HCM</span>
         <div class="detail_info">
                 <link href="../../Content/styles/asset_detail.css" rel="stylesheet" type="text/css" />
                     <div id="image_gallery" class="rounded_box rounded_style_2">
@@ -187,7 +185,7 @@
                 <div class="features margin_bottom">
                     <div class="currency_convertor">
                         <div class="money">
-                            Giá: @productdetail.Price</div>
+                            Giá: @Model.Price</div>
                     </div>
                     <div class="feat_item">
                         <dl>

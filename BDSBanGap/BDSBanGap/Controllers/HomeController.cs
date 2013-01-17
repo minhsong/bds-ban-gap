@@ -21,14 +21,9 @@ namespace BDSBanGap.Controllers
             
             if (product != null)
             {
-                var ward = db.Wards.Find(product.WardID);
-                var district = db.Districts.Find(ward.DistrictID);
-                ViewBag.product = product;
-                ViewBag.ward = ward;
-                ViewBag.district = district;
-                return View();
+                return View(product);
             }
-            return Error("Product not existed!");
+            return Error(new Exception("Product not existed!"));
         }
 
         public ActionResult About()
