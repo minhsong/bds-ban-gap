@@ -67,5 +67,23 @@ namespace BDSBanGap.Models.DBContext
         public virtual ICollection<ProductImage> Images { get; set; }
         public virtual ICollection<PriorityProduct> Priorities { get; set; }
 
+        //methods
+        #region Methods
+
+        public bool IsCurrentPriority()
+        {
+            var lp = from s in Priorities
+                    where s.StarDate < DateTime.Now
+                    && s.EndDate > DateTime.Now
+                    select s;
+            if (lp.Count() > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
     }
 }
