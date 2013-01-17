@@ -23,7 +23,7 @@
               <div id="house-id" class="item">
             	<div class="item-image left ml6">
                 	<div class="item-image-border">
-                    	<a href="/Home/Deatil/@item.ProductID">
+                    	<a href="/Home/DetailProduct/@item.ProductID">
                         @if (item.Images.Count==0)
                         {
                             <img width="88px" height="66px" src="/Content/images/Default-image.jpg" />
@@ -39,7 +39,7 @@
                 </div> <!--end .item-image -->
                 <div class="item-description left ml10">
                 	<strong>
-                    	<a href="/Home/Deatil/@item.ProductID">@item.Title</a>
+                    	<a href="/Home/DetailProduct/@item.ProductID">@item.Title</a>
                         <br />
                     </strong>
                     <p class="mt5">@Html.Raw((item.Description.Length>150?item.Description.Substring(0,150):item.Description))</p>
@@ -47,7 +47,7 @@
                     <div class="mt10">
                     	<div class="view-detail">
                         	<div style="position:absolute;top:3px;z-index:100;">
-							<a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Deatil/@item.ProductID">
+							<a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/DetailProduct/@item.ProductID">
 								Xem chi tiết
 							</a>
 						</div>

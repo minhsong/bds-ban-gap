@@ -15,7 +15,6 @@ namespace BDSBanGap.Controllers
 
         public ActionResult DetailProduct(int Id)
         {
-            ViewBag.pro = db.Products.Find(Id);
             var product = db.Products.Find(Id);
             if (product != null)
             {

@@ -19,6 +19,9 @@ namespace BDSBanGap.Models.DBContext
         public bool IsSold { get; set; }
         public int Views { get; set; }
 
+        //Dientich
+        public double DienTichSuDung { get; set; }
+
         //So do khuong vien
         public double? KVNgangTruoc { get; set; }
         public double? KVNgangSau { get; set; }
