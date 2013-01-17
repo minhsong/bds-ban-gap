@@ -256,22 +256,6 @@
                         </tr>
                         <tr>
                             <td>
-                                Số phòng khách
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                                Tiện sản xuất
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.TienSanXuat)
-                                    @Html.ValidationMessageFor(model => model.TienSanXuat)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
                                 Số phòng ngủ
                             </td>
                             <td>
@@ -281,12 +265,12 @@
                                 </div>
                             </td>
                             <td>
-                                Cho sinh viên thuê
+                                Tiện sản xuất
                             </td>
                             <td>
                                 <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.ChoSinhVienThue)
-                                    @Html.ValidationMessageFor(model => model.ChoSinhVienThue)
+                                    @Html.CheckBoxFor(model => model.TienSanXuat)
+                                    @Html.ValidationMessageFor(model => model.TienSanXuat)
                                 </div>
                             </td>
                         </tr>
@@ -301,12 +285,12 @@
                                 </div>
                             </td>
                             <td>
-                                Liên hệ
+                                Cho sinh viên thuê
                             </td>
                             <td>
                                 <div class="editor-field">
-                                    @Html.DropDownListFor(S=>S.ContactId,ViewBag.Contact as SelectList)
-                                    @Html.ValidationMessageFor(model => model.ContactId)
+                                    @Html.CheckBoxFor(model => model.ChoSinhVienThue)
+                                    @Html.ValidationMessageFor(model => model.ChoSinhVienThue)
                                 </div>
                             </td>
                         </tr>
@@ -321,6 +305,18 @@
                                 </div>
                             </td>
                             <td>
+                                Liên hệ
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(S=>S.ContactId,ViewBag.Contact as SelectList)
+                                    @Html.ValidationMessageFor(model => model.ContactId)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td>
                                 Quận
                             </td>
                             <td>
@@ -328,10 +324,6 @@
                                     @Html.DropDownList("District", ViewBag.District as SelectList)
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                        <td></td>
-                        <td></td>
                             <td>
                                 Phường
                             </td>
