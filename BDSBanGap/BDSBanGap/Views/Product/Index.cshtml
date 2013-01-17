@@ -11,7 +11,7 @@
         $('#Datatable').dataTable();
     });
 </script>
-    <div class="tbl-transaction">
+    <div class="tbl-Content">
         <div class="title-box">
         </div>
         <!--End title-box-->
@@ -26,9 +26,11 @@
                     </th>
                     <th style="width: 80px; text-align: center;">Phường,Quận
                     </th>
-                    <th style="width: 70px; text-align: center;">Loại Địa Ốc
+                    <th style="width: 120px; text-align: center;">Loại Địa Ốc
                     </th>
-                    <th style="width: 80px; text-align: center;">Vị trí
+                    <th style="width: 100px; text-align: center;">Vị trí
+                    </th>
+                    <th style="width: 160px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -38,7 +40,7 @@
                 <tr class="Items">
                     <td style="width: 60px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Product/Deatil/@item.ProductID">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Product/Details/@item.ProductID">@item.Title</a>
                     </td>
                     <td style="width: 80px; text-align: center;">@item.Price Tỷ
                     </td>
@@ -47,6 +49,8 @@
                     <td style="width: 100px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
                     </td>
                     <td style="width: 160px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    </td>
+                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>
                     </td>
                 </tr>
             }

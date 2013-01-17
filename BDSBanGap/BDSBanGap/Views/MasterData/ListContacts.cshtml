@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Contact>
+
+@{
+    ViewBag.Title = "ListContacts";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+
+<div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "Datatable" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: auto;">STT
+                    </th>
+                    <th style="width: auto;">Họ tên
+                    </th>
+                    <th style="width: 60px; text-align: center;">Số ĐT
+                    </th>
+                    <th style="width: 80px; text-align: center;">Email
+                    </th>
+                    <th style="width: 120px; text-align: center;">Địa chỉ
+                    </th>
+                    <th style="width: 160px; text-align: center;">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 60px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold">@item.FullName
+                    </td>
+                    <td style="width: 80px; text-align: center;">@item.Phone
+                    </td>
+                    <td style="width: 120px; text-align: center;">@item.Email
+                    </td>
+                    <td style="width: 200px; text-align: center;">@item.Address
+                    </td>
+                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
