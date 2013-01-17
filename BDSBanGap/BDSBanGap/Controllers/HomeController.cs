@@ -10,15 +10,13 @@ namespace BDSBanGap.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
             return View(db.Products.ToList());
         }
 
-        public ActionResult DetailProduct(int productId)
+        public ActionResult DetailProduct(int Id)
         {
-            var product = db.Products.Find(productId);
-            
+            ViewBag.pro = db.Products.Find(Id);
+            var product = db.Products.Find(Id);
             if (product != null)
             {
                 return View(product);
