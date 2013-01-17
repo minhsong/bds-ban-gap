@@ -1,0 +1,43 @@
+﻿@model BDSBanGap.Models.DBContext.District
+
+@{
+    ViewBag.Title = "DistrictDetail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+
+<h2>DistrictDetail</h2>
+
+<fieldset>
+    <legend>District</legend>
+
+    <div class="display-label">DistrictName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DistrictName)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <table>
+    <thead>
+    <tr>
+    <th>STT</th>
+    <th>Phường</th>
+    <th>ghi chú</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Wards)
+    {
+    <tr>
+    <td>@(++count)</td>
+    <td>@item.WardName</td>
+    <td>@item.Description</td>
+    </tr>
+    }
+    </tbody>
+    </table>
+
+</fieldset>
