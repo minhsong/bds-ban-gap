@@ -503,6 +503,7 @@
     <Content Include="Views\MasterData\CreateDistrict.cshtml" />
     <Content Include="Views\MasterData\CreateContact.cshtml" />
     <Content Include="Views\MasterData\CreateWard.cshtml" />
+    <Content Include="Views\MasterData\DistrictDetail.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

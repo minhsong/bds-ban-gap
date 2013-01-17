@@ -7,6 +7,7 @@ using BDSBanGap.Models.DBContext;
 
 namespace BDSBanGap.Controllers
 {
+    [Authorize]
     public class MasterDataController : BaseController
     {
         //
@@ -71,6 +72,16 @@ namespace BDSBanGap.Controllers
         [HttpPost]
         public ActionResult CreateWard(Ward ward)
         {
+            if (ModelState.IsValid)
+            {
+                ward.CreatedBy = User.Identity.Name;
+                ward.CreatedDate = DateTime.Now;
+                ward.UpdatedBy = User.Identity.Name;
+                ward.UpdatedDate = DateTime.Now;
+                db.Entry(ward).State = System.Data.EntityState.Added;
+                db.SaveChanges();
+                return RedirectToAction("DistrictDetail", new { id = ward.DistrictID});
+            }
             return View();
         }
 
@@ -93,6 +104,11 @@ namespace BDSBanGap.Controllers
         #endregion
 
         #region District
+        public ActionResult DistrictDetail(int id)
+        {
+            var dt = db.Districts.Find(id);
+            return View(dt);
+        }
 
         public ActionResult ListDistricts()
         {
