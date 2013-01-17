@@ -67,6 +67,7 @@ namespace BDSBanGap.Models.DBContext
             {
                 DistrictID = 1,
                 WardName = "7",
+                
             };
             context.Entry(w).State = System.Data.EntityState.Added;
             Ward w1 = new Ward()
@@ -77,50 +78,7 @@ namespace BDSBanGap.Models.DBContext
             context.Entry(w1).State = System.Data.EntityState.Added;
             context.SaveChanges();
             #endregion
-            //product
-            #region Product init data
 
-            Product pd = new Product()
-            {
-                ChoDauXeHoi = false,
-                ChoSinhVienThue = false,
-                CNDai = 16.5,
-                CNNgangSau = 5,
-                CNNgangTruoc = 4.5,
-                DayDuTienNghi = true,
-                Description = "nha day du tien nghi, mat tien thoang mat, an ninh",
-                DuongTruocNha = "Nguy Van Troi",
-                HoBoi = false,
-                Huong = (byte)HuongEnum.Huong_Bac,
-                IsActive = true,
-                IsSold = false,
-                KVDai = 16,
-                KVNgangSau = 5,
-                KVNgangTruoc = 4.5,
-                LoaiDiaOc = (byte)LoaiDiaOcEnum.LoaiDiaOc_Nha_O,
-                Price = 12.5,
-                SanVuon = false,
-                SoLau = 4,
-                SoPhongKhac = 2,
-                SoPhongKhach = 2,
-                SoPhongNgu = 9,
-                SoPhongTam = 10,
-                TienDeO = true,
-                TienKinhDoanh = true,
-                TienLamVanPhong = true,
-                TienSanXuat = true,
-                TinhTrangPhapLy = (byte)TinhTrangPhapLyEnum.TinhTrangPhapLy_So_Hong,
-                Title = "Ban nha nguyen can mat tien duong Nguyen Van Troi",
-                ViTriDiaOc = (byte)ViTriDiaOcEnum.MatTienDuong,
-                XDDai = 16,
-                XDNgangSau = 5,
-                XDNgangTruoc = 4.5,
-                WardID = 1,
-            };
-
-            context.Entry(pd).State = System.Data.EntityState.Added;
-            context.SaveChanges();
-            #endregion
             base.Seed(context);
         }
     }

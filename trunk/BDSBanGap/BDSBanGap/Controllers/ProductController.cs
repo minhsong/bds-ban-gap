@@ -13,6 +13,7 @@ using System.IO;
 namespace BDSBanGap.Controllers
 { 
     [ValidateInput(false)]
+    [Authorize]
     public class ProductController : BaseController
     {
         public bool HasFile(HttpPostedFileBase file)
@@ -36,7 +37,7 @@ namespace BDSBanGap.Controllers
         public ViewResult Details(int id)
         {
             Product product = db.Products.Find(id);
-            return View(product);
+            return View("/Home/DetailProduct", product);
         }
 
         //
@@ -45,7 +46,7 @@ namespace BDSBanGap.Controllers
         public ActionResult CreateGet()
         {
             ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName");
-            ViewBag.ContactId = new SelectList(db.Contacts, "ContactID", "FullName");
+            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName");
             ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue");
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue");
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
@@ -129,7 +130,7 @@ namespace BDSBanGap.Controllers
             }
 
             ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName", product.WardID);
-            ViewBag.ContactId = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
+            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
             ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);

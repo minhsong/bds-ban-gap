@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace BDSBanGap.Models.DBContext
 {
@@ -9,6 +10,7 @@ namespace BDSBanGap.Models.DBContext
     {
         public int PriorityProductID { get; set; }
         public int ProductID { get; set; }
+        [MaxLength(200)]
         public string Description { get; set; }
         public DateTime? StarDate { get; set; }
         public DateTime? EndDate { get; set; }

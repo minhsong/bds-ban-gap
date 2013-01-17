@@ -67,6 +67,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Helpers\ComboItem.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
@@ -420,8 +421,6 @@
     <Content Include="Scripts\slideshow\ad_scroll_forward.png" />
     <Content Include="Scripts\slideshow\jquery.ad-gallery.css" />
     <Content Include="Scripts\slideshow\jquery.ad-gallery.js" />
-    <Content Include="Scripts\slideshow\jquery.ad-gallery.min.js" />
-    <Content Include="Scripts\slideshow\LICENSE.txt" />
     <Content Include="Scripts\slideshow\loader.gif" />
     <Content Include="Scripts\slideshow\opa75.png" />
     <Content Include="Scripts\slideshow\trans.gif" />
@@ -499,6 +498,11 @@
     <None Include="Scripts\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <None Include="Scripts\ckeditor\samples\sample_posteddata.php" />
     <None Include="Scripts\ckeditor\skins\moono\readme.md" />
+    <Content Include="Views\MasterData\ListContacts.cshtml" />
+    <Content Include="Views\MasterData\ListDistricts.cshtml" />
+    <Content Include="Views\MasterData\CreateDistrict.cshtml" />
+    <Content Include="Views\MasterData\CreateContact.cshtml" />
+    <Content Include="Views\MasterData\CreateWard.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

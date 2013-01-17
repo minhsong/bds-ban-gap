@@ -109,36 +109,31 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Xây Dựng
-                        </td>
-                        <td>
-                            <div class="editor-field">
-                                @Html.EditorFor(model => model.XDNgangTruoc)
-                                @Html.ValidationMessageFor(model => model.XDNgangTruoc)
-                            </div>
-                        </td>
-                        <td>
-                            <div class="editor-field">
-                                @Html.EditorFor(model => model.XDNgangSau)
-                                @Html.ValidationMessageFor(model => model.XDNgangSau)
-                            </div>
-                        </td>
-                        <td>
-                            <div class="editor-field">
-                                @Html.EditorFor(model => model.XDDai)
-                                @Html.ValidationMessageFor(model => model.XDDai)
-                            </div>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
         <table style="width:100%;">
-            <tr>
-                <td>
-                    <table>
+           
+                    <tr>
+                            <td>
+                                Tổng diện tích sử dụng
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.EditorFor(model => model.DienTichSuDung)
+                                    @Html.ValidationMessageFor(model => model.DienTichSuDung)
+                                </div>
+                            </td>
+                            <td>
+                                Đầy đủ tiện nghi
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.DayDuTienNghi)
+                                    @Html.ValidationMessageFor(model => model.DayDuTienNghi)
+                                </div>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 Loại Địa ốc
@@ -147,6 +142,15 @@
                                 <div class="editor-field">
                                     @Html.DropDownListFor(model => model.LoaiDiaOc, ViewBag.LoaiDiaOc as SelectList)
                                     @Html.ValidationMessageFor(model => model.LoaiDiaOc)
+                                </div>
+                            </td>
+                            <td>
+                                Chỗ đậu xe hơi
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.ChoDauXeHoi)
+                                    @Html.ValidationMessageFor(model => model.ChoDauXeHoi)
                                 </div>
                             </td>
                         </tr>
@@ -160,6 +164,15 @@
                                     @Html.ValidationMessageFor(model => model.TinhTrangPhapLy)
                                 </div>
                             </td>
+                            <td>
+                                Sân vườn
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.SanVuon)
+                                    @Html.ValidationMessageFor(model => model.SanVuon)
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -169,6 +182,15 @@
                                 <div class="editor-field">
                                     @Html.DropDownListFor(model => model.Huong, ViewBag.Huong as SelectList)
                                     @Html.ValidationMessageFor(model => model.Huong)
+                                </div>
+                            </td>
+                            <td>
+                                Hồ bơi
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.HoBoi)
+                                    @Html.ValidationMessageFor(model => model.HoBoi)
                                 </div>
                             </td>
                         </tr>
@@ -182,6 +204,15 @@
                                     @Html.ValidationMessageFor(model => model.ViTriDiaOc)
                                 </div>
                             </td>
+                            <td>
+                                Tiện kinh doanh
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.TienKinhDoanh)
+                                    @Html.ValidationMessageFor(model => model.TienKinhDoanh)
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -191,6 +222,15 @@
                                 <div class="editor-field">
                                     @Html.EditorFor(model => model.DuongTruocNha)
                                     @Html.ValidationMessageFor(model => model.DuongTruocNha)
+                                </div>
+                            </td>
+                            <td>
+                                Tiện để ở
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.TienDeO)
+                                    @Html.ValidationMessageFor(model => model.TienDeO)
                                 </div>
                             </td>
                         </tr>
@@ -204,15 +244,29 @@
                                     @Html.ValidationMessageFor(model => model.SoLau)
                                 </div>
                             </td>
+                            <td>
+                                Tiện làm văn phòng
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.TienLamVanPhong)
+                                    @Html.ValidationMessageFor(model => model.TienLamVanPhong)
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td>
                                 Số phòng khách
                             </td>
                             <td>
+                            </td>
+                            <td>
+                                Tiện sản xuất
+                            </td>
+                            <td>
                                 <div class="editor-field">
-                                    @Html.EditorFor(model => model.SoPhongKhach)
-                                    @Html.ValidationMessageFor(model => model.SoPhongKhach)
+                                    @Html.CheckBoxFor(model => model.TienSanXuat)
+                                    @Html.ValidationMessageFor(model => model.TienSanXuat)
                                 </div>
                             </td>
                         </tr>
@@ -226,6 +280,15 @@
                                     @Html.ValidationMessageFor(model => model.SoPhongNgu)
                                 </div>
                             </td>
+                            <td>
+                                Cho sinh viên thuê
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.CheckBoxFor(model => model.ChoSinhVienThue)
+                                    @Html.ValidationMessageFor(model => model.ChoSinhVienThue)
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -235,6 +298,15 @@
                                 <div class="editor-field">
                                     @Html.EditorFor(model => model.SoPhongTam)
                                     @Html.ValidationMessageFor(model => model.SoPhongTam)
+                                </div>
+                            </td>
+                            <td>
+                                Liên hệ
+                            </td>
+                            <td>
+                                <div class="editor-field">
+                                    @Html.DropDownListFor(S=>S.ContactId,ViewBag.Contact as SelectList)
+                                    @Html.ValidationMessageFor(model => model.ContactId)
                                 </div>
                             </td>
                         </tr>
@@ -248,122 +320,6 @@
                                     @Html.ValidationMessageFor(model => model.SoPhongKhac)
                                 </div>
                             </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                Đầy đủ tiện nghi
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.DayDuTienNghi)
-                                    @Html.ValidationMessageFor(model => model.DayDuTienNghi)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Chỗ đậu xe hơi
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.ChoDauXeHoi)
-                                    @Html.ValidationMessageFor(model => model.ChoDauXeHoi)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Sân vườn
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.SanVuon)
-                                    @Html.ValidationMessageFor(model => model.SanVuon)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Hồ bơi
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.HoBoi)
-                                    @Html.ValidationMessageFor(model => model.HoBoi)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Tiện kinh doanh
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.TienKinhDoanh)
-                                    @Html.ValidationMessageFor(model => model.TienKinhDoanh)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Tiện để ở
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.TienDeO)
-                                    @Html.ValidationMessageFor(model => model.TienDeO)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Tiện làm văn phòng
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.TienLamVanPhong)
-                                    @Html.ValidationMessageFor(model => model.TienLamVanPhong)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Tiện sản xuất
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.TienSanXuat)
-                                    @Html.ValidationMessageFor(model => model.TienSanXuat)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Cho sinh viên thuê
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.CheckBoxFor(model => model.ChoSinhVienThue)
-                                    @Html.ValidationMessageFor(model => model.ChoSinhVienThue)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Liên hệ
-                            </td>
-                            <td>
-                                <div class="editor-field">
-                                    @Html.DropDownList("ContactId", String.Empty)
-                                    @Html.ValidationMessageFor(model => model.ContactId)
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>
                                 Quận
                             </td>
@@ -374,6 +330,8 @@
                             </td>
                         </tr>
                         <tr>
+                        <td></td>
+                        <td></td>
                             <td>
                                 Phường
                             </td>
@@ -386,9 +344,7 @@
                                 </div>
                             </td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
+
         </table>
         <div id="breadcrumb">
             Mô tả

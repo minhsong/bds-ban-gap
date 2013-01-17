@@ -1,0 +1,49 @@
+﻿@model BDSBanGap.Models.DBContext.Ward
+
+@{
+    ViewBag.Title = "CreateWard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CreateWard</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Ward</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WardName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WardName)
+            @Html.ValidationMessageFor(model => model.WardName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DistrictID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.DistrictID, ViewBag.District as SelectList)
+            @Html.ValidationMessageFor(model => model.DistrictID)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

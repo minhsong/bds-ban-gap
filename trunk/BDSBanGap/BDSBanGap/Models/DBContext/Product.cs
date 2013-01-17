@@ -11,8 +11,10 @@ namespace BDSBanGap.Models.DBContext
         public int ProductID { get; set; }
 
         [Required]
+        [MaxLength(250)]
         public string Title { get; set; }
         [Required]
+        [MaxLength(1000)]
         public string Description { get; set; }
         public double Price { get; set; }
         public bool IsActive { get; set; }
@@ -32,19 +34,14 @@ namespace BDSBanGap.Models.DBContext
         public double? CNNgangSau { get; set; }
         public double? CNDai { get; set; }
 
-        //So do dien tich xay dung
-        public double? XDNgangTruoc { get; set; }
-        public double? XDNgangSau { get; set; }
-        public double? XDDai { get; set; }
-
         public int LoaiDiaOc { get; set; }
         public int TinhTrangPhapLy { get; set; }
         public int Huong { get; set; }
+        [MaxLength(50)]
         public string DuongTruocNha { get; set; }
         public int ViTriDiaOc { get; set; }
 
         public int? SoLau { get; set; }
-        public int? SoPhongKhach { get; set; }
         public int? SoPhongNgu { get; set; }
         public int? SoPhongTam { get; set; }
         public int? SoPhongKhac { get; set; }
@@ -60,7 +57,7 @@ namespace BDSBanGap.Models.DBContext
         public bool TienSanXuat { get; set; }
         public bool ChoSinhVienThue { get; set; }
 
-        public int? ContactId { get; set; }
+        public int ContactId { get; set; }
         public int WardID { get; set; }
 
         //realtionship object

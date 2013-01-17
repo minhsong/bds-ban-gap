@@ -1,0 +1,42 @@
+﻿@model  IEnumerable<BDSBanGap.Models.DBContext.District>
+
+@{
+    ViewBag.Title = "List Districts";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+
+<div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "Datatable" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: auto;">STT
+                    </th>
+                    <th style="width: auto;">Tên Quận
+                    </th>
+                    <th style="width: 60px; text-align: center;">Mô tả thêm
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 60px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold">@item.DistrictName
+                    </td>
+                    <td style="width: 80px; text-align: center;">@item.Description
+                    </td>
+                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+
