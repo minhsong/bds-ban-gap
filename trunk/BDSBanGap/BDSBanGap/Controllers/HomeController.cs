@@ -13,7 +13,7 @@ namespace BDSBanGap.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult DetailProduct(int Id)
+        public ActionResult Detail(int Id)
         {
             var product = db.Products.Find(Id);
             if (product != null)
