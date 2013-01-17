@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace BDSBanGap.Models.DBContext
 {
@@ -9,7 +10,9 @@ namespace BDSBanGap.Models.DBContext
     {
         public int ProductID { get; set; }
 
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
         public double Price { get; set; }
         public bool IsActive { get; set; }
