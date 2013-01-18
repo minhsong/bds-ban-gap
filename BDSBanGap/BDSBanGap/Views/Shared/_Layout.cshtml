@@ -49,7 +49,7 @@
 </div> <!-- end div .element-left-->
 
 <div class="element-left">
-	@Html.Partial("NhaUuTien") <!-- end .house-priority -->
+	@Html.Partial("NhaUuTien", ViewBag.NhaUuTien as IEnumerable<BDSBanGap.Models.DBContext.Product>) <!-- end .house-priority -->
 </div> <!--end .element-left -->
 
 <div class="element-left">

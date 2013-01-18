@@ -1,4 +1,5 @@
-﻿<div class="house-priority">
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+<div class="house-priority">
     	<div class="house-priority-header">
         	<h3 class="house-priority-header-content">
             	<div style="float:left">
@@ -10,35 +11,26 @@
             <div style="height:3px"></div>
         </div> <!-- end .house-priority-header -->
         <div class="house-priority-content">
-        	<div class="house-priority-ele pt10">
-            	<a>
-                	<img src="../../Content/images/priority-hou.jpg" />
-                </a>
-            <div class="house-priority-intro">
-            	<h3 class="house-priority-intro-title"> Nha dep thoi roi</h3>
-                <p class="house-priority-intro-content">noi that ok, ngoai that ok, mau sac ok</p>
-                <span class="house-priority-intro-price blue">7Ti</span>
-            </div>
-            </div> <!-- .house-priority-ele -->
-            <div class="house-priority-ele pt10" >
-            	<a>
-                	<img src="../../Content/images/priority-hou.jpg" />
-                </a>
-            <div class="house-priority-intro">
-            	<h3 class="house-priority-intro-title"> Nha dep thoi roi</h3>
-                <p class="house-priority-intro-content">noi that ok, ngoai that ok, mau sac ok</p>
-                <span class="house-priority-intro-price blue">7Ti</span>
-            </div>
-            </div> <!-- .house-priority-ele -->
+        @foreach (var item in Model)
+        {
             <div class="house-priority-ele pt10">
             	<a>
-                	<img src="../../Content/images/priority-hou.jpg" />
+                @if (item.Images.Count > 0)
+                {
+                    <img src="@item.Images.First().ThumblLink" />
+                }
+                else
+                {
+                    <img src="../../Content/images/priority-hou.jpg" />
+                }
+                	
                 </a>
             <div class="house-priority-intro">
-            	<h3 class="house-priority-intro-title"> Nha dep thoi roi</h3>
-                <p class="house-priority-intro-content">noi that ok, ngoai that ok, mau sac ok</p>
-                <span class="house-priority-intro-price blue">7Ti</span>
+            	<h3 class="house-priority-intro-title"> @(item.Title.Length>80?item.Title.Substring(0,80):item.Title )</h3>
+                <p class="house-priority-intro-content">@Html.Raw(item.Description.Length>100? item.Description.Substring(0,100) : item.Description)</p>
+                <span class="house-priority-intro-price blue">@item.Price Tỷ</span>
             </div>
             </div> <!-- .house-priority-ele -->
+        }
         </div><!-- end .house-priority-content -->
     </div>

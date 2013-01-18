@@ -76,6 +76,8 @@ namespace BDSBanGap.Models.DBContext
             var lp = from s in Priorities
                     where s.StarDate < DateTime.Now
                     && s.EndDate > DateTime.Now
+                    && s.IsDelete==false
+                    && s.IsActive ==true
                     select s;
             if (lp.Count() > 0)
             {
