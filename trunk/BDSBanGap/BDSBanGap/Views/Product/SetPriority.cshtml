@@ -5,7 +5,7 @@
 <link href="../../Content/styles/dhtmlxcalendar_dhx_skyblue.css" rel="stylesheet"
     type="text/css" />
 <link href="../../Content/styles/dhtmlxcalendar.css" rel="stylesheet" type="text/css" />
-<script src="../../Scripts/dhtmlxScheduler/dhtmlxscheduler.js" type="text/javascript"></script>
+<script src="../../Scripts/dhtmlxcalendar.js" type="text/javascript"></script>
 <script type="text/javascript">
     var myCalendar;
     $(document).ready(function () {
@@ -28,14 +28,14 @@
         return document.getElementById(id);
     }
 </script>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("","",FormMethod.Post,new {id="Priority-Form"})) {
     @Html.ValidationSummary(true)
     <fieldset>
         <table>
 
                 @Html.HiddenFor(model => model.ProductID)
         <tr>
-            <td>@Html.LabelFor(model => model.StarDate)
+            <td>Ngày bắt đầu
             </td>
             <td>@Html.EditorFor(model => model.StarDate)
             @Html.ValidationMessageFor(model => model.StarDate)
@@ -43,14 +43,14 @@
         </tr>
 
         <tr>
-            <td>@Html.LabelFor(model => model.EndDate)
+            <td>Ngày kết thúc
             </td>
             <td>@Html.EditorFor(model => model.EndDate)
             @Html.ValidationMessageFor(model => model.EndDate)
             </td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Description)
+            <td>Ghi chú
             </td>
             <td>@Html.EditorFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)

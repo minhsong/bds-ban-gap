@@ -79,6 +79,7 @@
     <Compile Include="Models\Enum\LoaiDiaOc.cs" />
     <Compile Include="Models\Enum\TinhTrangPhapLy.cs" />
     <Compile Include="Models\Enum\ViTriDiaOc.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Security\UserIdentity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -104,6 +105,12 @@
     <Content Include="Content\images\btn.png" />
     <Content Include="Content\images\btn_timxe.gif" />
     <Content Include="Content\images\Default-image.jpg" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_left.png" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_left_hover.png" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_right.png" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_right_hover.png" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\bg_days.png" />
+    <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\bg_main.png" />
     <Content Include="Content\images\Footer46.jpg" />
     <Content Include="Content\images\header-bg.jpg" />
     <Content Include="Content\images\icon-priority.jpg" />
@@ -398,6 +405,7 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\close.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\mini.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\dhtmlxcalendar.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxcommon.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_dhx_terrace.css" />
@@ -531,6 +539,10 @@
     <Content Include="Views\MasterData\CreateWard.cshtml" />
     <Content Include="Views\MasterData\DistrictDetail.cshtml" />
     <Content Include="Views\Product\SetPriority.cshtml" />
+    <Content Include="Views\Product\ListPriorityProduct.cshtml" />
+    <Content Include="Views\Product\SoldProducts.cshtml" />
+    <Content Include="Views\Product\SellingProducts.cshtml" />
+    <Content Include="Views\Shared\Search.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

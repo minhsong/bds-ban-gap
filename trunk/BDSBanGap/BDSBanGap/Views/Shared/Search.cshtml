@@ -1,0 +1,56 @@
+﻿@model BDSBanGap.Models.SearchModel
+<div class="search-detail">
+<div class="search-detail-header">
+		<h3 class="search-detail-header-content">
+			<div style="float:left;">
+				<img src="../../Content/images/TimKiemNangCao.png" alt="">
+			</div>
+			<div>
+				&nbsp; Tìm kiếm
+			</div>
+		</h3>
+	</div> <!--end div .search-detail-header -->
+    <form action="/Home/Search" method="get" name="adv-search">
+    <div class="search-content">
+    <div class="search-content-padding">
+    <!-- cmt layout div
+    <div class="item-search-content" id="price-search">
+
+    </div>
+    <div class="item-search-content" id="place-search">
+
+    </div>
+    -->
+    <p class="pt5">
+    	<label class="left w60 pt2" style="font-weight:bold">Khu vực</label>
+        @Html.DropDownListFor(s=>s.District, new MultiSelectList(ViewBag.DisctrictSearch as IEnumerable<BDSBanGap.Models.DBContext.District>, "DistrictID", "DistrictName"))
+    </p>
+    <p class="pt5 pb10">
+    	<label class="left w60 pt2" style="font-weight:bold">Giá</label>
+        <select name="PriceFrom" id="PriceFrom" class="w70">
+          <option>Tất cả</option>
+          <option value="1">1 Tỷ</option>
+          <option value="2">2 Tỷ</option>
+          <option value="4">4 Tỷ</option>
+          <option value="6">6 Tỷ</option>
+          <option value="8">8 Tỷ</option>
+          <option value="10">10 Tỷ</option>
+        </select>
+        <select name="PriceTo" class="w70 ml4" id="PriceTo">
+          <option>Tất cả</option>
+          <option value="2">2 Tỷ</option>
+          <option value="4">4 Tỷ</option>
+          <option value="6">6 Tỷ</option>
+          <option value="8">8 Tỷ</option>
+          <option value="10">10 Tỷ</option>
+          <option value="12">12 Tỷ</option>
+        </select>
+    </p>
+    <div class="border-bot-dashed"></div>
+    <a class="Search-Advance" href="">Tìm nâng cao</a>
+    <input name="" type="image" class="btn-search-content right" src="../../Content/images/btn-search-content.gif" />
+    <div class="clearRight"></div>
+    </div>
+    </div>
+    </form>
+</div> <!-- end div .search-detail -->
