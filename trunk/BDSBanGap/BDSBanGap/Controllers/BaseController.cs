@@ -28,6 +28,9 @@ namespace BDSBanGap.Controllers
         protected override void ExecuteCore()
         {
             ViewBag.DisctrictSearch = from s in db.Districts select s;
+            ViewBag.NhaUuTien = from s in db.Products.AsEnumerable()
+                                where s.IsCurrentPriority()
+                                select s;
             base.ExecuteCore();
         }
 
