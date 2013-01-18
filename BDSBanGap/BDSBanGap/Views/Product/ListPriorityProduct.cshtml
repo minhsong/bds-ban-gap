@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+
+@{
+    ViewBag.Title = "ListPriorityProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Datatable1').dataTable();
+    });
+</script>
+
+<div id="content-header">
+	<h1>DANH SÁCH ƯU TIÊN</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+
+<div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "Datatable1" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: 30px;">STT
+                    </th>
+                    <th style="width: auto;">Tiêu đề
+                    </th>
+                    <th style="width: 60px; text-align: center;">Giá
+                    </th>
+                    <th style="width: 150px; text-align: center;">Phường, Quận
+                    </th>
+                    <th style="width: 70px; text-align: center;">Bắt đầu
+                    </th>
+                    <th style="width: 70px; text-align: center;">Kết thúc
+                    </th>
+                    <th style="width: 80px; text-align: center;">Tình trạng
+                    </th>
+                    <th style="width: 80px; text-align: center;">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 30px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold"><a href="#">@item.Title</a>
+                    </td>
+                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    </td>
+                    <td style="width: 150px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName
+                    </td>
+                    <td style="width: 70px; text-align: center;">@(item.CurrentPriority().StarDate.HasValue? item.CurrentPriority().StarDate.Value.ToShortDateString():"N/A")
+                    </td>
+                    <td style="width: 70px; text-align: center;">@(item.CurrentPriority().EndDate.HasValue? item.CurrentPriority().EndDate.Value.ToShortDateString():"N/A")
+                    </td>
+                    <td style="width: 80px; text-align: center;">@(item.IsActive? "Áp dụng":"")
+                    </td>
+                    <td style="width: 80px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>

@@ -27,6 +27,7 @@ namespace BDSBanGap.Controllers
 
         protected override void ExecuteCore()
         {
+            ViewBag.DisctrictSearch = from s in db.Districts select s;
             base.ExecuteCore();
         }
 

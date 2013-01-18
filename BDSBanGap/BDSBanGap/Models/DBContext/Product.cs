@@ -20,7 +20,8 @@ namespace BDSBanGap.Models.DBContext
         public bool IsActive { get; set; }
         public bool IsSold { get; set; }
         public int Views { get; set; }
-
+        public DateTime? SoldDate { get; set; }
+        public double? SoldPrice { get; set; }
         //Dientich
         public double DienTichSuDung { get; set; }
 
@@ -83,6 +84,14 @@ namespace BDSBanGap.Models.DBContext
             return false;
         }
 
+        public PriorityProduct CurrentPriority()
+        {
+            var result = (from s in Priorities
+                          where s.StarDate < DateTime.Now
+                          && s.EndDate > DateTime.Now
+                          select s).FirstOrDefault();
+            return result;
+        }
         #endregion
 
     }

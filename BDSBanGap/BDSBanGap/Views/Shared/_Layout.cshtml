@@ -45,60 +45,7 @@
 
 <div class="left w235" id="colum-left">
 <div class="element-left">
-<div class="search-detail">
-<div class="search-detail-header">
-		<h3 class="search-detail-header-content">
-			<div style="float:left;">
-				<img src="../../Content/images/TimKiemNangCao.png" alt="">
-			</div>
-			<div>
-				&nbsp; Tìm kiếm nâng cao
-			</div>
-		</h3>
-	</div> <!--end div .search-detail-header -->
-    <form action="" method="post" name="adv-search">
-    <div class="search-content">
-    <div class="search-content-padding">
-    <!-- cmt layout div
-    <div class="item-search-content" id="price-search">
-
-    </div>
-    <div class="item-search-content" id="place-search">
-
-    </div>
-    -->
-    <p class="pt5">
-    	<label class="left w60 pt2" style="font-weight:bold">Khu vực</label>
-        <select name="place-search" class="selectbox place-search">
-          <option value="allplace">Chọn tất cả</option>
-          <option value="q1">Quận 1</option>
-          <option value="q2">Quận 2</option>
-          <option value="q3">Quận 3</option>
-        </select>
-    </p>
-    <p class="pt5 pb10">
-    	<label class="left w60 pt2" style="font-weight:bold">Giá</label>
-        <select name="pricefrom" class="w70" id="from-price">
-          <option value="allprice">Chọn tất cả</option>
-          <option value="fr100">100</option>
-          <option value="fr200">200</option>
-          <option value="fr300">300</option>
-        </select>
-        <select name="priceto" class="w70 ml4" id="to-price">
-          <option value="allprice">Chọn tất cả</option>
-          <option value="to100">100</option>
-          <option value="to200">200</option>
-          <option value="to300">300</option>
-        </select>
-    </p>
-    <div class="border-bot-dashed"></div>
-
-    <input name="" type="image" class="btn-search-content right" src="../../Content/images/btn-search-content.gif" />
-    <div class="clearRight"></div>
-    </div>
-    </div>
-    </form>
-</div> <!-- end div .search-detail -->
+@Html.Partial("Search",new BDSBanGap.Models.SearchModel())
 </div> <!-- end div .element-left-->
 
 <div class="element-left">

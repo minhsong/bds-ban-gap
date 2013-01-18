@@ -34,6 +34,7 @@ namespace BDSBanGap.Controllers
                 contact.CreatedDate = DateTime.Now;
                 contact.UpdatedBy = User.Identity.Name;
                 contact.UpdatedDate = DateTime.Now;
+                contact.IsDelete = false;
                 db.Entry(contact).State = System.Data.EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("ListContacts");
@@ -78,6 +79,7 @@ namespace BDSBanGap.Controllers
                 ward.CreatedDate = DateTime.Now;
                 ward.UpdatedBy = User.Identity.Name;
                 ward.UpdatedDate = DateTime.Now;
+                ward.IsDelete = false;
                 db.Entry(ward).State = System.Data.EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("DistrictDetail", new { id = ward.DistrictID});
@@ -129,6 +131,7 @@ namespace BDSBanGap.Controllers
                 district.CreatedDate = DateTime.Now;
                 district.UpdatedBy = User.Identity.Name;
                 district.UpdatedDate = DateTime.Now;
+                district.IsDelete = false;
                 db.Entry(district).State = System.Data.EntityState.Added;
                 db.SaveChanges();
                 return RedirectToAction("ListDistricts");

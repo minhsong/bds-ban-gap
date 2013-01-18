@@ -70,6 +70,8 @@ namespace BDSBanGap.Controllers
                 product.CreatedDate = DateTime.Now;
                 product.UpdatedBy = User.Identity.Name;
                 product.UpdatedDate = DateTime.Now;
+                product.IsActive = true;
+                product.IsDelete = false;
 
                 db.Products.Add(product);
                 db.SaveChanges();
@@ -212,12 +214,40 @@ namespace BDSBanGap.Controllers
                 hp.CreatedDate = DateTime.Now;
                 hp.UpdatedBy = User.Identity.Name;
                 hp.UpdatedDate = DateTime.Now;
+                hp.IsActive = true;
+                hp.IsDelete = false;
                 db.Entry(hp).State = EntityState.Added;
                 db.SaveChanges();
             }
             return View(hp);
         }
 
+        public ActionResult ListPriorityProduct()
+        {
+            var result = from s in db.Products.AsEnumerable()
+                         where s.IsCurrentPriority()
+                         select s;
+            return View(result);
+        }
+
+        public ActionResult SoldProducts()
+        {
+            var result = from s in db.Products
+                         where s.IsSold == true
+                        && s.IsDelete == false
+                         select s;
+            return View(result);
+        }
+
+        public ActionResult SellingProducts()
+        {
+            var result = from s in db.Products
+                         where (s.IsSold == null || s.IsSold == false)
+                         && s.IsDelete == false
+                         && s.IsActive == true
+                         select s;
+            return View(result);
+        }
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
