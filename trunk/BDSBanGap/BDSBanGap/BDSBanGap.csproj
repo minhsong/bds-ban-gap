@@ -115,6 +115,7 @@
     <Content Include="Content\images\topmenu2.png" />
     <Content Include="Content\images\villa1.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\styles\admin\Admin.css" />
     <Content Include="Content\styles\admin\bootstrap-responsive.min.css" />
     <Content Include="Content\styles\admin\bootstrap.min.css" />
     <Content Include="Content\styles\admin\colorpicker.css" />
@@ -128,6 +129,8 @@
     <Content Include="Content\styles\admin\uniform.css" />
     <Content Include="Content\styles\Asset.css" />
     <Content Include="Content\styles\asset_detail.css" />
+    <Content Include="Content\styles\dhtmlxcalendar.css" />
+    <Content Include="Content\styles\dhtmlxcalendar_dhx_skyblue.css" />
     <Content Include="Content\styles\doolv3.css" />
     <Content Include="Content\styles\general.css" />
     <Content Include="Content\styles\home.css" />
@@ -395,6 +398,29 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\close.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\mini.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxcommon.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
+    <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_dhx_terrace.css" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_dhx_terrace.js" />
+    <Content Include="Scripts\dhtmlxScheduler\ext\dhtmlxscheduler_tooltip.js" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_left.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\arrow_right.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\buttons.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\but_repeat.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\calendar.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_big.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\clock_small.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\close_icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\collapse_expand_icon.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\controls.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\controls.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\databg_now.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\icon.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\images.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\loading.gif" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\resize_dots.png" />
+    <Content Include="Scripts\dhtmlxScheduler\imgs_dhx_terrace\resizing.png" />
     <Content Include="Scripts\home\doolv3.js" />
     <Content Include="Scripts\home\jquery.lightbox-0.5.js" />
     <Content Include="Scripts\home\selectForm.js" />
@@ -504,6 +530,7 @@
     <Content Include="Views\MasterData\CreateContact.cshtml" />
     <Content Include="Views\MasterData\CreateWard.cshtml" />
     <Content Include="Views\MasterData\DistrictDetail.cshtml" />
+    <Content Include="Views\Product\SetPriority.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
