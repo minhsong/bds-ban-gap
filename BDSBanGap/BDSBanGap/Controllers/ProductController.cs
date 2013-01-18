@@ -188,16 +188,40 @@ namespace BDSBanGap.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-
         public ActionResult GetWardOnChange(int district)
         {
             ViewBag.Ward = new SelectList(from s in db.Wards where s.DistrictID == district select s, "WardID", "WardName");
             return PartialView("WardsArea");
+        }
+
+        public ActionResult SetPriorityGet(int id)
+        {
+            PriorityProduct pr = new PriorityProduct()
+            {
+                ProductID = id
+            };
+            return PartialView("SetPriority",pr);
+        }
+
+        [HttpPost]
+        public ActionResult SetPriority(PriorityProduct hp)
+        {
+            if (ModelState.IsValid)
+            {
+                hp.CreatedBy = User.Identity.Name;
+                hp.CreatedDate = DateTime.Now;
+                hp.UpdatedBy = User.Identity.Name;
+                hp.UpdatedDate = DateTime.Now;
+                db.Entry(hp).State = EntityState.Added;
+                db.SaveChanges();
+            }
+            return View(hp);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

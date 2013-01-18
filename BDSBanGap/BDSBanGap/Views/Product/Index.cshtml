@@ -8,14 +8,14 @@
 <script src="../../Scripts/table/jquery.dataTables.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#Datatable').dataTable();
+        $('#example1').dataTable();
     });
 </script>
     <div class="tbl-Content">
         <div class="title-box">
         </div>
         <!--End title-box-->
-        <table id = "Datatable" class="data display datatable">
+        <table id = "example1" class="data display datatable">
             <thead>
                 <tr class="menu">
                     <th style="width: auto;">STT
@@ -50,7 +50,7 @@
                     </td>
                     <td style="width: 160px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
                     </td>
                 </tr>
             }
@@ -58,4 +58,44 @@
         </table>
 
     </div>
+<div id="Set-Priority"></div>
+   <script type="text/javascript">
+    var id;
+       $(function () {
+           $('#Priority').click(function () {
+               $.ajax({
+                   url: '/Product/SetPriorityGet',
+                   data: { id: id },
+                   type: 'POST',
+                   success: function (result) {
+                       $('#Set-Priority').html(result);
+                       $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+                   }
+               });
+           });
+       });
+
+       $(function () {
+           $("#Set-Priority").dialog({
+               autoOpen: false, width: 400, height: 220, modal: true,
+               buttons: {
+                   "Lưu": function () {
+                       $.ajax({
+                           url: '/Pproduct/SetPriority',
+                           data: $("#PriorityForm").serialize(),
+                           type: 'POST',
+                           success: function (result) {
+                               document.location.reload();
+                           }
+                       });
+                   },
+                   "Hủy": function () { $(this).dialog("close"); }
+               }
+           });
+       });
+       function ShowPriorityForm(idin) {
+           id = idin;
+           $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+       }
+   </script>
 
