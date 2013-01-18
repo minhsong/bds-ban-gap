@@ -8,6 +8,7 @@ namespace BDSBanGap.Models.DBContext
 {
     public class BaseModel
     {
+        public bool IsDelete { get; set; }
         public DateTime? CreatedDate { get; set; }
         [MaxLength(50)]
         public string CreatedBy { get; set; }
