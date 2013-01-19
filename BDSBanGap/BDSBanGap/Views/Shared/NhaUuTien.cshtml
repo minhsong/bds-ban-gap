@@ -17,7 +17,8 @@
             
             <div class="house-priority-ele pt10">
             <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID">@(item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title)</a></h3>
-            	<a class="Img-link" href="/Home/Detail/@item.ProductID">
+            	<div class="house-priority-intro">
+                <a class="Img-link" href="/Home/Detail/@item.ProductID">
                 @if (item.Images.Count > 0)
                 {
                     <img src="@item.Images.First().ThumblLink" />
@@ -28,9 +29,10 @@
                 }
                 	
                 </a>
-            <div class="house-priority-intro">
-                <div class="house-priority-intro-content">@Html.Raw(item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description)</div>
-                <span class="house-priority-intro-price blue">@item.Price Tỷ</span>
+                <div class="house-priority-item-Right">
+                    <div class="house-priority-intro-content">@Html.Raw(item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description)</div>
+                    <span class="house-priority-intro-price blue">@item.Price Tỷ</span>
+                </div>
             </div>
             </div> <!-- .house-priority-ele -->
         }

@@ -277,7 +277,15 @@ border-left:1px solid #b1bdc9;
 .house-priority-ele {
 	float:left;
 	width:100%;
-	height:100px;
+	height:auto;
+	border-top: 1px dashed #ccc;
+}
+
+.house-priority-item-Right
+{
+    position: relative;
+    width: 116px;
+    float: right;
 }
 
 .house-priority-ele a {
@@ -295,9 +303,9 @@ border-left:1px solid #b1bdc9;
 }
 
 .house-priority-intro{
-	float: left;
-    width: 116px;
+	width: 232px;
     padding-left: 3px;
+    position: relative;
 }
 
 a.Img-link
@@ -310,6 +318,7 @@ a.Img-link
     color: #0854A0;
     font-weight: bold;
     word-wrap: break-word;
+    margin-bottom: 2px;
 }
 
 .house-priority-intro-content{
@@ -507,3 +516,7 @@ a.Img-link
     border-right: 1px dashed #CCCCCC;
 }
     
+.house-priority-intro-title a
+{
+    width: 232px;
+}
