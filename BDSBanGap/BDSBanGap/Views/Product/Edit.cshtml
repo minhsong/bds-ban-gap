@@ -15,7 +15,7 @@
 				<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
 			</div>
 
-@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(S => S.ProductID);
     @Html.ValidationSummary(true)
