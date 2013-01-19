@@ -147,8 +147,13 @@ namespace BDSBanGap.Controllers
         public ActionResult Edit(int id)
         {
             Product product = db.Products.Find(id);
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName", product.WardID);
-            ViewBag.ContactId = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
+            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName",product.WardID);
+            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName",product.ContactId);
+            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
+            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
+            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);
+            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",product.ViTriDiaOc);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",product.Ward.DistrictID);
             return View(product);
         }
 
