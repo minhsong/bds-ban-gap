@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     int count = 0;
 }
-
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+</script>
 <div id="content-header">
 	<h1>DANH SÁCH NHÀ ĐANG RAO BÁN</h1>
 </div>
@@ -20,21 +25,23 @@
         <table id = "example" class="data display datatable">
             <thead>
                 <tr class="menu">
-                    <th style="width: auto;">STT
+                    <th style="width: 30px">STT
                     </th>
                     <th style="width: auto;">Tiêu đề
                     </th>
                     <th style="width: 60px; text-align: center;">Giá
                     </th>
-                    <th style="width: 80px; text-align: center;">Phường,Quận
+                    <th style="width: 30px; text-align: center;">Xem
                     </th>
-                    <th style="width: 120px; text-align: center;">Loại Địa Ốc
+                    <th style="width: 120px; text-align: center;">Phường,Quận
                     </th>
-                    <th style="width: 100px; text-align: center;">Vị trí
+                    <th style="width: 80px; text-align: center;">Loại Địa Ốc
+                    </th>
+                    <th style="width: 80px; text-align: center;">Vị trí
                     </th>
                     <th style="width: 70px; text-align: center;">Ngày rao
                     </th>
-                    <th style="width: 160px; text-align: center;">Action
+                    <th style="width: 60px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -42,21 +49,23 @@
             @foreach (var item in Model)
             {
                 <tr class="Items">
-                    <td style="width: 60px; text-align: center;">@(++count)
+                    <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Product/Details/@item.ProductID">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID" target="_blank">@item.Title</a>
                     </td>
-                    <td style="width: 80px; text-align: center;">@item.Price Tỷ
+                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    </td>
+                    <td style="width: 30px; text-align: center;">@item.Views
                     </td>
                     <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
                     </td>
-                    <td style="width: 100px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
+                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
                     </td>
-                    <td style="width: 160px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
                     <td style="width: 70px; text-align: center;">@item.CreatedDate.Value.ToShortDateString()
                     </td>
-                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
+                    <td style="width: 60px; text-align: center;"><a onclick="SoldProduct('@item.ProductID')">Sold</a><a href="/product/edit/@item.ProductID">Edit</a> | <a><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="Javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
                     </td>
                 </tr>
             }
@@ -64,3 +73,37 @@
         </table>
 
     </div>
+    <div id="sold-prpduct-form"></div>
+    <script type="text/javascript">
+        var id;
+        $(function () {
+            $("#sold-prpduct-form").dialog({
+                autoOpen: false, width: 400, height: 220, modal: true,
+                buttons: {
+                    "Bán": function () {
+                        $.ajax({
+                            url: '/Product/SoldProduct',
+                            data: $("#sold-Form").serialize(),
+                            type: 'POST',
+                            success: function (result) {
+                                document.location.reload();
+                            }
+                        });
+                    },
+                    "Hủy": function () { $(this).dialog("close"); }
+                }
+            });
+        });
+        function SoldProduct(idin) {
+            id = idin;
+            $.ajax({
+                url: '/Product/SoldProductGet',
+                data: { id: id },
+                type: 'POST',
+                success: function (result) {
+                    $('#sold-prpduct-form').html(result);
+                    $('#sold-prpduct-form').dialog("option", "title", "Bán Nhà").dialog("open");
+                }
+            });
+        }
+   </script>

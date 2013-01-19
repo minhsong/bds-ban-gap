@@ -9,6 +9,7 @@ using BDSBanGap.Models.DBContext;
 using BDSBanGap.Models.Enum;
 using System.Drawing;
 using System.IO;
+using BDSBanGap.Models;
 
 namespace BDSBanGap.Controllers
 { 
@@ -340,6 +341,7 @@ namespace BDSBanGap.Controllers
         {
             var result = from s in db.Products.AsEnumerable()
                          where s.IsCurrentPriority()
+                         && s.IsSold ==false
                          select s;
             return View(result);
         }
@@ -394,6 +396,28 @@ namespace BDSBanGap.Controllers
             catch
             {
                 return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult SoldProductGet(int id)
+        {
+            SoldModel sd = new SoldModel() { ProductID = id };
+            return PartialView("SoldProduct",sd);
+        }
+
+        [HttpPost]
+        public void SoldProduct(SoldModel sold)
+        {
+            var product = db.Products.Find(sold.ProductID);
+            if (product != null)
+            {
+                product.SoldPrice = sold.soldPrice;
+                product.SoldDate = sold.soldeDate;
+                product.IsSold = true;
+                product.UpdatedBy = User.Identity.Name;
+                product.UpdatedDate = DateTime.Now;
+                db.Entry(product).State = EntityState.Modified;
+                db.SaveChanges();
             }
         }
 

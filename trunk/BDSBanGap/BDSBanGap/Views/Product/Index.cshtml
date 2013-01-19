@@ -25,19 +25,21 @@
         <table id = "example" class="data display datatable">
             <thead>
                 <tr class="menu">
-                    <th style="width: auto;">STT
+                    <th style="width: 30px">STT
                     </th>
                     <th style="width: auto;">Tiêu đề
                     </th>
                     <th style="width: 60px; text-align: center;">Giá
                     </th>
-                    <th style="width: 80px; text-align: center;">Phường,Quận
+                     <th style="width: 30px; text-align: center;">Xem
                     </th>
-                    <th style="width: 120px; text-align: center;">Loại Địa Ốc
+                    <th style="width: 120px; text-align: center;">Phường,Quận
                     </th>
-                    <th style="width: 100px; text-align: center;">Vị trí
+                    <th style="width: 80px; text-align: center;">Loại Địa Ốc
                     </th>
-                    <th style="width: 160px; text-align: center;">Action
+                    <th style="width: 80px; text-align: center;">Vị trí
+                    </th>
+                    <th style="width: 60px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -45,19 +47,21 @@
             @foreach (var item in Model)
             {
                 <tr class="Items">
-                    <td style="width: 60px; text-align: center;">@(++count)
+                    <td style="width: 30px; text-align: center;">@(++count)
                     </td>
                     <td style="width: auto;font-weight:bold"><a href="/Product/Details/@item.ProductID">@item.Title</a>
                     </td>
-                    <td style="width: 80px; text-align: center;">@item.Price Tỷ
+                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    </td>
+                    <td style="width: 30px; text-align: center;">@item.Views
                     </td>
                     <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
                     </td>
-                    <td style="width: 100px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
+                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
                     </td>
-                    <td style="width: 160px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 160px; text-align: center;"><a href="/product/edit/@item.ProductID">EDIT</a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="36px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
+                    <td style="width: 60px; text-align: center;"><a href="/product/edit/@item.ProductID">EDIT</a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
                     </td>
                 </tr>
             }
