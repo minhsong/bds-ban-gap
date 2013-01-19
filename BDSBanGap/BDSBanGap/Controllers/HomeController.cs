@@ -16,6 +16,7 @@ namespace BDSBanGap.Controllers
 
         public ActionResult Detail(int Id)
         {
+            
             var product = db.Products.Find(Id);
             if (product != null)
             {
@@ -25,7 +26,9 @@ namespace BDSBanGap.Controllers
                                   && s.IsDelete == false
                                   && s.IsSold == false
                                   select s).Take(3).OrderBy(S=>S.CreatedDate);
-
+                    product.Views = product.Views + 1;
+                    db.Entry(product).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
                 return View(product);
             }
             return Error(new Exception("Product not existed!"));

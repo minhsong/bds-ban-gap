@@ -180,7 +180,19 @@ height: 50px;
                 <div class="features margin_bottom">
                     <div class="currency_convertor">
                         <div class="money">
-                            Giá: @Model.Price tỷ</div>
+                        @if(Model.IsSold)
+                        {
+                            <text>
+                            ĐÃ BÁN
+                            </text>  
+                        }
+                        else
+                        {
+                            <text>
+                            Giá: @Model.Price tỷ
+                            </text>
+                        }
+                        </div>
                     </div>
                     <div class="feat_item">
                         <dl>
@@ -190,7 +202,7 @@ height: 50px;
 </dd>
                             <dt>DT khuôn viên:</dt>
                             <dd>
-@((Model.KVNgangTruoc+Model.KVNgangSau)*Model.KVDai/2)m&sup2;
+@((Model.KVNgangTruoc + Model.KVNgangSau) * Model.KVDai / 2)m&sup2;
 </dd>
                             <dt>DT công nhận:</dt>
                             <dd>
@@ -383,10 +395,10 @@ height: 50px;
                                     <tr class="bg_grey">
                                         <td>Chỗ đậu xe hơi
                                         @{
-                                        if (Model.ChoDauXeHoi)
-                                        {
+                                            if (Model.ChoDauXeHoi)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                        
                                     }  
                                         </td>
@@ -394,10 +406,10 @@ height: 50px;
                                     <tr class="bg_grey">
                                         <td>Sân vườn
                                         @{
-                                        if (Model.SanVuon)
-                                        {
+                                            if (Model.SanVuon)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                        
                                     }
                                         </td>
@@ -405,10 +417,10 @@ height: 50px;
                                     <tr class="bg_grey">
                                         <td>Hồ bơi
                                         @{
-                                        if (Model.HoBoi)
-                                        {
+                                            if (Model.HoBoi)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                        
                                     }
                                         </td>
@@ -416,10 +428,10 @@ height: 50px;
                                     <tr class="bg_grey">
                                         <td>Tiện kinh doanh
                                         @{
-                                        if (Model.TienKinhDoanh)
-                                        {
+                                            if (Model.TienKinhDoanh)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
  
                                     }
                                         </td>
@@ -427,40 +439,40 @@ height: 50px;
                                     <tr class="bg_grey">
                                         <td>Tiện để ở
                                         @{
-                                        if (Model.TienDeO)
-                                        {
+                                            if (Model.TienDeO)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                     }
                                         </td>
                                     </tr>
                                     <tr class="bg_grey">
                                         <td>Tiện làm văn phòng
                                         @{
-                                        if (Model.TienLamVanPhong)
-                                        {
+                                            if (Model.TienLamVanPhong)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                     }
                                         </td>
                                     </tr>
                                     <tr class="bg_grey">
                                         <td>Tiện cho sản xuất
                                         @{
-                                        if (Model.TienSanXuat)
-                                        {
+                                            if (Model.TienSanXuat)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                     }
                                         </td>
                                     </tr>
                                     <tr class="bg_grey">
                                         <td>Cho sinh viên thuê
                                         @{
-                                        if (Model.ChoSinhVienThue)
-                                        {
+                                            if (Model.ChoSinhVienThue)
+                                            {
                                            <span class="ico_16 ico_check_16"></span>         
-                                        }
+                                            }
                                     }
                                         </td>
                                     </tr>
@@ -490,7 +502,7 @@ height: 50px;
                                             <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
                                             <div class="right">
                                                 <h2>
-                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length>50?item.Title.Substring(0,50)+"...":item.Title)</a></h2>
+                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
                                                 <span class="price">@item.Price Tỷ</span>
                                             </div>
                                         </li>
