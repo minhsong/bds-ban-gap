@@ -161,16 +161,114 @@ namespace BDSBanGap.Controllers
         // POST: /Product/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Product product, IEnumerable<HttpPostedFileBase> files, FormCollection collection)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                int productID;
+                int orderCaption = 1;
+                //Create project
+                var producrsave = db.Products.Find(product.ProductID);
+                if (producrsave != null)
+                {
+                    producrsave.UpdatedBy = User.Identity.Name;
+                    producrsave.UpdatedDate = DateTime.Now;
+
+                    producrsave.ChoDauXeHoi = product.ChoDauXeHoi;
+                    producrsave.ChoSinhVienThue = product.ChoSinhVienThue;
+                    producrsave.CNDai  = product.CNDai;
+                    producrsave.CNNgangSau = product.CNNgangSau;
+                    producrsave.CNNgangTruoc = product.CNNgangTruoc; 
+                    producrsave.ContactId = product.ContactId;
+                    producrsave.DayDuTienNghi = product.DayDuTienNghi;
+                    producrsave.Description = product.Description;
+                    producrsave.DienTichSuDung = product.DienTichSuDung;
+                    producrsave.DuongTruocNha = product.DuongTruocNha; 
+                    producrsave.HoBoi = product.HoBoi;
+                    producrsave.Huong = product.Huong;
+                    producrsave.KVDai = product.KVDai;
+                    producrsave.KVNgangSau = product.KVNgangSau;
+                    producrsave.KVNgangTruoc = product.KVNgangTruoc;
+                    producrsave.LoaiDiaOc = product.LoaiDiaOc;
+                    producrsave.Price = product.Price;
+                    producrsave.SanVuon = product.SanVuon;
+                    producrsave.SoLau = product.SoLau;
+                    producrsave.SoPhongKhac = product.SoPhongKhac;
+                    producrsave.SoPhongNgu = product.SoPhongNgu;
+                    producrsave.SoPhongTam = product.SoPhongTam;
+                    producrsave.TienDeO = product.TienDeO;
+                    producrsave.TienKinhDoanh = product.TienKinhDoanh;
+                    producrsave.TienLamVanPhong = product.TienLamVanPhong;
+                    producrsave.TienSanXuat = product.TienSanXuat;
+                    producrsave.TinhTrangPhapLy = product.TinhTrangPhapLy;
+                    producrsave.Title = product.Title;
+                    producrsave.ViTriDiaOc = product.ViTriDiaOc;
+                    producrsave.WardID = product.WardID;
+
+                    db.Entry(producrsave).State = EntityState.Modified;
+                    db.SaveChanges();
+                    productID = product.ProductID;
+
+
+                    foreach (var file in files)
+                    {
+
+                        if (!HasFile(file))
+                        {
+                            orderCaption++;
+                            continue;
+                        }
+
+                        ProductImage proImage = new ProductImage();
+
+                        if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
+                            (file.ContentType == "image/png" || (file.ContentType == "image/jpg")))//check allow jpg, gif, png, jpeg
+                        {
+                            // make thumb image
+                            Image image = Image.FromStream(file.InputStream);
+                            Bitmap thumbImage = new Bitmap(image, 120, 90);
+
+                            // make projet image - product detail page
+                            Bitmap projectImage = new Bitmap(image, 480, 360);
+
+                            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                            var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
+                            var pathImageThumb = Path.Combine(Server.MapPath("~/Upload/Thumb/"), fileName);
+
+                            //Save image to ProjectImages folder
+                            projectImage.Save(pathImageProject);
+
+                            // Save image to ImageThumb folder
+                            thumbImage.Save(pathImageThumb);
+
+                            // Save slide image to ImageSlide
+
+                            // Set ProjectImage model
+                            proImage.ImageLink = "/Upload/Images/" + fileName;
+                            proImage.Caption = collection["caption" + orderCaption];
+                            proImage.ThumblLink = "/Upload/Thumb/" + fileName;
+
+                            proImage.ProductID = productID;
+
+                            // Insert project image to db
+                            db.ProductImages.Add(proImage);//add Image object to database (content image path)
+                            db.SaveChanges();
+
+                            orderCaption++;// update order
+                        }
+
+                    }
+                    
+                    return RedirectToAction("Index");
+                }
             }
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName", product.WardID);
-            ViewBag.ContactId = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
+            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName",product.WardID);
+            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName",product.ContactId);
+            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
+            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
+            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);
+            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",product.ViTriDiaOc);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",product.Ward.DistrictID);
             return View(product);
         }
 
