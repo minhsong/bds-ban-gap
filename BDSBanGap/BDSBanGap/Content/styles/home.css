@@ -130,8 +130,8 @@ button{border:0;background:none;}
 }
 .content {
 	margin: 10px auto;
-	#border: 1px solid #333;
-	#height: 400px;
+	/*border: 1px solid #333;
+	height: 400px;*/
 
 }
 
@@ -320,6 +320,9 @@ a.Img-link
     word-wrap: break-word;
     margin-bottom: 2px;
     margin-left:4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 32px;
 }
 
 .house-priority-intro-content{
@@ -330,12 +333,18 @@ a.Img-link
     height: 61px;
     word-wrap: break-word;
     vertical-align: baseline;
+	height: 47px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .house-priority-intro-price{
 	float:left;
 	width:100%;
 	font-size:14px;
 	font-weight:bold;
+    height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .paginator-number {
@@ -358,6 +367,9 @@ a.Img-link
 
 .item-description {
 	width:340px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item-description p
@@ -374,6 +386,7 @@ a.Img-link
 	float: right;
 	width: 70px;
 	display: block;
+    height: 16px;
 }
 
 .item-hover{
