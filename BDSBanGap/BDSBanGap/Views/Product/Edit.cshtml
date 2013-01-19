@@ -6,6 +6,7 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
 
 <div id="content-header">
 				<h1>CẬP NHẬP THÔNG TIN NHÀ</h1>
@@ -354,7 +355,7 @@
                 <img src="@item.ThumblLink" alt="" />
                 <p>@item.Caption</p>
                <div class="product-image-action">
-               <a>Delete</a><a style="margin-right:5px;">Zoom</a>
+               @Ajax.ActionLink("Delete", "DeleteEmage", new { id = item.ProductImageID }, new AjaxOptions() { Confirm = "Bạn có muốn xóa hình ảnh không?", HttpMethod = "GET", OnComplete = "document.location.reload()" })<a style="margin-right:5px;">Zoom</a>
                </div>
             </div>
             
