@@ -11,10 +11,13 @@
             <div style="height:3px"></div>
         </div> <!-- end .house-priority-header -->
         <div class="house-priority-content">
+        
         @foreach (var item in Model)
         {
+            
             <div class="house-priority-ele pt10">
-            	<a>
+            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID">@(item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title)</a></h3>
+            	<a class="Img-link" href="/Home/Detail/@item.ProductID">
                 @if (item.Images.Count > 0)
                 {
                     <img src="@item.Images.First().ThumblLink" />
@@ -26,8 +29,7 @@
                 	
                 </a>
             <div class="house-priority-intro">
-            	<h3 class="house-priority-intro-title"> @(item.Title.Length>80?item.Title.Substring(0,80):item.Title )</h3>
-                <p class="house-priority-intro-content">@Html.Raw(item.Description.Length>100? item.Description.Substring(0,100) : item.Description)</p>
+                <div class="house-priority-intro-content">@Html.Raw(item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description)</div>
                 <span class="house-priority-intro-price blue">@item.Price Tỷ</span>
             </div>
             </div> <!-- .house-priority-ele -->

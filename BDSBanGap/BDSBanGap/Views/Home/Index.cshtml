@@ -26,11 +26,11 @@
                     	<a href="/Home/Detail/@item.ProductID">
                         @if (item.Images.Count==0)
                         {
-                            <img width="88px" height="66px" src="/Content/images/Default-image.jpg" />
+                            <img src="/Content/images/Default-image.jpg" />
                         }
                         else
                         {
-                            	<img width="88px" height="66px" src="@item.Images.First().ThumblLink" />
+                            	<img src="@item.Images.First().ThumblLink" />
                         }
 
                         
@@ -43,8 +43,6 @@
                         <br />
                     </strong>
                     <p class="mt5">@Html.Raw((item.Description.Length>150?item.Description.Substring(0,150):item.Description))</p>
-                    <div class="clearBoth"></div>
-                    <div class="mt10">
                     	<div class="view-detail">
                         	<div style="position:absolute;top:3px;z-index:100;">
 							<a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Deatil/@item.ProductID">
@@ -52,7 +50,6 @@
 							</a>
 						</div>
                         </div> <!-- end .view-detail -->
-                    </div> <!-- end .mt10 -->
                 </div> <!--end .item-description -->
 
 

@@ -287,30 +287,39 @@ border-left:1px solid #b1bdc9;
 }
 
 .house-priority-ele img{
-	padding:4px;
-	border:1px solid #cadcea;
-	float:left;
-	margin-right:5px;
+	padding: 4px;
+    border: 1px solid #cadcea;
+    float: left;
+    margin-right: 5px;
+    height: 74px;
 }
 
 .house-priority-intro{
-	float:left;
-	width:97px;
-	padding-left:3px;
-	height: 97px;
+	float: left;
+    width: 116px;
+    padding-left: 3px;
 }
 
+a.Img-link
+{
+    width: 110px;
+}
 .house-priority-intro-title {
-	float:left;
-	width:100%;
-	color:#0854A0;
-	font-weight:bold;
+	float: left;
+    width: 100%;
+    color: #0854A0;
+    font-weight: bold;
+    word-wrap: break-word;
 }
 
 .house-priority-intro-content{
-	float:left;
-	width:100%;
-	padding-top:2px;
+	float: left;
+    width: 100%;
+    padding-top: 2px;
+    overflow: hidden;
+    height: 61px;
+    word-wrap: break-word;
+    vertical-align: baseline;
 }
 .house-priority-intro-price{
 	float:left;
@@ -341,6 +350,11 @@ border-left:1px solid #b1bdc9;
 	width:340px;
 }
 
+.item-description p
+{
+    margin-bottom:0px;
+}
+
 .item-description a{
 	font-family:Verdana;
 }
@@ -355,7 +369,10 @@ border-left:1px solid #b1bdc9;
 .item-hover{
 	background:#EFF7FF;
 }
-
+.item-image img
+{
+    width:100px;
+}
 .border-right-dashed{
 	border-right:1px dashed #ccc;
 	width:1px;
@@ -368,7 +385,7 @@ border-left:1px solid #b1bdc9;
 }
 
 .item .price-place {
-	width:140px;
+	width:130px;
 }
 
 .price {
