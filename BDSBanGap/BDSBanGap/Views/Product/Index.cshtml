@@ -57,7 +57,7 @@
                     </td>
                     <td style="width: 160px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
+                    <td style="width: 160px; text-align: center;"><a href="/product/edit/@item.ProductID">EDIT</a> | <a>Delete</a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
                     </td>
                 </tr>
             }
