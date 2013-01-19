@@ -19,6 +19,13 @@ namespace BDSBanGap.Controllers
             var product = db.Products.Find(Id);
             if (product != null)
             {
+                ViewBag.CungGia = (from s in db.Products
+                                  where Math.Abs(s.Price - product.Price) < 0.5
+                                  && s.IsActive == true
+                                  && s.IsDelete == false
+                                  && s.IsSold == false
+                                  select s).Take(3).OrderBy(S=>S.CreatedDate);
+
                 return View(product);
             }
             return Error(new Exception("Product not existed!"));
