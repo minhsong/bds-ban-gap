@@ -279,20 +279,26 @@ namespace BDSBanGap.Controllers
         public ActionResult Delete(int id)
         {
             Product product = db.Products.Find(id);
-            return View(product);
+            if (product != null)
+            {
+                product.IsDelete = true;
+                db.SaveChanges();
+            }
+            //return View(product);
+            return RedirectToAction("Index");
         }
 
         //
         // POST: /Product/Delete/5
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //public ActionResult DeleteConfirmed(int id)
+        //{            
+        //    Product product = db.Products.Find(id);
+        //    //db.Products.Remove(product);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         public ActionResult GetWardOnChange(int district)
         {
