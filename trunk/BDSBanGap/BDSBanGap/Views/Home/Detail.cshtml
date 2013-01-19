@@ -474,6 +474,33 @@ height: 50px;
 
                     </div>
                 </div>
+                 <div id="others_posted" class="rounded_style_2 rounded_box margin_bottom">
+                        <div class="headline_title_1 rounded_style_5 rounded_box">
+                            <h2 class="headline">
+                                <span>BẤT ĐỘNG SẢN CÙNG GIÁ</span></h2>
+                        </div>
+                        <div class="rounded_style_2 rounded_box">
+                            <div class="content_inner">
+                                <ul class="listing_4">
+                                @{
+                                    var ListCungGia = ViewBag.CungGia as IEnumerable<BDSBanGap.Models.DBContext.Product>;
+                                    foreach (var item in ListCungGia)
+                                    {
+                                        <li><a href="/Home/Detail/@item.ProductID">
+                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
+                                            <div class="right">
+                                                <h2>
+                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length>50?item.Title.Substring(0,50)+"...":item.Title)</a></h2>
+                                                <span class="price">@item.Price Tỷ</span>
+                                            </div>
+                                        </li>
+                                    }
+                                        
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     </div>
         </div>
     </div>

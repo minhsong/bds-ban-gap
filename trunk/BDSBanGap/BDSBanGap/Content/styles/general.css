@@ -1599,19 +1599,19 @@ div.rowElem{
 	display:inline;
 	border:1px solid #c6c6c6;
 	float:left;
-	width:241px;
-	margin-right:12px;
+	width:233px;
+	margin-right:5px;
 }
 .listing_4 img{
 	float:left;
 	margin:1px;
 }
 .listing_4 .right{
-	border-left:1px solid #c6c6c6;
-	width:153px;
-	height:69px;
-	float:left;
-	padding:5px;
+	border-left: 1px solid #c6c6c6;
+    width: 134px;
+    height: 69px;
+    float: left;
+    padding: 5px;
 }
 
 .listing_5 {}

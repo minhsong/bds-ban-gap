@@ -72,6 +72,7 @@ namespace BDSBanGap.Controllers
                 product.UpdatedDate = DateTime.Now;
                 product.IsActive = true;
                 product.IsDelete = false;
+                product.IsSold = false;
 
                 db.Products.Add(product);
                 db.SaveChanges();
