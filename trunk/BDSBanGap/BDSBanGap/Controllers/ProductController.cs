@@ -28,7 +28,11 @@ namespace BDSBanGap.Controllers
         public ViewResult Index()
         {
             var products = db.Products.Include(p => p.Ward).Include(p => p.Contact);
-            return View(products.ToList());
+            var product = from product1 in products
+                          where product1.IsDelete == false
+                          select product1;
+            
+            return View(product.ToList());
         }
 
         //
