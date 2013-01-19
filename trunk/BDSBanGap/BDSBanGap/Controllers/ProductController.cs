@@ -362,6 +362,41 @@ namespace BDSBanGap.Controllers
                          select s;
             return View(result);
         }
+
+        public ActionResult DeleteEmage(int id)
+        {
+            try
+            {
+                ProductImage proImage = db.ProductImages.Find(id);
+                int proID = proImage.ProductID;
+                // remove at server
+                string pathImage = Server.MapPath(proImage.ImageLink);
+                string pathImageThumb = Server.MapPath(proImage.ThumblLink);
+
+                FileInfo image = new FileInfo(pathImage);
+                FileInfo imageThumb = new FileInfo(pathImageThumb);
+
+                if (image.Exists)
+                {
+                    image.Delete();
+                }
+                if (imageThumb.Exists)
+                {
+                    imageThumb.Delete();
+                }
+
+                // remove at db
+                db.ProductImages.Remove(proImage);
+                db.SaveChanges();
+
+                return View("Edit", db.Products.Find(proID));
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
