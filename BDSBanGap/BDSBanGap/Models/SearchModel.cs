@@ -10,7 +10,7 @@ namespace BDSBanGap.Models
         public string Title { get; set; }
         public double? PriceFrom { get; set; }
         public double? PriceTo { get; set; }
-        public IEnumerable<int> District { get; set; }
+        public int? District { get; set; }
 
         public int? LoaiDiaOc { get; set; }
         public int? TinhTrangPhapLy { get; set; }
