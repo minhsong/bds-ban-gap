@@ -281,7 +281,7 @@ namespace BDSBanGap.Controllers
         //
         // GET: /Product/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id, string page)
         {
             Product product = db.Products.Find(id);
             if (product != null)
@@ -290,7 +290,7 @@ namespace BDSBanGap.Controllers
                 db.SaveChanges();
             }
             //return View(product);
-            return RedirectToAction("Index");
+            return RedirectToAction(page);
         }
 
         //
