@@ -4,8 +4,15 @@
     ViewBag.Title = "Index";
     var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
 }
-    <div class="Search-panel">
-    <form method="get" action="/Home/Search">		  
+
+<style type="text/css">
+    table td {
+        padding: 1px;
+        border: none;
+    }
+</style>
+<div class="Search-panel">
+    @*<form method="get" action="/Home/Search">		  
 		  <input type="hidden" name="pg" value="1">
             <table class="cobtbl" width="102%" border="0" cellspacing="1" cellpadding="3">
 			  <tbody>
@@ -79,8 +86,90 @@
 			  </tr>
 
 			</tbody></table>
-		</form>
+		</form>*@
+        <div id="quicksearch" class="search_result paginator">
+	<div id="quicksearch_title">
+		<strong>Tìm kiếm chi tiết</strong>
+		<span>&nbsp;</span>
+	</div>
+	<div class="clearBoth"></div>
+	<form method="get" action="/Home/Search">		  
+		  <input type="hidden" name="pg" value="1">
+            <table class="cobtbl" width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tbody>
+                    <tr></tr>
+                    <tr> 
+                        <td class="cobhl" align="center" colspan="4" height="30"></td>
+                    </tr>
+                    <tr  style="height: 34px;">
+                        <td class="cobhl" width="24%" align="right">Tieu de</td>
+                        <td colspan="3"><input type="text" style="width: 483px; " /></td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="14%" align="right">Min price</td>
+                        <td class="cobll" width="23%">
+                            <select id="PriceFrom" name="PriceFrom" >
+                                <option>Tất cả</option>
+                                <option value="1">1 Tỷ</option>
+                                <option value="1">2 Tỷ</option>
+                                <option value="1">4 Tỷ</option>
+                                <option value="1">6 Tỷ</option>
+                                <option value="1">10 Tỷ</option>
+                                <option value="1">15 Tỷ</option>
+                                <option value="1">20 Tỷ</option>
+                            </select>
+                        </td>
+                        <td class="cobhl" width="16%" align="right" >Max Price:</td>
+                        <td class="cobll" width="37%">
+                            <select id="PriceTo" name="PriceTo" >
+                                <option>Tất cả</option>
+                                <option value="1">2 Tỷ</option>
+                                <option value="1">4 Tỷ</option>
+                                <option value="1">6 Tỷ</option>
+                                <option value="1">8 Tỷ</option>
+                                <option value="1">10 Tỷ</option>
+                                <option value="1">15 Tỷ</option>
+                                <option value="1">20 Tỷ</option>
+                                <option value="1">25 Tỷ</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="24%" align="right">Quận:</td>
+                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.District, ViewBag.District as SelectList, "Tất cả")
+                        </td>
+                        <td class="cobhl" width="16%" align="right">Loại địa ốc:</td>
+                        <td class="cobll" width="37%">
+                            @Html.DropDownListFor(s => s.LoaiDiaOc, ViewBag.LoaiDiaOc as SelectList, "Tất cả")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="24%" align="right">Tình trạng pháp lý:</td>
+                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.TinhTrangPhapLy, ViewBag.Phaply as SelectList,"Tất cả")
+                        </td>
+                        <td class="cobhl" width="16%" align="right">Hướng :</td>
+                        <td class="cobll" width="37%">
+                            @Html.DropDownListFor(s => s.Huong, ViewBag.Huong as SelectList, "Tất cả")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="24%" align="right">Đường trước nhà:</td>
+                        <td class="cobll" width="23%">@Html.EditorFor(s => s.DuongTruocNha)
+                        <td class="cobhl" width="16%" align="right">Vị trí địa ốc:</td>
+                        <td class="cobll" width="37%">
+                            @Html.DropDownListFor(s => s.ViTriDiaOc, ViewBag.VitriDiaOc as SelectList, "Tất cả")
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <td class="cobll" colspan="4" align="center">
+                            <input type="submit" class="btnSearch" value="Tìm Kiếm" />
+                        </td>
+                    </tr>
 
+                </tbody></table>
+		</form>
+</div>
     </div>
 	<div class="list-house-content mt5 pt5">
     	<div class="list-house-header-left left pb10">
