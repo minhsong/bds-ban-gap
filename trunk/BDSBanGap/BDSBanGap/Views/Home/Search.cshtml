@@ -5,73 +5,53 @@
     var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
 }
     <div class="Search-panel">
-    <form method="get" action="">		  
+    <form method="get" action="/Home/Search">		  
 		  <input type="hidden" name="pg" value="1">
             <table class="cobtbl" width="102%" border="0" cellspacing="1" cellpadding="3">
-			  <tbody><tr> 
+			  <tbody>
+              <tr> 
                 <td class="cobhl" align="center" colspan="4" height="30">TÌM KIẾM CHI TIẾT</td>
               </tr>
+              <tr>
+              <td>Tieu de</td>
+              <td colspan="3"><input type="text" /></td>
+              </tr>
 			  <tr>
-                <td class="cobhl" width="14%" align="right">Tiêu đề:</td>
-				<td class="cobll" width="23%"><input type="text" name="stext" size="20" maxlength="1024" value=""></td>
+                <td class="cobhl" width="14%" align="right">Min price</td>
+				<td class="cobll" width="23%">@Html.EditorFor(s=>s.PriceFrom)</td>
 				<td class="cobhl" width="16%" align="right">Max Price:</td>
-				<td class="cobll" width="47%"><input type="text" name="sprice" size="10" maxlength="64" value=""></td>
+				<td class="cobll" width="47%">@Html.EditorFor(s=>s.PriceTo)</td>
 			  </tr>
 			  <tr>
 			    <td class="cobhl" width="14%" align="right">Quận:</td>
-				<td class="cobll" width="23%"><select name="stype" size="1">
-					<option value="">All words</option>
-					<option value="any">Any word</option>
-					<option value="exact">Exact Phrase </option>
-					</select>
+				<td class="cobll" width="23%">@Html.DropDownListFor(s => s.District, ViewBag.District as SelectList, "Tất cả")
 				</td>
 				<td class="cobhl" width="16%" align="right">Loại địa ốc:</td>
 				<td class="cobll" width="47%">
-				  <select name="scat" size="1">
-				  <option value="">All Categories</option>
-
-
-				  </select>
+				  @Html.DropDownListFor(s => s.LoaiDiaOc, ViewBag.LoaiDiaOc as SelectList, "Tất cả")
 				</td>
               </tr>
 <tr>
 			    <td class="cobhl" width="14%" align="right">Tình trạng pháp lý:</td>
-				<td class="cobll" width="23%"><select name="stype" size="1">
-					<option value="">All words</option>
-					<option value="any">Any word</option>
-					<option value="exact">Exact Phrase </option>
-					</select>
+				<td class="cobll" width="23%">@Html.DropDownListFor(s => s.TinhTrangPhapLy, ViewBag.Phaply as SelectList,"Tất cả")
 				</td>
 				<td class="cobhl" width="16%" align="right">Hướng :</td>
 				<td class="cobll" width="47%">
-				  <select name="scat" size="1">
-				  <option value="">All Categories</option>
-
-
-				  </select>
+				  @Html.DropDownListFor(s => s.Huong, ViewBag.Huong as SelectList, "Tất cả")
 				</td>
               </tr>
               <tr>
 			    <td class="cobhl" width="14%" align="right">Đường trước nhà:</td>
-				<td class="cobll" width="23%"><select name="stype" size="1">
-					<option value="">All words</option>
-					<option value="any">Any word</option>
-					<option value="exact">Exact Phrase </option>
-					</select>
-				</td>
+				<td class="cobll" width="23%">@Html.EditorFor(s => s.DuongTruocNha)
 				<td class="cobhl" width="16%" align="right">Vị trí địa ốc:</td>
 				<td class="cobll" width="47%">
-				  <select name="scat" size="1">
-				  <option value="">All Categories</option>
-
-
-				  </select>
+				  @Html.DropDownListFor(s => s.ViTriDiaOc, ViewBag.VitriDiaOc as SelectList, "Tất cả")
 				</td>
               </tr>
 			  <tr>
 			    <td class="cobhl">&nbsp;</td>
                   <td class="cobll" colspan="3" align="center">
-                      <input type="submit" name="SearchAdvance" id="SearchAdvance" class="btnSearch" value="Tìm Kiếm" />
+                      <input type="submit" class="btnSearch" value="Tìm Kiếm" />
                   </td>
 			  </tr>
 
