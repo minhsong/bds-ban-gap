@@ -118,12 +118,11 @@
     <Content Include="Content\images\icon-priority.jpg" />
     <Content Include="Content\images\img-demo.jpg" />
     <Content Include="Content\images\logo.gif" />
-    <Content Include="Content\images\menu\back.jpg" />
-    <Content Include="Content\images\menu\columns.png" />
-    <Content Include="Content\images\menu\item.png" />
-    <Content Include="Content\images\menu\menu.png" />
-    <Content Include="Content\images\menu\pix.gif" />
-    <Content Include="Content\images\menu\subitem.png" />
+    <Content Include="Content\images\menu\bg-left.png" />
+    <Content Include="Content\images\menu\bg-right.png" />
+    <Content Include="Content\images\menu\bg.gif" />
+    <Content Include="Content\images\paging\p_next.gif" />
+    <Content Include="Content\images\paging\p_prev.gif" />
     <Content Include="Content\images\priority-hou.jpg" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\images\TimKiemNangCao.png" />
@@ -414,6 +413,7 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\close.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\mini.png" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\cssmenu.htc" />
     <Content Include="Scripts\dhtmlxcalendar.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxcommon.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
@@ -554,7 +554,6 @@
     <Content Include="Views\Shared\SearchPanel.cshtml" />
     <Content Include="Views\Product\SoldProduct.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\MasterData\EditDistrict.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
