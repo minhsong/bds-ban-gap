@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
 @{
     ViewBag.Title = "Index";
+    int pg = (int)ViewBag.pg;
+    int show = (int)ViewBag.show;
+    int count = (int)ViewBag.count;
 }
 <div class="list-house-content mt5 pt5">
     <div class="list-house-header-left left pb10">
         <h3 class="blue bold left">
-            Có <span class="list-house-count" id="house-sell-count">@Model.Count()</span> nhà
+            Có <span class="list-house-count" id="house-sell-count">@count</span> nhà
             đăng bán
         </h3>
         <br class="clearBoth" />
@@ -13,20 +16,38 @@
     <!-- end .house-sell-header-left -->
     <div class="list-house-header-right right">
         <div class="paginator_number" style="width: auto;">
+        @if (pg != 1)
+        {            
             <div class="prev_link">
-                <a href="">
+                <a href="/home/index?pg=@(pg-1)&show=@ViewBag.show">
                     <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
                 </a>
             </div>
-            <div>
-                <a href="">1</a></div>
-            <b class="green">2</b>
+        }
+
+         
+            
+            @for (int i = 1; i <= ((count / show) + 1); i++)
+            {
+                if ((int)ViewBag.pg == i)
+                {
+                    <div class="current-page"><a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                }
+                else
+                {
+                <div><a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                }
+            }
+
+            @if(pg!=((count/show)+1))
+            {
             <div class="next_link">
-                <a href="">
+                <a href="/home/index?pg=@(pg+1)&show=@ViewBag.show">
                     <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
             <div class="last_link">
                 <a href=""></a>
             </div>
+            }
             <div class="clearBoth">
             </div>
         </div>

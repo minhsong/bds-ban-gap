@@ -11,13 +11,20 @@ namespace BDSBanGap.Controllers
 {
     public class HomeController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(int? pg, int? show)
         {
-            var result = from s in db.Products
-                         where s.IsActive == true
-                         && s.IsDelete == false
-                         && s.IsSold == false
-                         select s;
+            show = show == null ? 15 : show.Value;
+            int pagging = pg == null ? 1 : pg.Value;
+
+            var result = (from s in db.Products
+                          where s.IsActive == true
+                          && s.IsDelete == false
+                          && s.IsSold == false
+                          select s).ToList();
+            ViewBag.count = result.Count();
+            ViewBag.pg = pagging;
+            ViewBag.show = show;
+            result = result.Skip((pagging - 1) * show.Value).Take(show.Value).ToList();
             return View(result);
         }
 
