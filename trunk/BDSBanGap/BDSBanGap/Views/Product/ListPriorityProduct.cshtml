@@ -21,31 +21,31 @@
 </div>
 
 <div class="tbl-Content">
-        <div class="title-box">
-        </div>
-        <!--End title-box-->
-        <table id = "Datatable1" class="data display datatable">
-            <thead>
-                <tr class="menu">
-                    <th style="width: 30px;">STT
-                    </th>
-                    <th style="width: auto;">Tiêu đề
-                    </th>
-                    <th style="width: 60px; text-align: center;">Giá
-                    </th>
-                    <th style="width: 150px; text-align: center;">Phường, Quận
-                    </th>
-                    <th style="width: 70px; text-align: center;">Bắt đầu
-                    </th>
-                    <th style="width: 70px; text-align: center;">Kết thúc
-                    </th>
-                    <th style="width: 80px; text-align: center;">Tình trạng
-                    </th>
-                    <th style="width: 80px; text-align: center;">Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="title-box">
+    </div>
+    <!--End title-box-->
+    <table id = "Datatable1" class="data display datatable">
+        <thead>
+            <tr class="menu">
+                <th style="width: 30px;">STT
+                </th>
+                <th style="width: auto;">Tiêu đề
+                </th>
+                <th style="width: 60px; text-align: center;">Giá
+                </th>
+                <th style="width: 150px; text-align: center;">Phường, Quận
+                </th>
+                <th style="width: 70px; text-align: center;">Bắt đầu
+                </th>
+                <th style="width: 70px; text-align: center;">Kết thúc
+                </th>
+                <th style="width: 80px; text-align: center;">Tình trạng
+                </th>
+                <th style="width: 80px; text-align: center;">Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
             @foreach (var item in Model)
             {
                 <tr class="Items">
@@ -63,11 +63,44 @@
                     </td>
                     <td style="width: 80px; text-align: center;">@(item.IsActive? "Áp dụng":"")
                     </td>
-                    <td style="width: 80px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    <td style="width: 80px; text-align: center;"><a>Detail</a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>
                     </td>
                 </tr>
             }
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
-    </div>
+</div>
+<div class="deleteProduct">
+    <p>
+        Bạn có muốn xóa bài đăng này không?
+    </p>
+</div>
+@*script delete product*@
+<script type="text/javascript">
+    var id;
+    function ConfirmDelete(idProd) {
+        id = idProd;
+        $('.deleteProduct').dialog("option", "title", "Xóa bài đăng").dialog("open");
+    }
+
+    $(function () {
+        $(".deleteProduct").dialog({
+            autoOpen: false, width: 370, height: 160, modal: true,
+            buttons: {
+                "Xóa": function () {
+                    $.ajax({
+                        url: '/Product/Delete',
+                        data: { id: id, page: "ListPriorityProduct" },
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Hủy": function () { $(this).dialog("close"); }
+            }
+        });
+    });
+   
+</script>

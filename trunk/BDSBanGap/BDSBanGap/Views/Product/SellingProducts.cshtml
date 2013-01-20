@@ -41,7 +41,7 @@
                     </th>
                     <th style="width: 70px; text-align: center;">Ngày rao
                     </th>
-                    <th style="width: 60px; text-align: center;">Action
+                    <th style="width: 120px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -65,7 +65,7 @@
                     </td>
                     <td style="width: 70px; text-align: center;">@item.CreatedDate.Value.ToShortDateString()
                     </td>
-                    <td style="width: 60px; text-align: center;"><a onclick="SoldProduct('@item.ProductID')">Sold</a><a href="/product/edit/@item.ProductID">Edit</a> | <a><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="Javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
+                    <td style="width: 120px; text-align: center;"><a onclick="SoldProduct('@item.ProductID')">Sold</a><a href="/product/edit/@item.ProductID">Edit</a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="Javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')">Priority</a>}
                     </td>
                 </tr>
             }
@@ -73,37 +73,70 @@
         </table>
 
     </div>
-    <div id="sold-prpduct-form"></div>
-    <script type="text/javascript">
-        var id;
-        $(function () {
-            $("#sold-prpduct-form").dialog({
-                autoOpen: false, width: 400, height: 220, modal: true,
-                buttons: {
-                    "Bán": function () {
-                        $.ajax({
-                            url: '/Product/SoldProduct',
-                            data: $("#sold-Form").serialize(),
-                            type: 'POST',
-                            success: function (result) {
-                                document.location.reload();
-                            }
-                        });
-                    },
-                    "Hủy": function () { $(this).dialog("close"); }
-                }
-            });
+<div id="sold-prpduct-form"></div>
+<div class="deleteProduct">
+    <p>
+        Bạn có muốn xóa bài đăng này không?
+    </p>
+</div>
+<script type="text/javascript">
+    var id;
+    $(function () {
+        $("#sold-prpduct-form").dialog({
+            autoOpen: false, width: 400, height: 220, modal: true,
+            buttons: {
+                "Bán": function () {
+                    $.ajax({
+                        url: '/Product/SoldProduct',
+                        data: $("#sold-Form").serialize(),
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Hủy": function () { $(this).dialog("close"); }
+            }
         });
-        function SoldProduct(idin) {
-            id = idin;
-            $.ajax({
-                url: '/Product/SoldProductGet',
-                data: { id: id },
-                type: 'POST',
-                success: function (result) {
-                    $('#sold-prpduct-form').html(result);
-                    $('#sold-prpduct-form').dialog("option", "title", "Bán Nhà").dialog("open");
-                }
-            });
-        }
-   </script>
+    });
+    function SoldProduct(idin) {
+        id = idin;
+        $.ajax({
+            url: '/Product/SoldProductGet',
+            data: { id: id },
+            type: 'POST',
+            success: function (result) {
+                $('#sold-prpduct-form').html(result);
+                $('#sold-prpduct-form').dialog("option", "title", "Bán Nhà").dialog("open");
+            }
+        });
+    }
+</script>
+@*script delete product*@
+<script type="text/javascript">
+    var id;
+    function ConfirmDelete(idProd) {
+        id = idProd;
+        $('.deleteProduct').dialog("option", "title", "Xóa bài đăng").dialog("open");
+    }
+
+    $(function () {
+        $(".deleteProduct").dialog({
+            autoOpen: false, width: 370, height: 160, modal: true,
+            buttons: {
+                "Xóa": function () {
+                    $.ajax({
+                        url: '/Product/Delete',
+                        data: { id: id, page:"SellingProducts"  },
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Hủy": function () { $(this).dialog("close"); }
+            }
+        });
+    });
+   
+</script>
