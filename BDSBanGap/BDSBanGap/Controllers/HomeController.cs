@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BDSBanGap.Models;
 using BDSBanGap.Models.Enum;
+using BDSBanGap.Helpers;
 
 namespace BDSBanGap.Controllers
 {
@@ -42,15 +43,18 @@ namespace BDSBanGap.Controllers
 
         public ActionResult Search(SearchModel search)
         {
-            ViewBag.SearchResult = (from s in db.Products
-                         where (string.IsNullOrEmpty(search.Title) || s.Title.ToLower().Contains(search.Title))
-                         && (search.PriceFrom == null || s.Price >= search.PriceFrom)
-                         && (search.PriceTo == null || s.Price < search.PriceTo)
-                         && (search.LoaiDiaOc ==null|| search.LoaiDiaOc==s.LoaiDiaOc)
-                         && (search.Huong ==null||search.Huong==s.Huong)
-                         && (search.TinhTrangPhapLy==null||search.TinhTrangPhapLy ==s.TinhTrangPhapLy)
-                         && (search.ViTriDiaOc==null||search.ViTriDiaOc==s.ViTriDiaOc)
-                         select s).ToList();
+            var SearchResult = (from s in db.Products.AsEnumerable()
+                                    where (search.PriceFrom == null || s.Price >= search.PriceFrom)
+                                    && (search.PriceTo == null || s.Price < search.PriceTo)
+                                    && (search.LoaiDiaOc == null || search.LoaiDiaOc == s.LoaiDiaOc)
+                                    && (search.Huong == null || search.Huong == s.Huong)
+                                    && (search.TinhTrangPhapLy == null || search.TinhTrangPhapLy == s.TinhTrangPhapLy)
+                                    && (search.ViTriDiaOc == null || search.ViTriDiaOc == s.ViTriDiaOc)
+                                    &&(string.IsNullOrEmpty(search.Title) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.Title, search.Title))
+                                    && (string.IsNullOrEmpty(search.DuongTruocNha) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.DuongTruocNha, search.DuongTruocNha))
+                                    select s).ToList();
+
+            ViewBag.SearchResult = SearchResult;
             ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",search.Huong);
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",search.LoaiDiaOc);
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",search.TinhTrangPhapLy);
