@@ -11,7 +11,12 @@ namespace BDSBanGap.Controllers
     {
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            var result = from s in db.Products
+                         where s.IsActive == true
+                         && s.IsDelete == false
+                         && s.IsSold == false
+                         select s;
+            return View(result);
         }
 
         public ActionResult Detail(int Id)
@@ -36,11 +41,15 @@ namespace BDSBanGap.Controllers
 
         public ActionResult Search(SearchModel search)
         {
-            ViewBag.SearchResult = from s in db.Products
+            ViewBag.SearchResult = (from s in db.Products
                          where (string.IsNullOrEmpty(search.Title) || s.Title.ToLower().Contains(search.Title))
                          && (search.PriceFrom == null || s.Price >= search.PriceFrom)
                          && (search.PriceTo == null || s.Price < search.PriceTo)
-                         select s;
+                         && (search.LoaiDiaOc ==null|| search.LoaiDiaOc==s.LoaiDiaOc)
+                         && (search.Huong ==null||search.Huong==s.Huong)
+                         && (search.TinhTrangPhapLy==null||search.TinhTrangPhapLy ==s.TinhTrangPhapLy)
+                         && (search.ViTriDiaOc==null||search.ViTriDiaOc==s.ViTriDiaOc)
+                         select s).ToList();
             return View(search);
         }
 

@@ -30,6 +30,7 @@ namespace BDSBanGap.Controllers
             ViewBag.DisctrictSearch = from s in db.Districts select s;
             ViewBag.NhaUuTien = from s in db.Products.AsEnumerable()
                                 where s.IsCurrentPriority()
+                                && s.IsSold ==false
                                 select s;
             base.ExecuteCore();
         }
