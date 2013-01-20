@@ -18,9 +18,32 @@
               </tr>
 			  <tr>
                 <td class="cobhl" width="14%" align="right">Min price</td>
-				<td class="cobll" width="23%">@Html.EditorFor(s=>s.PriceFrom)</td>
+				<td class="cobll" width="23%">
+                <select id="PriceFrom" name="PriceFrom">
+                <option>Tất cả</option>
+                <option value="1">1 Tỷ</option>
+                <option value="1">2 Tỷ</option>
+                <option value="1">4 Tỷ</option>
+                <option value="1">6 Tỷ</option>
+                <option value="1">10 Tỷ</option>
+                <option value="1">15 Tỷ</option>
+                <option value="1">20 Tỷ</option>
+                </select>
+                </td>
 				<td class="cobhl" width="16%" align="right">Max Price:</td>
-				<td class="cobll" width="47%">@Html.EditorFor(s=>s.PriceTo)</td>
+				<td class="cobll" width="47%">
+                <select id="PriceTo" name="PriceTo">
+                <option>Tất cả</option>
+                <option value="1">2 Tỷ</option>
+                <option value="1">4 Tỷ</option>
+                <option value="1">6 Tỷ</option>
+                <option value="1">8 Tỷ</option>
+                <option value="1">10 Tỷ</option>
+                <option value="1">15 Tỷ</option>
+                <option value="1">20 Tỷ</option>
+                <option value="1">25 Tỷ</option>
+                </select>
+                </td>
 			  </tr>
 			  <tr>
 			    <td class="cobhl" width="14%" align="right">Quận:</td>
