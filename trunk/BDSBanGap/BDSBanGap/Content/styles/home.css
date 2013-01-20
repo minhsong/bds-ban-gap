@@ -54,7 +54,7 @@ button{border:0;background:none;}
 
 .navigator-infomation{background: url(../images/topmenu2.png) 0px -117px no-repeat;width:485px;height:39px;}
 
-.sub-top-menu{background:#0854a0;height:32px;color:#fff;}
+.sub-top-menu{background:#0854a0;height:53px;color:#fff;}
 .sub-top-menu p{float:left;padding:0px 25px 0px 20px;color:#fbe600;font-size:12px;}
 .sub-top-menu a{color:#fff;;font-weight:bold;text-decoration:none;padding: 8px 0px;}
 .sub-top-menu a:hover,.sub-top-menu a.active{color:#fbe600}
