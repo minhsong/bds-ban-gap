@@ -118,6 +118,12 @@
     <Content Include="Content\images\icon-priority.jpg" />
     <Content Include="Content\images\img-demo.jpg" />
     <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\images\menu\back.jpg" />
+    <Content Include="Content\images\menu\columns.png" />
+    <Content Include="Content\images\menu\item.png" />
+    <Content Include="Content\images\menu\menu.png" />
+    <Content Include="Content\images\menu\pix.gif" />
+    <Content Include="Content\images\menu\subitem.png" />
     <Content Include="Content\images\priority-hou.jpg" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\images\TimKiemNangCao.png" />
@@ -144,6 +150,7 @@
     <Content Include="Content\styles\general.css" />
     <Content Include="Content\styles\home.css" />
     <Content Include="Content\styles\jquery.lightbox-0.5.css" />
+    <Content Include="Content\styles\menu.css" />
     <Content Include="Content\styles\reset.css" />
     <Content Include="Content\styles\slides.css" />
     <Content Include="Content\styles\style.css" />
@@ -449,6 +456,7 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\slideshow\ad_next.png" />
