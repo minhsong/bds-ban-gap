@@ -28,10 +28,10 @@ namespace BDSBanGap.Controllers
         protected override void ExecuteCore()
         {
             ViewBag.DisctrictSearch = from s in db.Districts select s;
-            ViewBag.NhaUuTien = from s in db.Products.AsEnumerable()
+            ViewBag.NhaUuTien = (from s in db.Products.AsEnumerable()
                                 where s.IsCurrentPriority()
                                 && s.IsSold ==false
-                                select s;
+                                select s).OrderBy(s=>s.Priorities.First().EndDate.Value).Take(5);
             base.ExecuteCore();
         }
 

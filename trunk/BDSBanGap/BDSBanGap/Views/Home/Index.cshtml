@@ -18,6 +18,7 @@
         <div class="paginator_number" style="width: auto;">
         @if (count > show)
         {
+            int pages = count%show==0? count/show:count/show+1;
             if (pg != 1)
             {            
             <div class="prev_link">
@@ -29,7 +30,7 @@
 
 
 
-            for (int i = 1; i <= ((count / show) + 1); i++)
+            for (int i = 1; i <= pages; i++)
             {
                 if ((int)ViewBag.pg == i)
                 {
@@ -40,7 +41,7 @@
                 <div><a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
                 }
             }
-            if (pg != ((count / show) + 1))
+            if (pg != pages)
             {
             <div class="next_link">
                 <a href="/home/index?pg=@(pg + 1)&show=@ViewBag.show">

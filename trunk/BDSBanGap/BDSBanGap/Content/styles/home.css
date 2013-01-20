@@ -721,13 +721,22 @@ z-index: 9999;
  }*/
  
 .paginator{
-    background:#eff7ff; height:240px; /*Fix IE6*/
+    background:#eff7ff; /*Fix IE6*/
 }
 
 .paginator_border_top{border-top:1px solid #b1bdc9;}
 .paginator_border_bottom{}
 .paginator_padding{padding:7px 8px!important;
 }
+.current-page a
+{
+    font-style:italic;
+    font-weight:bold;
+    color:Red;
+}
 
-
+.cobtbl select
+{
+    margin-bottom:1px;
+}
 /*Search advance*/
