@@ -51,12 +51,11 @@ namespace BDSBanGap.Controllers
                          && (search.TinhTrangPhapLy==null||search.TinhTrangPhapLy ==s.TinhTrangPhapLy)
                          && (search.ViTriDiaOc==null||search.ViTriDiaOc==s.ViTriDiaOc)
                          select s).ToList();
-            ViewBag.Ward = new SelectList(db.Wards, "WardID", "WardName");
-            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue");
-            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue");
-            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
-            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue");
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
+            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",search.Huong);
+            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",search.LoaiDiaOc);
+            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",search.TinhTrangPhapLy);
+            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",search.ViTriDiaOc);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",search.District);
             return View(search);
         }
 
