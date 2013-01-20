@@ -33,13 +33,15 @@
 {
     padding: 0 30px;
     line-height: 36px; /*Note: keep this value the same as the height of .menuTemplate1 li */
-    font-size: 12px;
+    font-size: 18px;
     font-weight: bold;
     display: inline-block;
     outline: 0;
     text-decoration: none;
-    color: black;
+    color: rgb(32, 71, 170);
     position: relative;
+    width: 177px;
+    text-align: center;
 }
 .menuTemplate1 li:hover a, .menuTemplate1 li.onhover a
 {

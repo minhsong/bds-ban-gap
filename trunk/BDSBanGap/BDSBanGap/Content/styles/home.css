@@ -631,3 +631,58 @@ background-color: #fcfdff;
         position:relative;
 	top:1px;
 }
+
+/*Begin:Navigator*/
+.paginator_number {
+    float:left;
+    height: 17px;
+}
+
+.paginator_number div, .paginator_number b{
+    text-align:center;
+    width: 20px;
+    float:left;
+}
+
+ .paginator_number b { 
+    display:inline;   
+ }
+ 
+.paginator_number .next_link ,  .paginator_number .prev_link {
+	width: 17px;
+	height:17px;
+}
+
+.paginator_number .prev_link {
+     margin-right:7px;
+}
+
+.paginator_number .next_link {
+    margin-left:7px;
+}
+
+.paginator_number .first_link {
+	width: 0px;
+    margin-right:7px;
+}
+
+.paginator_number .last_link {
+	width: 0px;
+    margin-left:7px;
+}
+  
+ /*.paginator_number .next_link {
+	background: url(../images/p_next.gif) no-repeat;
+ }
+  .paginator_number .prev_link {
+	background: url(../images/p_prev.gif) no-repeat;
+ }*/
+ 
+.paginator{
+    background:#eff7ff; height:87px; /*Fix IE6*/
+}
+
+.paginator_border_top{border-top:1px solid #b1bdc9;}
+.paginator_border_bottom{}
+.paginator_padding{padding:7px 8px!important;
+}
