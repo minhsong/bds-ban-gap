@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BDSBanGap.Models;
+using BDSBanGap.Models.Enum;
 
 namespace BDSBanGap.Controllers
 {
@@ -50,6 +51,12 @@ namespace BDSBanGap.Controllers
                          && (search.TinhTrangPhapLy==null||search.TinhTrangPhapLy ==s.TinhTrangPhapLy)
                          && (search.ViTriDiaOc==null||search.ViTriDiaOc==s.ViTriDiaOc)
                          select s).ToList();
+            ViewBag.Ward = new SelectList(db.Wards, "WardID", "WardName");
+            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue");
+            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue");
+            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
+            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue");
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
             return View(search);
         }
 
