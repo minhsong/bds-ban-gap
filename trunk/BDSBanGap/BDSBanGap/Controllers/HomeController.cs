@@ -36,12 +36,12 @@ namespace BDSBanGap.Controllers
 
         public ActionResult Search(SearchModel search)
         {
-            var result = from s in db.Products
+            ViewBag.SearchResult = from s in db.Products
                          where (string.IsNullOrEmpty(search.Title) || s.Title.ToLower().Contains(search.Title))
                          && (search.PriceFrom == null || s.Price >= search.PriceFrom)
                          && (search.PriceTo == null || s.Price < search.PriceTo)
                          select s;
-            return View("Index",result);
+            return View(search);
         }
 
         public ActionResult About()

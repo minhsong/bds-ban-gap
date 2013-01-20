@@ -8,7 +8,7 @@
     <link href="../../Content/styles/menu.css" rel="stylesheet" type="text/css" />
 </head>
 
-    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js") type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
@@ -19,12 +19,12 @@
 	<div class="site-width margin-auto" style="padding-top:20px;">
 		<a href=""><img src="../../Content/images/logo.gif" height="59"  class="png left" style="margin-left:20px;width:278px;"></a>
 		<div class="header-search left" style="margin-left:70px;margin-top:15px;">
-			<form id="menu_search_frm" action="http://www.autobay.vn/car/search_keyword" method="post">
+			@*<form id="menu_search_frm" action="http://www.autobay.vn/car/search_keyword" method="post">
 				<input type="text" name="keyword" id="search_keyword" value="Nhập từ khóa" class="left ui-autocomplete-input" style="color:#000000;font-family:Arial;" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
 				<button class="btn_timxe" type="submit" style="cursor:pointer;"></button>
 				<br class="clearLeft">
 
-			</form>
+			</form>*@
 		</div>
 
         @*<div class="top-menu">
@@ -40,7 +40,7 @@
 		</div>*@
         <div id="menu">
     <ul class="menu">
-        <li><a href="#" ><span>Home</span></a>
+        <li><a href="/" ><span>Home</span></a>
             @*<div><ul>
                 <li><a href="#" class="parent"><span>Sub Item 1</span></a>
                     <div><ul>
@@ -67,7 +67,7 @@
                 <li><a href="#"><span>Sub Item 3</span></a></li>
             </ul></div>*@
         </li>
-        <li><a href="#" ><span>Search</span></a>
+        <li><a href="/Home/Search" ><span>Search</span></a>
             @*<div class="columns two">
                 <ul class="one">
                     <li><a href="#"><span>Sub Item 1.1</span></a></li>
@@ -81,8 +81,8 @@
                 
             </div>*@
         </li>
-        <li><a href="#"><span>Help</span></a></li>
-        <li class="last"><a href="#"><span>Contacts</span></a></li>
+        <li><a href="/Home/Help"><span>Help</span></a></li>
+        <li class="last"><a href="/Home/About"><span>Contacts</span></a></li>
     </ul>
 </div>
 
@@ -95,7 +95,7 @@
 
 <div class="left w235" id="colum-left">
 <div class="element-left">
-@Html.Partial("Search",new BDSBanGap.Models.SearchModel())
+@Html.Partial("SearchPanel", new BDSBanGap.Models.SearchModel())
 </div> <!-- end div .element-left-->
 
 <div class="element-left">

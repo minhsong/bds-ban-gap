@@ -543,8 +543,9 @@
     <Content Include="Views\Product\ListPriorityProduct.cshtml" />
     <Content Include="Views\Product\SoldProducts.cshtml" />
     <Content Include="Views\Product\SellingProducts.cshtml" />
-    <Content Include="Views\Shared\Search.cshtml" />
+    <Content Include="Views\Shared\SearchPanel.cshtml" />
     <Content Include="Views\Product\SoldProduct.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
