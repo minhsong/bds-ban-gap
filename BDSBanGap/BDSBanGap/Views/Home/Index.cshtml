@@ -1,82 +1,107 @@
 ﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
-
 @{
     ViewBag.Title = "Index";
 }
-
-	<div class="list-house-content mt5 pt5">
-    	<div class="list-house-header-left left pb10">
-        	<h3 class="blue bold left">
-            	Có <span class="list-house-count" id="house-sell-count">@Model.Count()</span> nhà đăng bán
-            </h3>
-        	<br class="clearBoth" />
-        </div> <!-- end .house-sell-header-left -->
-        <div class="list-house-header-right right">
-        	<div class="paginator-number">
-
-            </div> <!-- end .paginator-number -->
-        </div> <!-- end .house-sell-header-right -->
+<div class="list-house-content mt5 pt5">
+    <div class="list-house-header-left left pb10">
+        <h3 class="blue bold left">
+            Có <span class="list-house-count" id="house-sell-count">@Model.Count()</span> nhà
+            đăng bán
+        </h3>
         <br class="clearBoth" />
-        <div class="list-items">
+    </div>
+    <!-- end .house-sell-header-left -->
+    <div class="list-house-header-right right">
+        <div class="paginator_number" style="width: auto;">
+            <div class="prev_link">
+                <a href="">
+                    <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                </a>
+            </div>
+            <div>
+                <a href="">1</a></div>
+            <b class="green">2</b>
+            <div class="next_link">
+                <a href="">
+                    <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+            <div class="last_link">
+                <a href=""></a>
+            </div>
+            <div class="clearBoth">
+            </div>
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .house-sell-header-right -->
+    <br class="clearBoth" />
+    <div class="list-items">
         @foreach (var item in Model)
-          {
-              <div id="house-id" class="item">
-            	<div class="item-image left ml6">
-                	<div class="item-image-border">
-                    	<a href="/Home/Detail/@item.ProductID">
-                        @if (item.Images.Count == 0)
-                        {
-                            <img src="/Content/images/Default-image.jpg" />
-                        }
-                        else
-                        {
-                            	<img src="@item.Images.First().ThumblLink" />
-                        }
-
-                        
+        {
+            <div id="house-id" class="item">
+                <div class="item-image left ml6">
+                    <div class="item-image-border">
+                        <a href="/Home/Detail/@item.ProductID">
+                            @if (item.Images.Count == 0)
+                            {
+                                <img src="/Content/images/Default-image.jpg" />
+                            }
+                            else
+                            {
+                                <img src="@item.Images.First().ThumblLink" />
+                            }
                         </a>
-                    </div> <!-- end .item-image-border -->
-                </div> <!--end .item-image -->
+                    </div>
+                    <!-- end .item-image-border -->
+                </div>
+                <!--end .item-image -->
                 <div class="item-description left ml10">
-                	<strong>
-                    	<a href="/Home/Detail/@item.ProductID">@item.Title</a>
+                    <strong><a href="/Home/Detail/@item.ProductID">@item.Title</a>
                         <br />
                     </strong>
-                    <p class="mt5">@Html.Raw((item.Description.Length>150?item.Description.Substring(0,150):item.Description))</p>
-                    	<div class="view-detail">
-                        	<div style="position:absolute;top:3px;z-index:100;">
-							<a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Deatil/@item.ProductID">
-								Xem chi tiết
-							</a>
-						</div>
-                        </div> <!-- end .view-detail -->
-                </div> <!--end .item-description -->
-
-
-                <div class="border-right-dashed left pl10"></div> <!--end .border-right-dashed -->
+                    <p class="mt5">@Html.Raw((item.Description.Length > 150 ? item.Description.Substring(0, 150) : item.Description))</p>
+                    <div class="view-detail">
+                        <div style="position: absolute; top: 3px; z-index: 100;">
+                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Deatil/@item.ProductID">
+                                Xem chi tiết </a>
+                        </div>
+                    </div>
+                    <!-- end .view-detail -->
+                </div>
+                <!--end .item-description -->
+                <div class="border-right-dashed left pl10">
+                </div>
+                <!--end .border-right-dashed -->
                 <div class="item-status left">
-                	<p style="text-align:center">Phường: @item.Ward.WardName</p>
+                    <p style="text-align: center">
+                        Phường: @item.Ward.WardName</p>
                     <br />
-                    <p style="text-align:center">Quận: @item.Ward.District.DistrictName</p>
-                </div> <!--end .item-status -->
-                <div class="border-right-dashed left"></div> <!--end .border-right-dashed -->
+                    <p style="text-align: center">
+                        Quận: @item.Ward.District.DistrictName</p>
+                </div>
+                <!--end .item-status -->
+                <div class="border-right-dashed left">
+                </div>
+                <!--end .border-right-dashed -->
                 <div class="price-place left pl10">
-                	<div class="price blue left">@item.Price Tỷ VNĐ</div>
+                    <div class="price blue left">@item.Price Tỷ VNĐ</div>
                     <br class="clearBoth" />
-                    <div class="place-city pt10"> @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
+                    <div class="place-city pt10">
+                        @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
                     <div class="place-distric-road">@BDSBanGap.Models.Enum.TinhTrangPhapLy.GetTinhTrangPhapLy(item.TinhTrangPhapLy)</div>
-
-                </div> <!--end .price-place -->
+                </div>
+                <!--end .price-place -->
                 <br class="clearLeft" />
             </div> <!-- end .item -->
-          }
-        	
-        </div> <!-- end .list-items -->
-        <div class="border-top-end"></div>
-        <div class="pagin-end right">
-        	<div class="paginator-number">
-
-            </div> <!-- end .paginator-number -->
-        </div> <!-- end .pagin-end -->
-
-    </div> <!-- end .house-sell-content -->
+        }
+    </div>
+    <!-- end .list-items -->
+    <div class="border-top-end">
+    </div>
+    <div class="pagin-end right">
+        <div class="paginator-number">
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .pagin-end -->
+</div>
+<!-- end .house-sell-content -->
