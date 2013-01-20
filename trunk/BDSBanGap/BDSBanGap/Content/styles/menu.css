@@ -215,7 +215,7 @@ margin-top: 91px;
     margin:0 5px 0 28px;
     position:relative;
     left:5px;
-    
+    float: none;
 }
 #menu.active li.current-back, #menu.active li.current-parent-back { background-position:left -637px; }
 #menu.active li.current-back .left { background-position:right -182px; }
