@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (c) 2012 Anders Ekdahl (http://coffeescripter.com/)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
@@ -23,10 +23,10 @@
                      scroll_jump: 0, // If 0, it jumps the width of the container
                      slideshow: {
                        enable: true,
-                       autostart: false,
-                       speed: 6000,
-                       start_label: 'Start',
-                       stop_label: 'Stop',
+                       autostart: true,
+                       speed: 5000,
+                       start_label: 'Tự động',
+                       stop_label: 'Dừng',
                        stop_on_scroll: true,
                        countdown_prefix: '(',
                        countdown_sufix: ')',

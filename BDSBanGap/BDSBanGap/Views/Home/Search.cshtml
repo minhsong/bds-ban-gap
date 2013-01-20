@@ -1,13 +1,16 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model BDSBanGap.Models.SearchModel
 
 @{
     ViewBag.Title = "Index";
+    var result = ViewBag.SearchResult as IEnumerable<BDSBanGap.Models.DBContext.Product>;
 }
+    <div class="Search-panel">
 
+    </div>
 	<div class="list-house-content mt5 pt5">
     	<div class="list-house-header-left left pb10">
         	<h3 class="blue bold left">
-            	Có <span class="list-house-count" id="house-sell-count">@Model.Count()</span> nhà đăng bán
+            	Có <span class="list-house-count" id="house-sell-count">@result.Count()</span> kết quả
             </h3>
         	<br class="clearBoth" />
         </div> <!-- end .house-sell-header-left -->
@@ -18,7 +21,7 @@
         </div> <!-- end .house-sell-header-right -->
         <br class="clearBoth" />
         <div class="list-items">
-        @foreach (var item in Model)
+        @foreach (var item in result)
           {
               <div id="house-id" class="item">
             	<div class="item-image left ml6">
