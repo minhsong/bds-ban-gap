@@ -1,4 +1,9 @@
 ﻿@model BDSBanGap.Models.SearchModel
+<style type="text/css">
+    #District {
+        width: 140px;
+    }
+</style>
 <div class="search-detail">
 <div class="search-detail-header">
 		<h3 class="search-detail-header-content">
@@ -21,20 +26,20 @@
 
     </div>
     -->
-    <table class="pt5" border="0px">
+    <table class="pt5" style="border: none">
     <tr>
-        <td style="font-weight:bold">
+        <td style="font-weight:bold; border: none">
         Khu vực
         </td>
-        <td>
+        <td style="border: none">
         @Html.DropDownListFor(s=>s.District, new MultiSelectList(ViewBag.DisctrictSearch as IEnumerable<BDSBanGap.Models.DBContext.District>, "DistrictID", "DistrictName"))
         </td>
     </tr>
     <tr>
-        <td style="font-weight:bold">Giá từ:
+        <td style="font-weight:bold; border: none">Giá từ:
         </td>
-        <td class="left w60 pt2">
-         <select name="PriceFrom" id="PriceFrom" class="w70">
+        <td class="left w60 pt2" style="border: none">
+         <select name="PriceFrom" id="PriceFrom" class="" style="width: 140px">
           <option>Tất cả</option>
           <option value="1">1 Tỷ</option>
           <option value="2">2 Tỷ</option>
@@ -46,10 +51,10 @@
         </td>
     </tr>
     <tr>
-    <td style="font-weight:bold">Giá đến:
+    <td style="font-weight:bold; border: none"> đến:
     </td>
-    <td class="left w60 pt2">
-    <select name="PriceTo" class="w70 ml4" id="PriceTo">
+    <td class="left w60 pt2" style="border: none">
+    <select name="PriceTo" class=" " id="PriceTo" style="width: 140px">
           <option>Tất cả</option>
           <option value="2">2 Tỷ</option>
           <option value="4">4 Tỷ</option>

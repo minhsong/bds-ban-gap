@@ -358,6 +358,7 @@ a.Img-link
 	width: 715px !important;
 }
 
+.list-items .item:hover{background:#EFF7FF!important;}
 .item-id {
 	font-size: 11px;
 	margin-top: 3px;
