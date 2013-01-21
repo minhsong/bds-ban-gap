@@ -51,7 +51,10 @@ namespace BDSBanGap.Controllers
         public ActionResult Search(SearchModel search)
         {
             var SearchResult = (from s in db.Products.AsEnumerable()
-                                    where (search.PriceFrom == null || s.Price >= search.PriceFrom)
+                                    where s.IsActive
+                                    && s.IsDelete==false
+                                    && s.IsSold ==false
+                                    &&(search.PriceFrom == null || s.Price >= search.PriceFrom)
                                     && (search.PriceTo == null || s.Price < search.PriceTo)
                                     && (search.LoaiDiaOc == null || search.LoaiDiaOc == s.LoaiDiaOc)
                                     && (search.Huong == null || search.Huong == s.Huong)

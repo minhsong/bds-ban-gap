@@ -314,6 +314,7 @@ namespace BDSBanGap.Helpers
 
         public static string VietHoaKhongDau(string converString)
         {
+            converString = ToString(converString);  
 
             //---------------------------------a^ 
             converString = converString.Replace("ấ", "a");
