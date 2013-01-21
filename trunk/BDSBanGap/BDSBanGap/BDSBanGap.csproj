@@ -124,6 +124,7 @@
     <Content Include="Content\images\paging\p_next.gif" />
     <Content Include="Content\images\paging\p_prev.gif" />
     <Content Include="Content\images\priority-hou.jpg" />
+    <Content Include="Content\images\quicksearch-bg.png" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\images\TimKiemNangCao.png" />
     <Content Include="Content\images\topmenu2.png" />
