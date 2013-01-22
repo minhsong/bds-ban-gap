@@ -101,6 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\admin\delete-icon.png" />
+    <Content Include="Content\images\admin\Edit_icon.png" />
+    <Content Include="Content\images\admin\heart-broken_icon.png" />
+    <Content Include="Content\images\admin\Heart_Icon.png" />
+    <Content Include="Content\images\admin\house_sold_icon.png" />
     <Content Include="Content\images\allbody_bg.jpg" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\btn-search-content.gif" />
