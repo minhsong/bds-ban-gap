@@ -1,28 +1,32 @@
 ﻿@model BDSBanGap.Models.DBContext.Ward
 
 @{
-    ViewBag.Title = "CreateWard";
+    ViewBag.Title = "TẠO PHƯỜNG MỚI";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>CreateWard</h2>
-
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
+<div id="content-header">
+	<h1>TẠO PHƯỜNG MỚI</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+<br />
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Ward</legend>
         <div class="editor-label">
-            @Html.LabelFor(model => model.DistrictID)
+            Quận
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.DistrictID, ViewBag.District as SelectList)
             @Html.ValidationMessageFor(model => model.DistrictID)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.WardName)
+            Tên phường
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.WardName)
@@ -30,7 +34,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+            Ghi chú
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Description)
@@ -41,7 +45,3 @@
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
