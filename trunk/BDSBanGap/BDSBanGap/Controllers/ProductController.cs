@@ -337,6 +337,15 @@ namespace BDSBanGap.Controllers
             return View(hp);
         }
 
+        public ActionResult RemovePriority(int id)
+        {
+            var pri = db.Priorities.Find(id);
+            pri.EndDate = DateTime.Now;
+            db.Entry(pri).State = EntityState.Modified;
+            db.SaveChanges();
+            return null;
+        }
+
         public ActionResult ListPriorityProduct()
         {
             var result = from s in db.Products.AsEnumerable()
