@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Bất động sản, nhà bán gấp";
     int pg = (int)ViewBag.pg;
     int show = (int)ViewBag.show;
     int count = (int)ViewBag.count;
@@ -85,7 +85,7 @@
                     <p class="mt5">@Html.Raw((item.Description.Length > 150 ? item.Description.Substring(0, 150) : item.Description))</p>
                     <div class="view-detail">
                         <div style="position: absolute; top: 3px; z-index: 100;">
-                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Deatil/@item.ProductID">
+                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
                                 Xem chi tiết </a>
                         </div>
                     </div>
@@ -96,11 +96,12 @@
                 </div>
                 <!--end .border-right-dashed -->
                 <div class="item-status left">
+                <p style="text-align: center">
+                        @item.DuongTruocNha,</p>
                     <p style="text-align: center">
-                        Phường: @item.Ward.WardName</p>
-                    <br />
+                        P @item.Ward.WardName,</p>
                     <p style="text-align: center">
-                        Quận: @item.Ward.District.DistrictName</p>
+                        Q @item.Ward.District.DistrictName</p>
                 </div>
                 <!--end .item-status -->
                 <div class="border-right-dashed left">
@@ -110,7 +111,7 @@
                     <div class="price blue left">@item.Price Tỷ VNĐ</div>
                     <br class="clearBoth" />
                     <div class="place-city pt10">
-                        @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
+                       Hướng @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
                     <div class="place-distric-road">@BDSBanGap.Models.Enum.TinhTrangPhapLy.GetTinhTrangPhapLy(item.TinhTrangPhapLy)</div>
                 </div>
                 <!--end .price-place -->

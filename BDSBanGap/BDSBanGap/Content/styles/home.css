@@ -740,4 +740,8 @@ z-index: 9999;
 {
     margin-bottom:1px;
 }
+.item-status p
+{
+    margin-bottom:5px;
+}
 /*Search advance*/

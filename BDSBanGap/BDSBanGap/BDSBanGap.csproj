@@ -469,6 +469,9 @@
     <Content Include="Scripts\slideshow\loader.gif" />
     <Content Include="Scripts\slideshow\opa75.png" />
     <Content Include="Scripts\slideshow\trans.gif" />
+    <Content Include="Scripts\table\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\table\jquery.dataTables.min.js" />
+    <Content Include="Scripts\table\jquery.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -555,6 +558,9 @@
     <Content Include="Views\Shared\SearchPanel.cshtml" />
     <Content Include="Views\Product\SoldProduct.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\MasterData\EditDistrict.cshtml" />
+    <Content Include="Views\MasterData\EditWard.cshtml" />
+    <Content Include="Views\MasterData\EditContact.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

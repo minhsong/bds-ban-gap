@@ -430,7 +430,6 @@
 }
 
 #result_detail .detail_info .right .features .feat_item dl {
-	width:368px;
 }
 #result_detail .detail_info .right .features .feat_item dt{
 	width:100px;
@@ -445,7 +444,7 @@
 	background:#e8e7e7;
 	font-weight:700;
 	font-size:12px;
-	padding:7px 10px;
+	padding:7px 0px;
 	margin-bottom:1px;
 }
 
