@@ -45,12 +45,27 @@ namespace BDSBanGap.Controllers
         public ActionResult EditContact(int id)
         {
             var ct = db.Contacts.Find(id);
-            return View(ct);
+            return PartialView(ct);
         }
 
         [HttpPost]
         public ActionResult EditContact(Contact contact)
         {
+            if (ModelState.IsValid)
+            {
+                var ct = db.Contacts.Find(contact.ContactID);
+                if (ct != null)
+                {
+                    ct.FullName = contact.FullName;
+                    ct.Phone = contact.Phone;
+                    ct.Email = contact.Email;
+                    ct.Address = contact.Address;
+                    ct.UpdatedBy = User.Identity.Name;
+                    ct.UpdatedDate = DateTime.Now;
+                    db.Entry(ct).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
             return View();
         }
 
@@ -89,7 +104,9 @@ namespace BDSBanGap.Controllers
 
         public ActionResult EditWard(int id)
         {
-            return View();
+            var ward = db.Wards.Find(id);
+            ViewBag.district = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName", ward.DistrictID);
+            return PartialView(ward);
         }
 
         [HttpPost]
@@ -139,14 +156,27 @@ namespace BDSBanGap.Controllers
             return View(district);
         }
 
+
         public ActionResult EditDistrict(int id)
         {
-            return View();
+            var dt = db.Districts.Find(id);
+            return PartialView(dt);
         }
 
         [HttpPost]
         public ActionResult EditDistrict(District district)
         {
+            var ds = db.Districts.Find(district.DistrictID);
+            if (ds != null)
+            {
+                ds.DistrictName = district.DistrictName;
+                ds.Description = district.Description;
+                ds.UpdatedBy = User.Identity.Name;
+                ds.UpdatedDate = DateTime.Now;
+                db.Entry(ds).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
+                return null;
+            }
             return View();
         }
 

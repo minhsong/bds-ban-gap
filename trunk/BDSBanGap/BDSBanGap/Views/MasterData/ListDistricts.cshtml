@@ -47,7 +47,7 @@
                     </td>
                     <td style="width: 80px; text-align: center;">@item.Description
                     </td>
-                    <td style="width: 160px; text-align: center;"><a>Detail</a> | <a>Delete</a>
+                    <td style="width: 160px; text-align: center;"><a href="javascript:void(0)" onclick="ShowEditForm('@item.DistrictID')">Edit</a> | <a>Delete</a>
                     </td>
                 </tr>
             }
@@ -55,4 +55,36 @@
         </table>
 
     </div>
+    <div id="popup-district"></div>
+       <script type="text/javascript">
+           $(function () {
+               $("#popup-district").dialog({
+                   autoOpen: false, width: 400, height: 220, modal: true,
+                   buttons: {
+                       "Lưu": function () {
+                           $.ajax({
+                               url: '/MasterData/EditDistrict',
+                               data: $("#Form").serialize(),
+                               type: 'POST',
+                               success: function (result) {
+                                   document.location.reload();
+                               }
+                           });
+                       },
+                       "Hủy": function () { $(this).dialog("close"); }
+                   }
+               });
+           });
+           function ShowEditForm(idin) {
+               $.ajax({
+                   url: '/MasterData/EditDistrict',
+                   data: { id: idin },
+                   type: 'GET',
+                   success: function (result) {
+                       $('#popup-district').html(result);
+                       $('#popup-district').dialog("option", "title", "Cập nhập thông tin quận").dialog("open");
+                   }
+               });
+           }
+   </script>
 

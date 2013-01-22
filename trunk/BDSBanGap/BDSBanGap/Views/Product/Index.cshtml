@@ -76,21 +76,6 @@
     </p>
 </div>
    <script type="text/javascript">
-       var id;
-       $(function () {
-           $('#Priority').click(function () {
-               $.ajax({
-                   url: '/Product/SetPriorityGet',
-                   data: { id: id },
-                   type: 'POST',
-                   success: function (result) {
-                       $('#Set-Priority').html(result);
-                       $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
-                   }
-               });
-           });
-       });
-
        $(function () {
            $("#Set-Priority").dialog({
                autoOpen: false, width: 400, height: 220, modal: true,
@@ -110,8 +95,15 @@
            });
        });
        function ShowPriorityForm(idin) {
-           id = idin;
-           $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+           $.ajax({
+               url: '/Product/SetPriorityGet',
+               data: { id: idin },
+               type: 'POST',
+               success: function (result) {
+                   $('#Set-Priority').html(result);
+                   $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+               }
+           });
        }
    </script>
 @*script delete product*@
