@@ -745,3 +745,99 @@ z-index: 9999;
     margin-bottom:5px;
 }
 /*Search advance*/
+/*Search advance*/
+
+/* Footer stylings */
+
+#footer_rail {
+	margin:0;
+	padding:0;
+	background-color: #37939B;
+    min-height: 200px;
+    color: #fff;
+}
+
+#footer_top_bg {
+	clear:both;
+	height:7px;
+	background:url(../images/footer_top_bg.png) bottom right repeat-x;
+}
+
+#footer_content {
+	width:980px;
+	margin:0 auto 0 auto;
+	background:url(../images/footer_bg.png) 749px 12px no-repeat;
+}
+
+.footer_cols {
+	float:left;
+	width:150px;
+	margin-right:40px;
+}
+
+.footer_cols ul {
+	margin:0;
+	padding:0;
+}
+
+.footer_cols ul li {
+	padding-left:0;
+	margin-left:0;
+	list-style:none;
+}
+
+.footer_cols li a, footer_cols li a:visited {
+	font-size:1.1em;
+	margin:0 0 5px 0;
+	color:#A7CED3!important;
+}
+
+.footer_cols h3 {
+	font-size:1px;
+	color:#ffffff;
+	margin-bottom:10px;
+}
+
+.footer_cols .tel_no {
+    font-size: 1px;
+	font-weight:bold;
+	color:#ffffff;
+	margin: 36px 0 0 0;
+	padding:0 5px 10px 5px;
+	border-bottom:1px dashed #37939B;
+}
+
+.last_col_no_right_marg {
+	margin-right:0;
+	width:185px;
+	min-height:190px;
+}
+
+#logo-footter {
+    margin: 5px auto;
+width: 330px;
+    font-weight: bold;
+    font-size: 15px;
+}
+/* Clearfix code */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
