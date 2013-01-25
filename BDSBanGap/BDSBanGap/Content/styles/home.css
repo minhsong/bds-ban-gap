@@ -752,9 +752,10 @@ z-index: 9999;
 #footer_rail {
 	margin:0;
 	padding:0;
-	background: url(../images/bg_repeat.png) top left repeat #93CCCE;
+	/*background: url(../images/bg_repeat.png) top left repeat #93CCCE;*/
     min-height: 200px;
     color: #fff;
+    background-color: #07559d;
 }
 
 #footer_top_bg {
