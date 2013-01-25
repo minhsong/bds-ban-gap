@@ -122,7 +122,9 @@ namespace BDSBanGap.Controllers
                 editWard.WardName = ward.WardName;
                 db.Entry(editWard).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
+                return null;
             }
+            ViewBag.district = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName", ward.DistrictID);
             return View(ward);
         }
 
