@@ -753,7 +753,7 @@ z-index: 9999;
 	margin:0;
 	padding:0;
 	/*background: url(../images/bg_repeat.png) top left repeat #93CCCE;*/
-    min-height: 200px;
+    min-height: 150px;
     color: #fff;
     background-color: #07559d;
 }
