@@ -1,4 +1,4 @@
-@charset "utf-8";
+o`@charset "utf-8";
 /* CSS Document */
 
 body{
@@ -753,18 +753,21 @@ z-index: 9999;
 	margin:0;
 	padding:0;
 	/*background: url(../images/bg_repeat.png) top left repeat #93CCCE;*/
-    min-height: 225px;
+    min-height: 245px;
     color: #fff;
     background-color: #07559d;
 }
 
 #footer_top_bg {
-	clear:both;
+	/*clear:both;
 	height:7px;
-	background:url(../images/footer_top_bg.png) bottom right repeat-x;
+	background:url(../images/footer_top_bg.png) bottom right repeat-x;*/
+	background-color:#086ac4;
+	height:27px;
+    clear: both;
 }
 
-#bot-footter{width:972px;margin:10px auto;}
+#bot-footter{width:984px;margin:10px auto;}
 #logo-footter{float:left;width:230px;}
 #logo-footter img{margin:20px 0px 10px;}
 .menu-footter{float:left;width:500px;margin:23px 0px 22px;font-size:12px;font-weight:bold;line-height:25px;border-left:1px solid #2066a7}
@@ -777,7 +780,7 @@ z-index: 9999;
     
 }
 .copyright-footer ul {
-    padding: 73px 0px 0px 23px;
+    padding: 73px 0px 0px 13px;
 }
 /* Clearfix code */
 
