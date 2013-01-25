@@ -4,16 +4,11 @@
     ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
     <link rel="icon" href="http://www.diaoconline.vn/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://www.diaoconline.vn/favicon.ico" type="image/x-icon">
-    <title>Cần bán gấp nhà mặt tiền đường An Điềm, P10, Q5, DT: 3.6m x 16m, giá: 5.5 tỷ (thương lượng). - DiaOcOnline</title>
-    <meta name="description" content="Cần bán nhà phốQuận 5TP.HCM, mặt tiền đường, An Điềm, phường 10, 3.6m X 16m, DTSD 57.6m2, Sổ hồng" />
-    <meta name="keywords" content="Cần bán,nhà phố,An Điềm,10,Quận 5,TP.HCM,DTSD 57.6ms,Sổ hồng" />
+    <meta name="description" content="@Model.Title" />
+    <meta name="keywords" content=""@Model.Title"" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="image_src" href="http://image.diaoconline.vn/sieu-thi/nha-pho.jpg" />
     <link href="../../Content/styles/reset.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/styles/general.css?134612" rel="stylesheet" type="text/css" />
     <!--[if IE 7]>
@@ -28,7 +23,7 @@
 <script src="../../Scripts/slideshow/jquery.ad-gallery.js" type="text/javascript"></script>
 <link href="../../Scripts/slideshow/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
 
-    <script type='text/javascript'>
+@*    <script type='text/javascript'>
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-1771835-4']);
         _gaq.push(['_trackPageview']);
@@ -38,7 +33,7 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-  </script>
+  </script>*@
     <script type="text/javascript">
         $(function () {
             var galleries = $('.ad-gallery').adGallery();
@@ -55,33 +50,8 @@
 			<div class="col_720">
                 <div id="result_detail" class="margin_bottom">
                      <div class="rounded_style_2 rounded_box margin_bottom">
-                        @*<div class="unity_bar">
-                            <div class="left">
-                                <div class="email_print">
-                                    <ul>
-                                        <li><a href="/sieu-thi/in/can-ban-gap-nha-mat-tien-duong-an-diem-p10-q5-dt-36m-x-16m-gia-55-ty-thuong-luong-498070">
-                                            <span class="ico_16 ico_print_16"></span>Bản in</a></li>
-                                        <li>
-                                        
-                                        <a href="javascript:void(0)" onclick="GetDataSaved('uOxnxC53Q8Z9FMhC8+5KXw==','/ban-nha-pho-c20/can-ban-gap-nha-mat-tien-duong-an-diem-p10-q5-dt-36m-x-16m-gia-55-ty-thuong-luong-i498070','.itemsaved')" class="itemsaved">
-                                            <span class="ico_16 ico_save_2_16"></span>Lưu tin</a></li>
-                                        <li><a href="http://www.diaoconline.vn/"><span class="ico_16 ico_back_16"></span>Quay lại</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="right">
-                                    <div  class="social_network">
-        <span class="tl">Chia sẻ</span>
-        <ul>
-        <li><a href="http://www.facebook.com/share.php?u=http://www.diaoconline.vn/ban-nha-pho-c20/can-ban-gap-nha-mat-tien-duong-an-diem-p10-q5-dt-36m-x-16m-gia-55-ty-thuong-luong-i498070" target="_blank"><span class="ico_16 ico_facebook_16">facebook</span></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=C%e1%ba%a7n+b%c3%a1n+g%e1%ba%a5p+nh%c3%a0+m%e1%ba%b7t+ti%e1%bb%81n+%c4%91%c6%b0%e1%bb%9dng+An+%c4%90i%e1%bb%81m%2c+P10%2c+Q5%2c+DT%3a+3.6m+x+16m%2c+gi%c3%a1%3a+5.5+t%e1%bb%b7+(th%c6%b0%c6%a1ng+l%c6%b0%e1%bb%a3ng).&url=http://www.diaoconline.vn/ban-nha-pho-c20/can-ban-gap-nha-mat-tien-duong-an-diem-p10-q5-dt-36m-x-16m-gia-55-ty-thuong-luong-i498070&via=DiaOcOnlinevn" target="_blank"><span class="ico_16 ico_twitter_16">twitter</span></a></li>
-        
-        </ul>
-    </div>
 
-                            </div>
-                        </div>*@
-                            <style type="text/css">
+<style type="text/css">
         html
         {
             height: 100%;
@@ -518,12 +488,5 @@ height: 50px;
     </div>
 
 	</div>
-    <!--FOOTER-->
-
-	@*<script src="../../Scripts/home/uniform.js" type="text/javascript"></script>
-    <script src="../../Scripts/home/selectForm.js" type="text/javascript"></script>
-    <script src="../../Scripts/home/tooltipsy.min.js" type="text/javascript"></script>
-    <script src="../../Scripts/home/slides.min.jquery.js" type="text/javascript"></script>
-    <script src="../../Scripts/home/doolv3.js?134612" type="text/javascript"></script>*@
 </div>
 
