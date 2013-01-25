@@ -27,7 +27,7 @@
                        speed: 5000,
                        start_label: 'Tự động',
                        stop_label: 'Dừng',
-                       stop_on_scroll: true,
+                       stop_on_scroll: false,
                        countdown_prefix: '(',
                        countdown_sufix: ')',
                        onStart: true,

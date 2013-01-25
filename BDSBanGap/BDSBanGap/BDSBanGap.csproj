@@ -102,6 +102,7 @@
   <ItemGroup>
     <Content Include="Content\images\admin\delete-icon.png" />
     <Content Include="Content\images\allbody_bg.jpg" />
+    <Content Include="Content\images\BDS_lo.png" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\bg_repeat.png" />
     <Content Include="Content\images\btn-search-content.gif" />
