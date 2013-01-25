@@ -39,6 +39,7 @@ namespace BDSBanGap.Controllers
                                   && s.IsActive == true
                                   && s.IsDelete == false
                                   && s.IsSold == false
+                                  && s.ProductID!=Id
                                   select s).Take(3).OrderBy(S=>S.CreatedDate);
                     product.Views = product.Views + 1;
                     db.Entry(product).State = System.Data.EntityState.Modified;
