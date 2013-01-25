@@ -560,6 +560,9 @@
     <Content Include="Views\Shared\SearchPanel.cshtml" />
     <Content Include="Views\Product\SoldProduct.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\MasterData\EditContact.cshtml" />
+    <Content Include="Views\MasterData\EditDistrict.cshtml" />
+    <Content Include="Views\MasterData\EditWard.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

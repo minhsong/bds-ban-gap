@@ -50,13 +50,14 @@ namespace BDSBanGap.Controllers
         [Authorize]
         public ActionResult CreateGet()
         {
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName");
+            var fisrtDis = db.Districts.First();
+            ViewBag.WardID = new SelectList(fisrtDis.Wards, "WardID", "WardName", fisrtDis.Wards.First().WardID);
             ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName");
             ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue");
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue");
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue");
             ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue");
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",fisrtDis.DistrictID);
             return View("Create");
         } 
 
@@ -136,14 +137,14 @@ namespace BDSBanGap.Controllers
 
                 return RedirectToAction("Index");  
             }
-
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName", product.WardID);
+            int districtid = db.Wards.Find(product.WardID).DistrictID;
+            ViewBag.WardID = new SelectList(db.Wards.Where(w=>w.DistrictID==districtid) , "WardID", "WardName", product.WardID);
             ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
             ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
             ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
             ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);
             ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",product.ViTriDiaOc);
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName");
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",districtid);
             return View(product);
         }
         

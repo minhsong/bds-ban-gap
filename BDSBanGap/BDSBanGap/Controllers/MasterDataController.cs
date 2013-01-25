@@ -112,12 +112,30 @@ namespace BDSBanGap.Controllers
         [HttpPost]
         public ActionResult EditWard(Ward ward)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var editWard = db.Wards.Find(ward.WardID);
+                editWard.UpdatedBy = User.Identity.Name;
+                editWard.UpdatedDate = DateTime.Now;
+                editWard.Description = ward.Description;
+                editWard.DistrictID = ward.DistrictID;
+                editWard.WardName = ward.WardName;
+                db.Entry(editWard).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return View(ward);
         }
 
+        [HttpPost]
         public ActionResult DeleteWard(int id)
         {
-            return View();
+            var ward = db.Wards.Find(id);
+            if (ward != null)
+            {
+                db.Entry(ward).State = System.Data.EntityState.Deleted;
+                db.SaveChanges();
+            }
+            return null;
         }
 
         #endregion
@@ -183,7 +201,13 @@ namespace BDSBanGap.Controllers
         [HttpPost]
         public ActionResult DeleteDistrict(int id)
         {
-            return View();
+            var dis = db.Districts.Find(id);
+            if (dis != null)
+            {
+                db.Entry(dis).State = System.Data.EntityState.Deleted;
+                db.SaveChanges();
+            }
+            return null;
         }
 
         #endregion
