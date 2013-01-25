@@ -842,3 +842,10 @@ html[xmlns] .clearfix {
 * html .clearfix {
 	height: 1%;
 }
+.header-logo
+{
+    height:120px;
+    position:absolute;
+    padding-top:10px;
+    padding-left:50px;
+}
