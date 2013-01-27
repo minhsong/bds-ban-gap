@@ -117,7 +117,7 @@
                         Hướng @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
                     <div class="place-distric-road">@BDSBanGap.Models.Enum.TinhTrangPhapLy.GetTinhTrangPhapLy(item.TinhTrangPhapLy)</div>
                     @{
-                        if (!item.IsSold)
+                        if (item.IsSold)
                         {
                              <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
                         }
