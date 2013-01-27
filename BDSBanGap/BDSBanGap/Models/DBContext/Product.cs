@@ -89,8 +89,8 @@ namespace BDSBanGap.Models.DBContext
         public PriorityProduct CurrentPriority()
         {
             var result = (from s in Priorities
-                          where s.StarDate < DateTime.Now
-                          && s.EndDate > DateTime.Now
+                          where s.StarDate <= DateTime.Now
+                          && s.EndDate >= DateTime.Now
                           select s).FirstOrDefault();
             return result;
         }

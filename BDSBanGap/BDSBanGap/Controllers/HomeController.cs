@@ -19,13 +19,12 @@ namespace BDSBanGap.Controllers
             var result = (from s in db.Products
                           where s.IsActive == true
                           && s.IsDelete == false
-                          && s.IsSold == false
                           select s).ToList();
             ViewBag.count = result.Count();
             ViewBag.pg = pagging;
             ViewBag.show = show;
             result = result.Skip((pagging - 1) * show.Value).Take(show.Value).ToList();
-            return View(result);
+            return View(result.OrderByDescending(s => s.CreatedDate));
         }
 
         public ActionResult Detail(int Id)
@@ -54,7 +53,6 @@ namespace BDSBanGap.Controllers
             var SearchResult = (from s in db.Products.AsEnumerable()
                                     where s.IsActive
                                     && s.IsDelete==false
-                                    && s.IsSold ==false
                                     &&(search.PriceFrom == null || s.Price >= search.PriceFrom)
                                     && (search.PriceTo == null || s.Price < search.PriceTo)
                                     && (search.LoaiDiaOc == null || search.LoaiDiaOc == s.LoaiDiaOc)
@@ -65,12 +63,12 @@ namespace BDSBanGap.Controllers
                                     && (string.IsNullOrEmpty(search.DuongTruocNha) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.DuongTruocNha, search.DuongTruocNha))
                                     select s).ToList();
 
-            ViewBag.SearchResult = SearchResult;
-            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",search.Huong);
-            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",search.LoaiDiaOc);
-            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",search.TinhTrangPhapLy);
-            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",search.ViTriDiaOc);
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",search.District);
+            ViewBag.SearchResult = SearchResult.OrderByDescending(s=>s.CreatedDate);
+            ViewBag.Huongs = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",search.Huong);
+            ViewBag.LoaiDiaOcs = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",search.LoaiDiaOc);
+            ViewBag.Phaplys = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",search.TinhTrangPhapLy);
+            ViewBag.VitriDiaOcs = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",search.ViTriDiaOc);
+            ViewBag.Districts = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",search.District);
             return View(search);
         }
 

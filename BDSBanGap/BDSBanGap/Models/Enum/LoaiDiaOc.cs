@@ -21,7 +21,11 @@ namespace BDSBanGap.Models.Enum
         public static List<ComboItem> GetListLoaiDiaOc()
         {
             List<ComboItem> result = new List<ComboItem>();
-
+            result.Add(new ComboItem()
+            {
+                DisplayValue = "Nhà ở",
+                ItemValue = (int)LoaiDiaOcEnum.LoaiDiaOc_Nha_O,
+            });
             result.Add(new ComboItem()
             {
                 DisplayValue = "Chung Cư",
@@ -32,12 +36,6 @@ namespace BDSBanGap.Models.Enum
             {
                 DisplayValue = "Đất nền",
                 ItemValue = (int)LoaiDiaOcEnum.LoaiDiaOc_Dat_Nen,
-            });
-
-            result.Add(new ComboItem()
-            {
-                DisplayValue = "Nhà ở",
-                ItemValue = (int)LoaiDiaOcEnum.LoaiDiaOc_Nha_O,
             });
 
             return result;

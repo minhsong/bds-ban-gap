@@ -1,7 +1,7 @@
 ﻿@model BDSBanGap.Models.SearchModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "tìm kiêm Bất động sản, nhà bán gấp";
     var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
 }
 
@@ -136,20 +136,20 @@
                     </tr>
                     <tr>
                         <td class="cobhl" width="24%" align="right">Quận:</td>
-                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.District, ViewBag.District as SelectList, "Tất cả")
+                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.District, ViewBag.Districts as SelectList, "Tất cả")
                         </td>
                         <td class="cobhl" width="16%" align="right">Loại địa ốc:</td>
                         <td class="cobll" width="37%">
-                            @Html.DropDownListFor(s => s.LoaiDiaOc, ViewBag.LoaiDiaOc as SelectList, "Tất cả")
+                            @Html.DropDownListFor(s => s.LoaiDiaOc, ViewBag.LoaiDiaOcs as SelectList, "Tất cả")
                         </td>
                     </tr>
                     <tr>
                         <td class="cobhl" width="24%" align="right">Tình trạng pháp lý:</td>
-                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.TinhTrangPhapLy, ViewBag.Phaply as SelectList,"Tất cả")
+                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.TinhTrangPhapLy, ViewBag.Phaplys as SelectList,"Tất cả")
                         </td>
                         <td class="cobhl" width="16%" align="right">Hướng :</td>
                         <td class="cobll" width="37%">
-                            @Html.DropDownListFor(s => s.Huong, ViewBag.Huong as SelectList, "Tất cả")
+                            @Html.DropDownListFor(s => s.Huong, ViewBag.Huongs as SelectList, "Tất cả")
                         </td>
                     </tr>
                     <tr>
@@ -157,7 +157,7 @@
                         <td class="cobll" width="23%">@Html.EditorFor(s => s.DuongTruocNha)
                         <td class="cobhl" width="16%" align="right">Vị trí địa ốc:</td>
                         <td class="cobll" width="37%">
-                            @Html.DropDownListFor(s => s.ViTriDiaOc, ViewBag.VitriDiaOc as SelectList, "Tất cả")
+                            @Html.DropDownListFor(s => s.ViTriDiaOc, ViewBag.VitriDiaOcs as SelectList, "Tất cả")
                         </td>
                     </tr>
                     <tr>

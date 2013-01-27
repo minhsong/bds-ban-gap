@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Administrator: DANH SÁCH TẤT CẢ NHÀ";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     int count = 0;
 }
@@ -35,11 +35,11 @@
                     </th>
                     <th style="width: 120px; text-align: center;">Phường,Quận
                     </th>
-                    <th style="width: 80px; text-align: center;">Loại Địa Ốc
+                    <th style="width: 60px; text-align: center;">Loại Địa Ốc
                     </th>
-                    <th style="width: 80px; text-align: center;">Vị trí
+                    <th style="width: 60px; text-align: center;">Vị trí
                     </th>
-                    <th style="width: 120px; text-align: center;">Action
+                    <th style="width: 80px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -49,7 +49,7 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Product/Details/@item.ProductID">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID" target="_blank">@item.Title</a>
                     </td>
                     <td style="width: 60px; text-align: center;">@item.Price Tỷ
                     </td>
@@ -57,11 +57,11 @@
                     </td>
                     <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
                     </td>
-                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
                     </td>
-                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 120px; text-align: center;"><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="../../Content/images/admin/Edit_icon.png"/></a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/Heart_Icon.png"/></a>}
+                    <td style="width: 80px; text-align: center;"><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="../../Content/images/admin/Edit_icon.png"/></a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/Heart_Icon.png"/></a>}
                     </td>
                 </tr>
             }
