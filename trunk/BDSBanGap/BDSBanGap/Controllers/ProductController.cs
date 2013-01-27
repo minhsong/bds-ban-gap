@@ -294,6 +294,63 @@ namespace BDSBanGap.Controllers
             return RedirectToAction(page);
         }
 
+        public ActionResult Undeleted(int id)
+        {
+            Product product = db.Products.Find(id);
+            if (product != null)
+            {
+                product.IsDelete = false;
+                db.SaveChanges();
+            }
+            return RedirectToAction("DeletedProducts");
+
+        }
+
+        public ActionResult DeleteFull(int id)
+        {
+            var pro = db.Products.Find(id);
+            var images = from s in db.ProductImages
+                         where s.ProductID == pro.ProductID
+                         select s;
+            foreach (var item in images)
+            {
+                string pathImage = Server.MapPath(item.ImageLink);
+                string pathImageThumb = Server.MapPath(item.ThumblLink);
+
+                FileInfo image = new FileInfo(pathImage);
+                FileInfo imageThumb = new FileInfo(pathImageThumb);
+                
+                if (image.Exists)
+                {
+                    image.Delete();
+                }
+                if (imageThumb.Exists)
+                {
+                    imageThumb.Delete();
+                }
+                db.Entry(item).State = EntityState.Deleted;
+            }
+            var priorities = from s in db.Priorities
+                             where s.ProductID == id
+                             select s;
+
+            foreach (var item in priorities)
+            {
+                db.Entry(item).State = EntityState.Deleted;
+            }
+            db.Entry(pro).State = EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction("DeletedProducts");
+        }
+
+        public ActionResult DeletedProducts()
+        {
+            var list = from s in db.Products
+                       where s.IsDelete == true
+                       select s;
+            return View(list);
+        }
+
         //
         // POST: /Product/Delete/5
 
