@@ -20,6 +20,27 @@ namespace BDSBanGap.Models.Enum
         public static List<ComboItem> GetListHuong()
         {
             List<ComboItem> result = new List<ComboItem>();
+
+            result.Add(new ComboItem()
+            {
+                DisplayValue = "Tây",
+                ItemValue = (int)HuongEnum.Huong_Tay
+            });
+
+
+            result.Add(new ComboItem()
+            {
+                DisplayValue = "Tây Bắc",
+                ItemValue = (int)HuongEnum.Huong_Tay_Bac
+            });
+
+
+            result.Add(new ComboItem()
+            {
+                DisplayValue = "Tây Nam",
+                ItemValue = (int)HuongEnum.Huong_Tay_Nam
+            });
+
             result.Add(new ComboItem()
             {
                 DisplayValue = "Bắc",
@@ -52,28 +73,6 @@ namespace BDSBanGap.Models.Enum
                 DisplayValue = "Nam",
                 ItemValue = (int)HuongEnum.Huong_Nam
             });
-
-
-            result.Add(new ComboItem()
-            {
-                DisplayValue = "Tây",
-                ItemValue = (int)HuongEnum.Huong_Tay
-            });
-
-
-            result.Add(new ComboItem()
-            {
-                DisplayValue = "Tây Bắc",
-                ItemValue = (int)HuongEnum.Huong_Tay_Bac
-            });
-
-
-            result.Add(new ComboItem()
-            {
-                DisplayValue = "Tây Nam",
-                ItemValue = (int)HuongEnum.Huong_Tay_Nam
-            });
-
             return result;
         }
 

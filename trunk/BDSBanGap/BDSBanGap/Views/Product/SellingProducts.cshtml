@@ -35,13 +35,13 @@
                     </th>
                     <th style="width: 120px; text-align: center;">Phường,Quận
                     </th>
-                    <th style="width: 80px; text-align: center;">Loại Địa Ốc
+                    <th style="width: 60px; text-align: center;">Loại Địa Ốc
                     </th>
-                    <th style="width: 80px; text-align: center;">Vị trí
+                    <th style="width: 60px; text-align: center;">Vị trí
                     </th>
-                    <th style="width: 70px; text-align: center;">Ngày rao
+                    <th style="width: 50px; text-align: center;">Ngày rao
                     </th>
-                    <th style="width: 120px; text-align: center;">Action
+                    <th style="width: 100px; text-align: center;">Action
                     </th>
                 </tr>
             </thead>
@@ -59,13 +59,13 @@
                     </td>
                     <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
                     </td>
-                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
                     </td>
-                    <td style="width: 80px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 70px; text-align: center;">@item.CreatedDate.Value.ToShortDateString()
+                    <td style="width: 50px; text-align: center;">@item.CreatedDate.Value.ToShortDateString()
                     </td>
-                    <td style="width: 120px; text-align: center;"><a href="javascript:void(0)" onclick="SoldProduct('@item.ProductID')"><img width="20px" alt="bán nhà" src="../../Content/images/admin/house_sold_icon.png"/></a><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="../../Content/images/admin/Edit_icon.png"/></a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="Javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="../../Content/images/admin/Heart_Icon.png" /></a>}
+                    <td style="width: 100px; text-align: center;"><a href="javascript:void(0)" onclick="SoldProduct('@item.ProductID')"><img width="20px" alt="bán nhà" src="../../Content/images/admin/house_sold_icon.png"/></a><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="../../Content/images/admin/Edit_icon.png"/></a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="Javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="../../Content/images/admin/Heart_Icon.png" /></a>}
                     </td>
                 </tr>
             }
@@ -80,7 +80,6 @@
     </p>
 </div>
 <script type="text/javascript">
-    var id;
     $(function () {
         $("#sold-prpduct-form").dialog({
             autoOpen: false, width: 400, height: 220, modal: true,
@@ -100,10 +99,9 @@
         });
     });
     function SoldProduct(idin) {
-        id = idin;
         $.ajax({
             url: '/Product/SoldProductGet',
-            data: { id: id },
+            data: { id: idin },
             type: 'POST',
             success: function (result) {
                 $('#sold-prpduct-form').html(result);

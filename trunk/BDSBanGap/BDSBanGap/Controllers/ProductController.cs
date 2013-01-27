@@ -33,7 +33,7 @@ namespace BDSBanGap.Controllers
                           where product1.IsDelete == false
                           select product1;
             
-            return View(product.ToList());
+            return View(product.ToList().OrderByDescending(s=>s.CreatedDate));
         }
 
         //
@@ -154,13 +154,13 @@ namespace BDSBanGap.Controllers
         public ActionResult Edit(int id)
         {
             Product product = db.Products.Find(id);
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName",product.WardID);
-            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName",product.ContactId);
-            ViewBag.Huong = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
-            ViewBag.LoaiDiaOc = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
-            ViewBag.Phaply = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);
-            ViewBag.VitriDiaOc = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",product.ViTriDiaOc);
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",product.Ward.DistrictID);
+            ViewBag.Wards = new SelectList(product.Ward.District.Wards.ToList(), "WardID", "WardName",product.WardID);
+            ViewBag.Contacts = new SelectList(db.Contacts, "ContactID", "FullName",product.ContactId);
+            ViewBag.Huongs = new SelectList(huong.GetListHuong(), "ItemValue", "DisplayValue",product.Huong);
+            ViewBag.LoaiDiaOcs = new SelectList(LoaiDiaOc.GetListLoaiDiaOc(), "ItemValue", "DisplayValue",product.LoaiDiaOc);
+            ViewBag.Phaplies = new SelectList(TinhTrangPhapLy.GetListTinhTrangPhapLy(), "ItemValue", "DisplayValue",product.TinhTrangPhapLy);
+            ViewBag.VitriDiaOcs = new SelectList(ViTriDiaOc.GetListViTriDiaOc(), "ItemValue", "DisplayValue",product.ViTriDiaOc);
+            ViewBag.Districts = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",product.Ward.DistrictID);
             return View(product);
         }
 
@@ -353,7 +353,7 @@ namespace BDSBanGap.Controllers
                          where s.IsCurrentPriority()
                          && s.IsSold ==false
                          select s;
-            return View(result);
+            return View(result.OrderByDescending(s => s.CreatedDate));
         }
 
         public ActionResult SoldProducts()
@@ -362,7 +362,7 @@ namespace BDSBanGap.Controllers
                          where s.IsSold == true
                         && s.IsDelete == false
                          select s;
-            return View(result);
+            return View(result.OrderByDescending(s => s.SoldDate));
         }
 
         public ActionResult SellingProducts()
@@ -372,7 +372,7 @@ namespace BDSBanGap.Controllers
                          && s.IsDelete == false
                          && s.IsActive == true
                          select s;
-            return View(result);
+            return View(result.OrderByDescending(s => s.CreatedDate));
         }
 
         public ActionResult DeleteEmage(int id)

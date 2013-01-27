@@ -31,7 +31,7 @@
                 </th>
                 <th style="width: auto;">Tiêu đề
                 </th>
-                <th style="width: 60px; text-align: center;">Giá
+                <th style="width: 50px; text-align: center;">Giá
                 </th>
                 <th style="width: 150px; text-align: center;">Phường, Quận
                 </th>
@@ -51,9 +51,9 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="#">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID">@item.Title</a>
                     </td>
-                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    <td style="width: 50px; text-align: center;">@item.Price Tỷ
                     </td>
                     <td style="width: 150px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName
                     </td>
@@ -117,8 +117,8 @@
             buttons: {
                 "Xóa": function () {
                     $.ajax({
-                        url: '/Product/Delete',
-                        data: { id: id, page: "ListPriorityProduct" },
+                        url: '/Product/RemovePriority',
+                        data: { id: id},
                         type: 'POST',
                         success: function (result) {
                             document.location.reload();
