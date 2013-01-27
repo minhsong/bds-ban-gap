@@ -8,49 +8,50 @@
 <div class="list-house-content mt5 pt5">
     <div class="list-house-header-left left pb10">
         <h3 class="blue bold left">
-            Có <span class="list-house-count" id="house-sell-count">@count</span> nhà
-            đăng bán
+            Có <span class="list-house-count" id="house-sell-count">@count</span> nhà đăng bán
         </h3>
         <br class="clearBoth" />
     </div>
     <!-- end .house-sell-header-left -->
     <div class="list-house-header-right right">
         <div class="paginator_number" style="width: auto;">
-        @if (count > show)
-        {
-            int pages = count%show==0? count/show:count/show+1;
-            if (pg != 1)
-            {            
-            <div class="prev_link">
-                <a href="/home/index?pg=@(pg - 1)&show=@ViewBag.show">
-                    <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
-                </a>
-            </div>
-            }
-
-
-
-            for (int i = 1; i <= pages; i++)
+            @if (count > show)
             {
-                if ((int)ViewBag.pg == i)
-                {
-                    <div class="current-page"><a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                int pages = count % show == 0 ? count / show : count / show + 1;
+                if (pg != 1)
+                {            
+                <div class="prev_link">
+                    <a href="/home/index?pg=@(pg - 1)&show=@ViewBag.show">
+                        <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                    </a>
+                </div>
                 }
-                else
+
+
+
+                for (int i = 1; i <= pages; i++)
                 {
-                <div><a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                    if ((int)ViewBag.pg == i)
+                    {
+                <div class="current-page">
+                    <a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                    }
+                    else
+                    {
+                <div>
+                    <a href="/home/index?pg=@i&show=@ViewBag.show">@i</a></div>
+                    }
+                }
+                if (pg != pages)
+                {
+                <div class="next_link">
+                    <a href="/home/index?pg=@(pg + 1)&show=@ViewBag.show">
+                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                <div class="last_link">
+                    <a href=""></a>
+                </div>
                 }
             }
-            if (pg != pages)
-            {
-            <div class="next_link">
-                <a href="/home/index?pg=@(pg + 1)&show=@ViewBag.show">
-                    <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
-            <div class="last_link">
-                <a href=""></a>
-            </div>
-            }
-        }
             <div class="clearBoth">
             </div>
         </div>
@@ -78,7 +79,7 @@
                     <!-- end .item-image-border -->
                 </div>
                 <!--end .item-image -->
-                <div class="item-description left ml10">
+                <div class="item-description left ml10" >
                     <strong><a href="/Home/Detail/@item.ProductID">@item.Title</a>
                         <br />
                     </strong>
@@ -88,15 +89,17 @@
                             <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
                                 Xem chi tiết </a>
                         </div>
+                        
                     </div>
                     <!-- end .view-detail -->
+                    
                 </div>
                 <!--end .item-description -->
                 <div class="border-right-dashed left pl10">
                 </div>
                 <!--end .border-right-dashed -->
                 <div class="item-status left">
-                <p style="text-align: center">
+                    <p style="text-align: center">
                         @item.DuongTruocNha,</p>
                     <p style="text-align: center">
                         P @item.Ward.WardName,</p>
@@ -111,8 +114,15 @@
                     <div class="price blue left">@item.Price Tỷ VNĐ</div>
                     <br class="clearBoth" />
                     <div class="place-city pt10">
-                       Hướng @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
+                        Hướng @BDSBanGap.Models.Enum.huong.GetHuong(item.Huong)</div>
                     <div class="place-distric-road">@BDSBanGap.Models.Enum.TinhTrangPhapLy.GetTinhTrangPhapLy(item.TinhTrangPhapLy)</div>
+                    @{
+                        if (!item.IsSold)
+                        {
+                             <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
+                        }
+                    }
+                   
                 </div>
                 <!--end .price-place -->
                 <br class="clearLeft" />
