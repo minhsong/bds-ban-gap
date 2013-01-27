@@ -104,6 +104,7 @@
     <Content Include="Content\images\allbody_bg.jpg" />
     <Content Include="Content\images\BDS-icon.ico" />
     <Content Include="Content\images\BDS_logo.png" />
+    <Content Include="Content\images\BDS_logo.png" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\bg_repeat.png" />
     <Content Include="Content\images\btn-search-content.gif" />
@@ -156,7 +157,6 @@
     <Content Include="Content\styles\home.css" />
     <Content Include="Content\styles\jquery.lightbox-0.5.css" />
     <Content Include="Content\styles\menu.css" />
-    <Content Include="Content\styles\reset.css" />
     <Content Include="Content\styles\slides.css" />
     <Content Include="Content\styles\style.css" />
     <Content Include="Content\styles\tools.css" />
