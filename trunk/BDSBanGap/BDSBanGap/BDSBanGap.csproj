@@ -119,6 +119,7 @@
     <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_right_hover.png" />
     <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\bg_days.png" />
     <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\bg_main.png" />
+    <Content Include="Content\images\footer-slogan.png" />
     <Content Include="Content\images\Footer46.jpg" />
     <Content Include="Content\images\footer_bg.png" />
     <Content Include="Content\images\footer_top_bg.png" />
