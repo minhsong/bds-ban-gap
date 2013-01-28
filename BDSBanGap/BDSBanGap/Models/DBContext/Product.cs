@@ -74,8 +74,8 @@ namespace BDSBanGap.Models.DBContext
         public bool IsCurrentPriority()
         {
             var lp = from s in Priorities
-                    where s.StarDate < DateTime.Now
-                    && s.EndDate > DateTime.Now
+                    where s.StarDate <= DateTime.Now
+                    && s.EndDate >= DateTime.Now
                     && s.IsDelete==false
                     && s.IsActive ==true
                     select s;

@@ -17,6 +17,8 @@
 		</h3>
 	</div> <!--end div .search-detail-header -->
     <form action="/Home/Search" method="get" name="adv-search">
+    @Html.Hidden("show", 15)
+    @Html.Hidden("pg", 1)
     <div class="search-content">
     <div class="search-content-padding">
     <!-- cmt layout div
@@ -33,14 +35,14 @@
         Khu vực
         </td>
         <td style="border: none">
-        @Html.DropDownListFor(s=>s.District, new MultiSelectList(ViewBag.DisctrictSearch as IEnumerable<BDSBanGap.Models.DBContext.District>, "DistrictID", "DistrictName"))
+        @Html.DropDownListFor(s=>s.Dis, ViewBag.DisctrictSearch as SelectList,"Tất cả")
         </td>
     </tr>
     <tr>
         <td style="font-weight:bold; border: none">Giá từ:
         </td>
         <td class="left w60 pt2" style="border: none">
-         <select name="PriceFrom" id="PriceFrom" class="" style="width: 140px">
+         <select name="From" id="From" class="" style="width: 140px">
           <option>Tất cả</option>
           <option value="1">1 Tỷ</option>
           <option value="2">2 Tỷ</option>
@@ -55,7 +57,7 @@
     <td style="font-weight:bold; border: none"> đến:
     </td>
     <td class="left w60 pt2" style="border: none">
-    <select name="PriceTo" class=" " id="PriceTo" style="width: 140px">
+    <select name="To" class=" " id="To" style="width: 140px">
           <option>Tất cả</option>
           <option value="2">2 Tỷ</option>
           <option value="4">4 Tỷ</option>

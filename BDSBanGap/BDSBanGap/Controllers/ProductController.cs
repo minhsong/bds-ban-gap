@@ -28,8 +28,7 @@ namespace BDSBanGap.Controllers
 
         public ViewResult Index()
         {
-            var products = db.Products.Include(p => p.Ward).Include(p => p.Contact);
-            var product = from product1 in products
+            var product = from product1 in db.Products
                           where product1.IsDelete == false
                           select product1;
             

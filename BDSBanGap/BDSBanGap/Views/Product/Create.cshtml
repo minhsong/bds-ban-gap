@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <div class="editor-field" style="width:80%;">
-                        @Html.TextBoxFor(model => model.Title, new { style = "width:550px;" })
+                        @Html.TextBoxFor(model => model.Title, new { style = "width:550px;", maxlength = "100" })
                         @Html.ValidationMessageFor(model => model.Title)
                     </div>
                 </td>

@@ -765,6 +765,7 @@ z-index: 9999;
 	background-color:#086ac4;
 	height:27px;
     clear: both;
+    text-align:center;
 }
 
 #bot-footter{width:984px;margin:10px auto;}
