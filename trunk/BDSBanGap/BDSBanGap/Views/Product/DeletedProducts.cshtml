@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+
+@{
+    ViewBag.Title = "Administrator: DANH NHA DA XOA";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+</script>
+<div id="content-header">
+	<h1>DANH SÁCH TẤT CẢ NHÀ</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+    <div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "example" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: 30px">STT
+                    </th>
+                    <th style="width: auto;">Tiêu đề
+                    </th>
+                    <th style="width: 60px; text-align: center;">Giá
+                    </th>
+                     <th style="width: 30px; text-align: center;">Xem
+                    </th>
+                    <th style="width: 120px; text-align: center;">Phường,Quận
+                    </th>
+                    <th style="width: 60px; text-align: center;">Loại Địa Ốc
+                    </th>
+                    <th style="width: 60px; text-align: center;">Vị trí
+                    </th>
+                    <th style="width: 80px; text-align: center;">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 30px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID" target="_blank">@item.Title</a>
+                    </td>
+                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    </td>
+                    <td style="width: 30px; text-align: center;">@item.Views
+                    </td>
+                    <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
+                    </td>
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.LoaiDiaOc.GetLoaiDiaOc(@item.LoaiDiaOc)
+                    </td>
+                    <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
+                    </td>
+                    <td style="width: 80px; text-align: center;">
+                    @Ajax.ActionLink("Full delete", "DeleteFull", new { id = item.ProductID }, new AjaxOptions() { Confirm = "Bạn có muốn xóa khỏi hệ thống không?", HttpMethod = "Post", OnComplete = "document.location.reload()" })
+                    ||
+                    @Ajax.ActionLink("Un delete", "Undeleted", new { id = item.ProductID }, new AjaxOptions() { Confirm = "Bạn có muốn khôi phục lại nhà không ?", HttpMethod = "Post", OnComplete = "document.location.reload()" })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>

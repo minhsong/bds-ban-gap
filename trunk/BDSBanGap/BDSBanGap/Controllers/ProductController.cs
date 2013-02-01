@@ -465,6 +465,47 @@ namespace BDSBanGap.Controllers
             }
         }
 
+        public ActionResult ReplaceEmage(int id)
+        {
+            var img = db.ProductImages.Find(id);
+            return PartialView(img);
+        }
+
+        [HttpPost]
+        public ActionResult ReplaceEmage(int ProductImageID, string caption, HttpPostedFileBase file)
+        {
+            var img = db.ProductImages.Find(ProductImageID);
+            if (HasFile(file))
+            {
+                
+                img.Caption = caption;
+                FileInfo image = new FileInfo(Server.MapPath(img.ImageLink));
+                FileInfo imageThumb = new FileInfo(Server.MapPath(img.ThumblLink));
+                if (image.Exists)
+                {
+                    image.Delete();
+                }
+                if (imageThumb.Exists)
+                {
+                    imageThumb.Delete();
+                }
+                Image newEmage = Image.FromStream(file.InputStream);
+                Bitmap newThumb = new Bitmap(newEmage, 120, 90);
+
+                // make projet image - product detail page
+                Bitmap projectImage = new Bitmap(newEmage, 480, 360);
+
+                //Save image to ProjectImages folder
+                projectImage.Save(Server.MapPath(img.ImageLink));
+
+                // Save image to ImageThumb folder
+                newThumb.Save(Server.MapPath(img.ThumblLink));
+
+                db.SaveChanges();
+            }
+            return RedirectToAction("Edit", new {id= img.ProductID});
+        }
+
         public ActionResult SoldProductGet(int id)
         {
             SoldModel sd = new SoldModel() { ProductID = id };
