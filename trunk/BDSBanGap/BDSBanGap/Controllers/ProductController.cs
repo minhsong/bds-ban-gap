@@ -489,6 +489,9 @@ namespace BDSBanGap.Controllers
                 {
                     imageThumb.Delete();
                 }
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
+                var pathImageThumb = Path.Combine(Server.MapPath("~/Upload/Thumb/"), fileName);
                 Image newEmage = Image.FromStream(file.InputStream);
                 Bitmap newThumb = new Bitmap(newEmage, 120, 90);
 
@@ -496,10 +499,13 @@ namespace BDSBanGap.Controllers
                 Bitmap projectImage = new Bitmap(newEmage, 480, 360);
 
                 //Save image to ProjectImages folder
-                projectImage.Save(Server.MapPath(img.ImageLink));
+                projectImage.Save(pathImageProject);
 
                 // Save image to ImageThumb folder
-                newThumb.Save(Server.MapPath(img.ThumblLink));
+                newThumb.Save(pathImageThumb);
+
+                img.ImageLink = "/Upload/Images/" + fileName;
+                img.ThumblLink = "/Upload/Thumb/" + fileName;
 
                 db.SaveChanges();
             }
