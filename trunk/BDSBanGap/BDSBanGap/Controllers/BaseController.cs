@@ -32,7 +32,7 @@ namespace BDSBanGap.Controllers
                                 where s.IsCurrentPriority()
                                 && s.IsDelete==false
                                 && s.IsSold ==false
-                                select s).OrderBy(s=>s.CurrentPriority().EndDate.Value).Take(5);
+                                select s).OrderByDescending(s=>s.CurrentPriority().EndDate.Value).Take(5);
             base.ExecuteCore();
         }
 
