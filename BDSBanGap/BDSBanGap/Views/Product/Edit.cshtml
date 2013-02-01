@@ -356,6 +356,7 @@
                 <p>@item.Caption</p>
                <div class="product-image-action">
                @Ajax.ActionLink("Delete", "DeleteEmage", new { id = item.ProductImageID }, new AjaxOptions() { Confirm = "Bạn có muốn xóa hình ảnh không?", HttpMethod = "GET", OnComplete = "document.location.reload()" })
+               <a href="javascript:void(0)" onclick="ShowReplace('@item.ProductImageID')">Replace</a>
                </div>
             </div>
             
@@ -382,6 +383,7 @@
             <input type="submit" value="Create" />
         </p>
 }
+<div id="image-replace"></div>
 <script type="text/javascript">
     CKEDITOR.replace('Description', {
         toolbar: 'Basic',
@@ -404,4 +406,21 @@
             // then either disabled or enable them in the second loop:
         });
     });
+
+    $(function () {
+        $("#image-replace").dialog({
+            autoOpen: false, width: 450, height: 240, modal: true,
+        });
+    });
+    function ShowReplace(idin) {
+        $.ajax({
+            url: '/Product/ReplaceEmage',
+            data: { id: idin },
+            type: 'GET',
+            success: function (result) {
+                $('#image-replace').html(result);
+                $('#image-replace').dialog("option", "title", "Thay đổi hình").dialog("open");
+            }
+        });
+    }
 </script>
