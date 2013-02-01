@@ -771,7 +771,7 @@ z-index: 9999;
 #bot-footter{width:984px;margin:10px auto;}
 #logo-footter{float:left;width:230px;}
 #logo-footter img{margin:20px 0px 10px;}
-.menu-footter{float:left;width:500px;margin:23px 0px 22px;font-size:12px;font-weight:bold;line-height:25px;border-left:1px solid #2066a7}
+.menu-footter{float:left;width:490px;margin:23px 0px 22px;font-size:12px;font-weight:bold;line-height:25px;border-left:1px solid #2066a7}
 .menu-footter ul{list-style:none;padding:0px 13px;}
 .copyright-footer {
    float:left;
@@ -811,4 +811,15 @@ html[xmlns] .clearfix {
     position:absolute;
     padding-top:10px;
     padding-left:50px;
+}
+
+strong
+{
+    font-weight:normal;
+    white-space:normal;
+    word-wrap: break-word;
+}
+strong a
+{
+    font-weight:bold;
 }

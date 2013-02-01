@@ -34,19 +34,15 @@
 				</ul>
 			</div>
 		</div>*@
-        <div style="width: 975px; height: 115px;">
+    <div style="width: 975px; height: 115px;">
             <ul class="menuTemplate1 decor1_1"  style="margin-top: 15px; margin-left: 246px; clear: both;">
-    <li><a href="/Home/Index">Trang chủ</a></li>
-    <li class="separator"></li>
-    <li><a href="/Home/Search" class="arrow">Tìm kiếm</a>
-       </li>
-    <li class="separator"></li>
-    <li><a href="/Home/About">Thông tin</a></li>
-    
-    
-   
-    
-</ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li class="separator"></li>
+                <li><a href="/Home/Search" class="arrow">Tìm kiếm</a>
+                   </li>
+                <li class="separator"></li>
+                <li><a href="/Home/About">Thông tin</a></li>
+            </ul>
         
         </div>
 	</div>
@@ -57,18 +53,13 @@
 <div class="content">
 
 <div class="left w235" id="colum-left">
-<div class="element-left">
+<div class="element-left search">
 @Html.Partial("SearchPanel", new BDSBanGap.Models.SearchModel())
 </div> <!-- end div .element-left-->
 
 <div class="element-left">
 	@Html.Partial("NhaUuTien", ViewBag.NhaUuTien as IEnumerable<BDSBanGap.Models.DBContext.Product>) <!-- end .house-priority -->
 </div> <!--end .element-left -->
-
-<div class="element-left">
-<input name="" href="" type="image" class="img-adv" src="../../Content/images/img-demo.jpg" border="1" />
-</div>
-
 </div> <!-- end div #colum-left-->
 
 <div class="right" id="colum-right">
@@ -94,10 +85,9 @@
                     <a href="#"><img src="../../Content/images/BDS_logo.png" width="190"></a>
                     <br />
                     <p>
-                        14 Hoa Sứ, Phường 2 <br>
-                                            Quận Phú Nhuận, HCM <br>
-                                                                <br>
-                                                                Điện thoại: 090.88.666.79 <br>
+                        14 Hoa Sứ, Phường 2 <br/>
+                                            Quận Phú Nhuận, HCM <br/>
+                                                                Điện thoại: (08) 66835624<br/>
                                                                                           Email: lam@nhaduongdai.vn <br>
                     </p>
                 </div>
@@ -109,8 +99,6 @@
                 <div class="copyright-footer">
                     <ul>
                         <p>Designed and developed by MinhSong<br/>
-                        Email: truongminhsong@gmail.com<br/>
-                        Tel: +84938.505.866</p>
                     </ul>
                     
                 </div>
@@ -123,3 +111,16 @@
         
     </body>
 </html>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38163634-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>

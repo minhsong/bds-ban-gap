@@ -24,8 +24,8 @@ namespace BDSBanGap.Controllers
             ViewBag.count = result.Count();
             ViewBag.pg = pagging;
             ViewBag.show = show;
-            result = result.Skip((pagging - 1) * show.Value).Take(show.Value).ToList();
-            return View(result.OrderByDescending(s => s.CreatedDate));
+            result = result.OrderByDescending(s=>s.CreatedDate).Skip((pagging - 1) * show.Value).Take(show.Value).ToList();
+            return View(result);
         }
 
         public ActionResult Detail(int Id)
