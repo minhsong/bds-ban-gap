@@ -3,12 +3,12 @@
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(s=>s.ProductImageID)
-    <div class="image-thumb" style="width:100%;">
+    <div class="image-thumb" style="width:100%;position:relative;float:left;">
     <img src="@Model.ThumblLink" style="position:relative;float:left" alt="@Model.Caption"/>
     <div class="image-caption" style="position:relative;float:left;padding:7px;">@Model.Caption</div>
     </div>
-    <div class="new-image" style="width:100%;">
-    <table style="width:100%;">
+    <div class="new-image" style="width:100%;position:relative;float:left;">
+    <table style="width:100%;position:relative;float:left;">
         <tr>
             <td style="text-align:right;">
             Hình mới: 
