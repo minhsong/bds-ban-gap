@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+           @{
+               var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
+            }
 <div class="house-priority">
     	<div class="house-priority-header">
         	<h3 class="house-priority-header-content">
@@ -14,7 +17,7 @@
         @foreach (var item in Model)
         {
             <div class="house-priority-ele pt10">
-            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID">@(item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title)</a></h3>
+            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title),"")</a></h3>
             	<div class="house-priority-intro">
                 <a class="Img-link" href="/Home/Detail/@item.ProductID">
                 @if (item.Images.Count > 0)
@@ -27,7 +30,7 @@
                 }
                 </a>
                 <div class="house-priority-item-Right">
-                    <div class="house-priority-intro-content">@Html.Raw(item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description)</div>
+                    <div class="house-priority-intro-content">@Html.Raw(reg.Replace((item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description), ""))</div>
                     <span class="house-priority-intro-price blue">@item.Price Tỷ</span>
                 </div>
             </div>
