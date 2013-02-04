@@ -56,21 +56,15 @@
 <div class="element-left search">
 @Html.Partial("SearchPanel", new BDSBanGap.Models.SearchModel())
 </div> <!-- end div .element-left-->
-
 <div class="element-left">
 	@Html.Partial("NhaUuTien", ViewBag.NhaUuTien as IEnumerable<BDSBanGap.Models.DBContext.Product>) <!-- end .house-priority -->
 </div> <!--end .element-left -->
 </div> <!-- end div #colum-left-->
-
 <div class="right" id="colum-right">
 <div class="element-right">
 	@RenderBody()
 </div> <!-- end element-right -->
-
 </div> <!-- end .right #colum-right -->
-
-
-
 <div class="clearBoth"></div>
 </div> <!--end content-->
 </div> <!--end container-->

@@ -6,6 +6,7 @@
     int pg = (int)ViewBag.pg;
     int show = (int)ViewBag.show;
     int count = (int)ViewBag.count;
+    var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
 }
 
 <style type="text/css">
@@ -180,10 +181,10 @@
                 </div>
                 <!--end .item-image -->
                 <div class="item-description left ml10" >
-                    <strong><a href="/Home/Detail/@item.ProductID">@(item.Title.Length > 65 ? item.Title.Substring(0, 65)+"..." : item.Title)</a>
+                    <strong><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
                         <br />
                     </strong>
-                    <p class="mt5">@Html.Raw((item.Description.Length > 120 ? item.Description.Substring(0, 120)+"..." : item.Description))</p>
+                    <p class="mt5">@Html.Raw(reg.Replace((item.Description.Length > 120 ? item.Description.Substring(0, 120) + "..." : item.Description),""))</p>
                     <div class="view-detail">
                         <div style="position: absolute; top: 3px; z-index: 100;">
                             <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">

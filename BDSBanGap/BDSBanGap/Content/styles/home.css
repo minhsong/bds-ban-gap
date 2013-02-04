@@ -367,7 +367,6 @@ a.Img-link
 
 .item-description {
 	width:340px;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -812,13 +811,13 @@ html[xmlns] .clearfix {
     padding-top:10px;
     padding-left:50px;
 }
-
+/*
 strong
 {
     font-weight:normal;
     white-space:normal;
     word-wrap: break-word;
-}
+}*/
 strong a
 {
     font-weight:bold;
