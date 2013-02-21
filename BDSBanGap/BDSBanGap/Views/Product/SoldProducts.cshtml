@@ -68,7 +68,7 @@
                     </td>
                     <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>
+                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="../../Content/images/admin/not-sold.jpg"/></a>
                     </td>
                 </tr>
             }
@@ -80,6 +80,12 @@
     <p>
         Bạn có muốn xóa bài đăng này không?
     </p>
+</div>
+
+<div class="notSoldProduct">
+<p>
+    Bạn có muốn hủy bán nhà này không?
+</p>
 </div>
 @*script delete product*@
 <script type="text/javascript">
@@ -108,4 +114,32 @@
         });
     });
    
+</script>
+
+@*Script not sold*@
+<script type="text/javascript">
+    var idp;
+    function confirmNotSold(idProd) {
+        idp = idProd;
+        $('.notSoldProduct').dialog("option", "title", "Hủy bán nhà").dialog("open");
+    }
+
+    $(function () {
+        $(".notSoldProduct").dialog({
+            autoOpen: false, width: 370, height: 160, modal: true,
+            buttons: {
+                "Hủy Bán": function () {
+                    $.ajax({
+                        url: '/Product/NotSoldProduct',
+                        data: { id: idp, page: "SoldProducts" },
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Đóng": function () { $(this).dialog("close"); }
+            }
+        });
+    });
 </script>
