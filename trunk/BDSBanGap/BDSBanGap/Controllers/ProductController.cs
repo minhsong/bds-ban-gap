@@ -539,5 +539,17 @@ namespace BDSBanGap.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public void NotSoldProduct(int id)
+        {
+            var product = db.Products.Find(id);
+            if (product != null)
+            {
+                product.SoldPrice = null;
+                product.SoldDate = null;
+                product.IsSold = false;
+                db.SaveChanges();
+            }
+        }
     }
 }
