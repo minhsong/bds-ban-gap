@@ -374,6 +374,8 @@ a.Img-link
 .item-description p
 {
     margin-bottom:0px;
+    overflow-y: hidden;
+    max-height: 40px;
 }
 
 .item-description a{
