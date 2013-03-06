@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "tìm kiêm Bất động sản, nhà bán gấp";
     var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
-    int pg = (int)ViewBag.pg;
+    int pagging = (int)ViewBag.pg;
     int show = (int)ViewBag.show;
     int count = (int)ViewBag.count;
     var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
@@ -22,11 +22,10 @@
 		<span>&nbsp;</span>
 	</div>
 	<div class="clearBoth"></div>
-	<form method="get" action="/Home/Search">		
-    @Html.Hidden("show", 15)  
-    @Html.Hidden("pg", 1)
-		  <input type="hidden" name="pg" value="1">
-            <table class="cobtbl" width="100%" border="0" cellspacing="1" cellpadding="3">
+	<form method="get" action="/Home/Search">
+    <input type="hidden" name="show" value="15" />
+    <input type="hidden" name="pg" value="1" />
+    <table class="cobtbl" width="100%" border="0" cellspacing="1" cellpadding="3">
                 <tbody>
                     <tr></tr>
                     <tr> 
@@ -42,26 +41,26 @@
                             <select id="From" name="From" >
                                 <option>Tất cả</option>
                                 <option value="1">1 Tỷ</option>
-                                <option value="1">2 Tỷ</option>
-                                <option value="1">4 Tỷ</option>
-                                <option value="1">6 Tỷ</option>
-                                <option value="1">10 Tỷ</option>
-                                <option value="1">15 Tỷ</option>
-                                <option value="1">20 Tỷ</option>
+                                <option value="2">2 Tỷ</option>
+                                <option value="4">4 Tỷ</option>
+                                <option value="6">6 Tỷ</option>
+                                <option value="10">10 Tỷ</option>
+                                <option value="15">15 Tỷ</option>
+                                <option value="20">20 Tỷ</option>
                             </select>
                         </td>
                         <td class="cobhl" width="16%" align="right" >Giá cao nhất</td>
                         <td class="cobll" width="37%">
                             <select id="To" name="To" >
                                 <option>Tất cả</option>
-                                <option value="1">2 Tỷ</option>
-                                <option value="1">4 Tỷ</option>
-                                <option value="1">6 Tỷ</option>
-                                <option value="1">8 Tỷ</option>
-                                <option value="1">10 Tỷ</option>
-                                <option value="1">15 Tỷ</option>
-                                <option value="1">20 Tỷ</option>
-                                <option value="1">25 Tỷ</option>
+                                <option value="2">2 Tỷ</option>
+                                <option value="4">4 Tỷ</option>
+                                <option value="6">6 Tỷ</option>
+                                <option value="8">8 Tỷ</option>
+                                <option value="10">10 Tỷ</option>
+                                <option value="15">15 Tỷ</option>
+                                <option value="20">20 Tỷ</option>
+                                <option value="25">25 Tỷ</option>
                             </select>
                         </td>
                     </tr>
@@ -99,7 +98,7 @@
                     </tr>
 
                 </tbody></table>
-		</form>
+	</form>
 </div>
     </div>
 	<div class="list-house-content mt5 pt5">
@@ -114,9 +113,9 @@
         <div class="paginator_number" style="width: auto;">
             @if (count > show)
             {
-                string url = System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pg - 1));
+                string url = System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pagging - 1));
                 int pages = count % show == 0 ? count / show : count / show + 1;
-                if (pg != 1)
+                if (pagging != 1)
                 {        
                 <div class="prev_link">
                     <a href="@url">
@@ -130,7 +129,7 @@
                 for (int i = 1; i <= pages; i++)
                 {
                     url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + i);
-                    if ((int)ViewBag.pg == i)
+                    if (pagging == i)
                     {
                         
                 <div class="current-page">
@@ -142,9 +141,9 @@
                     <a href="@url">@i</a></div>
                     }
                 }
-                if (pg != pages)
+                if (pagging != pages)
                 {
-                    url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pg + 1));
+                    url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pagging + 1));
                 <div class="next_link">
                     <a href="@url">
                         <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
