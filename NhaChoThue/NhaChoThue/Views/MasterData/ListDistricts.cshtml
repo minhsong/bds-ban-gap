@@ -1,0 +1,90 @@
+﻿@model  IEnumerable<BDSBanGap.Models.DBContext.District>
+
+@{
+    ViewBag.Title = "List Districts";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Datatable1').dataTable();
+    });
+</script>
+
+<div id="content-header">
+				<h1>DANH SÁCH QUẬN</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+				<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+			</div>
+<div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "Datatable1" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: 60px;">STT
+                    </th>
+                    <th style="width: auto;">Tên Quận
+                    </th>
+                    <th style="width: 160px; text-align: center;">Mô tả thêm
+                    </th>
+                    
+                    <th style="width: 80px; text-align: center;">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 60px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold"><a href="/MasterData/DistrictDetail/@item.DistrictID">@item.DistrictName</a>
+                    </td>
+                    <td style="width: 80px; text-align: center;">@item.Description
+                    </td>
+                    <td style="width: 160px; text-align: center;"><a href="javascript:void(0)" onclick="ShowEditForm('@item.DistrictID')"><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/Edit_icon.png"/></a> | <a><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+    <div id="popup-district"></div>
+       <script type="text/javascript">
+           $(function () {
+               $("#popup-district").dialog({
+                   autoOpen: false, width: 400, height: 220, modal: true,
+                   buttons: {
+                       "Lưu": function () {
+                           $.ajax({
+                               url: '/MasterData/EditDistrict',
+                               data: $("#Form").serialize(),
+                               type: 'POST',
+                               success: function (result) {
+                                   document.location.reload();
+                               }
+                           });
+                       },
+                       "Hủy": function () { $(this).dialog("close"); }
+                   }
+               });
+           });
+           function ShowEditForm(idin) {
+               $.ajax({
+                   url: '/MasterData/EditDistrict',
+                   data: { id: idin },
+                   type: 'GET',
+                   success: function (result) {
+                       $('#popup-district').html(result);
+                       $('#popup-district').dialog("option", "title", "Cập nhập thông tin quận").dialog("open");
+                   }
+               });
+           }
+   </script>
+

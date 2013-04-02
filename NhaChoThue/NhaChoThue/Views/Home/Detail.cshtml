@@ -1,0 +1,266 @@
+﻿@model BDSBanGap.Models.DBContext.Product
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<meta name="description" content="@Model.Title" />
+<meta name="keywords" content=""@Model.Title" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../../Content/styles/general.css?134612" rel="stylesheet" type="text/css" />
+<!--[if IE 7]>
+    <link href="css/ie7.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+<link href="../../Content/styles/asset_detail.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/Asset.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/slides.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/tools.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/uniform.default.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/doolv3.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/home.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/slideshow/jquery.ad-gallery.js" type="text/javascript"></script>
+<link href="../../Scripts/slideshow/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+        $(function () {
+            if (@Model.Images.Count() != 0) {
+  var galleries = $('.ad-gallery').adGallery();
+            } else {
+                document.getElementById("gallery").style.backgroundImage = "url('http://www.texasrealestate.com/images/defaultHouse.jpg')";
+            }
+        });
+</script>
+<div id="container">
+    <div id="content_container">
+        <div class="wrap">
+            <div class="wrap">
+                <div class="col_720">
+                    <div id="result_detail" class="margin_bottom">
+                        <div class="rounded_style_2 rounded_box margin_bottom">
+                            <style type="text/css">
+                                html
+                                {
+                                    height: 100%;
+                                }
+                                body
+                                {
+                                    height: 100%;
+                                    margin: 0;
+                                    padding: 0;
+                                }
+                                #map_canvas
+                                {
+                                    height: 100%;
+                                }
+                                #gallery
+                                {
+                                    width: 470px;
+                                    background: #e1eef5;
+                                }
+                                .image1
+                                {
+                                    height: 50px;
+                                }
+                            </style>
+                            <script src="../../Scripts/home/jquery.lightbox-0.5.js" type="text/javascript"></script>
+                            <link href="../../Content/styles/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#slider a').lightBox({ maxHeight: screen.height * 0.9,
+                                        maxWidth: screen.width * 0.9
+                                    });
+                                });
+                            </script>
+                            @*<style type="text/css">
+        /* jQuery lightBox plugin - Gallery style */
+        #gallery
+        {
+            background-color: #444;
+            padding: 10px;
+            width: 520px;
+        }
+        #gallery ul
+        {
+            list-style: none;
+        }
+        #gallery ul li
+        {
+            display: inline;
+        }
+        #gallery ul img
+        {
+            border: 5px solid #3e3e3e;
+            border-width: 5px 5px 20px;
+        }
+        #gallery ul a:hover img
+        {
+            border: 5px solid #fff;
+            border-width: 5px 5px 20px;
+            color: #fff;
+        }
+        #gallery ul a:hover
+        {
+            color: #fff;
+        }
+    </style>*@
+                            <div class="body">
+                                <h2 class="larger_title">@Model.Title</h2>
+                                <span class="location">Vị trí: @Model.DuongTruocNha , phường @Model.Ward.WardName, Quận
+                                    @Model.Ward.District.DistrictName, TP.HCM</span>
+                                <div class="detail_info">
+                                    <link href="../../Content/styles/asset_detail.css" rel="stylesheet" type="text/css" />
+                                    <div id="image_gallery" class="rounded_box rounded_style_2">
+                                        <div id="gallery" class="ad-gallery">
+                                            <div class="ad-image-wrapper">
+                                            </div>
+                                            <div class="ad-controls">
+                                            </div>
+                                            <div class="ad-nav">
+                                                <div class="ad-thumbs">
+                                                    <ul class="ad-thumb-list">
+                                                        @foreach (var item in Model.Images)
+                                                        {
+                                                            <li><a href="@item.ImageLink" >
+                                                                <img src="@item.ThumblLink" title="@item.Caption" alt="@Model.Title" class="image1">
+                                                            </a></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right margin_left">
+                                        <div class="features margin_bottom">
+                                            <div class="currency_convertor">
+                                                <div class="money">
+                                                    @if (Model.IsHired)
+                                                    {
+                                                        <text> ĐÃ THUÊ
+                                                        </text>  
+                                                    }
+                                                    else
+                                                    {
+                                                        <text> Giá: @(Model.Price)tr/Tháng
+                                                        </text>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="feat_item">
+                                                <dl>
+                                                    <dt>Ngan:</dt>
+                                                    <dd>
+                                                        @(Model.Ngan)m</dd>
+                                                    <dt>Dài:</dt>
+                                                    <dd>@(Model.Dai)m</dd>
+                                                    <dt>Phòng ngủ:</dt>
+                                                    <dd>@(Model.SoPhongNgu)</dd>
+                                                    <dt>WC:</dt>
+                                                    <dd>@Model.SoPhongTam</dd>
+                                                    <dt>Sân thượng:</dt>
+                                                    <dd>
+                                                        @if (Model.Santhuong)
+                                                        {
+                                                            <text> Có
+                                                            </text>  
+                                                        }
+                                                        else
+                                                        {
+                                                            <text> Không
+                                                            </text>  
+                                                        }
+                                                    </dd>
+                                                    <dt>Số tầng:</dt>
+                                                    <dd>@Model.SoLau</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="contact_info margin_bottom">
+                                            <h3 class="small_headline">
+                                                THÔNG TIN LIÊN HỆ</h3>
+                                            <div class="body">
+                                                <h4>
+                                                    <a href="" style="cursor: default">@Model.Contact.FullName</a></h4>
+                                                <dl>
+                                                    <dt>ĐT:&nbsp;</dt><dd>
+                                                        <span>@Model.Contact.Phone</span>
+                                                    </dd>
+                                                    <dt>Email:&nbsp;</dt><dd>
+                                                        <span>@Model.Contact.Email</span>
+                                                    </dd>
+                                                    <dt>Địa chỉ:&nbsp;</dt><dd>@Model.Contact.Address &nbsp;</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="detail" class="margin_bottom">
+                                    <div class="headline_title_1 rounded_style_5 rounded_box">
+                                        <h2 class="headline">
+                                            <span>MÔ TẢ CHI TIẾT</span></h2>
+                                    </div>
+                                    <div class="rounded_style_2 rounded_box">
+                                        <div class="body">
+                                            <p>@Html.Raw(Model.Description)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="others_posted" class="rounded_style_2 rounded_box margin_bottom">
+                        <div class="headline_title_1 rounded_style_5 rounded_box">
+                            <h2 class="headline">
+                                <span>BẤT ĐỘNG SẢN CÙNG GIÁ</span></h2>
+                        </div>
+                        <div class="rounded_style_2 rounded_box">
+                            <div class="content_inner">
+                                <ul class="listing_4">
+                                    @{
+                                        var ListCungGia = ViewBag.CungGia as IEnumerable<BDSBanGap.Models.DBContext.Product>;
+                                        foreach (var item in ListCungGia)
+                                        {
+                                        <li><a href="/Home/Detail/@item.ProductID">
+                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
+                                            <div class="right">
+                                                <h2>
+                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
+                                                <span class="price">@(Model.Price)tr/Tháng</span>
+                                            </div>
+                                        </li>
+                                        }
+                                        
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="others_posted2" class="rounded_style_2 rounded_box margin_bottom">
+                        <div class="headline_title_1 rounded_style_5 rounded_box">
+                            <h2 class="headline">
+                                <span>BẤT ĐỘNG SẢN KHU VỰC</span></h2>
+                        </div>
+                        <div class="rounded_style_2 rounded_box">
+                            <div class="content_inner">
+                                <ul class="listing_4">
+                                    @{
+                                        var ListCungKV = ViewBag.CungKV as IEnumerable<BDSBanGap.Models.DBContext.Product>;
+                                        foreach (var item in ListCungKV)
+                                        {
+                                        <li><a href="/Home/Detail/@item.ProductID">
+                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
+                                            <div class="right">
+                                                <h2>
+                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
+                                                <span class="price">@(Model.Price)tr/Tháng</span>
+                                            </div>
+                                        </li>
+                                        }
+                                        
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

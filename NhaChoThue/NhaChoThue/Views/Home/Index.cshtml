@@ -1,0 +1,146 @@
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+@{
+    ViewBag.Title = "Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1...";
+    int pg = (int)ViewBag.pg;
+    int show = (int)ViewBag.show;
+    int count = (int)ViewBag.count;
+    var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
+}
+<div class="list-house-content mt5 pt5">
+    <div class="list-house-header-left left pb10">
+        <h3 class="blue bold left">
+            Có <span class="list-house-count" id="house-sell-count">@count</span> nhà đăng bán
+        </h3>
+        <br class="clearBoth" />
+    </div>
+    <!-- end .house-sell-header-left -->
+    <div class="list-house-header-right right">
+        <div class="paginator_number" style="width: auto;">
+            @if (count > show)
+            {
+                int pages = count % show == 0 ? count / show : count / show + 1;
+                if (pg != 1)
+                {        
+                <div class="prev_link">
+                    <a href="/home/index?pg=@(pg-1)&show=@show">
+                        <img src="../../Content/images/paging/p_prev.gif" align="middle">
+                    </a>
+                </div>
+                }
+
+
+
+                for (int i = 1; i <= pages; i++)
+                {
+                    if ((int)ViewBag.pg == i)
+                    {
+                        
+                    <div class="current-page">
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a></div>
+                    }
+                    else
+                    {
+                <div>
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a></div>
+                    }
+                }
+                if (pg != pages)
+                {
+                <div class="next_link">
+                    <a href="/home/index?pg=@(pg+1)&show=@(show)">
+                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                <div class="last_link">
+                    <a href=""></a>
+                </div>
+                }
+            }
+            <div class="clearBoth">
+            </div>
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .house-sell-header-right -->
+    <br class="clearBoth" />
+    <div class="list-items">
+        @foreach (var item in Model)
+        {
+            <div id="house-id" class="item">
+                <div class="item-image left ml6">
+                    <div class="item-image-border">
+                        <a href="/Home/Detail/@item.ProductID">
+                            @if (item.Images.Count == 0)
+                            {
+                                <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
+                            }
+                            else
+                            {
+                                <img src="@item.Images.First().ThumblLink" alt="@item.Title" />
+                            }
+                        </a>
+                    </div>
+                    <!-- end .item-image-border -->
+                </div>
+                <!--end .item-image -->
+                <div class="item-description left ml10" >
+                    <strong><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
+                        <br />
+                    </strong>
+                    <p class="mt5">@Html.Raw(reg.Replace((item.Description.Length > 120 ? item.Description.Substring(0, 120) + "..." : item.Description),""))</p>
+                    <div class="view-detail">
+                        <div style="position: absolute; top: 3px; z-index: 100;">
+                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
+                                Xem chi tiết </a>
+                        </div>
+                        
+                    </div>
+                    <!-- end .view-detail -->
+                    
+                </div>
+                <!--end .item-description -->
+                <div class="border-right-dashed left pl10">
+                </div>
+                <!--end .border-right-dashed -->
+                <div class="item-status left">
+                @if (!string.IsNullOrEmpty(item.DuongTruocNha))
+                {
+                <p style="text-align: center">
+                    @item.DuongTruocNha,</p>
+                }
+                    <p style="text-align: center">
+                        P @item.Ward.WardName,</p>
+                    <p style="text-align: center">
+                        Q @item.Ward.District.DistrictName</p>
+                </div>
+                <!--end .item-status -->
+                <div class="border-right-dashed left">
+                </div>
+                <!--end .border-right-dashed -->
+                <div class="price-place left pl10">
+                    <div class="price blue left">@(item.Price)tr/Tháng</div>
+                    <br class="clearBoth" />
+                    <div class="place-city pt10">
+                        Lượt xem:  @item.Views</div>
+                    @{
+                                               if (item.IsHired)
+                                               {
+                             <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
+                                               }
+                    }
+                   
+                </div>
+                <!--end .price-place -->
+                <br class="clearLeft" />
+            </div> <!-- end .item -->
+        }
+    </div>
+    <!-- end .list-items -->
+    <div class="border-top-end">
+    </div>
+    <div class="pagin-end right">
+        <div class="paginator-number">
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .pagin-end -->
+</div>
+<!-- end .house-sell-content -->
