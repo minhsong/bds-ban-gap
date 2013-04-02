@@ -1,0 +1,86 @@
+﻿@model BDSBanGap.Models.DBContext.District
+
+@{
+    ViewBag.Title = "CHI TIẾT QUẬN"+@Model.DistrictName;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Datatable1').dataTable();
+    });
+</script>
+<div id="content-header">
+	<h1>CHI TIẾT QUẬN @Model.DistrictName</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+<br />
+<fieldset>
+    <h2>Quận: @Model.DistrictName</h2>
+    <div class="display-label">Ghi chú</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+    <br />
+    <div class="display-label">Phường thuộc quận</div>
+    <br />
+    <div style="width:465px;float:left;">
+    <table id="Datatable1" style="width:460px; float:left;position:relative;">
+    <thead>
+    <tr>
+    <th style="width:30px;">STT</th>
+    <th style="width:180px;">Phường</th>
+    <th style="width:auto">ghi chú</th>
+    <th style="width:80px">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Wards)
+    {
+    <tr>
+    <td style="width:30px;">@(++count)</td>
+    <td style="width:180px;">@item.WardName</td>
+    <td style="width:auto;">@item.Description</td>
+    <td style="width:80px;"><a href="javascript:void(0)" onclick="ShowEditForm('@item.WardID')" ><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/Edit_icon.png"/></a> | <a href="javascript:void(0)"><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a></td>
+    </tr>
+    }
+    </tbody>
+    </table>
+    </div>
+</fieldset>
+ <div id="popup-wards"></div>
+       <script type="text/javascript">
+           $(function () {
+               $("#popup-wards").dialog({
+                   autoOpen: false, width: 400, height: 220, modal: true,
+                   buttons: {
+                       "Lưu": function () {
+                           $.ajax({
+                               url: '/MasterData/EditWard',
+                               data: $("#Form").serialize(),
+                               type: 'POST',
+                               success: function (result) {
+                                   document.location.reload();
+                               }
+                           });
+                       },
+                       "Hủy": function () { $(this).dialog("close"); }
+                   }
+               });
+           });
+           function ShowEditForm(idin) {
+               $.ajax({
+                   url: '/MasterData/EditWard',
+                   data: { id: idin },
+                   type: 'GET',
+                   success: function (result) {
+                       $('#popup-wards').html(result);
+                       $('#popup-wards').dialog("option", "title", "Cập nhập thông tin phường").dialog("open");
+                   }
+               });
+           }
+   </script>

@@ -1,0 +1,14 @@
+﻿.slides_container {
+	width:310px;
+	display:none;
+}
+.slides_container div.slide_content{
+	width:310px;
+	height:373px;
+	display:block;
+}
+.slides_container div.slide_content .content
+{
+	padding:5px 10px 0px 10px;
+	height:166px;
+}

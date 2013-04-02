@@ -1,0 +1,137 @@
+﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+
+@{
+    ViewBag.Title = "SoldProducts";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable();
+    });
+</script>
+
+<div id="content-header">
+	<h1>DANH SÁCH NHÀ ĐÃ BÁN</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+
+  <div class="tbl-Content">
+        <div class="title-box">
+        </div>
+        <!--End title-box-->
+        <table id = "example" class="data display datatable">
+            <thead>
+                <tr class="menu">
+                    <th style="width: 30px;">STT
+                    </th>
+                    <th style="width: auto;">Tiêu đề
+                    </th>
+                    <th style="width: 70px; text-align: center;">Ngày Bán
+                    </th>
+                    <th style="width: 60px; text-align: center;">Giá bán
+                    </th>
+                    <th style="width: 60px; text-align: center;">Giá Rao
+                    </th>
+                    <th style="width: 120px; text-align: center;">Phường,Quận
+                    </th>
+                    <th style="width: 60px; text-align: center;">Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 30px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID">@item.Title</a>
+                    </td>
+                    <td style="width: 70px; text-align: center;">@item.HiredDate.Value.ToShortDateString()
+                    </td>
+                    <td style="width: 60px; text-align: center;">@item.HiredPrice Tỷ
+                    </td>
+                    <td style="width: 60px; text-align: center;">@item.Price Tỷ
+                    </td>
+                    <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
+                    </td>
+                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="../../Content/images/admin/not-sold.jpg"/></a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+<div class="deleteProduct">
+    <p>
+        Bạn có muốn xóa bài đăng này không?
+    </p>
+</div>
+
+<div class="notSoldProduct">
+<p>
+    Bạn có muốn hủy bán nhà này không?
+</p>
+</div>
+@*script delete product*@
+<script type="text/javascript">
+    var id;
+    function ConfirmDelete(idProd) {
+        id = idProd;
+        $('.deleteProduct').dialog("option", "title", "Xóa bài đăng").dialog("open");
+    }
+
+    $(function () {
+        $(".deleteProduct").dialog({
+            autoOpen: false, width: 370, height: 160, modal: true,
+            buttons: {
+                "Xóa": function () {
+                    $.ajax({
+                        url: '/Product/Delete',
+                        data: { id: id, page: "SoldProducts" },
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Hủy": function () { $(this).dialog("close"); }
+            }
+        });
+    });
+   
+</script>
+
+@*Script not sold*@
+<script type="text/javascript">
+    var idp;
+    function confirmNotSold(idProd) {
+        idp = idProd;
+        $('.notSoldProduct').dialog("option", "title", "Hủy bán nhà").dialog("open");
+    }
+
+    $(function () {
+        $(".notSoldProduct").dialog({
+            autoOpen: false, width: 370, height: 160, modal: true,
+            buttons: {
+                "Hủy Bán": function () {
+                    $.ajax({
+                        url: '/Product/NotSoldProduct',
+                        data: { id: idp, page: "SoldProducts" },
+                        type: 'POST',
+                        success: function (result) {
+                            document.location.reload();
+                        }
+                    });
+                },
+                "Đóng": function () { $(this).dialog("close"); }
+            }
+        });
+    });
+</script>

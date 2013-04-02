@@ -1,0 +1,215 @@
+﻿@model BDSBanGap.Models.SearchModel
+
+@{
+    ViewBag.Title = "Tìm Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1...";
+    var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
+    int pagging = (int)ViewBag.pg;
+    int show = (int)ViewBag.show;
+    int count = (int)ViewBag.count;
+    var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
+}
+
+<style type="text/css">
+    table td {
+        padding: 1px;
+        border: none;
+    }
+</style>
+<div class="Search-panel">
+        <div id="quicksearch" class="search_result paginator">
+	<div id="quicksearch_title">
+		<strong>Tìm kiếm chi tiết</strong>
+		<span>&nbsp;</span>
+	</div>
+	<div class="clearBoth"></div>
+	<form method="get" action="/Home/Search">
+    <input type="hidden" name="show" value="15" />
+    <input type="hidden" name="pg" value="1" />
+    <table class="cobtbl" width="100%" border="0" cellspacing="1" cellpadding="3">
+                <tbody>
+                    <tr></tr>
+                    <tr> 
+                        <td class="cobhl" align="center" colspan="4" height="20"></td>
+                    </tr>
+                    <tr  style="height: 20px;">
+                        <td class="cobhl" width="24%" align="right">Tiêu đề</td>
+                        <td colspan="3">@Html.TextBoxFor(model => model.Title, new { style = "width: 490px; " })</td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="14%" align="right">Giá thấp nhất</td>
+                        <td class="cobll" width="23%">
+                        @Html.DropDownListFor(s=>s.From,ViewBag.pricesFrom as SelectList,"Tất cả")
+                        </td>
+                        <td class="cobhl" width="16%" align="right" >Giá cao nhất</td>
+                        <td class="cobll" width="37%">
+                        @Html.DropDownListFor(s => s.To, ViewBag.PricesTo as SelectList, "Tất cả")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cobhl" width="24%" align="right">Đường:</td>
+                        <td class="cobll" width="23%">@Html.TextBoxFor(s => s.Duong, new { style = "width: 140px; " })
+                        <td class="cobhl" width="24%" align="right">Quận:</td>
+                        <td class="cobll" width="23%">@Html.DropDownListFor(s => s.Dis, ViewBag.Districts as SelectList, "Tất cả")
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <td class="cobll" colspan="4" align="center">
+                            <input type="submit" class="btnSearch" value="Tìm Kiếm" />
+                        </td>
+                    </tr>
+
+                </tbody></table>
+	</form>
+</div>
+    </div>
+	<div class="list-house-content mt5 pt5">
+    <div class="list-house-header-left left pb10">
+        <h3 class="blue bold left">
+            Tìm thấy <span class="list-house-count" id="house-sell-count">@count</span> kết quả như bạn mong muốn
+        </h3>
+        <br class="clearBoth" />
+    </div>
+    <!-- end .house-sell-header-left -->
+    <div class="list-house-header-right right">
+        <div class="paginator_number" style="width: auto;">
+            @if (count > show)
+            {
+                string url = System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pagging - 1));
+                int pages = count % show == 0 ? count / show : count / show + 1;
+                if (pagging != 1)
+                {        
+                <div class="prev_link">
+                    <a href="@url">
+                        <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                    </a>
+                </div>
+                }
+
+
+
+                for (int i = 1; i <= pages; i++)
+                {
+                    url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + i);
+                    if (pagging == i)
+                    {
+                        
+                <div class="current-page">
+                    <a href="@url">@i</a></div>
+                    }
+                    else
+                    {
+                <div>
+                    <a href="@url">@i</a></div>
+                    }
+                }
+                if (pagging != pages)
+                {
+                    url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pagging + 1));
+                <div class="next_link">
+                    <a href="@url">
+                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                <div class="last_link">
+                    <a href=""></a>
+                </div>
+                }
+            }
+            <div class="clearBoth">
+            </div>
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .house-sell-header-right -->
+    <br class="clearBoth" />
+  <div class="list-items">
+        @foreach (var item in result)
+        {
+            <div id="house-id" class="item">
+                <div class="item-image left ml6">
+                    <div class="item-image-border">
+                        <a href="/Home/Detail/@item.ProductID">
+                            @if (item.Images.Count == 0)
+                            {
+                                <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
+                            }
+                            else
+                            {
+                                <img src="@item.Images.First().ThumblLink" alt="@item.Title" />
+                            }
+                        </a>
+                    </div>
+                    <!-- end .item-image-border -->
+                </div>
+                <!--end .item-image -->
+                <div class="item-description left ml10" >
+                    <strong><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
+                        <br />
+                    </strong>
+                    <p class="mt5">@Html.Raw(reg.Replace((item.Description.Length > 120 ? item.Description.Substring(0, 120) + "..." : item.Description),""))</p>
+                    <div class="view-detail">
+                        <div style="position: absolute; top: 3px; z-index: 100;">
+                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
+                                Xem chi tiết </a>
+                        </div>
+                        
+                    </div>
+                    <!-- end .view-detail -->
+                    
+                </div>
+                <!--end .item-description -->
+                <div class="border-right-dashed left pl10">
+                </div>
+                <!--end .border-right-dashed -->
+                <div class="item-status left">
+                @if (!string.IsNullOrEmpty(item.DuongTruocNha))
+                {
+                <p style="text-align: center">
+                    @item.DuongTruocNha,</p>
+                }
+                    <p style="text-align: center">
+                        P @item.Ward.WardName,</p>
+                    <p style="text-align: center">
+                        Q @item.Ward.District.DistrictName</p>
+                </div>
+                <!--end .item-status -->
+                <div class="border-right-dashed left">
+                </div>
+                <!--end .border-right-dashed -->
+                <div class="price-place left pl10">
+                    <div class="price blue left">@(item.Price)tr/Tháng</div>
+                    <br class="clearBoth" />
+                    <div class="place-city pt10">
+                        Lượt xem:  @item.Views</div>
+                    @{
+                                               if (item.IsHired)
+                                               {
+                             <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
+                                               }
+                    }
+                   
+                </div>
+                <!--end .price-place -->
+                <br class="clearLeft" />
+            </div> <!-- end .item -->
+        }
+    </div>
+    <!-- end .list-items -->
+    <div class="border-top-end">
+    </div>
+    <div class="pagin-end right">
+        <div class="paginator-number">
+        </div>
+        <!-- end .paginator-number -->
+    </div>
+    <!-- end .pagin-end -->
+</div>
+<!-- end .house-sell-content -->
+
+        <div class="border-top-end"></div>
+        <div class="pagin-end right">
+        	<div class="paginator-number">
+
+            </div> <!-- end .paginator-number -->
+        </div> <!-- end .pagin-end -->
+
+    </div> <!-- end .house-sell-content -->
