@@ -8,8 +8,7 @@
 }
 <div class="list-house-content mt5 pt5">
     <div class="list-house-header-left left pb10">
-        <h3 class="blue bold left">
-            Có <span class="list-house-count" id="house-sell-count">@count</span> nhà đăng bán
+        <h3 class="blue bold left">Có <span class="list-house-count" id="house-sell-count">@count</span> nhà đăng bán
         </h3>
         <br class="clearBoth" />
     </div>
@@ -22,7 +21,7 @@
                 if (pg != 1)
                 {        
                 <div class="prev_link">
-                    <a href="/home/index?pg=@(pg-1)&show=@show">
+                    <a href="/home/index?pg=@(pg - 1)&show=@show">
                         <img src="../../Content/images/paging/p_prev.gif" align="middle">
                     </a>
                 </div>
@@ -35,20 +34,23 @@
                     if ((int)ViewBag.pg == i)
                     {
                         
-                    <div class="current-page">
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a></div>
+                <div class="current-page">
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
+                </div>
                     }
                     else
                     {
                 <div>
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a></div>
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
+                </div>
                     }
                 }
                 if (pg != pages)
                 {
                 <div class="next_link">
-                    <a href="/home/index?pg=@(pg+1)&show=@(show)">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                    <a href="/home/index?pg=@(pg + 1)&show=@(show)">
+                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a>
+                </div>
                 <div class="last_link">
                     <a href=""></a>
                 </div>
@@ -64,10 +66,12 @@
     <div class="list-items">
         @foreach (var item in Model)
         {
-            <div id="house-id" class="item">
-                <div class="item-image left ml6">
-                    <div class="item-image-border">
-                        <a href="/Home/Detail/@item.ProductID">
+             <div class="item">
+                <div class="item-info">
+                    <div class="item-left">
+                        <div class="item-id">MS: 13040912</div>
+                        <div class="item-image">
+                            <a href="/Home/Detail/@item.ProductID">
                             @if (item.Images.Count == 0)
                             {
                                 <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
@@ -77,60 +81,51 @@
                                 <img src="@item.Images.First().ThumblLink" alt="@item.Title" />
                             }
                         </a>
-                    </div>
-                    <!-- end .item-image-border -->
-                </div>
-                <!--end .item-image -->
-                <div class="item-description left ml10" >
-                    <strong><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
-                        <br />
-                    </strong>
-                    <p class="mt5">@Html.Raw(reg.Replace((item.Description.Length > 120 ? item.Description.Substring(0, 120) + "..." : item.Description),""))</p>
-                    <div class="view-detail">
-                        <div style="position: absolute; top: 3px; z-index: 100;">
-                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
-                                Xem chi tiết </a>
                         </div>
-                        
-                    </div>
-                    <!-- end .view-detail -->
-                    
-                </div>
-                <!--end .item-description -->
-                <div class="border-right-dashed left pl10">
-                </div>
-                <!--end .border-right-dashed -->
-                <div class="item-status left">
-                @if (!string.IsNullOrEmpty(item.DuongTruocNha))
-                {
-                <p style="text-align: center">
-                    @item.DuongTruocNha,</p>
-                }
-                    <p style="text-align: center">
-                        P @item.Ward.WardName,</p>
-                    <p style="text-align: center">
-                        Q @item.Ward.District.DistrictName</p>
-                </div>
-                <!--end .item-status -->
-                <div class="border-right-dashed left">
-                </div>
-                <!--end .border-right-dashed -->
-                <div class="price-place left pl10">
-                    <div class="price blue left">@(item.Price)tr/Tháng</div>
-                    <br class="clearBoth" />
-                    <div class="place-city pt10">
-                        Lượt xem:  @item.Views</div>
-                    @{
-                                               if (item.IsHired)
-                                               {
-                             <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
-                                               }
+                   @if (item.IsHired)
+                    {
+                        <img src="../../Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
                     }
+                    </div>
+                    <div class="item-right-content">
+                        <div class="item-right">
+                            <div class="item-title"><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 100 ? item.Title.Substring(0, 100) + "..." : item.Title), "")</a></div>
+                            <div class="item-description">@Html.Raw(reg.Replace(item.Description,""))</div>
+
+                        </div>
+                        <div class="item-bottom">
+                            <div class="bottom-item">
+                                Giá:
+                                                    <p class="bottom-item-value">@(item.Price)tr/Tháng</p>
+                            </div>
+                            <div class="bottom-item">
+                                Đc:
+                                                    <p class="bottom-item-value">P. @item.Ward.WardName, Q. @item.Ward.District.DistrictName</p>
+                            </div>
+                            <div class="bottom-item">
+                                DT:
+                                                    <p class="bottom-item-value">@(item.Dai*item.Ngan)m&sup2</p>
+                            </div>
+                            <div class="bottom-item">
+                                Lầu:
+                                                    <p class="bottom-item-value">@item.SoLau</p>
+                            </div>
+                            <div class="bottom-item">
+                                PN:
+                                                    <p class="bottom-item-value">@item.SoPhongNgu</p>
+                            </div>
+                            <div class="bottom-item">
+                                WC:
+                                                    <p class="bottom-item-value">@item.SoPhongTam</p>
+                            </div>
+                            <div class="clearBoth"></div>
+                        </div>
+                    </div>
                    
+                    <div class="clearBoth"></div>
                 </div>
-                <!--end .price-place -->
-                <br class="clearLeft" />
-            </div> <!-- end .item -->
+
+            </div>
         }
     </div>
     <!-- end .list-items -->
