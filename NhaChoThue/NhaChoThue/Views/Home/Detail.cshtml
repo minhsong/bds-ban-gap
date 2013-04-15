@@ -13,7 +13,7 @@
 <link href="../../Content/styles/asset_detail.css" rel="stylesheet" type="text/css" />
 <link href="../../Content/styles/Asset.css" rel="stylesheet" type="text/css" />
 <link href="../../Content/styles/slides.css" rel="stylesheet" type="text/css" />
-<link href="../../Content/styles/tools.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/styles/tools.css" rel="stylesheet"s type="text/css" />
 <link href="../../Content/styles/uniform.default.css" rel="stylesheet" type="text/css" />
 <link href="../../Content/styles/doolv3.css" rel="stylesheet" type="text/css" />
 <link href="../../Content/styles/home.css" rel="stylesheet" type="text/css" />
@@ -102,7 +102,7 @@
         }
     </style>*@
                             <div class="body">
-                                <h2 class="larger_title">@Model.Title</h2>
+                                <h2 class="larger_title">[@Model.GetID()]@Model.Title</h2>
                                 <span class="location">Vị trí: @Model.DuongTruocNha , phường @Model.Ward.WardName, Quận
                                     @Model.Ward.District.DistrictName, TP.HCM</span>
                                 <div class="detail_info">
@@ -138,8 +138,16 @@
                                                     }
                                                     else
                                                     {
+                                                        if (Model.Price < 0)
+                                                        {
+                                                            <text> Giá: Thỏa thuận
+                                                        </text>
+                                                        }
+                                                        else
+                                                        {
                                                         <text> Giá: @(Model.Price)tr/Tháng
                                                         </text>
+                                                        }
                                                     }
                                                 </div>
                                             </div>
@@ -212,17 +220,36 @@
                         </div>
                         <div class="rounded_style_2 rounded_box">
                             <div class="content_inner">
-                                <ul class="listing_4">
+                                <ul class="listing_4" style="display:inline-block;">
                                     @{
                                         var ListCungGia = ViewBag.CungGia as IEnumerable<BDSBanGap.Models.DBContext.Product>;
                                         foreach (var item in ListCungGia)
                                         {
                                         <li><a href="/Home/Detail/@item.ProductID">
-                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
-                                            <div class="right">
-                                                <h2>
+                                            @if (item.Images.Count > 0)
+                                            { 
+                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" />
+                                            }
+                                            else
+                                            { 
+                                                <img src="/Content/images/Default-image.jpg" width="75" height="75" alt="@item.Title" title="@item.Title" />
+                                            }
+                                            </a>
+                                                <div class="right">
+                                                <h2 style="height:46px;overflow:hidden;padding-bottom:0px;">
                                                     <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
-                                                <span class="price">@(Model.Price)tr/Tháng</span>
+                                                <span class="price">
+                                                @if (item.Price < 0)
+                                                {
+                                                    <text> Giá: Thỏa thuận
+                                                </text>
+                                                }
+                                                else
+                                                {
+                                                <text> Giá: @(item.Price)tr/Tháng
+                                                </text>
+                                                }
+                                                </span>
                                             </div>
                                         </li>
                                         }
@@ -235,21 +262,40 @@
                     <div id="others_posted2" class="rounded_style_2 rounded_box margin_bottom">
                         <div class="headline_title_1 rounded_style_5 rounded_box">
                             <h2 class="headline">
-                                <span>BẤT ĐỘNG SẢN KHU VỰC</span></h2>
+                                <span>BẤT ĐỘNG SẢN KHU VỰC @Model.Ward.District.DistrictName.ToUpper()</span></h2>
                         </div>
                         <div class="rounded_style_2 rounded_box">
                             <div class="content_inner">
-                                <ul class="listing_4">
+                                <ul class="listing_4" style="display:inline-block">
                                     @{
                                         var ListCungKV = ViewBag.CungKV as IEnumerable<BDSBanGap.Models.DBContext.Product>;
                                         foreach (var item in ListCungKV)
                                         {
-                                        <li><a href="/Home/Detail/@item.ProductID">
-                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" /></a>
+                                        <li style="margin-right:3px;"><a href="/Home/Detail/@item.ProductID">
+                                            @if (item.Images.Count > 0)
+                                            { 
+                                            <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" />
+                                            }
+                                            else
+                                            { 
+                                                <img src="/Content/images/Default-image.jpg" width="75" height="75" alt="@item.Title" title="@item.Title" />
+                                            }
+                                            </a>
                                             <div class="right">
-                                                <h2>
+                                                <h2 style="height:46px;overflow:hidden;padding-bottom:0px;">
                                                     <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
-                                                <span class="price">@(Model.Price)tr/Tháng</span>
+                                                <span class="price">
+                                                @if (item.Price < 0)
+                                                {
+                                                    <text> Giá: Thỏa thuận
+                                                </text>
+                                                }
+                                                else
+                                                {
+                                                <text> Giá: @(item.Price)tr/Tháng
+                                                </text>
+                                                }
+                                                </span>
                                             </div>
                                         </li>
                                         }

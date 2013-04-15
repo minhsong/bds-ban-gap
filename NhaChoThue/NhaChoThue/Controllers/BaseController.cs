@@ -36,7 +36,7 @@ namespace BDSBanGap.Controllers
                                  where s.IsCurrentPriority()
                                  && s.IsDelete == false
                                  && s.IsHired == false
-                                 select s).OrderByDescending(s => s.CurrentPriority().EndDate.Value).Take(5);
+                                 select s).OrderByDescending(s => s.ProductID).Take(6);
 
             try
             {

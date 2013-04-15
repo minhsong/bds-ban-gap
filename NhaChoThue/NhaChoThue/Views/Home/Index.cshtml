@@ -8,7 +8,7 @@
 }
 <div class="list-house-content mt5 pt5">
     <div class="list-house-header-left left pb10">
-        <h3 class="blue bold left">Có <span class="list-house-count" id="house-sell-count">@count</span> nhà đăng bán
+        <h3 class="blue bold left">@((pg-1)*show+1) đến @(pg*show) trong <span class="list-house-count" id="house-sell-count">@count</span> nhà cho thuê
         </h3>
         <br class="clearBoth" />
     </div>
@@ -69,7 +69,7 @@
              <div class="item">
                 <div class="item-info">
                     <div class="item-left">
-                        <div class="item-id">MS: 13040912</div>
+                        <div class="item-id">MS: @item.GetID()</div>
                         <div class="item-image">
                             <a href="/Home/Detail/@item.ProductID">
                             @if (item.Images.Count == 0)
@@ -95,8 +95,19 @@
                         </div>
                         <div class="item-bottom">
                             <div class="bottom-item">
-                                Giá:
-                                                    <p class="bottom-item-value">@(item.Price)tr/Tháng</p>
+                             Giá: 
+                                                    <p class="bottom-item-value">
+                                                    @if (item.Price < 0)
+                                                        {
+                                                            <text>Thỏa thuận
+                                                        </text>
+                                                        }
+                                                        else
+                                                        {
+                                                        <text>@(item.Price)tr/Tháng
+                                                        </text>
+                                                }
+                                                    </p>
                             </div>
                             <div class="bottom-item">
                                 Đc:
@@ -129,6 +140,55 @@
         }
     </div>
     <!-- end .list-items -->
+        <!-- end .house-sell-header-left -->
+    <div class="list-house-header-right right">
+    <div class="paginator_number" style="width: auto;">
+            @if (count > show)
+            {
+                int pages = count % show == 0 ? count / show : count / show + 1;
+                if (pg != 1)
+                {        
+                <div class="prev_link">
+                    <a href="/home/index?pg=@(pg - 1)&show=@show">
+                        <img src="../../Content/images/paging/p_prev.gif" align="middle">
+                    </a>
+                </div>
+                }
+
+
+
+                for (int i = 1; i <= pages; i++)
+                {
+                    if ((int)ViewBag.pg == i)
+                    {
+                        
+                <div class="current-page">
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
+                </div>
+                    }
+                    else
+                    {
+                <div>
+                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
+                </div>
+                    }
+                }
+                if (pg != pages)
+                {
+                <div class="next_link">
+                    <a href="/home/index?pg=@(pg + 1)&show=@(show)">
+                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a>
+                </div>
+                <div class="last_link">
+                    <a href=""></a>
+                </div>
+                }
+            }
+            <div class="clearBoth">
+            </div>
+        </div>
+        <!-- end .paginator-number -->
+    </div>
     <div class="border-top-end">
     </div>
     <div class="pagin-end right">
