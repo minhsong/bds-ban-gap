@@ -49,8 +49,8 @@ namespace BDSBanGap.Models.DBContext
         public bool IsCurrentPriority()
         {
             var lp = from s in Priorities
-                    where s.StarDate <= DateTime.Now
-                    && s.EndDate >= DateTime.Now
+                    where (s.StarDate <= DateTime.Now||s.StarDate==null)
+                    && (s.EndDate >= DateTime.Now||s.EndDate == null)
                     && s.IsDelete==false
                     && s.IsActive ==true
                     select s;
@@ -68,6 +68,12 @@ namespace BDSBanGap.Models.DBContext
                           && s.EndDate >= DateTime.Now
                           select s).FirstOrDefault();
             return result;
+        }
+
+        public decimal GetID()
+        {
+            decimal result = (this.CreatedDate.Value.Year - 2000)*10000;
+            return result + ProductID;
         }
         #endregion
 

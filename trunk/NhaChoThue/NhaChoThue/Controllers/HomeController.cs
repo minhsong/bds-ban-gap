@@ -57,8 +57,17 @@ namespace BDSBanGap.Controllers
 
         public ActionResult Search(SearchModel search, int? pg, int? show)
         {
-            show = show == null ? 15 : show.Value;
-            int pagging = pg == null ? 1 : pg.Value;
+            if (show == null)
+            {
+                show = 15;
+                this.HttpContext.Request.Params.Add("pg", "15");
+            }
+            
+            if (pg == null)
+            {
+                pg = 1;
+                this.HttpContext.Request.Params.Add("show", "15");
+            }
 
             var SearchResult = (from s in db.Products.AsEnumerable()
                                     where s.IsActive
@@ -68,12 +77,12 @@ namespace BDSBanGap.Controllers
                                     && (search.To == null || s.Price < search.To)
                                     &&(string.IsNullOrEmpty(search.Title) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.Title, search.Title))
                                     && (string.IsNullOrEmpty(search.Duong) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.DuongTruocNha, search.Duong))
-                                    select s).ToList();
+                                select s).ToList().OrderByDescending(s => s.CreatedDate);
             ViewBag.count = SearchResult.Count();
-            ViewBag.pg = pagging;
-            ViewBag.show = show;
+            ViewBag.pg = pg.Value;
+            ViewBag.show = show.Value;
 
-            ViewBag.SearchResult = new List<Product>(SearchResult.Skip((pagging - 1) * show.Value).Take(show.Value).ToList().OrderByDescending(s => s.CreatedDate));
+            ViewBag.SearchResult = new List<Product>(SearchResult.Skip((pg.Value - 1) * show.Value).Take(show.Value).ToList().OrderByDescending(s => s.CreatedDate));
             ViewBag.Districts = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",search.Dis);
 
             return View(search);
