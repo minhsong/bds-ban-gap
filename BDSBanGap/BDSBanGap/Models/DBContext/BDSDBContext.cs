@@ -17,6 +17,7 @@ namespace BDSBanGap.Models.DBContext
         public DbSet<BDSUser> Users { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<PriorityProduct> Priorities { get; set; }
+        public DbSet<Booked> Bookeds { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
