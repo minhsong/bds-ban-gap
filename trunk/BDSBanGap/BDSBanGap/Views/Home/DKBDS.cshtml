@@ -53,8 +53,7 @@
                     </td>
                     <td>
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.Type)
-                            @Html.ValidationMessageFor(model => model.Type)
+                            @Html.DropDownListFor(s => s.Type, ViewBag.Type as SelectList);
                         </div>
                     </td>
                 </tr>
@@ -86,7 +85,7 @@
             Mô tả chi tiết
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description)
         </div>
         <br />     
         <p>

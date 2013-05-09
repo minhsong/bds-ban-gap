@@ -122,6 +122,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BookedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Models\DBContext\Booked.cs" />
     <Compile Include="Models\DBContext\PriorityProduct.cs" />
     <Compile Include="Models\DBContext\ProductImage.cs" />
+    <Compile Include="Models\Enum\BookedType.cs" />
     <Compile Include="Models\Enum\Huong.cs" />
     <Compile Include="Models\Enum\LoaiDiaOc.cs" />
     <Compile Include="Models\Enum\TinhTrangPhapLy.cs" />
@@ -627,6 +629,8 @@
     <Content Include="Views\Product\DeletedProducts.cshtml" />
     <Content Include="Views\Product\ReplaceEmage.cshtml" />
     <Content Include="Views\Home\DKBDS.cshtml" />
+    <Content Include="Views\Home\BookedSuccessed.cshtml" />
+    <Content Include="Views\Booked\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
