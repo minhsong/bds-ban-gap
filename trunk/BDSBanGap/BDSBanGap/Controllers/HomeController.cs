@@ -84,6 +84,26 @@ namespace BDSBanGap.Controllers
         {
             return View();
         }
+
+        public ActionResult DKBDS()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DKBDS(Booked bds)
+        {
+            if (ModelState.IsValid)
+            {
+                bds.CreatedBy = bds.FullName;
+                bds.CreatedDate = DateTime.Now;
+                bds.UpdatedBy = bds.FullName;
+                bds.UpdatedDate = DateTime.Now;
+                db.Bookeds.Add(bds);
+                db.SaveChanges();
+            }
+            return View();
+        }
     }
 
 }
