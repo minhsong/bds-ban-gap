@@ -87,10 +87,12 @@ namespace BDSBanGap.Controllers
 
         public ActionResult DKBDS()
         {
+            ViewBag.Type = new SelectList(BookedType.GetListBookedType(), "ItemValue", "DisplayValue");
             return View();
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult DKBDS(Booked bds)
         {
             if (ModelState.IsValid)
@@ -101,7 +103,13 @@ namespace BDSBanGap.Controllers
                 bds.UpdatedDate = DateTime.Now;
                 db.Bookeds.Add(bds);
                 db.SaveChanges();
+                return RedirectToAction("BookedSuccessed");
             }
+            ViewBag.Type = new SelectList(BookedType.GetListBookedType(), "ItemValue", "DisplayValue");
+            return View();
+        }
+        public ActionResult BookedSuccessed()
+        {
             return View();
         }
     }
