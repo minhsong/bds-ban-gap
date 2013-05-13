@@ -40,7 +40,7 @@
     text-decoration: none;
     color: rgb(32, 71, 170);
     position: relative;
-    width: 177px;
+    width: auto;
     text-align: center;
 }
 .menuTemplate1 li:hover a, .menuTemplate1 li.onhover a

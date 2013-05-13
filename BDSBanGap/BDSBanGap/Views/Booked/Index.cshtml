@@ -56,7 +56,7 @@
                     </td>
                     <td style="width: 120px; text-align: center;">@BDSBanGap.Models.Enum.BookedType.GetBookedType(item.Type)
                     </td>
-                    <td style="width: 120px; text-align: center;">@Html.Raw(item.Description);
+                    <td style="width: 120px; text-align: center;">@Html.Raw(item.Description)
                     </td>
                     <td style="width: 80px; text-align: center;">
                     @Ajax.ActionLink("Full delete", "DeleteFull", new { id = item.id }, new AjaxOptions() { Confirm = "Bạn có muốn xóa khỏi hệ thống không?", HttpMethod = "Post", OnComplete = "document.location.reload()" })
