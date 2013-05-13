@@ -213,6 +213,7 @@
     <Content Include="Content\styles\admin\uniform.css" />
     <Content Include="Content\styles\Asset.css" />
     <Content Include="Content\styles\asset_detail.css" />
+    <Content Include="Content\styles\chosen.css" />
     <Content Include="Content\styles\dhtmlxcalendar.css" />
     <Content Include="Content\styles\dhtmlxcalendar_dhx_skyblue.css" />
     <Content Include="Content\styles\doolv3.css" />
@@ -275,6 +276,7 @@
     <Content Include="Scripts\admin\unicorn.login.js" />
     <Content Include="Scripts\admin\unicorn.tables.js" />
     <Content Include="Scripts\admin\unicorn.wizard.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\config.js" />
@@ -537,7 +539,9 @@
     <Content Include="Scripts\slideshow\loader.gif" />
     <Content Include="Scripts\slideshow\opa75.png" />
     <Content Include="Scripts\slideshow\trans.gif" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

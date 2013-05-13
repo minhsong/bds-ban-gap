@@ -87,6 +87,7 @@ namespace BDSBanGap.Controllers
 
         public ActionResult DKBDS()
         {
+            ViewBag.DistrictsList = new SelectList(db.Districts, "DistrictID", "DistrictName");
             ViewBag.Type = new SelectList(BookedType.GetListBookedType(), "ItemValue", "DisplayValue");
             return View();
         }
