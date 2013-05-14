@@ -31,6 +31,12 @@ namespace BDSBanGap
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
+            routes.MapRoute(
+                "product-title", // Route name
+                "{controller}/{action}/{id}/{title}", // URL with parameters
+                new { controller = "Home", action = "index", id = UrlParameter.Optional, title= UrlParameter.Optional } // Parameter defaults
+            );
+
         }
 
         protected void Application_Start()

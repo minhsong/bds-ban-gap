@@ -119,7 +119,7 @@
                 {        
                 <div class="prev_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                        <img src="/Content/images/paging/p_prev.gif" align="absmiddle">
                     </a>
                 </div>
                 }
@@ -146,7 +146,7 @@
                     url = @System.Text.RegularExpressions.Regex.Replace(HttpContext.Current.Request.Url.AbsoluteUri, @"pg=\d+", "pg=" + (pagging + 1));
                 <div class="next_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a></div>
                 <div class="last_link">
                     <a href=""></a>
                 </div>
@@ -165,7 +165,7 @@
             <div id="house-id" class="item">
                 <div class="item-image left ml6">
                     <div class="item-image-border">
-                        <a href="/Home/Detail/@item.ProductID">
+                        <a href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)">
                             @if (item.Images.Count == 0)
                             {
                                 <img src="/Content/images/Default-image.jpg"  alt="@item.Title"/>
@@ -180,13 +180,13 @@
                 </div>
                 <!--end .item-image -->
                 <div class="item-description left ml10" >
-                    <strong><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
+                    <strong><a href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 65 ? item.Title.Substring(0, 65) + "..." : item.Title),"")</a>
                         <br />
                     </strong>
                     <p class="mt5">@Html.Raw(reg.Replace((item.Description.Length > 120 ? item.Description.Substring(0, 120) + "..." : item.Description),""))</p>
                     <div class="view-detail">
                         <div style="position: absolute; top: 3px; z-index: 100;">
-                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@item.ProductID">
+                            <a style="font-family: Verdana; font-size: 10px;text-align:left;" href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)">
                                 Xem chi tiết </a>
                         </div>
                         
@@ -222,7 +222,7 @@
                     @{
                                                if (item.IsSold)
                                                {
-                             <img src="../../Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
+                             <img src="/Content/images/daban_small.png" style="margin-left: 110px; margin-top: -50px"/>
                                                }
                     }
                    

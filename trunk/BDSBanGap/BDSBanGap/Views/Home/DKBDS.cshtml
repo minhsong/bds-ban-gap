@@ -1,7 +1,7 @@
 ﻿@model BDSBanGap.Models.DBContext.Booked
 
 @{
-    ViewBag.Title = "DKBDS";
+    ViewBag.Title = "Đăng ký mua bất động sản";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,7 +11,9 @@
 <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
+
+@{
+    <form action="/home/dkbds" method="post">
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Đăng ký mua bất động sản</legend>
@@ -23,20 +25,16 @@
                         Tên:
                     </td>
                     <td>
-                        <div class="editor-field">
                             @Html.EditorFor(model => model.FullName)
                             @Html.ValidationMessageFor(model => model.FullName)
-                        </div>
                     </td>
 
                     <td>
                         Điện thoại:
                     </td>
                     <td>
-                        <div class="editor-field">
                             @Html.EditorFor(model => model.Phone)
                             @Html.ValidationMessageFor(model => model.Phone)
-                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -44,19 +42,15 @@
                         Email:
                     </td>
                     <td>
-                        <div class="editor-field">
                             @Html.EditorFor(model => model.Email)
                             @Html.ValidationMessageFor(model => model.Email)
-                        </div>
                     </td>
 
                     <td>
                         Mục đích đăng ký:
                     </td>
                     <td>
-                        <div class="editor-field">
                             @Html.DropDownListFor(s => s.Type, ViewBag.Type as SelectList)
-                        </div>
                     </td>
                 </tr>
                  <tr>
@@ -64,7 +58,6 @@
                         Giá từ
                     </td>
                     <td>
-                       <div class="editor-field">
                             @Html.TextBoxFor(model => model.MaxPrice, new {style="max-width: 60px;" })
                             
                             Đến
@@ -72,25 +65,20 @@
                            Tỷ đồng
                             @Html.ValidationMessageFor(model => model.MinPrice)
                            @Html.ValidationMessageFor(model => model.MaxPrice)
-                        </div>
                     </td>
 
                     <td>
                        Quận
                     </td>
                     <td>
-                         <div class="editor-field">
-                             @Html.DropDownList("District-select", ViewBag.DistrictsList as SelectList, new {id="District-select",@class="District-select"})
+                             @Html.DropDownList("District-select", ViewBag.DistrictsList as SelectList, new {id="District-select",@class="District-select",multiple="true"})
                             @Html.HiddenFor(s => s.Districts, new { id="Districts"})
-                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-       
-        <div class="editor-label">
+        
             Mô tả chi tiết
-        </div>
         <div class="editor-field">
             @Html.TextAreaFor(model => model.Description)
         </div>
@@ -99,6 +87,7 @@
             <input type="submit" value="Gởi thông tin" />
         </p>
     </fieldset>
+    </form> 
 }
 <script type="text/javascript">
     CKEDITOR.replace('Description', {

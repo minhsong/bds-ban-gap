@@ -106,8 +106,9 @@ namespace BDSBanGap.Controllers
                 db.SaveChanges();
                 return RedirectToAction("BookedSuccessed");
             }
+            ViewBag.DistrictsList = new SelectList(db.Districts, "DistrictID", "DistrictName");
             ViewBag.Type = new SelectList(BookedType.GetListBookedType(), "ItemValue", "DisplayValue");
-            return View();
+            return View(bds);
         }
         public ActionResult BookedSuccessed()
         {

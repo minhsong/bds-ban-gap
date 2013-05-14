@@ -171,6 +171,7 @@
     <Content Include="Content\images\btn-search-content.gif" />
     <Content Include="Content\images\btn.png" />
     <Content Include="Content\images\btn_timxe.gif" />
+    <Content Include="Content\images\chosen-sprite.png" />
     <Content Include="Content\images\daban_small.png" />
     <Content Include="Content\images\Default-image.jpg" />
     <Content Include="Content\images\dhtmlxcalendar_dhx_skyblue\arrow_left.png" />

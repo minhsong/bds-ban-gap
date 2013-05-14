@@ -824,3 +824,16 @@ strong a
 {
     font-weight:bold;
 }
+.red {color:red;}
+.red2 {color:rgb(214, 108, 108)}
+.ml20 {margin-left:20px}
+.about-content{
+width: 95%;
+padding-left: 10px;
+border: dashed;
+margin-top: 20px;
+padding-top: 10px;
+padding: 20px 5px 10px 15px;
+color: olive;
+border-color: #696969;
+}

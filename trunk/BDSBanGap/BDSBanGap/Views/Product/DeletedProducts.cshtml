@@ -6,7 +6,7 @@
     int count = 0;
 }
 <script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
-<script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable();
@@ -50,7 +50,7 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID" target="_blank">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)" target="_blank">@item.Title</a>
                     </td>
                     <td style="width: 60px; text-align: center;">@item.Price Tỷ
                     </td>

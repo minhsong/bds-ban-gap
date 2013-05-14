@@ -9,7 +9,7 @@
     /*following "behavior" works for IE6, IE7, and IE8. Other browsers will ignore it.*/
     /*Note: htc file path(if using relative path) inside the CSS file should be relative to the page, not to the CSS file (this is unlike image path inside the CSS that is relative to the CSS file location only). 
     So we recommend using the absolute path for the behavior file.*/
-    behavior: url("../../Scripts/cssmenu.htc");
+    behavior: url("/Scripts/cssmenu.htc");
     position:relative;
     z-index:4;
     height: 36px;
