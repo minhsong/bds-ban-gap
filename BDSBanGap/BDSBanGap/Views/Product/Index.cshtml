@@ -49,7 +49,7 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID" target="_blank">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)" target="_blank">@item.Title</a>
                     </td>
                     <td style="width: 60px; text-align: center;">@item.Price Tỷ
                     </td>
@@ -61,7 +61,7 @@
                     </td>
                     <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 80px; text-align: center;"><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="../../Content/images/admin/Edit_icon.png"/></a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/Heart_Icon.png"/></a>}
+                    <td style="width: 80px; text-align: center;"><a href="/product/edit/@item.ProductID"><img width="20px" alt="Cập nhập thông tin" src="/Content/images/admin/Edit_icon.png"/></a> |<a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Thiết lập ưu tiên" src="/Content/images/admin/delete-icon.png"/></a>@if (!item.IsCurrentPriority()) {<a href="javascript:void(0)" id="Priority" onclick="ShowPriorityForm('@item.ProductID')"><img width="20px" alt="Delete" src="/Content/images/admin/Heart_Icon.png"/></a>}
                     </td>
                 </tr>
             }

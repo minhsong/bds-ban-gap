@@ -54,7 +54,7 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@(item.ProductID)/@BDSBanGap.Helpers.DataConvertHelper.Titletransform(item.Title)">@item.Title</a>
                     </td>
                     <td style="width: 70px; text-align: center;">@item.SoldDate.Value.ToShortDateString()
                     </td>
@@ -68,7 +68,7 @@
                     </td>
                     <td style="width: 60px; text-align: center;">@BDSBanGap.Models.Enum.ViTriDiaOc.GetViTriDiaOc(@item.ViTriDiaOc)
                     </td>
-                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="../../Content/images/admin/not-sold.jpg"/></a>
+                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="/Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="/Content/images/admin/not-sold.jpg"/></a>
                     </td>
                 </tr>
             }

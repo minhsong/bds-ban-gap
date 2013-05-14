@@ -479,5 +479,16 @@ namespace BDSBanGap.Helpers
             //--------------------------------- 
             return converString;
         }
+        public static string Titletransform(string input)
+        {
+            input = VietHoaKhongDau(input).Replace(' ','-');
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in input)
+            {
+                if (Char.IsLetterOrDigit(c) ||c == '_' || c == '-')
+                { sb.Append(c); }
+            }
+            return sb.ToString();
+        }
     }
 }
