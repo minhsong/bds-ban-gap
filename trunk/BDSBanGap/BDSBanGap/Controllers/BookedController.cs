@@ -17,5 +17,11 @@ namespace BDSBanGap.Controllers
             return View(result);
         }
 
+        public ActionResult Detail(int id)
+        {
+            var bk = db.Bookeds.Find(id);
+            return PartialView(bk);
+        }
+
     }
 }
