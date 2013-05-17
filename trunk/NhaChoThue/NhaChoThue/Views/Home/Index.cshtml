@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
 @{
     ViewBag.Title = "Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1...";
     int pg = (int)ViewBag.pg;
@@ -22,7 +22,7 @@
                 {        
                 <div class="prev_link">
                     <a href="/home/index?pg=@(pg - 1)&show=@show">
-                        <img src="../../Content/images/paging/p_prev.gif" align="middle">
+                        <img src="/Content/images/paging/p_prev.gif" align="middle">
                     </a>
                 </div>
                 }
@@ -49,7 +49,7 @@
                 {
                 <div class="next_link">
                     <a href="/home/index?pg=@(pg + 1)&show=@(show)">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a>
+                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a>
                 </div>
                 <div class="last_link">
                     <a href=""></a>
@@ -84,7 +84,7 @@
                         </div>
                    @if (item.IsHired)
                     {
-                        <img src="../../Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
+                        <img src="/Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
                     }
                     </div>
                     <div class="item-right-content">
@@ -150,7 +150,7 @@
                 {        
                 <div class="prev_link">
                     <a href="/home/index?pg=@(pg - 1)&show=@show">
-                        <img src="../../Content/images/paging/p_prev.gif" align="middle">
+                        <img src="/Content/images/paging/p_prev.gif" align="middle">
                     </a>
                 </div>
                 }
@@ -177,7 +177,7 @@
                 {
                 <div class="next_link">
                     <a href="/home/index?pg=@(pg + 1)&show=@(show)">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a>
+                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a>
                 </div>
                 <div class="last_link">
                     <a href=""></a>

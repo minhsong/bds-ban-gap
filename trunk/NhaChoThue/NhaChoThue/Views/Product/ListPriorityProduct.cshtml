@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
 
 @{
     ViewBag.Title = "ListPriorityProduct";
@@ -63,7 +63,7 @@
                     </td>
                     <td style="width: 80px; text-align: center;">@(item.IsActive? "Áp dụng":"")
                     </td>
-                    <td style="width: 80px; text-align: center;"><a href="javascript:void(0)" onclick="removePrioriry('@item.CurrentPriority().PriorityProductID')"><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/heart-broken_icon.png"/></a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a>
+                    <td style="width: 80px; text-align: center;"><a href="javascript:void(0)" onclick="removePrioriry('@item.CurrentPriority().PriorityProductID')"><img width="20px" alt="Bỏ ưu tiên" src="/Content/images/admin/heart-broken_icon.png"/></a> | <a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="/Content/images/admin/delete-icon.png"/></a>
                     </td>
                 </tr>
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BDSBanGap.Models.DBContext
+namespace NhaChoThue.Models.DBContext
 {
     public class Role:BaseModel
     {

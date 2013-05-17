@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BDSBanGap.Helpers
+namespace NhaChoThue.Helpers
 {
     /// <summary>
     /// The class is a helper class to do type-safe conversion
@@ -478,6 +478,18 @@ namespace BDSBanGap.Helpers
             converString = converString.Replace("Ư", "U");
             //--------------------------------- 
             return converString;
+        }
+
+        public static string Titletransform(string input)
+        {
+            input = VietHoaKhongDau(input).Replace(' ', '-');
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in input)
+            {
+                if (Char.IsLetterOrDigit(c) || c == '_' || c == '-')
+                { sb.Append(c); }
+            }
+            return sb.ToString();
         }
     }
 }

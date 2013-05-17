@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
 
 @{
     ViewBag.Title = "SoldProducts";
@@ -60,7 +60,7 @@
                     </td>
                     <td style="width: 120px; text-align: center;">@item.Ward.WardName, @item.Ward.District.DistrictName 
                     </td>
-                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="../../Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="../../Content/images/admin/not-sold.jpg"/></a>
+                    <td style="width: 60px; text-align: center;"><a id="confirmDeleteProd" style="cursor: pointer" onclick="ConfirmDelete('@item.ProductID')"><img width="20px" alt="Delete" src="/Content/images/admin/delete-icon.png"/></a> | <a id="confirmNotSoldProd" style="cursor: pointer" onclick="confirmNotSold('@item.ProductID')"><img width="20px" title="Hủy bán" alt="Not Sold" src="/Content/images/admin/not-sold.jpg"/></a>
                     </td>
                 </tr>
             }

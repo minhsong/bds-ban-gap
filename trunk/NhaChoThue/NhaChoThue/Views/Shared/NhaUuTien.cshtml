@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
            @{
                var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
             }
@@ -6,7 +6,7 @@
     	<div class="house-priority-header">
         	<h3 class="house-priority-header-content">
             	<div style="float:left">
-                	<img src="../../Content/images/icon-priority.jpg" />
+                	<img src="/Content/images/icon-priority.jpg" />
                 </div>
             	<div><a href="">Nhà ưu tiên</a></div>
             </h3>
@@ -26,7 +26,7 @@
                 }
                 else
                 {
-                    <img src="../../Content/images/priority-hou.jpg" alt="@item.Title"/>
+                    <img src="/Content/images/priority-hou.jpg" alt="@item.Title"/>
                 }
                 </a>
                 <div class="house-priority-item-Right">

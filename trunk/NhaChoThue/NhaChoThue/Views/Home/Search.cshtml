@@ -1,8 +1,8 @@
-﻿@model BDSBanGap.Models.SearchModel
+﻿@model NhaChoThue.Models.SearchModel
 
 @{
     ViewBag.Title = "Tìm Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1...";
-    var result = ViewBag.SearchResult as List<BDSBanGap.Models.DBContext.Product>;
+    var result = ViewBag.SearchResult as List<NhaChoThue.Models.DBContext.Product>;
     int pagging = (int)ViewBag.pg;
     int show = (int)ViewBag.show;
     int count = (int)ViewBag.count;
@@ -86,7 +86,7 @@
                 {        
                 <div class="prev_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                        <img src="/Content/images/paging/p_prev.gif" align="absmiddle">
                     </a>
                 </div>
                 }
@@ -113,7 +113,7 @@
                     url = @System.Text.RegularExpressions.Regex.Replace(url, @"pg=\d+", "pg=" + (pagging + 1));
                 <div class="next_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a></div>
                 <div class="last_link">
                     <a href=""></a>
                 </div>
@@ -147,7 +147,7 @@
                         </div>
                    @if (item.IsHired)
                     {
-                        <img src="../../Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
+                        <img src="/Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
                     }
                     </div>
                     <div class="item-right-content">
@@ -213,7 +213,7 @@
                 {        
                 <div class="prev_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_prev.gif" align="absmiddle">
+                        <img src="/Content/images/paging/p_prev.gif" align="absmiddle">
                     </a>
                 </div>
                 }
@@ -240,7 +240,7 @@
                     url = @System.Text.RegularExpressions.Regex.Replace(url, @"pg=\d+", "pg=" + (pagging + 1));
                 <div class="next_link">
                     <a href="@url">
-                        <img src="../../Content/images/paging/p_next.gif" align="absmiddle"></a></div>
+                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a></div>
                 <div class="last_link">
                     <a href=""></a>
                 </div>

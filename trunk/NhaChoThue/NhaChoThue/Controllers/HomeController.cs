@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BDSBanGap.Models;
-using BDSBanGap.Helpers;
-using BDSBanGap.Models.DBContext;
+using NhaChoThue.Models;
+using NhaChoThue.Helpers;
+using NhaChoThue.Models.DBContext;
 using NhaChoThue.Models.Enum;
 
-namespace BDSBanGap.Controllers
+namespace NhaChoThue.Controllers
 {
     public class HomeController : BaseController
     {
@@ -60,13 +60,11 @@ namespace BDSBanGap.Controllers
             if (show == null)
             {
                 show = 15;
-                this.HttpContext.Request.Params.Add("pg", "15");
             }
             
             if (pg == null)
             {
                 pg = 1;
-                this.HttpContext.Request.Params.Add("show", "15");
             }
 
             var SearchResult = (from s in db.Products.AsEnumerable()
@@ -75,8 +73,8 @@ namespace BDSBanGap.Controllers
                                     && (search.Dis==null||s.Ward.DistrictID==search.Dis)
                                     &&(search.From == null || s.Price >= search.From)
                                     && (search.To == null || s.Price < search.To)
-                                    &&(string.IsNullOrEmpty(search.Title) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.Title, search.Title))
-                                    && (string.IsNullOrEmpty(search.Duong) || BDSBanGap.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.DuongTruocNha, search.Duong))
+                                    &&(string.IsNullOrEmpty(search.Title) || NhaChoThue.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.Title, search.Title)||s.GetID().ToString().Contains(search.Title.Trim()))
+                                    && (string.IsNullOrEmpty(search.Duong) || NhaChoThue.Helpers.DataConvertHelper.IsContaintIgnoreCulture(s.DuongTruocNha, search.Duong))
                                 select s).ToList().OrderByDescending(s => s.CreatedDate);
             ViewBag.count = SearchResult.Count();
             ViewBag.pg = pg.Value;
@@ -89,6 +87,32 @@ namespace BDSBanGap.Controllers
         }
 
         public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Consignment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Consignment(Consignment cs)
+        {
+            if (ModelState.IsValid)
+            {
+                cs.CreatedBy = cs.FullName;
+                cs.CreatedDate = DateTime.Now;
+                cs.UpdatedBy = cs.FullName;
+                cs.UpdatedDate = DateTime.Now;
+                db.Consignments.Add(cs);
+                db.SaveChanges();
+                return RedirectToAction("ConsignmentSuccessed");
+            }
+            return View(cs);
+        }
+
+        public ActionResult ConsignmentSuccessed()
         {
             return View();
         }

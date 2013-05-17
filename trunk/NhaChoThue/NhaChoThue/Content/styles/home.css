@@ -868,3 +868,49 @@ strong a
     display: inline;
     line-height: 17px;
 }
+.Abount-Content
+{
+width: 95%;
+padding-left: 10px;
+border: dashed;
+margin-top: 20px;
+padding-top: 10px;
+padding: 20px 5px 10px 15px;
+color: olive;
+border-color: #696969;
+border-top-color: rgb(105, 105, 105);
+border-right-color: rgb(105, 105, 105);
+border-bottom-color: rgb(105, 105, 105);
+border-left-color: rgb(105, 105, 105);
+}
+.About-Header>*
+{
+    color:Red;
+    padding: 0px 0 5px;
+    text-align: center;  
+}
+.About-Body
+{
+}
+.lineTitle
+{
+    color: red;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5px 5px 0 10px;
+    text-decoration: underline;
+}
+.lineContent
+{
+     font-size: medium;
+    padding: 5px 10px 0 30px;
+}
+.Contact-infor
+{
+     border-color: #696969;
+    border-top: medium dotted #696969;
+    color: highlight;
+    font-size: large;
+    margin-top: 5px;
+    padding: 5px 5px 5px 30px;
+}

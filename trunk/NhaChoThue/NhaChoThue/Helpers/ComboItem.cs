@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BDSBanGap.Helpers
+namespace NhaChoThue.Helpers
 {
     public class ComboItem
     {
