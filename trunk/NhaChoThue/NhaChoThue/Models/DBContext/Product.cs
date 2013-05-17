@@ -42,6 +42,7 @@ namespace NhaChoThue.Models.DBContext
         public virtual Contact Contact { get; set; }
         public virtual ICollection<ProductImage> Images { get; set; }
         public virtual ICollection<PriorityProduct> Priorities { get; set; }
+        public virtual ICollection<Consignment> Consignments { get; set; }
 
         //methods
         #region Methods

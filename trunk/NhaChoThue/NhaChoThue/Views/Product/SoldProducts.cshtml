@@ -50,7 +50,7 @@
                 <tr class="Items">
                     <td style="width: 30px; text-align: center;">@(++count)
                     </td>
-                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID">@item.Title</a>
+                    <td style="width: auto;font-weight:bold"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@item.Title</a>
                     </td>
                     <td style="width: 70px; text-align: center;">@item.HiredDate.Value.ToShortDateString()
                     </td>
