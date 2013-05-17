@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Data.Entity;
-using BDSBanGap.Models.DBContext;
+using NhaChoThue.Models.DBContext;
 using System.Web.Security;
 using System.Web.Script.Serialization;
-using BDSBanGap.Security;
+using NhaChoThue.Security;
 
-namespace BDSBanGap
+namespace NhaChoThue
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -30,6 +30,11 @@ namespace BDSBanGap
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+            );
+            routes.MapRoute(
+                "Default_SEO", // Route name
+                "{controller}/{action}/{id}/{title}", // URL with parameters
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional, title = UrlParameter.Optional } // Parameter defaults
             );
         }
 

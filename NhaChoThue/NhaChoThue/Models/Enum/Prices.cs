@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BDSBanGap.Helpers;
+using NhaChoThue.Helpers;
 
 namespace NhaChoThue.Models.Enum
 {

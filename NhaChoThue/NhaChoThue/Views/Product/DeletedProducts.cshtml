@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BDSBanGap.Models.DBContext.Product>
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
 
 @{
     ViewBag.Title = "Administrator: DANH NHA DA XOA";
@@ -6,7 +6,7 @@
     int count = 0;
 }
 <script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
-<script src="../../Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable();

@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace BDSBanGap.Models.DBContext
+namespace NhaChoThue.Models.DBContext
 {
     public class BDSDBContext:DbContext
     {
@@ -17,6 +17,7 @@ namespace BDSBanGap.Models.DBContext
         public DbSet<BDSUser> Users { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<PriorityProduct> Priorities { get; set; }
+        public DbSet<Consignment> Consignments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

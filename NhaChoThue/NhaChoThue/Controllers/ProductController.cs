@@ -5,12 +5,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BDSBanGap.Models.DBContext;
+using NhaChoThue.Models.DBContext;
 using System.Drawing;
 using System.IO;
-using BDSBanGap.Models;
+using NhaChoThue.Models;
 
-namespace BDSBanGap.Controllers
+namespace NhaChoThue.Controllers
 { 
     [ValidateInput(false)]
     [Authorize]

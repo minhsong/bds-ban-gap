@@ -1,4 +1,4 @@
-﻿@model BDSBanGap.Models.DBContext.District
+﻿@model NhaChoThue.Models.DBContext.District
 
 @{
     ViewBag.Title = "CHI TIẾT QUẬN"+@Model.DistrictName;
@@ -45,7 +45,7 @@
     <td style="width:30px;">@(++count)</td>
     <td style="width:180px;">@item.WardName</td>
     <td style="width:auto;">@item.Description</td>
-    <td style="width:80px;"><a href="javascript:void(0)" onclick="ShowEditForm('@item.WardID')" ><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/Edit_icon.png"/></a> | <a href="javascript:void(0)"><img width="20px" alt="Bỏ ưu tiên" src="../../Content/images/admin/delete-icon.png"/></a></td>
+    <td style="width:80px;"><a href="javascript:void(0)" onclick="ShowEditForm('@item.WardID')" ><img width="20px" alt="Bỏ ưu tiên" src="/Content/images/admin/Edit_icon.png"/></a> | <a href="javascript:void(0)"><img width="20px" alt="Bỏ ưu tiên" src="/Content/images/admin/delete-icon.png"/></a></td>
     </tr>
     }
     </tbody>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace BDSBanGap.Models.DBContext
+namespace NhaChoThue.Models.DBContext
 {
     public class DBInitializer : DropCreateDatabaseIfModelChanges<DbContext>
     {

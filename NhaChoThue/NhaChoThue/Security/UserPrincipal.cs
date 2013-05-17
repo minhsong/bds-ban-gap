@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Security.Principal;
-using BDSBanGap.Controllers;
+using NhaChoThue.Controllers;
 
-namespace BDSBanGap.Security
+namespace NhaChoThue.Security
 {
     public class UserPrincipal: IPrincipal
     {

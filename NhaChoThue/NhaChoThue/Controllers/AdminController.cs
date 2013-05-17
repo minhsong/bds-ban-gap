@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BDSBanGap.Controllers
+namespace NhaChoThue.Controllers
 {
     [Authorize(Roles="Administrator")]
     public class AdminController : Controller

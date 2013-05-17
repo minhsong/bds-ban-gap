@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BDSBanGap.Models.DBContext;
-using BDSBanGap.Security;
+using NhaChoThue.Models.DBContext;
+using NhaChoThue.Security;
 using NhaChoThue.Models.Enum;
 
-namespace BDSBanGap.Controllers
+namespace NhaChoThue.Controllers
 {
     [ValidateInput(false)]
     public class BaseController : Controller

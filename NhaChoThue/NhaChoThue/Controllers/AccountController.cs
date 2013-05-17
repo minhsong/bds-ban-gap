@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using BDSBanGap.Models;
-using BDSBanGap.Security;
+using NhaChoThue.Models;
+using NhaChoThue.Security;
 using System.Web.Script.Serialization;
 
-namespace BDSBanGap.Controllers
+namespace NhaChoThue.Controllers
 {
     public class AccountController : BaseController
     {

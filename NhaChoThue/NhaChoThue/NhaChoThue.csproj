@@ -129,6 +129,7 @@
     <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\DataConvertHelper.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Models\DBContext\Consignment .cs" />
     <Compile Include="Models\DBContext\PriorityProduct.cs" />
     <Compile Include="Models\DBContext\ProductImage.cs" />
     <Compile Include="Models\Enum\Prices.cs" />
@@ -531,7 +532,9 @@
     <Content Include="Scripts\slideshow\loader.gif" />
     <Content Include="Scripts\slideshow\opa75.png" />
     <Content Include="Scripts\slideshow\trans.gif" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -622,6 +625,8 @@
     <Content Include="Views\MasterData\EditWard.cshtml" />
     <Content Include="Views\Product\DeletedProducts.cshtml" />
     <Content Include="Views\Product\ReplaceEmage.cshtml" />
+    <Content Include="Views\Home\Consignment.cshtml" />
+    <Content Include="Views\Home\ConsignmentSuccessed.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
