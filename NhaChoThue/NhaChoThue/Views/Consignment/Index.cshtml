@@ -1,0 +1,63 @@
+﻿@model IEnumerable<NhaChoThue.Models.DBContext.Consignment>
+@{
+    ViewBag.Title = "Danh sách nhà đang ký gởi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int count = 0;
+}
+<script src="@Url.Content("~/Scripts/table/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Datatable1').dataTable();
+    });
+</script>
+
+<div id="content-header">
+	<h1>Danh sách nhà đang ký gởi</h1>
+</div>
+<div id="breadcrumb">
+	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+	<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+</div>
+
+<div class="tbl-Content">
+    <div class="title-box">
+    </div>
+    <!--End title-box-->
+    <table id = "Datatable1" class="data display datatable">
+        <thead>
+            <tr class="menu">
+                <th style="width: 30px;">STT
+                </th>
+                <th style="width: 70px;">Người gởi
+                </th>
+                <th style="width: 80px; text-align: center;">TT Liên hệ
+                </th>
+                <th style="width: 70px; text-align: center;">Giá
+                </th>
+                <th style="width: auto; text-align: left;">Chi tiết
+                <th style="width: 60px; text-align: center;">Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="Items">
+                    <td style="width: 30px; text-align: center;">@(++count)
+                    </td>
+                    <td style="width: 70px;font-weight:bold">@item.FullName
+                    </td>
+                    <td style="width: 80px; text-align: center;"><p>@item.Email</p><p>@item.Phone</p>
+                    </td>
+                    <td style="width: 70px; text-align: center;">@item.Price tr/th
+                    </td>
+                    <td style="width: auto; text-align: center;">@Html.Raw(item.Description)
+                    </td>
+                    <td style="width: 60px; text-align: center;"><a href="#"><img width="20px" alt="Delete" src="/Content/images/admin/delete-icon.png"/></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

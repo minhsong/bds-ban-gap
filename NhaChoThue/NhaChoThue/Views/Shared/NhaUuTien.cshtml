@@ -17,9 +17,9 @@
         @foreach (var item in Model)
         {
             <div class="house-priority-ele pt10">
-            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title),"")</a></h3>
+            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title),"")</a></h3>
             	<div class="house-priority-intro">
-                <a class="Img-link" href="/Home/Detail/@item.ProductID">
+                <a class="Img-link" href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
                 @if (item.Images.Count > 0)
                 {
                     <img src="@item.Images.First().ThumblLink" alt="@item.Title"/>

@@ -22,6 +22,7 @@ namespace NhaChoThue.Models.DBContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasMany(s => s.Images).WithRequired(s => s.Product).HasForeignKey(s => s.ProductID);
+            modelBuilder.Entity<Consignment>().HasKey(s => s.Id).HasOptional(s => s.Product).WithMany(s => s.Consignments).HasForeignKey(s => s.ProductId).WillCascadeOnDelete(false);
             base.OnModelCreating(modelBuilder);
         }
     }

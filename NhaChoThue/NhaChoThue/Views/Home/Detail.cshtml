@@ -225,7 +225,7 @@
                                         var ListCungGia = ViewBag.CungGia as IEnumerable<NhaChoThue.Models.DBContext.Product>;
                                         foreach (var item in ListCungGia)
                                         {
-                                        <li><a href="/Home/Detail/@item.ProductID">
+                                        <li><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
                                             @if (item.Images.Count > 0)
                                             { 
                                             <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" />
@@ -237,7 +237,7 @@
                                             </a>
                                                 <div class="right">
                                                 <h2 style="height:46px;overflow:hidden;padding-bottom:0px;">
-                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
+                                                    <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
                                                 <span class="price">
                                                 @if (item.Price < 0)
                                                 {
@@ -271,7 +271,7 @@
                                         var ListCungKV = ViewBag.CungKV as IEnumerable<NhaChoThue.Models.DBContext.Product>;
                                         foreach (var item in ListCungKV)
                                         {
-                                        <li style="margin-right:3px;"><a href="/Home/Detail/@item.ProductID">
+                                        <li style="margin-right:3px;"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
                                             @if (item.Images.Count > 0)
                                             { 
                                             <img src="@item.Images.First().ThumblLink" width="75" height="75" alt="@item.Title" title="@item.Title" />
@@ -283,7 +283,7 @@
                                             </a>
                                             <div class="right">
                                                 <h2 style="height:46px;overflow:hidden;padding-bottom:0px;">
-                                                    <a href="/home/detail/@item.ProductID">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
+                                                    <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@(item.Title.Length > 50 ? item.Title.Substring(0, 50) + "..." : item.Title)</a></h2>
                                                 <span class="price">
                                                 @if (item.Price < 0)
                                                 {

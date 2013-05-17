@@ -1,6 +1,7 @@
 ﻿using NhaChoThue.Models.DBContext;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -11,6 +12,7 @@ namespace NhaChoThue.Models.DBContext
         /*
          * Customer information
          */
+        [Key]
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Phone { get; set; }
@@ -20,6 +22,10 @@ namespace NhaChoThue.Models.DBContext
         /* Produc information*/
         public string Description { get; set; }
         public double Price { get; set; }
+        public bool IsSolved { get; set; }
 
+        public int? ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }

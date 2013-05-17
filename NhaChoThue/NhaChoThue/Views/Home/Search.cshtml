@@ -134,7 +134,7 @@
                     <div class="item-left">
                         <div class="item-id">MS: @item.GetID()</div>
                         <div class="item-image">
-                            <a href="/Home/Detail/@item.ProductID">
+                            <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
                             @if (item.Images.Count == 0)
                             {
                                 <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="item-right-content">
                         <div class="item-right">
-                            <div class="item-title"><a href="/Home/Detail/@item.ProductID">@reg.Replace((item.Title.Length > 100 ? item.Title.Substring(0, 100) + "..." : item.Title), "")</a></div>
+                            <div class="item-title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 100 ? item.Title.Substring(0, 100) + "..." : item.Title), "")</a></div>
                             <div class="item-description">@Html.Raw(reg.Replace(item.Description,""))</div>
 
                         </div>

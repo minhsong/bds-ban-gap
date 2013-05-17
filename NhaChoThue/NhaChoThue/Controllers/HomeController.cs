@@ -97,6 +97,7 @@ namespace NhaChoThue.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Consignment(Consignment cs)
         {
             if (ModelState.IsValid)
