@@ -30,11 +30,9 @@
                     </th>
                     <th style="width: 100px;">Khách hàng
                     </th>
-                     <th style="width: 80px; text-align: center;">Điện thoại
+                     <th style="width: 80px; text-align: center;">Liên hệ
                     </th>
-                    <th style="width: 40px; text-align: center;">Giá
-                    </th>
-                     <th style="width: 30px; text-align: center;">Mục đích
+                    <th style="width: 80px; text-align: center;">Giá
                     </th>
                      <th style="width: auto; text-align: center;">Mô tả
                     </th>
@@ -50,13 +48,17 @@
                     </td>
                     <td style="width: 100px;font-weight:bold"><a href="/Home/Detail/@item.id" target="_blank">@item.FullName</a>
                     </td>
-                    <td style="width: 60px; text-align: center;">@item.Phone
+                    <td style="width: 80px; text-align: center;">
+                        <p>@item.Phone</p>
+                        <p>@item.Email</p>
                     </td>
-                    <td style="width: 40px; text-align: center;">@item.MinPrice - @item.MaxPrice tỷ
+                    <td style="width: 60px; text-align: center;">
+                        <p>@BDSBanGap.Models.Enum.BookedType.GetBookedType(item.Type)</p>
+                        <p>@item.MinPrice-@item.MaxPrice tỷ</p>
                     </td>
-                    <td style="width: 120px; text-align: center;">@BDSBanGap.Models.Enum.BookedType.GetBookedType(item.Type)
-                    </td>
-                    <td style="width: auto; text-align: left;">@Html.Raw(item.Description)
+                    <td style="width: auto; text-align: left;">
+                        <p>Quận: @item.Districts</p>
+                        @Html.Raw(item.Description)
                     </td>
                     <td style="width: 30px; text-align: center;">
                         <a href="#">
@@ -69,3 +71,4 @@
         </table>
 
     </div>
+
