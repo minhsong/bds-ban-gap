@@ -1,0 +1,282 @@
+﻿@model NhaChoThue.Models.DBContext.Product
+@{
+    ViewBag.Title = "Tạo nhà mới từ ký gởi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";   
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
+
+<div id="content-header">
+				<h1>TẠO NHÀ CHO THUÊ MỚI</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
+				<a href="/admin" class="current">QUANG LÝ HỆ THỐNG</a>
+			</div>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+<table>
+            <tr>
+                <td>
+                        Tiêu đề
+                </td>
+                <td>
+                    <div class="editor-field" style="width:80%;">
+                        @Html.TextBoxFor(model => model.Title, new { style = "width:550px;", maxlength = "100" })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Giá
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Price, new { style = "text-align:right; width:40px;" }) tr/Tháng
+                        @Html.ValidationMessageFor(model => model.Price)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Dài
+                </td>
+                <td>
+                @Html.TextBoxFor(m => m.Dai, new { style = "text-align:right; width:40px;" }) m
+                </td>
+            </tr>
+            <tr>
+                <td>Ngan
+                </td>
+                <td>
+                @Html.TextBoxFor(m => m.Ngan, new { style = "text-align:right; width:40px;" }) m
+                </td>
+            </tr>
+            <tr>
+                <td>Số lầu
+                </td>
+                <td>
+                @Html.TextBoxFor(m => m.SoLau, new { style = "text-align:right; width:40px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Số PN
+                </td>
+                <td>
+                @Html.TextBoxFor(m => m.SoPhongNgu, new { style = "text-align:right; width:40px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Số WC
+                </td>
+                <td>
+                @Html.TextBoxFor(m => m.SoPhongTam, new { style = "text-align:right; width:40px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Sân thượng
+                </td>
+                <td>
+                @Html.CheckBoxFor(m => m.Santhuong)
+                </td>
+            </tr>
+            <tr>
+                <td>Đường trước nhà
+                </td>
+                <td>
+                @Html.EditorFor(m => m.DuongTruocNha)
+                </td>
+            </tr>
+            <tr>
+                <td>Quận
+                </td>
+                <td>
+                @Html.DropDownList("District", ViewBag.District as SelectList)
+                </td>
+            </tr>
+            <tr>
+                <td>Phường
+                </td>
+                <td>
+                <div class="editor-field">
+                    <div id="Ward-Area">
+                        @Html.DropDownList("WardID")
+                    </div>
+                    @Html.ValidationMessageFor(model => model.WardID)
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Kiên hệ
+                </td>
+                <td>
+                @Html.DropDownListFor(S => S.ContactId, ViewBag.Contact as SelectList)
+                @Html.ValidationMessageFor(model => model.ContactId)
+                </td>
+            </tr>
+        </table>
+        <div id="breadcrumb">
+            Mô tả
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+    <div id="breadcrumb"> Hình ảnh</div>
+        <fieldset>
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file1" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption1" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file2" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption2" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file3" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption3" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file4" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption4" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file5" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption5" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file6" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption6" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file7" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption7" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file8" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption8" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file9" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption9" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file10" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption10" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file11" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption11" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file12" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption12" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file13" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption13" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file14" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption14" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="files" id="file15" />
+                </td>
+                <td>
+                    Ghi chú: <input name="caption15" type="text" style="border:1px solid " size = 50/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+}
+<script type="text/javascript">
+    CKEDITOR.replace('Description', {
+        toolbar: 'Basic',
+        uiColor: '#9AB8F3'
+    });
+    $(document).ready(function () {
+
+        // whenever the selection changes, either disable or enable the
+        // option in the other selects
+        $('#District').change(function () {
+            $.ajax({
+                url: '/Product/GetWardOnChange',
+                type: 'POST',
+                data: { district: $('#District').val() },
+                success: function (result) {
+                    $('#Ward-Area').html('');
+                    $('#Ward-Area').html(result);
+                }
+            });
+            // then either disabled or enable them in the second loop:
+        });
+    });
+</script>

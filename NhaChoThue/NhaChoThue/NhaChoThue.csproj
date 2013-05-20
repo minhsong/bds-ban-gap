@@ -155,6 +155,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\transform.png" />
     <Content Include="Content\images\admin\delete-icon.png" />
     <Content Include="Content\images\admin\not-sold.jpg" />
     <Content Include="Content\images\admin\undelete-icon.png" />
@@ -629,6 +630,8 @@
     <Content Include="Views\Home\Consignment.cshtml" />
     <Content Include="Views\Home\ConsignmentSuccessed.cshtml" />
     <Content Include="Views\Consignment\Index.cshtml" />
+    <Content Include="Views\Consignment\Transform.cshtml" />
+    <Content Include="Views\Consignment\SolvedConsigs.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

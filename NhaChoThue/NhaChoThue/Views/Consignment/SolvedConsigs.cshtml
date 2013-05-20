@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<NhaChoThue.Models.DBContext.Consignment>
 @{
-    ViewBag.Title = "Danh sách nhà đang ký gởi";
+    ViewBag.Title = "Danh sách nhà ký gởi đã xử lý";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     int count = 0;
 }
@@ -12,7 +12,7 @@
 </script>
 
 <div id="content-header">
-	<h1>Danh sách nhà đang ký gởi</h1>
+	<h1>Danh sách nhà gởi đã xử lý</h1>
 </div>
 <div id="breadcrumb">
 	<a href="/home" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> TRANG CHỦ</a>
@@ -34,7 +34,7 @@
                 </th>
                 <th style="width: 70px; text-align: center;">Giá
                 </th>
-                <th style="width: auto; text-align: left;">Chi tiết
+                <th style="width: auto; text-align: left;">Bài đăng
                 <th style="width: 60px; text-align: center;">Action
                 </th>
             </tr>
@@ -51,10 +51,9 @@
                     </td>
                     <td style="width: 70px; text-align: center;">@item.Price tr/th
                     </td>
-                    <td style="width: auto; text-align: left;">@Html.Raw(item.Description)
+                    <td style="width: auto; text-align: left;"><a href="/Home/Detail/@item.ProductId/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Product.Title)" target="_blank">@item.Product.Title</a>
                     </td>
                     <td style="width: 60px; text-align: center;">
-                        <a href="/Consignment/Transform/@item.Id"><img width="20px" alt="Transform" src="/Content/images/transform.png"/></a>
                         <a href="#" onclick="ConfirmDelete('@item.Id')"><img width="20px" alt="Delete" src="/Content/images/admin/delete-icon.png"/></a>
                     </td>
                 </tr>
