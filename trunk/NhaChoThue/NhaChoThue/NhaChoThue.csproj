@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\..\SFMS\Source Code\SFMS\SFMS\bin\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity">
       <Private>True</Private>
     </Reference>
@@ -129,6 +132,8 @@
     <Compile Include="Helpers\ComboItem.cs" />
     <Compile Include="Helpers\ConfigHelper.cs" />
     <Compile Include="Helpers\DataConvertHelper.cs" />
+    <Compile Include="Helpers\SendEmailResult.cs" />
+    <Compile Include="Helpers\SendEmailService.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\DBContext\Consignment .cs" />
     <Compile Include="Models\DBContext\PriorityProduct.cs" />
@@ -632,6 +637,9 @@
     <Content Include="Views\Consignment\Index.cshtml" />
     <Content Include="Views\Consignment\Transform.cshtml" />
     <Content Include="Views\Consignment\SolvedConsigs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
