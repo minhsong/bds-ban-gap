@@ -19,6 +19,7 @@ namespace NhaChoThue.Controllers
 
             var result = (from s in db.Products
                           where s.IsActive == true
+                          && s.IsHired == false
                           && s.IsDelete == false
                           select s).ToList();
             ViewBag.count = result.Count();
@@ -69,6 +70,7 @@ namespace NhaChoThue.Controllers
 
             var SearchResult = (from s in db.Products.AsEnumerable()
                                     where s.IsActive
+                                    && s.IsHired == false
                                     && s.IsDelete==false
                                     && (search.Dis==null||s.Ward.DistrictID==search.Dis)
                                     &&(search.From == null || s.Price >= search.From)

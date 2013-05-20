@@ -77,7 +77,7 @@ namespace NhaChoThue.Controllers
 
                 db.Products.Add(product);
                 db.SaveChanges();
-
+               
                 productID = product.ProductID;
 
 
@@ -129,7 +129,16 @@ namespace NhaChoThue.Controllers
                     }
 
                 }
-
+                 var consignID = Helpers.DataConvertHelper.ToInt(Helpers.SessionHelper.GetSession("ConsignmentId").ToString());
+                if (consignID!=0)
+                {
+                    var consign = db.Consignments.Find(consignID);
+                    consign.ProductId = productID;
+                    consign.IsSolved = true;
+                    consign.UpdatedBy = User.Identity.Name;
+                    consign.UpdatedDate = DateTime.Now;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");  
             }
             int districtid = db.Wards.Find(product.WardID).DistrictID;
