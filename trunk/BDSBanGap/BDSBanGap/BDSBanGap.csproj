@@ -637,6 +637,7 @@
     <Content Include="Views\Home\DKBDS.cshtml" />
     <Content Include="Views\Home\BookedSuccessed.cshtml" />
     <Content Include="Views\Booked\Index.cshtml" />
+    <Content Include="Views\Booked\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

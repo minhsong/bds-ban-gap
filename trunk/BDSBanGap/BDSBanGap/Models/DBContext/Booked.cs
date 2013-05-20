@@ -21,5 +21,9 @@ namespace BDSBanGap.Models.DBContext
         public decimal MaxPrice { get; set; }
         public bool IsSolved { get; set; }
         public string Districts { get; set; }
+
+        #region methods
+        
+        #endregion
     }
 }
