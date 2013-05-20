@@ -40,14 +40,14 @@ namespace NhaChoThue.Controllers
                                   && s.IsDelete == false
                                   && s.IsHired == false
                                   && s.ProductID!=Id
-                                  select s).OrderBy(S=>Math.Abs(product.Price-S.Price)).Take(3);
+                                  select s).OrderBy(S=>Math.Abs(product.Price-S.Price)).Take(6);
                 ViewBag.CungKV = (from s in db.Products
                                    where s.Ward.DistrictID == product.Ward.DistrictID
                                    && s.IsActive == true
                                    && s.IsDelete == false
                                    && s.IsHired == false
                                    && s.ProductID != Id
-                                   select s).Take(3).OrderBy(S => S.CreatedDate);
+                                  select s).OrderBy(S => Math.Abs(product.Price - S.Price)).Take(6);
                     product.Views = product.Views + 1;
                     db.Entry(product).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
