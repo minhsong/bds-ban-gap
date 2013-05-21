@@ -65,8 +65,10 @@ namespace NhaChoThue.Models.DBContext
         public PriorityProduct CurrentPriority()
         {
             var result = (from s in Priorities
-                          where s.StarDate <= DateTime.Now
-                          && s.EndDate >= DateTime.Now
+                          where (s.StarDate <= DateTime.Now||s.StarDate==null)
+                          && (s.EndDate >= DateTime.Now||s.EndDate==null)
+                          && s.IsDelete == false
+                          && s.IsActive == true
                           select s).FirstOrDefault();
             return result;
         }

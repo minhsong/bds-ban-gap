@@ -19,5 +19,10 @@ namespace NhaChoThue.Helpers
         {
             HttpContext.Current.Session[name] = value;
         }
+
+        public static void ClearSession(string name)
+        {
+            HttpContext.Current.Session[name] = null;
+        }
     }
 }
