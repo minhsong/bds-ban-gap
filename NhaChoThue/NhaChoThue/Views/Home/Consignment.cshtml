@@ -32,7 +32,7 @@
                         Số điện thoại:
                     </td>
                     <td>
-                        @Html.EditorFor(model => model.Phone)
+                        @Html.TextBoxFor(model => model.Phone, new { type="number"})
                         @Html.ValidationMessageFor(model => model.Phone)
                     </td>
                 </tr>
@@ -41,7 +41,7 @@
                         Email:
                     </td>
                     <td>
-                        @Html.EditorFor(model => model.Email)
+                        @Html.TextBoxFor(model => model.Email, new { type="email"})
                         @Html.ValidationMessageFor(model => model.Email)
                     </td>
                 </tr>

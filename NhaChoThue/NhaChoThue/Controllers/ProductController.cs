@@ -129,15 +129,16 @@ namespace NhaChoThue.Controllers
                     }
 
                 }
-                 var consignID = Helpers.DataConvertHelper.ToInt(Helpers.SessionHelper.GetSession("ConsignmentId").ToString());
-                if (consignID!=0)
+                 var consignID = Helpers.SessionHelper.GetSession("ConsignmentId");
+                if (consignID!=null)
                 {
-                    var consign = db.Consignments.Find(consignID);
+                    var consign = db.Consignments.Find(Helpers.DataConvertHelper.ToInt(consignID));
                     consign.ProductId = productID;
                     consign.IsSolved = true;
                     consign.UpdatedBy = User.Identity.Name;
                     consign.UpdatedDate = DateTime.Now;
                     db.SaveChanges();
+                    Helpers.SessionHelper.ClearSession("ConsignmentId");
                 }
                 return RedirectToAction("Index");  
             }

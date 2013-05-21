@@ -135,8 +135,18 @@ namespace NhaChoThue.Controllers
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    var user = db.Users.Find(User.Identity.Name);
+                    if (user.Password == model.OldPassword)
+                    {
+                        user.Password = model.NewPassword;
+                        db.SaveChanges();
+                        changePasswordSucceeded = true;
+                    }
+                    else
+                    {
+                        changePasswordSucceeded = false;
+                    }
+                    
                 }
                 catch (Exception)
                 {
