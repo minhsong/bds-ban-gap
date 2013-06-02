@@ -1,0 +1,317 @@
+@charset "utf-8";
+
+/* Table Of Contents
+----------------------------------------
+
+# General Elements
+# body
+# layout
+# header
+# gNav
+# pageBody
+# content
+# sidebar
+# footer
+# clearfix
+# common classes
+
+----------------------------------------*/
+
+
+/* # General Elements
+---------------------------------------------------------------------------- */
+
+a    { text-decoration: none; transition: all 0.2s ease-in 0s;}
+a:hover   { text-decoration: none; }
+
+h2 {
+	
+}
+
+/* # body
+---------------------------------------------------------------------------- */
+
+body {
+	background: url(../images/bg_layout.jpg) center top no-repeat;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.1em;
+	width: 100%;
+}
+
+#top{
+	width: 52px; height: 52px;
+    position: fixed; bottom: 25px; right: 35px;
+    text-indent: -99999px;
+    cursor: pointer;
+    background: url(../images/top.png) no-repeat 0 0;
+}
+
+
+/* # layout
+---------------------------------------------------------------------------- */
+
+div#layout {
+	background: #fff;
+	margin: 0 auto;
+	width: 1000px;
+}
+
+
+/* # header
+---------------------------------------------------------------------------- */
+
+div#header {
+	margin: 0 0 10px;
+	width: 100%;
+}
+
+div#header h1#logo {
+	float: left;
+	padding: 30px 0 0 20px;
+	width: 250px;	
+}
+
+div#header .banner {
+	float: right;
+	padding: 10px 15px 0 0;	
+}
+
+
+/* # gNav
+---------------------------------------------------------------------------- */
+
+div#gNav ul {	
+	background: url(../images/bg_gnav.jpg) top left repeat-x;
+	height: 42px;
+	margin: 0 auto;
+	width: 970px;
+}
+	
+div#gNav ul li {
+	float: left;
+    line-height: 42px;
+    padding: 0 35px;
+    position: relative;
+    text-align: center;
+}
+
+div#gNav ul li a {
+	color: #fff;
+	display: block;
+    font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+div#gNav ul li:hover {
+	background: url(../images/bg_gnav_o.jpg) top left repeat-x;
+}
+
+div#gNav ul li.active {
+	background: url(../images/bg_gnav_o.jpg) top left repeat-x;
+}
+
+
+/* # body
+---------------------------------------------------------------------------- */
+
+div#pageBody {
+	margin: 30px auto;
+	width: 970px;	
+}
+
+div#pageBody #content {
+	float: right;
+	width: 720px;	
+}
+
+
+
+
+
+
+
+
+
+
+/* # sidebar
+---------------------------------------------------------------------------- */
+
+div#pageBody #sidebar {
+	float: left;
+	width: 235px;	
+}
+
+div#pageBody #sidebar .boxSearch {
+	border: 1px solid #b1bdc9;
+	margin-bottom: 15px;
+}
+
+div#pageBody #sidebar .boxSearch .boxHead {
+	background: url(../images/bg_boxsearch.jpg) top left repeat-x;
+	font-size: 14px;
+	font-weight: bold;
+	height: 35px;
+	line-height: 35px;
+}
+
+div#pageBody #sidebar .boxSearch .boxHead h3 {
+	margin-left: 10px;
+}
+
+div#pageBody #sidebar .boxSearch .boxHead h3.textSearch {
+	background: url(../images/icon-search.png) left center no-repeat;
+	padding-left: 30px;
+}
+
+div#pageBody #sidebar .boxSearch .boxHead h3.priority {
+	background: url(../images/icon-priority.png) left center no-repeat;
+	padding-left: 30px;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody {
+	margin-top: 10px;	
+}
+
+div#pageBody #sidebar .boxSearch .boxBody ul.nav-list {
+	margin-bottom: 10px;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody ul.nav-list li {
+	clear: both;
+	height: 25px;
+	line-height: 25px;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody ul.nav-list li a {
+	color: #098EA4;
+	font-size: 13px;
+	padding-left: 10px;
+}
+
+form {
+    margin: 0 !important;
+}
+
+form.reset {
+    margin-top: 30px !important;
+}
+
+.form-horizontal .control-group {
+    margin-bottom: 10px !important;
+}
+
+.form-horizontal .control-label {
+	color: #333;
+	font-size: 12px;
+    width: 60px !important;
+}
+
+.form-horizontal .control-label.reset {
+	color: #333;
+	font-size: 14px;
+	margin-right: 10px;
+	text-align: left;
+    width: 105px !important;
+}
+
+.form-horizontal .control-label.last {
+	float: right;
+	padding-right: 275px;
+}
+
+.form-horizontal .controls {
+    margin-left: 70px !important;
+}
+
+select {
+	width: 150px !important;
+}
+
+.form-horizontal .control-group.reset {
+    border-top: 1px dotted #b1bdc9;
+	margin: 0 10px 5px !important;
+	padding-top: 5px;
+}
+
+.form-horizontal .control-group.reset label.control-label {
+    width: 90px !important;
+}
+
+.form-horizontal .control-group.reset label.control-label a {
+    color: #098ea4;
+	font-weight: bold;
+}
+
+.form-horizontal .control-group.reset label.control-label a:hover {
+    color: #22b3cb;
+}
+
+.form-horizontal .control-group.reset .btn {
+    float: right;
+}
+
+textarea {
+	width: 530px !important;
+	resize: none !important;
+}
+
+/* # fotter
+---------------------------------------------------------------------------- */
+
+#fotter {
+	clear: both;
+	border-top: 5px solid #0d80ac;
+	margin: 0 auto;
+	padding: 10px 0;
+	width: 970px;
+}
+
+#fotter .contact {
+	float: left;
+	width: 400px;	
+}
+
+#fotter .contact p {
+	font-size: 13px;
+}
+
+#fotter .contact p img {
+	margin-bottom: 10px;
+}
+
+#fotter p#copyright {
+	float: right;
+	font-size: 12px;
+}
+
+
+/* # clearfix
+---------------------------------------------------------------------------- */
+
+div#header,
+div#gNav ul,
+div#pageBody,
+div#pageBody #sidebar .boxSearch .boxBody ul.nav-list,
+#fotter {
+	zoom: 1;
+}
+
+div#header:after,
+div#gNav ul:after,
+div#pageBody:after,
+div#pageBody #sidebar .boxSearch .boxBody ul.nav-list:after,
+#fotter:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+
+/* # common classes
+---------------------------------------------------------------------------- */
+
