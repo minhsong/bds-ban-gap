@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="common/css/import.css" rel="stylesheet" type="text/css" media="screen,print" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen,print" />
+<link href="common/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<link rel="stylesheet" type="text/css" href="common/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="common/jsImgSlider/js-image-slider.css"/>
+<script type="text/javascript" src="common/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="common/js/script.js"></script>
+<link rel="contents" href="/" title="" />
+</head>
+
+<body>
+<div id="layout">
+	<div id="header">
+    	<h1 id="logo"><a href="index.html"><img src="common/images/logo.jpg" alt="" /></a></h1>
+        <div class="banner">
+        	<p><img src="common/images/banner.jpg" alt="" /></p>
+        </div>
+    </div><!-- / id header -->
+    <div id="gNav">
+    	<ul>
+        	<li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#">Tìm kiếm</a></li>
+            <li class="active"><a href="consignment.html">Ký gởi nhà</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+        </ul>
+    </div><!-- / id gNav -->
+    <div id="pageBody">
+    	<div id="content" class="reset"> 
+            <div class="introduction">   
+              <h2 class="bHead">Ký gởi nhà</h2>
+              <p>Bạn có nhà, bât động sản cần cho thuê và muốn tìm được khách hàng (người thuê nhà) nhanh nhất để mau chóng thu lại lợi nhuận một cách nhanh nhất!</p>
+              <p>Hãy gởi thông tin bất động sản của bạn đến với chúng tôi cùng với thông tin liên hệ. Chúng tôi sẽ mau chóng tìm khách hàng cho bạn. Chúng tôi đảm bảo với các công nghệ, kỹ thuật mà chúng tôi có sẽ mau chóng tìm được khách hàng cho bạn với giá cả hợp lý nhất!</p>
+              <form action="#" method="post" class="form-horizontal reset">
+                     <div class="control-group">
+                        <label class="control-label reset">Tên đầy đủ:</label>
+                        <div class="controls">
+                        	<input type="text" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Số điện thoại:</label>
+                        <div class="controls">
+                        	<input type="text" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset" for="inputEmail">Email:</label>
+                        <div class="controls">
+                        	<input type="text" id="inputEmail" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Địa chỉ:</label>
+                        <div class="controls">
+                        	<input type="text" class="input-xxlarge"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Giá mong muốn:</label>
+                        <div class="controls">
+                        	<input type="text" />
+                            <label class="control-label last">triệu/Tháng</label>
+                        </div>                        
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Mô tả chi tiết:</label>
+                        <div class="controls">
+                        	<textarea rows="5"></textarea>
+                        </div>                       
+                    </div>
+                    <input type="submit" class="btn" value="Ký gởi" />                  
+                </form>
+        	</div>                  
+      </div><!-- / id content -->
+        <div id="sidebar">
+        	<div class="boxSearch">
+            	<div class="boxHead">
+                	<h3>Thuê nhà khu vực</h3>
+                </div>
+                <div class="boxBody">
+                    <ul class="nav-list">
+                        <li><a href="#">Quận 1</a></li>
+                        <li><a href="#">Quận 2</a></li>
+                        <li><a href="#">Quận 3</a></li>
+                        <li><a href="#">Quận 4</a></li>
+                        <li><a href="#">Quận 5</a></li>
+                        <li><a href="#">Quận 6</a></li>
+                        <li><a href="#">Quận 7</a></li>
+                        <li><a href="#">Quận 8</a></li>
+                        <li><a href="#">Quận 9</a></li>
+                        <li><a href="#">Quận 10</a></li>
+                        <li><a href="#">Quận 11</a></li>
+                        <li><a href="#">Quận 12</a></li>
+                    </ul>
+                </div><!-- / class boxBody -->
+            </div>
+            <div class="boxSearch">
+            	<div class="boxHead">
+                	<h3 class="textSearch">Tìm kiếm</h3>
+                </div>
+                <div class="boxBody">
+                    <form action="#" method="post" class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">Khu vực</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>Quận 1</option>
+                                    <option>Quận 2</option>
+                                    <option>Quận 3</option>
+                                    <option>Quận 4</option>
+                                    <option>Quận 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Giá từ</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Đến</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group reset">
+                            <label class="control-label"><a href="#">Tìm nâng cao</a></label>
+                            <div class="controls">
+                                <input type="submit" value="Search" class="btn" />
+                            </div>
+                        </div>                
+                    </form>
+                </div><!-- / class boxBody -->
+            </div><!-- / class boxSearch -->  
+            <div class="boxSearch">
+            	<div class="boxHead">
+                	<h3 class="priority">Nhà ưu tiên</h3>
+                </div>
+                <div class="boxBody">
+                    
+                </div><!-- / class boxBody -->
+            </div>        
+        </div>
+    </div><!-- / id pageBody -->
+    <div id="fotter">
+    	<div class="contact">  
+			<p><img src="common/images/logo.jpg" alt="" /></p>
+        	<p><strong>Adress:</strong> 14 Hoa Sứ - Phường 2 - Quận Phú Nhuận - Hồ Chí Minh<br />
+            <strong>Hotline:</strong> 0938.500.866 (Mr. Toàn)<br />
+            <strong>Email:</strong> minhtoan@bdschothue.net</p>
+        </div>
+    	<p id="copyright">Copyright &copy;2013 ABC Ltd. All rights reserved.</p>
+    </div><!-- / id fotter -->    
+</div><!-- /id /layout -->
+</body>
+</html>
