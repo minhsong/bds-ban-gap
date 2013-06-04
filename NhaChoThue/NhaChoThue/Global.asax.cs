@@ -40,7 +40,7 @@ namespace NhaChoThue
 
         protected void Application_Start()
         {
-            Database.SetInitializer<BDSDBContext>(new DBInitializer());
+            //Database.SetInitializer<BDSDBContext>(new DBInitializer());
             AreaRegistration.RegisterAllAreas();
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
