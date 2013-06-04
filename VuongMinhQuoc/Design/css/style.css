@@ -1,0 +1,199 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#content ul.box {
+	padding-left: 20px;
+	width: 580px;
+}
+
+div#content ul.box li {
+	clear: both;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+div#content ul.box li p.image {
+	border: 5px solid #534b43;
+	float: left;
+	margin-right: 20px;
+}
+
+div#content ul.box li p.image img {
+	width: 270px;
+	height: 224px;
+}
+
+
+div#content ul.box li h3.mHead {
+	color: #fff;
+	margin-bottom: 20px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+div#content ul.box li p.content {
+	color: #787271;
+	font-size: 12px;
+	text-align: justify;
+}
+
+div#content ul.box li p.link {
+	position: absolute;
+	bottom: 10px;
+	left: 301px;
+}
+
+div#content ul.box li p.link a {
+	background: #d27040;
+	color: #f0eeeb;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 7px 15px;
+}
+
+div#content ul.box li p.link a:hover {
+	background: #2d2824;
+	color: #6d7271;	
+}
+
+div#content.reset {
+	padding-left: 20px;
+	width: 100% !important;
+}
+
+div#content.reset h2 {
+	margin: 20px 0 10px;
+}
+
+div#content.reset .title {
+	color: #787271;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+div#content.reset ul.listProject {
+	margin-right: -30px;
+}
+
+div#content.reset ul.listProject li {
+	float: left;
+	margin-bottom: 35px;
+	padding-right: 30px;
+	width: 280px;
+}
+
+div#content.reset ul.listProject li p img {
+	border: 5px solid #534b43;
+	margin-bottom: 10px;
+	width: 270px;
+	height: 134px;
+}
+
+div#content.reset ul.listProject li h3 {
+	color: #dad2d1;
+	font-size: 12px;
+	margin-bottom: 7px;
+}
+
+div#content ul.listProject li p {
+	color: #787271;
+	font-size: 12px;
+}
+
+div#content.reset.index {
+	padding: 0;
+}
+
+div#content.reset.index .boxProject {
+	background: #37332d;
+}
+
+div#content.reset.index .boxProject h2 {
+	padding: 15px 0 0 20px;
+}
+
+div#content.reset.index .boxProject ul.listProject {
+	padding-left: 20px;
+}
+
+div#content.reset.index .boxProject ul.listProject li {
+	margin-bottom: 10px;
+}
+
+div#content.reset.index .boxProject ul.listProject li p img {
+	margin-bottom: 6px;
+	width: 270px;
+	height: 134px;
+}
+
+/* # clearfix
+---------------------------------------------------------------------------- */
+
+div#content ul.box,
+div#content ul.box li,
+div#content ul.listProject,
+div#content.reset.index ul.listProject {
+	zoom: 1;
+}
+
+div#content ul.box:after,
+div#content ul.box li:after,
+div#content ul.listProject:after,
+div#content.reset.index ul.listProject:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+
+/* Animation ------------------------
+-------------------------------------------*/
+
+@keyframes tren-duoi{0%
+{opacity:0;
+	transform:translateY(-180px);}
+100%{opacity:1;
+	-ms-transform:translateX(0px);}
+}
+@-webkit-keyframes tren-duoi{0%{opacity:0;-webkit-transform:translateY(-180px);}
+100%{opacity:1;-webkit-transform:translateX(0px);}
+}
+@-moz-keyframes tren-duoi{0%{opacity:0;-moz-transform:translateY(-180px);}
+100%{opacity:1;-moz-transform:translateX(0px);}
+}
+@-ms-keyframes tren-duoi{0%{opacity:0;-ms-transform:translateY(-180px);}
+100%{opacity:1;-ms-transform:translateX(0px);}
+}
+@-o-keyframes tren-duoi{0%{opacity:0;-o-transform:translateY(-180px);}
+100%{opacity:1;-ms-transform:translateX(0px);}
+}
+
+/*** End flipOutY ***/
+
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-ms-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0;}	
+	100% {opacity: 1;}
+}
