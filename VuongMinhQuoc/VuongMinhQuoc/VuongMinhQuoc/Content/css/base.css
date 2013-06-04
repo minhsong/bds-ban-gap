@@ -1,0 +1,293 @@
+﻿@charset "utf-8";
+
+/* Table Of Contents
+----------------------------------------
+
+# General Elements
+# body
+# layout
+# header
+# gNav
+# pageBody
+# content
+# sidebar
+# footer
+# clearfix
+# common classes
+
+----------------------------------------*/
+
+
+/* # General Elements
+---------------------------------------------------------------------------- */
+
+a    { text-decoration: none; transition: all 0.2s ease-in 0s;}
+a:hover   { text-decoration: none; }
+
+h2 {
+	color: #787271;
+	font-size: 20px;
+	margin: 25px 0 35px 20px;
+}
+
+/* # body
+---------------------------------------------------------------------------- */
+
+body {
+	background: url(../images/body-bg.jpg) center center #25201D;
+	font-family: Tahoma, Geneva, sans-serif;
+	line-height: 1.1em;
+	width: 100%;
+}
+
+#top{
+	width: 52px; height: 52px;
+    position: fixed; bottom: 25px; right: 35px;
+    text-indent: -99999px;
+    cursor: pointer;
+    background: url(../images/top.png) no-repeat 0 0;
+}
+
+
+/* # layout
+---------------------------------------------------------------------------- */
+
+div#layout {
+	margin: 0 auto;
+	width: 940px;
+}
+
+
+/* # header
+---------------------------------------------------------------------------- */
+
+div#header {
+	margin: 20px 0;
+	width: 100%;
+}
+
+div#header h1#logo {
+	float: left;
+	width: 250px;
+	-webkit-animation:tren-duoi 1.2s ease-in;
+	-moz-animation:tren-duoi 1.2s ease-in;
+	-ms-animation:tren-duoi 1.2s ease-in;
+	-o-animation:tren-duoi 1.2s ease-in;
+}
+
+
+/* Animation -----------
+---------------------------------------*/
+	
+div#header ul.gNav {	
+	float: right;
+	margin-top: 10px;
+	animation:tren-duoi 1s ease-in;
+	-webkit-animation:tren-duoi 1s ease-in;
+	-moz-animation:tren-duoi 1s ease-in;
+	-ms-animation:tren-duoi 1s ease-in;
+	-o-animation:tren-duoi 1s ease-in;
+}
+
+div#header ul.gNav li {
+	border-right: 1px solid #000;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+
+div#header ul.gNav li a {
+	background: #332e29;
+	color: #736d6c;
+	display: block;
+	padding-top: 25px;
+    font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 125px;
+    min-height:45px;
+}
+
+div#header ul.gNav li a:hover {
+	background: #d27040;
+	color: #fff;
+}
+
+div#header ul.gNav li a.active {
+	background: #d27040;
+	color: #fff;
+}
+
+div#header ul.gNav li ul.gNavInner {
+	position: absolute;
+	display: none;
+}
+
+div#header ul.gNav li:hover ul.gNavInner {
+	display: block;
+}
+
+div#header ul.gNav li ul.gNavInner li {
+	border-right: none;
+	clear: both;
+	float: left;
+	z-index: 9999;
+	text-align: center;
+}
+
+div#header ul.gNav li ul.gNavInner li a {
+	padding: 12px 25px;
+	font-size: 12px;
+}
+
+
+/* # body
+---------------------------------------------------------------------------- */
+
+div#pageBody {
+	background: #37332d;
+	margin-bottom: 30px;
+	width: 100%;
+	-webkit-animation:fadeIn 1.5s ease-in;
+	-moz-animation:fadeIn 1.5s ease-in;
+	-ms-animation:fadeIn 1.5s ease-in;
+	-o-animation:fadeIn 1.5s ease-in;		
+}
+
+div#pageBody #content {
+	float: left;
+	width: 635px;	
+}
+
+div#pageBody #sidebar {
+	float: right;
+	width: 300px;	
+}
+
+div#pageBody #sidebar h3 {
+	color: #787271;
+	font-size: 20px;
+	margin: 25px 0 35px;	
+}
+
+div#pageBody #sidebar ul.list li {
+	background: url(../images/bg_bottom.jpg) left bottom repeat-x;
+    height: 40px;
+    line-height: 33px;
+}
+
+div#pageBody #sidebar ul.list li a {
+	background: url(../images/ico-arrow.png) left center no-repeat;
+	color: #787271;
+	font-size: 12px;
+	padding-left: 10px;
+}
+
+div#pageBody #sidebar ul.list li a:hover {
+	color: #d27040;
+}
+
+div#pageBody #sidebar ul.postList {
+	
+}
+
+div#pageBody #sidebar ul.postList li {
+	height: 80px;
+	margin-bottom: 15px;
+}
+
+div#pageBody #sidebar ul.postList li .date {
+	background: url(../images/date-bg.png) top left no-repeat;
+	color: #787271;
+	float: left;
+	text-align: center;
+	width: 38px;
+}
+
+div#pageBody #sidebar ul.postList li .date p.day {
+	padding-top: 15px;
+}
+
+div#pageBody #sidebar ul.postList li .date p.month {
+	padding-top: 8px;
+}	
+
+div#pageBody #sidebar ul.postList li .info {
+	float: right;
+	padding-right: 15px;
+	width: 235px;
+}
+
+div#pageBody #sidebar ul.postList li .info h4 {
+	color: #dad2d1;
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+div#pageBody #sidebar ul.postList li .info p {
+	color: #787271;
+	font-size: 12px;
+}
+
+div#pageBody #sidebar ul.postList li .info p a {
+	color: #d27040;
+	padding-left: 4px;
+	font-size: 9px;
+}
+
+div#pageBody #sidebar ul.postList li .info p a:hover {
+	color: #fff;
+}
+
+
+/* # fotter
+---------------------------------------------------------------------------- */
+
+#fotter {
+	-webkit-animation:fadeIn 3s ease-in;
+	-moz-animation:fadeIn 3s ease-in;
+	-ms-animation:fadeIn 3s ease-in;
+	-o-animation:fadeIn 3s ease-in;
+}
+
+#fotter .contact {
+	float: left;
+	width: 400px;	
+}
+
+#fotter .contact p {
+	color: #adb3aa;
+	font-size: 12px;
+}
+
+#fotter p#copyright {
+	float: right;
+	font-size: 12px;
+	color: #adb3aa;
+}
+
+
+/* # clearfix
+---------------------------------------------------------------------------- */
+
+div#header,
+div#header ul.gNav,
+div#pageBody {
+	zoom: 1;
+}
+
+div#header:after,
+div#header ul.gNav:after,
+div#pageBody:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+
+/* # common classes
+---------------------------------------------------------------------------- */
+
