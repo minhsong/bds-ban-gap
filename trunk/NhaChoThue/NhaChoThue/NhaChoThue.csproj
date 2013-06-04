@@ -580,6 +580,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Templates\" />
     <Folder Include="Upload\Images\" />
     <Folder Include="Upload\Thumb\" />
   </ItemGroup>
