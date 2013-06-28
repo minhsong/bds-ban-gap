@@ -71,6 +71,11 @@ div#content.reset .title {
 	margin-bottom: 15px;
 }
 
+div#content.reset p {
+	color: #787271;
+	font-size: 14px;
+}
+
 div#content.reset ul.listProject {
 	margin-right: -30px;
 }
@@ -196,4 +201,88 @@ div#content.reset.index ul.listProject:after {
 @keyframes fadeIn {
 	0% {opacity: 0;}	
 	100% {opacity: 1;}
+}
+
+div#content.reset #inner {
+	width: 900px !important;
+	float: left;
+	margin-top: 15px;
+	padding-bottom: 50px;
+	position: relative;
+}
+#carousel-wrapper {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+	width: 900px;
+	height: 450px !important;
+}
+#carousel {
+	width: 900px;
+	height: 450px !important;
+	overflow: hidden;
+}
+#carousel img {
+	display: block;
+	float: left;
+}
+#pager-wrapper {
+	height: 120px;
+	width: 800px;
+	overflow: hidden;
+	position: absolute;
+	top: 375px;
+	left: 50px;
+	z-index: 2;
+}
+#pager img {
+	cursor: pointer;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	display: block;
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	margin: 10px;
+	float: left;
+}
+#pager img:hover {
+	background: #eff;
+}
+#pager img.selected {
+	background: #dff;
+}
+
+
+#carousel-wrapper div.slide h3 {
+font-size: 35px;
+padding: 30px 0 0 100px;
+color: #F33;
+}
+#carousel-wrapper div.slide p {
+font-size: 16px;
+padding: 0 0 30px 100px;
+}
+#carousel-wrapper div.slide h3, #carousel div.slide p {
+color: white;
+margin: 0;
+}
+div.thumbnails {
+text-align: center;
+}
+div.thumbnails img {
+cursor: pointer;
+border: 1px solid #ccc;
+background-color: white;
+padding: 9px;
+margin: 7px;
+display: inline-block;
+}
+div.thumbnails img:hover {
+background-color: #eee;
+}
+div.thumbnails img.selected {
+background-color: #ccc;
 }
