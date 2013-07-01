@@ -15,8 +15,6 @@ namespace VuongMinhQuoc.Models
         public int CategoryId { get; set; }
         public byte TypeId { get; set; }
         public virtual ICollection<ProductImages> Imanges { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual ProductType Type { get; set; }
 
     }
 }

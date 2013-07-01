@@ -169,11 +169,15 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DBContext\DBInitializer.cs" />
     <Compile Include="Models\DBContext\ProjectDbContextcs.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductImages.cs" />
     <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
