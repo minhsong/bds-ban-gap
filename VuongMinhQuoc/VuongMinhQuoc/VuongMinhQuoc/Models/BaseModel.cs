@@ -9,7 +9,7 @@ namespace VuongMinhQuoc.Models
     {
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string LastUpdateBy { get; set; }
-        public DateTime LastUpdateDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

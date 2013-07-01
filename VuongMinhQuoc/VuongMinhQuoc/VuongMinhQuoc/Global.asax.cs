@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using VuongMinhQuoc.Models.DBContext;
 
 namespace VuongMinhQuoc
 {
@@ -16,7 +18,7 @@ namespace VuongMinhQuoc
     {
         protected void Application_Start()
         {
-
+            Database.SetInitializer<ProjectDbContextcs>(new DBInitializer());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
