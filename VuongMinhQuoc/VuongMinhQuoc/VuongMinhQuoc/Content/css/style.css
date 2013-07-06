@@ -102,15 +102,6 @@ div#content ul.listProject li p {
 	font-size: 12px;
 }
 
-div#content.reset .contact {
-   float: right;
-}
-
-div#content.reset .contact h3 {
-    color: #787271;
-    font-size: 20px;
-    margin: 25px 0 35px 20px;
-}
 div#content.reset.index {
 	padding: 0;
 }
@@ -148,26 +139,69 @@ div#content.reset.index {
 	padding: 0;
 }
 
-div#content.reset.index .boxProject {
-	background: #37332d;
+div#content.reset.index .block {
+    background:#37332D;
 }
 
-div#content.reset.index .boxProject h2 {
-	padding: 25px 0 5px 20px;
+div#content.reset.index .block .blockLeft {
+    float:left;
 }
 
-div#content.reset.index .boxProject ul.listProject {
+div#content.reset.index .block .blockLeft h2 {
+	margin: 25px 0 20px;
+    padding-left:20px;
+}
+
+div#content.reset.index .block .blockLeft ul.listProject {
 	padding-left: 20px;
 }
 
-div#content.reset.index .boxProject ul.listProject li {
+div#content.reset.index .block .blockLeft ul.listProject li {
 	margin-bottom: 10px;
 }
 
-div#content.reset.index .boxProject ul.listProject li p img {
+div#content.reset.index .block .blockLeft ul.listProject li p img {
 	margin-bottom: 6px;
 	width: 270px;
 	height: 134px;
+}
+
+div#content.reset.index .block .contact {
+    float: right;
+    width: 240px;
+    padding-right: 40px;
+}
+
+div#content.reset.index .block .contact h3 {
+    color: #787271;
+    font-size: 20px;
+    margin: 25px 0 35px 20px;
+}
+
+div#content.reset.index .block .contact dl {
+    color:#ADB3AA;
+}
+
+div#content.reset.index .block .contact dl dt {
+    float: left;
+     font-size:12px;
+}
+
+div#content.reset.index .block .contact dl dt.phone,
+div#content.reset.index .block .contact dl dd.phone  {
+    font-size: 26px;
+}
+
+
+div#content.reset.index .block .contact dl dd {
+    padding-left: 60px;
+     font-size:14px;
+}
+
+div#content.reset.index .block .contact .phone {
+    color:#ADB3AA;
+    font-size:23px;
+    margin-bottom:15px;
 }
 
 h2.lead {
@@ -200,7 +234,8 @@ h2.lead {
 
 div#content ul.box,
 div#content ul.box li,
-div#content.reset.index .boxProject,
+div#content.reset.index .block,
+div#content.reset.index .block .blockLeft,
 div#content ul.listProject,
 div#content.reset.index ul.listProject {
 	zoom: 1;
@@ -208,7 +243,8 @@ div#content.reset.index ul.listProject {
 
 div#content ul.box:after,
 div#content ul.box li:after,
-div#content.reset.index .boxProject:after,
+div#content.reset.index .block:after,
+div#content.reset.index .block .blockLeft:after,
 div#content ul.listProject:after,
 div#content.reset.index ul.listProject:after {
 	clear: both;

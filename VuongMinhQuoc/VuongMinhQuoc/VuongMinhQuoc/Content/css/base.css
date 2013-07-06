@@ -108,11 +108,7 @@ div#header ul.gNav li a {
     min-height:45px;
 }
 
-div#header ul.gNav li a:hover {
-	background: #d27040;
-	color: #fff;
-}
-
+div#header ul.gNav li a:hover,
 div#header ul.gNav li a.active {
 	background: #d27040;
 	color: #fff;
@@ -131,13 +127,16 @@ div#header ul.gNav li ul.gNavInner li {
 	border-right: none;
 	clear: both;
 	float: left;
+    height: 43px;
 	z-index: 9999;
 	text-align: center;
 }
 
 div#header ul.gNav li ul.gNavInner li a {
-	padding: 12px 25px;
+	padding: 12px 0;
 	font-size: 12px;
+    height: 20px;
+    min-height: 20px;
 }
 
 
