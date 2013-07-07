@@ -13,6 +13,5 @@ namespace VuongMinhQuoc.Models
         public string Conclusion { get; set; }
         public string Body { get; set; }
         public int CategoryId { get; set; }
-
     }
 }

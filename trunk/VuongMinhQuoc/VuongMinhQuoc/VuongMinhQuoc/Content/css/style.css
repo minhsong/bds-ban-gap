@@ -2,18 +2,17 @@
 /* CSS Document */
 
 div#content ul.box {
-	
+	padding-right: 40px;
 }
 
 div#content ul.box li {
     float: left;
 	margin-bottom: 30px;
-    padding-top: 10px;
 	position: relative;
-    width: 310px;
 }
 
 div#content ul.box li p.image {
+    float: left;
 	margin-right: 20px;
 }
 
@@ -26,7 +25,6 @@ div#content ul.box li p.image img {
 div#content ul.box li h3.mHead {
 	color: #fff;
 	margin-bottom: 20px;
-    padding-right: 30px;
 	font-size: 14px;
 	text-transform: uppercase;
 }
@@ -36,7 +34,6 @@ div#content ul.box li p.content {
 	font-size: 12px;
     padding-top: 10px;
 	text-align: justify;
-    width: 280px;
 }
 
 div#content ul.box li p.link {
@@ -50,6 +47,8 @@ div#content ul.box li p.link a {
 	font-size: 14px;
 	text-transform: uppercase;
 	padding: 7px 15px;
+    position: absolute;
+    bottom: 0;
 }
 
 div#content ul.box li p.link a:hover {
@@ -194,7 +193,7 @@ div#content.reset.index .block .contact {
 div#content.reset.index .block .contact h3 {
     color: #787271;
     font-size: 20px;
-    margin: 25px 0 35px 20px;
+    margin: 25px 0 35px;
 }
 
 div#content.reset.index .block .contact dl {
@@ -208,6 +207,7 @@ div#content.reset.index .block .contact dl dt {
 
 div#content.reset.index .block .contact dl dt.phone,
 div#content.reset.index .block .contact dl dd.phone  {
+    color: #DAD2D1;
     font-size: 26px;
 }
 
