@@ -26,10 +26,10 @@
             <li class="service"><a href="/home/Services">Dịch vụ</a></li>
             <li class="products"><a href="/home/Products">Dự án</a>
             	<ul class="gNavInner">
-                	<li><a href="#">Năm 2010</a></li>
-                    <li><a href="#">Năm 2011</a></li>
-                    <li><a href="#">Năm 2012</a></li>
-                    <li><a href="#">Năm 2013</a></li>
+                    @foreach (var item in ViewBag.years)
+                    {
+                        <li><a href="/product/productList?year=@item">Năm @item</a></li>
+                    }
                 </ul>
             
             </li>

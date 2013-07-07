@@ -11,6 +11,7 @@ namespace VuongMinhQuoc.Controllers
     {
         public ActionResult Index()
         {
+            
             return View(db.Products.Take(4));
         }
 
