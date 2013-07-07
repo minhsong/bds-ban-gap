@@ -7,13 +7,11 @@ using VuongMinhQuoc.Models.DBContext;
 
 namespace VuongMinhQuoc.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            ProjectDbContextcs db = new ProjectDbContextcs();
-            db.Accounts.ToList();
-            return View();
+            return View(db.Products.Take(4));
         }
 
         public ActionResult About()
@@ -32,6 +30,11 @@ namespace VuongMinhQuoc.Controllers
         }
 
         public ActionResult Products()
+        {
+            return View();
+        }
+
+        public ActionResult Admin()
         {
             return View();
         }
