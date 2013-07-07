@@ -54,15 +54,16 @@ namespace VuongMinhQuoc.Controllers
         // POST: /Product/Create
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Product product, IEnumerable<HttpPostedFileBase> files, FormCollection collection)
         {
             if (ModelState.IsValid)
             {
-                int orderCaption = 1;
+
                 db.Products.Add(product);
                 db.SaveChanges();
 
-
+                int orderCaption = 1;
                 foreach (var file in files)
                 {
 
@@ -80,7 +81,6 @@ namespace VuongMinhQuoc.Controllers
                         // make thumb image
                         Image image = Image.FromStream(file.InputStream);
                         Bitmap thumbImage = new Bitmap(image, 270, 134);
-
                         // make projet image - product detail page
                         Bitmap projectImage = new Bitmap(image);
 
@@ -88,13 +88,11 @@ namespace VuongMinhQuoc.Controllers
                         var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
                         var pathImageThumb = Path.Combine(Server.MapPath("~/Upload/Thumb/"), fileName);
 
-                        //Save image to ProjectImages folder
-                        projectImage.Save(pathImageProject);
-
                         // Save image to ImageThumb folder
                         thumbImage.Save(pathImageThumb);
 
-                        // Save slide image to ImageSlide
+                        //Save image to ProjectImages folder
+                        projectImage.Save(pathImageProject);
 
                         // Set ProjectImage model
                         proImage.Link = "/Upload/Images/" + fileName;
@@ -114,7 +112,7 @@ namespace VuongMinhQuoc.Controllers
 
                 return RedirectToAction("Index");
             }
-
+            ViewBag.TypeList = new SelectList(db.Types.ToList(), "Id", "name");
             return View(product);
         }
 
@@ -128,6 +126,7 @@ namespace VuongMinhQuoc.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TypeList = new SelectList(db.Types.ToList(), "Id", "name", product.TypeId);
             return View(product);
         }
 
@@ -135,15 +134,64 @@ namespace VuongMinhQuoc.Controllers
         // POST: /Product/Edit/5
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        [ValidateInput(false)]
+        public ActionResult Edit(Product product, IEnumerable<HttpPostedFileBase> files, FormCollection collection)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                int orderCaption = 1;
+                foreach (var file in files)
+                {
+
+                    if (!HasFile(file))
+                    {
+                        orderCaption++;
+                        continue;
+                    }
+
+                    ProductImages proImage = new ProductImages();
+
+                    if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
+                        (file.ContentType == "image/png" || (file.ContentType == "image/jpg")))//check allow jpg, gif, png, jpeg
+                    {
+                        // make thumb image
+                        Image image = Image.FromStream(file.InputStream);
+                        Bitmap thumbImage = new Bitmap(image, 270, 134);
+                        // make projet image - product detail page
+                        Bitmap projectImage = new Bitmap(image);
+
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                        var pathImageProject = Path.Combine(Server.MapPath("~/Upload/Images/"), fileName);
+                        var pathImageThumb = Path.Combine(Server.MapPath("~/Upload/Thumb/"), fileName);
+
+                        // Save image to ImageThumb folder
+                        thumbImage.Save(pathImageThumb);
+
+                        //Save image to ProjectImages folder
+                        projectImage.Save(pathImageProject);
+
+                        // Set ProjectImage model
+                        proImage.Link = "/Upload/Images/" + fileName;
+                        proImage.Caption = collection["caption" + orderCaption];
+                        proImage.ThumbLink = "/Upload/Thumb/" + fileName;
+
+                        proImage.ProductId = product.Id;
+
+                        // Insert project image to db
+                        db.ProductImages.Add(proImage);//add Image object to database (content image path)
+                        db.SaveChanges();
+
+                        orderCaption++;// update order
+                    }
+
+
+                    return RedirectToAction("Index");
+                }
             }
+            ViewBag.TypeList = new SelectList(db.Types.ToList(), "Id", "name", product.TypeId);
             return View(product);
         }
 
@@ -168,8 +216,22 @@ namespace VuongMinhQuoc.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
-            db.Products.Remove(product);
+            var imagedelllist = product.Imanges.ToList();
+            List<ProductImages> imagelist = new List<ProductImages>();
+            foreach (var item in imagedelllist)
+            {
+                db.Entry(item).State = EntityState.Deleted;
+                imagelist.Add(item);
+            }
+            db.Entry(product).State = EntityState.Deleted;
             db.SaveChanges();
+            foreach (var item in imagelist)
+            {
+                System.IO.File.Delete(Server.MapPath(item.ThumbLink));
+                System.IO.File.Delete(Server.MapPath(item.Link));
+            }
+
+
             return RedirectToAction("Index");
         }
 
