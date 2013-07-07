@@ -45,7 +45,7 @@
                         <h3>@item.Title</h3>
                         <p>
                             <img src="@item.Imanges.First().Link" alt="" /></p>
-                        <p>@item.Description</p>
+                        <p>@Html.Raw(item.Description)</p>
                     </li>
                     }                    
                 </ul>
