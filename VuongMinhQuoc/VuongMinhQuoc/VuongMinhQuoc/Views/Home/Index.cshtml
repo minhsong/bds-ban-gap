@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<VuongMinhQuoc.Models.Product>
-@{
-    ViewBag.Title = "";
-    
+@{    
+     ViewBag.Title = "";
 }
 <style type="text/css">
     div#header ul.gNav li.index a {
@@ -45,7 +44,7 @@
                         <h3>@item.Title</h3>
                         <p>
                             <img src="@item.Imanges.First().Link" alt="" /></p>
-                        <p>@Html.Raw(item.Description)</p>
+                        <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description)</p>
                     </li>
                     }                    
                 </ul>
