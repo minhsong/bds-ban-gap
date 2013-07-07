@@ -2,31 +2,31 @@
 /* CSS Document */
 
 div#content ul.box {
-	padding-left: 20px;
-	width: 580px;
+	
 }
 
 div#content ul.box li {
-	clear: both;
+    float: left;
 	margin-bottom: 30px;
+    padding-top: 10px;
 	position: relative;
+    width: 310px;
 }
 
 div#content ul.box li p.image {
-	border: 5px solid #534b43;
-	float: left;
 	margin-right: 20px;
 }
 
 div#content ul.box li p.image img {
+    border: 5px solid #534b43;
 	width: 270px;
 	height: 224px;
 }
 
-
 div#content ul.box li h3.mHead {
 	color: #fff;
 	margin-bottom: 20px;
+    padding-right: 30px;
 	font-size: 14px;
 	text-transform: uppercase;
 }
@@ -34,16 +34,17 @@ div#content ul.box li h3.mHead {
 div#content ul.box li p.content {
 	color: #787271;
 	font-size: 12px;
+    padding-top: 10px;
 	text-align: justify;
+    width: 280px;
 }
 
 div#content ul.box li p.link {
-	position: absolute;
-	bottom: 10px;
-	left: 301px;
+    padding: 20px 0 10px;
 }
 
 div#content ul.box li p.link a {
+    clear: both;
 	background: #d27040;
 	color: #f0eeeb;
 	font-size: 14px;
@@ -133,6 +134,24 @@ div#content.reset ul.projectList li h3 {
 div#content ul.projectList li p {
 	color: #787271;
 	font-size: 12px;
+}
+
+div#content ul.projectList li p.link {
+    padding: 20px 0 10px;
+}
+
+div#content ul.projectList li p.link a {
+    clear: both;
+	background: #d27040;
+	color: #f0eeeb;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 5px 10px;
+}
+
+div#content ul.projectList li p.link a:hover {
+	background: #2d2824;
+	color: #6d7271;	
 }
 
 div#content.reset.index {
