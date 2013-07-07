@@ -59,7 +59,11 @@ namespace VuongMinhQuoc.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                product.CreatedBy = User.Identity.Name;
+                product.CreatedDate = DateTime.Now;
+                product.UpdatedBy = User.Identity.Name;
+                product.UpdatedDate = DateTime.Now;
+                
                 db.Products.Add(product);
                 db.SaveChanges();
 
@@ -139,6 +143,8 @@ namespace VuongMinhQuoc.Controllers
         {
             if (ModelState.IsValid)
             {
+                product.UpdatedBy = User.Identity.Name;
+                product.UpdatedDate = DateTime.Now;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
 
@@ -233,6 +239,16 @@ namespace VuongMinhQuoc.Controllers
 
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ProductList(int? year, int? type, int? page)
+        {
+            page = page == null ? 1 : page;
+            var result = from s in db.Products
+                         where (year == null || s.Year == year)
+                         && (type == null || s.TypeId == type)
+                         select s;
+            return View(result.OrderByDescending(s=>s.CreatedDate).Take(12*(int)page));
         }
 
         protected override void Dispose(bool disposing)
