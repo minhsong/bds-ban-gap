@@ -1,0 +1,86 @@
+﻿@model VuongMinhQuoc.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HostName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HostName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

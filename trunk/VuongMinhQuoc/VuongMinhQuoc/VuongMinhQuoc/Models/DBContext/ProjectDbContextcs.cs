@@ -20,6 +20,7 @@ namespace VuongMinhQuoc.Models.DBContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>().HasMany(s => s.Imanges).WithRequired(s => s.Product).HasForeignKey(s => s.ProductId);
+            modelBuilder.Entity<Product>().HasRequired(s => s.Type).WithMany(s => s.Products).HasForeignKey(s => s.TypeId).WillCascadeOnDelete(false);
             modelBuilder.Entity<Account>().HasRequired(s => s.Role).WithMany(s => s.Users).HasForeignKey(s => s.RoleID);
         }
 
