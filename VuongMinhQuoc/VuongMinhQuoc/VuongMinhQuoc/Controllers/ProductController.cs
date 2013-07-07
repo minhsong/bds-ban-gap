@@ -59,9 +59,9 @@ namespace VuongMinhQuoc.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.CreatedBy = User.Identity.Name;
+                //product.CreatedBy = User.Identity.Name;
                 product.CreatedDate = DateTime.Now;
-                product.UpdatedBy = User.Identity.Name;
+               // product.UpdatedBy = User.Identity.Name;
                 product.UpdatedDate = DateTime.Now;
                 
                 db.Products.Add(product);
@@ -143,7 +143,7 @@ namespace VuongMinhQuoc.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.UpdatedBy = User.Identity.Name;
+                //product.UpdatedBy = User.Identity.Name;
                 product.UpdatedDate = DateTime.Now;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();

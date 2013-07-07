@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VuongMinhQuoc.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    div#header ul.gNav li.products a {
+        background: #d27040;
+        color: #fff;
+    }
+
+    div#header ul.gNav li.products ul li a {
+        background: #332E29;
+        color: #736d6c;
+    }
+
+        div#header ul.gNav li.products ul li a:hover {
+            background: #d27040;
+            color: #fff;
+        }
+</style>
+<div id="pageBody">
+    <div id="content" class="reset">
+        <h2>Projects</h2>
+        <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim.</p>
+        <ul class="projectList">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <p>
+                        <img src="@item.Imanges.First().Link" alt="" />
+                    </p>
+                    <h3>@item.Title</h3>
+                    <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(@item.Description)</p>
+                    <p class="link"><a href="/product/detail?@item.Id">More</a></p>
+                </li>                
+            }
+        </ul>
+    </div>
+</div>
