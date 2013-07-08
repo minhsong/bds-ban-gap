@@ -24,7 +24,7 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
         }
         //
         // GET: /Product/
-
+ 
         public ActionResult Index()
         {
             return View(db.Products.ToList());
