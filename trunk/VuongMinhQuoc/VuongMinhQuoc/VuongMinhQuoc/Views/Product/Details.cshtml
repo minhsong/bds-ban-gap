@@ -27,9 +27,12 @@
         <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(@Model.Description)</p>
         <div id="inner">
             <ul id="myGallery">
-                <li>
-                    <img src="@Model.Imanges.First().Link" title="Lone Tree Yellowstone" data-description="@Model.Imanges.First().Caption" />
-                <li>                 
+                @foreach (var i in ViewBag.listImage)
+                {
+                    <li>
+                        <img src="@i.Link" title="Lone Tree Yellowstone" data-description="@i.Caption" />
+                    </li>
+                }
             </ul>
         </div>
     </div>
