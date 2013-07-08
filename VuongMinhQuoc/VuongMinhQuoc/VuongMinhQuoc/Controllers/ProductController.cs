@@ -20,15 +20,7 @@ namespace VuongMinhQuoc.Controllers
             return (file != null && file.ContentLength > 0) ? true : false;
 
         }
-        //
-        // GET: /Product/
-
-        public ActionResult Index()
-        {
-            return View(db.Products.ToList());
-        }
-
-        //
+       
         // GET: /Product/Details/5
 
         public ActionResult Details(int id = 0)

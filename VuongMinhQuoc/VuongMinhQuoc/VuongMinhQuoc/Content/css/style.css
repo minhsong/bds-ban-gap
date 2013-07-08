@@ -102,6 +102,19 @@ div#content ul.listProject li p {
 	font-size: 12px;
 }
 
+div#content ul.listProject li p.link {
+	padding: 20px 0 10px;
+}
+
+div#content ul.listProject li p.link a {
+	clear: both;
+	background: #d27040;
+	color: #f0eeeb;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 5px 10px;
+}
+
 div#content.reset.index {
 	padding: 0;
 }
@@ -185,6 +198,7 @@ div#content.reset.index .block .blockLeft {
 div#content.reset.index .block .blockLeft h2 {
 	margin: 25px 0 20px;
     padding-left:20px;
+    color: #dad2d1;
 }
 
 div#content.reset.index .block .blockLeft ul.listProject {

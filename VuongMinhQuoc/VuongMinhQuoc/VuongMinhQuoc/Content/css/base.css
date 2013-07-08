@@ -153,6 +153,16 @@ div#pageBody {
 	-o-animation:fadeIn 1.5s ease-in;		
 }
 
+div#pageProductDetail {
+	background: #37332d;
+	margin-bottom: 30px;
+	width: 100%;
+	-webkit-animation:fadeIn 1.5s ease-in;
+	-moz-animation:fadeIn 1.5s ease-in;
+	-ms-animation:fadeIn 1.5s ease-in;
+	-o-animation:fadeIn 1.5s ease-in;		
+}
+
 div#pageBody #content {
 	float: left;
 	width: 635px;
