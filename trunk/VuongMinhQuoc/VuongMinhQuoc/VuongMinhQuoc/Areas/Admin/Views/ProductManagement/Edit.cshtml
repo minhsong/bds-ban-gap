@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 <script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
 <link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
@@ -24,7 +23,7 @@
         <td>
             <!--  start content-table-inner -->
             <div id="content-table-inner">
-                @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("Edit", "ProductManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
@@ -67,10 +66,8 @@
                         <tr>
                             <td colspan="4">
                                 @foreach (var item in Model.Imanges)
-                                {
-                
-                                    <img src="@item.ThumbLink" />
-                
+                                {                
+                                    <img src="@item.ThumbLink" />                
                                 }
                             </td>
                         </tr>
