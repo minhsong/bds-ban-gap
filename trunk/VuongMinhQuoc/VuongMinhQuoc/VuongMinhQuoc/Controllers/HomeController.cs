@@ -10,8 +10,7 @@ namespace VuongMinhQuoc.Controllers
     public class HomeController : BaseController
     {
         public ActionResult Index()
-        {
-            
+        {            
             return View(db.Products.Take(4));
         }
 
@@ -28,12 +27,7 @@ namespace VuongMinhQuoc.Controllers
         public ActionResult Prices()
         {
             return View();
-        }
-
-        public ActionResult Products()
-        {
-            return View();
-        }
+        }      
 
         public ActionResult Admin()
         {
