@@ -7,9 +7,9 @@
 <script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
 <link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
 <div id="page-heading">
-    <h1>Add product</h1>
+    <h1>Tạo Dự Án</h1>
 </div>
-<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+<table border="0" width="100%" id="content-table">
     <tr>
         <th rowspan="3" class="sized">
             <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
@@ -23,7 +23,7 @@
         <td id="tbl-border-left"></td>
         <td>
             <!--  start content-table-inner -->
-            @Html.BeginForm("Create", "Product", FormMethod.Post, new {enctype ="multipart/form-data" }){
+            @Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }){
             
             <div id="content-table-inner">
                 <table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -33,46 +33,45 @@
                             <table border="0" cellpadding="0" cellspacing="0" id="id-form">
                                 <tr>
                                     <th valign="top">Tên dự án:</th>
-                                    <td>@Html.TextBoxFor(model => model.Title, new {@class ="inp-form" })
-            @Html.ValidationMessageFor(model => model.Title)</td>
+                                    <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Title)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th valign="top">Loại dự án:</th>
-                                    <td>@Html.DropDownListFor(model => model.TypeId,ViewBag.TypeList as SelectList, new {@class ="styledselect_form_1" })
-            @Html.ValidationMessageFor(model => model.Year)</td>
-                                </tr>  
+                                    <td>@Html.DropDownListFor(model => model.TypeId, ViewBag.TypeList as SelectList, new { @class = "styledselect_form_1" })
+                                        @Html.ValidationMessageFor(model => model.Year)</td>
+                                </tr>
                                 <tr>
                                     <th valign="top">Chủ đầu tư:</th>
-                                    <td>@Html.TextBoxFor(model => model.HostName, new {@class ="inp-form" })
-            @Html.ValidationMessageFor(model => model.HostName)</td>
+                                    <td>@Html.TextBoxFor(model => model.HostName, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.HostName)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th valign="top">Địa chỉ:</th>
-                                    <td>@Html.TextBoxFor(model => model.Address, new {@class ="inp-form" })
-            @Html.ValidationMessageFor(model => model.Address)</td>
+                                    <td>@Html.TextBoxFor(model => model.Address, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Address)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th valign="top">Mô tả:</th>
-                                    <td colspan="3">@Html.TextAreaFor(model => model.Description, new {@class ="ckeditor" })
-            @Html.ValidationMessageFor(model => model.Description)</td>
+                                    <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
+                                        @Html.ValidationMessageFor(model => model.Description)</td>
                                 </tr>
-                                
+
                                 <tr>
                                     <th valign="top">Năm:</th>
-                                    <td>@Html.TextBoxFor(model => model.Year, new {@class ="inp-form" })
-            @Html.ValidationMessageFor(model => model.Year)</td>
-                                </tr>                                                       
+                                    <td>@Html.TextBoxFor(model => model.Year, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Year)</td>
+                                </tr>
                                 <tr>
                                     <th>Image 1:</th>
                                     <td>
                                         <input type="file" name="files" class="file_1" />
                                     </td>
-                                    <td>
-                                        Ghi chú:
-                                        <input type="text" name="caption1" />
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption1" class="inp-form" />
                                     </td>
                                     <td>
                                         <div class="bubble-left"></div>
@@ -81,29 +80,125 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Image 2:</th>
+                                    <th>Hình 2:</th>
                                     <td>
                                         <input type="file" name="files" class="file_1" />
 
                                     </td>
-                                    <td>
-                                        Ghi chú:
-                                        <input type="text" name="caption2" />
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption2" class="inp-form" />
                                     </td>
                                     <td>
                                         <div class="bubble-left"></div>
-                                        <div class="bubble-inner">JPEG, GIF 5MB max per image</div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
                                         <div class="bubble-right"></div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Image 3:</th>
+                                    <th>Hình 3:</th>
                                     <td>
                                         <input type="file" name="files" class="file_1" />
                                     </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption3" class="inp-form" />
+                                    </td>
                                     <td>
-                                        Ghi chú:
-                                        <input type="text" name="caption3" />
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 4:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption4" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 5:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption5" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 6:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption6" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 7:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption7" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 8:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption8" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 9:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption9" class="inp-form" />
+                                    </td>
+                                    <td>
+                                        <div class="bubble-left"></div>
+                                        <div class="bubble-inner">JPEG, GIF 5MB max per Hình</div>
+                                        <div class="bubble-right"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Hình 10:</th>
+                                    <td>
+                                        <input type="file" name="files" class="file_1" />
+                                    </td>
+                                    <td>Ghi chú:
+                                        <input type="text" name="caption10" class="inp-form" />
                                     </td>
                                     <td>
                                         <div class="bubble-left"></div>
@@ -116,7 +211,7 @@
                                     <td valign="top">
                                         <input type="submit" value="" class="form-submit" />
                                         <input type="reset" value="" class="form-reset" />
-                                        
+
                                     </td>
                                     <td></td>
                                 </tr>
