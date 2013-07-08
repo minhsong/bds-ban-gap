@@ -34,6 +34,8 @@ namespace VuongMinhQuoc.Controllers
         public ActionResult Details(int id = 0)
         {
             Product product = db.Products.Find(id);
+            var image = db.ProductImages.Where(pi=>pi.ProductId==id).ToList();
+            ViewBag.listImage = image;
             if (product == null)
             {
                 return HttpNotFound();
