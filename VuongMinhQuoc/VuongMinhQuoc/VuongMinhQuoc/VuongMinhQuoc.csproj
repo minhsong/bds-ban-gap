@@ -162,6 +162,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductManagementController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,6 +190,7 @@
     <Content Include="Content\css\base.css" />
     <Content Include="Content\css\ckeditor.css" />
     <Content Include="Content\css\import.css" />
+    <Content Include="Content\css\jquery.galleryview-3.0-dev.css" />
     <Content Include="Content\css\modules.css" />
     <Content Include="Content\css\print.css" />
     <Content Include="Content\css\pro_dropline.css" />
@@ -195,6 +198,27 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\screen.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\themes\dark\next.png" />
+    <Content Include="Content\css\themes\dark\panel-next-big.png" />
+    <Content Include="Content\css\themes\dark\panel-next.png" />
+    <Content Include="Content\css\themes\dark\panel-prev-big.png" />
+    <Content Include="Content\css\themes\dark\panel-prev.png" />
+    <Content Include="Content\css\themes\dark\pause-big.png" />
+    <Content Include="Content\css\themes\dark\pause.png" />
+    <Content Include="Content\css\themes\dark\play-big.png" />
+    <Content Include="Content\css\themes\dark\play.png" />
+    <Content Include="Content\css\themes\dark\prev.png" />
+    <Content Include="Content\css\themes\light\info.png" />
+    <Content Include="Content\css\themes\light\next.png" />
+    <Content Include="Content\css\themes\light\panel-next-big.png" />
+    <Content Include="Content\css\themes\light\panel-next.png" />
+    <Content Include="Content\css\themes\light\panel-prev-big.png" />
+    <Content Include="Content\css\themes\light\panel-prev.png" />
+    <Content Include="Content\css\themes\light\pause-big.png" />
+    <Content Include="Content\css\themes\light\pause.png" />
+    <Content Include="Content\css\themes\light\play-big.png" />
+    <Content Include="Content\css\themes\light\play.png" />
+    <Content Include="Content\css\themes\light\prev.png" />
     <Content Include="Content\images\bg_bottom.jpg" />
     <Content Include="Content\images\body-bg.jpg" />
     <Content Include="Content\images\date-bg.png" />
@@ -306,6 +330,16 @@
     <Content Include="Content\images\Thumbs.db" />
     <Content Include="Content\images\table\Thumbs.db" />
     <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManagement\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManagement\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManagement\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductManagement\Edit.cshtml" />
+    <Content Include="Content\css\Thumbs.db" />
+    <Content Include="Content\css\themes\dark\Thumbs.db" />
+    <Content Include="Content\css\themes\light\Thumbs.db" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -467,13 +501,11 @@
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
