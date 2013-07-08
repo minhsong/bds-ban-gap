@@ -157,6 +157,23 @@ div#content.reset.index {
 	padding: 0;
 }
 
+#pageProductDetail #content {
+    background: #37332D;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+#pageProductDetail #content h2 {
+    margin:0 0 20px 0;
+    padding: 30px 0 0 0;
+}
+
+#pageProductDetail #content p {
+    color: #ADB3AA;
+    font-size: 14px;
+    padding: 0 30px 0 0;
+}
+
 div#content.reset.index .block {
     background:#37332D;
 }
