@@ -10,20 +10,33 @@ using VuongMinhQuoc.Models.DBContext;
 
 namespace VuongMinhQuoc.Areas.Admin.Controllers
 {
-    public class CategoryManagementController : Controller
+    public class ProductTypeController : Controller
     {
         private ProjectDbContextcs db = new ProjectDbContextcs();
 
         //
-        // GET: /Admin/CategoryManagement/
+        // GET: /Admin/ProductType/
 
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Types.ToList());
         }
-        
+
         //
-        // GET: /Admin/CategoryManagement/Create
+        // GET: /Admin/ProductType/Details/5
+
+        public ActionResult Details(int id = 0)
+        {
+            ProductType producttype = db.Types.Find(id);
+            if (producttype == null)
+            {
+                return HttpNotFound();
+            }
+            return View(producttype);
+        }
+
+        //
+        // GET: /Admin/ProductType/Create
 
         public ActionResult Create()
         {
@@ -31,73 +44,73 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
         }
 
         //
-        // POST: /Admin/CategoryManagement/Create
+        // POST: /Admin/ProductType/Create
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Category category, FormCollection collection)
+        public ActionResult Create(ProductType producttype, FormCollection collection)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Types.Add(producttype);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(producttype);
         }
 
         //
-        // GET: /Admin/CategoryManagement/Edit/5
+        // GET: /Admin/ProductType/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            ProductType producttype = db.Types.Find(id);
+            if (producttype == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(producttype);
         }
 
         //
-        // POST: /Admin/CategoryManagement/Edit/5
+        // POST: /Admin/ProductType/Edit/5
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Category category)
+        [ValidateInput(false)]
+        public ActionResult Edit(ProductType producttype)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
+                db.Entry(producttype).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(producttype);
         }
 
         //
-        // GET: /Admin/CategoryManagement/Delete/5
+        // GET: /Admin/ProductType/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Category category = db.Categories.Find(id);
-            if (category == null)
+            ProductType producttype = db.Types.Find(id);
+            if (producttype == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            return View(producttype);
         }
 
         //
-        // POST: /Admin/CategoryManagement/Delete/5
+        // POST: /Admin/ProductType/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
+            ProductType producttype = db.Types.Find(id);
+            db.Types.Remove(producttype);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

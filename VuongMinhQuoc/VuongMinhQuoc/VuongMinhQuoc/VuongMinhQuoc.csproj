@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductManagementController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -347,10 +348,13 @@
     <Content Include="Areas\Admin\Views\PostManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\CategoryManagement\Details.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\Delete.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />

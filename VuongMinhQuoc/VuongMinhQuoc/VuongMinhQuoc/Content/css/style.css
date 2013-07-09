@@ -189,6 +189,7 @@ div#content.reset.index {
 
 div#content.reset.index .block {
     background:#37332D;
+    padding-bottom: 30px;
 }
 
 div#content.reset.index .block .blockLeft {
