@@ -3,38 +3,86 @@
 @{
     ViewBag.Title = "Delete";
 }
+<script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
+<link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
 
-<h2>Delete</h2>
+<div id="page-heading">
+    <h1>Xóa Loại Dự Án</h1>
+</div>
+<table border="0" width="100%" id="content-table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left"></td>
+        <td>
+            <!--  start content-table-inner -->
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Category</legend>
+            <div id="content-table-inner">
+                <table border="0" width="100%">
+                    <tr valign="top">
+                        <td>
+                            <!-- start id-form -->
+                            <table border="0" id="id-form">
+                                <tr>
+                                    <th valign="top" style="width: 100px;">Mã loại dự án:</th>
+                                    <td>@Html.TextBoxFor(model => model.Type, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Type)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th valign="top" style="width: 100px;">Tên loại dự án:</th>
+                                    <td>@Html.TextBoxFor(model => model.Name, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Name)</td>
+                                </tr>
+                                <tr>
+                                    <th valign="top" style="width: 100px;">Mô tả:</th>
+                                    <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
+                                        @Html.ValidationMessageFor(model => model.Description)</td>
+                                </tr>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <td valign="top">
+                                            <input type="submit" value="" class="form-submit" />
+                                            <input type="reset" value="" class="form-reset" />
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Type)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Type)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>    
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                }
+                            </table>
+                            <!-- end id-form  -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="~/Content/images/shared/blank.gif" width="695" height="1" alt="blank" /></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <!--  end content-table-inner  -->
+            }
+        </td>
+        <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+<div class="clear">&nbsp;</div>
+<div>
+    @Html.ActionLink("Trở lại trang trước", "Index")
+</div>

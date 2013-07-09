@@ -1,0 +1,69 @@
+﻿@model VuongMinhQuoc.Models.ProductType
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
+<link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
+<div id="page-heading">
+    <h2>Sửa Loại Dự Án</h2>
+</div>
+<table border="0" width="100%" id="content-table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left"></td>
+        <td>
+            <!--  start content-table-inner -->
+            <div id="content-table-inner">
+                @using (Html.BeginForm("Edit", "ProductType", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+                    <table border="0" id="id-form">
+                        <tr>
+                            <th valign="top">Tên loại dự án:</th>
+                            <td>@Html.TextBoxFor(model => model.name, new { @class = "inp-form" })
+                                @Html.ValidationMessageFor(model => model.name)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th valign="top">Mô tả:</th>
+                            <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
+                                @Html.ValidationMessageFor(model => model.Description)</td>
+                        </tr>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <td valign="top">
+                                <input type="submit" value="" class="form-submit" />
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div>
+                        @Html.ActionLink("Quay lại trang trước", "Index")
+                    </div>
+                }
+                <div class="clear"></div>
+            </div>
+            <!--  end content-table-inner  -->
+
+        </td>
+        <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+<div class="clear">&nbsp;</div>
+
