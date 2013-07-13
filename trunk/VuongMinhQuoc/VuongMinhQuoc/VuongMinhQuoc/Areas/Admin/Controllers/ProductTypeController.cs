@@ -87,33 +87,7 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View(producttype);
-        }
-
-        //
-        // GET: /Admin/ProductType/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            ProductType producttype = db.Types.Find(id);
-            if (producttype == null)
-            {
-                return HttpNotFound();
-            }
-            return View(producttype);
-        }
-
-        //
-        // POST: /Admin/ProductType/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            ProductType producttype = db.Types.Find(id);
-            db.Types.Remove(producttype);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        }        
 
         protected override void Dispose(bool disposing)
         {

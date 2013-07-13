@@ -29,27 +29,24 @@
                     @Html.ValidationSummary(true)                  
                     <table border="0" id="id-form">
                         <tr>
-                            <th valign="top" style="width:100px;">Tên loại dự án:</th>
+                            <th style="width: 100px;">Tên loại dự án:</th>
                             <td>@Html.TextBoxFor(model => model.name, new { @class = "inp-form" })
                                 @Html.ValidationMessageFor(model => model.name)</td>
                             <td></td>
                         </tr>
-                        <tr style="width:100px;">
-                            <th valign="top">Mô tả:</th>
+                        <tr style="width: 100px;">
+                            <th>Mô tả:</th>
                             <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
                                 @Html.ValidationMessageFor(model => model.Description)</td>
                         </tr>
                         <tr>
                             <th>&nbsp;</th>
-                            <td valign="top">
-                                <input type="submit" value="" class="form-submit" />
+                            <td>
+                                <input type="submit" value="Tạo" class="btn" />
+                                @Html.ActionLink("Quay lại trang trước", "Index")
                             </td>
                         </tr>
-
-                    </table>
-                    <div>
-                        @Html.ActionLink("Quay lại trang trước", "Index")
-                    </div>
+                    </table>                    
                 }
                 <div class="clear"></div>
             </div>

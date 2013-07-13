@@ -25,31 +25,31 @@
             <div id="content-table-inner">
                 <table border="0" id="id-form">
                     <tr>
-                        <th valign="top">Tên dự án:</th>
+                        <th>Tên dự án:</th>
                         <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
                         <td></td>
                     </tr>
                     <tr>
-                        <th valign="top">Loại dự án:</th>
-                        <td>@Html.TextBoxFor(model => model.TypeId)</td>
+                        <th>Loại dự án:</th>
+                        <td>@Html.TextBoxFor(model => model.TypeId, new { @class = "inp-form" })</td>
                     </tr>
                     <tr>
-                        <th valign="top">Chủ đầu tư:</th>
+                        <th>Chủ đầu tư:</th>
                         <td>@Html.TextBoxFor(model => model.HostName, new { @class = "inp-form" })
                         <td></td>
                     </tr>
                     <tr>
-                        <th valign="top">Địa chỉ:</th>
+                        <th>Địa chỉ:</th>
                         <td>@Html.TextBoxFor(model => model.Address, new { @class = "inp-form" })
                         <td></td>
                     </tr>
                     <tr>
-                        <th valign="top">Mô tả:</th>
+                        <th>Mô tả:</th>
                         <td colspan="3">
                         @Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
 
                     <tr>
-                        <th valign="top">Năm:</th>
+                        <th>Năm:</th>
                         <td>@Html.TextBoxFor(model => model.Year, new { @class = "inp-form" })
                     </tr>
                     <tr>
@@ -61,6 +61,18 @@
                 
                             }
                         </td>
+                    </tr>
+                    <tr>
+                        @using (Html.BeginForm())
+                        {
+                            <tr>
+                                <th>&nbsp;</th>
+                                <td>
+                                    <input type="submit" value="Xóa" class="btn" />
+                                     @Html.ActionLink("Quay lại trang trước", "Index")
+                                </td>
+                            </tr>
+                        }
                     </tr>
                 </table>
                 <div class="clear"></div>
@@ -75,15 +87,5 @@
         <td id="tbl-border-bottom">&nbsp;</td>
         <th class="sized bottomright"></th>
     </tr>
-    <tr>
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <p>
-                <input type="submit" value="Delete" class="form-submit" />
-                |
-        @Html.ActionLink("Back to List", "Index")
-            </p>
-        }
-    </tr>
 </table>
+<div class="clear">&nbsp;</div>

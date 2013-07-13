@@ -217,19 +217,25 @@ div#content.reset.index .block .blockLeft ul.listProject li p img {
 }
 
 div#content.reset.index .block .contact {
+    background: #292621;
     float: right;
     width: 240px;
     padding-right: 40px;
+    padding-bottom: 20px;
+    margin: 10px;
+    border-radius: 20px;
 }
 
 div#content.reset.index .block .contact h3 {
     color: #787271;
     font-size: 20px;
-    margin: 25px 0 35px;
+    margin: 15px 0 35px;
+    padding-left: 15px;
 }
 
 div#content.reset.index .block .contact dl {
-    color:#ADB3AA;
+    color: #ADB3AA;
+    padding-left: 15px;
 }
 
 div#content.reset.index .block .contact dl dt {

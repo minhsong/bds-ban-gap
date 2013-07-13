@@ -30,36 +30,36 @@
                     @Html.HiddenFor(model => model.Id)
                     <table border="0" id="id-form">
                         <tr>
-                            <th valign="top">Tên dự án:</th>
+                            <th>Tên dự án:</th>
                             <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
                                 @Html.ValidationMessageFor(model => model.Title)</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <th valign="top">Loại dự án:</th>
+                            <th>Loại dự án:</th>
                             <td>@Html.DropDownListFor(model => model.TypeId, ViewBag.TypeList as SelectList, new { @class = "styledselect_form_1" })
                                 @Html.ValidationMessageFor(model => model.Year)</td>
                         </tr>
                         <tr>
-                            <th valign="top">Chủ đầu tư:</th>
+                            <th>Chủ đầu tư:</th>
                             <td>@Html.TextBoxFor(model => model.HostName, new { @class = "inp-form" })
                                 @Html.ValidationMessageFor(model => model.HostName)</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <th valign="top">Địa chỉ:</th>
+                            <th>Địa chỉ:</th>
                             <td>@Html.TextBoxFor(model => model.Address, new { @class = "inp-form" })
                                 @Html.ValidationMessageFor(model => model.Address)</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <th valign="top">Mô tả:</th>
+                            <th>Mô tả:</th>
                             <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
                                 @Html.ValidationMessageFor(model => model.Description)</td>
                         </tr>
 
                         <tr>
-                            <th valign="top">Năm:</th>
+                            <th>Năm:</th>
                             <td>@Html.TextBoxFor(model => model.Year, new { @class = "inp-form" })
                                 @Html.ValidationMessageFor(model => model.Year)</td>
                         </tr>
@@ -214,8 +214,9 @@
                         </tr>
                         <tr>
                             <th>&nbsp;</th>
-                            <td valign="top">
-                                <input type="submit" value="" class="form-submit" />
+                            <td>
+                                <input type="submit" value="Lưu" class="btn" />
+                                 @Html.ActionLink("Quay lại trang trước", "Index")
                             </td>
                         </tr>
                     </table>
