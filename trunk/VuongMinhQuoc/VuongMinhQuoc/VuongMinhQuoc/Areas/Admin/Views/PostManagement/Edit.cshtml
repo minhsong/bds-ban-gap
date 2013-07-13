@@ -36,6 +36,7 @@
                                     <th>Tiêu đề:</th>
                                     <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Title)</td>
+                                            <img class="imagesthumb" src="@Model.Image" />
                                     <td></td>
                                 </tr>
                                 <tr>
