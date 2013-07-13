@@ -11,56 +11,56 @@
 <table border="0" width="100%" id="content-table">
     <tr>
         <th rowspan="3" class="sized">
-            <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+            <img src="/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
         <th class="topleft"></th>
         <td id="tbl-border-top">&nbsp;</td>
         <th class="topright"></th>
         <th rowspan="3" class="sized">
-            <img src="~/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+            <img src="/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
     </tr>
     <tr>
         <td id="tbl-border-left"></td>
         <td>
             <!--  start content-table-inner -->
-            @Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }){
+            @Html.BeginForm("Create", "ProductManagement", FormMethod.Post, new { enctype = "multipart/form-data" }){
             
             <div id="content-table-inner">
-                <table border="0" width="100%" cellpadding="0" cellspacing="0">
-                    <tr valign="top">
+                <table border="0" width="100%" >
+                    <tr>
                         <td>
                             <!-- start id-form -->
-                            <table border="0" cellpadding="0" cellspacing="0" id="id-form">
+                            <table border="0" id="id-form">
                                 <tr>
-                                    <th valign="top">Tên dự án:</th>
+                                    <th>Tên dự án:</th>
                                     <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Title)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th valign="top">Loại dự án:</th>
+                                    <th>Loại dự án:</th>
                                     <td>@Html.DropDownListFor(model => model.TypeId, ViewBag.TypeList as SelectList, new { @class = "styledselect_form_1" })
                                         @Html.ValidationMessageFor(model => model.Year)</td>
                                 </tr>
                                 <tr>
-                                    <th valign="top">Chủ đầu tư:</th>
+                                    <th>Chủ đầu tư:</th>
                                     <td>@Html.TextBoxFor(model => model.HostName, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.HostName)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th valign="top">Địa chỉ:</th>
+                                    <th>Địa chỉ:</th>
                                     <td>@Html.TextBoxFor(model => model.Address, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Address)</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th valign="top">Mô tả:</th>
+                                    <th>Mô tả:</th>
                                     <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
                                         @Html.ValidationMessageFor(model => model.Description)</td>
                                 </tr>
 
                                 <tr>
-                                    <th valign="top">Năm:</th>
+                                    <th>Năm:</th>
                                     <td>@Html.TextBoxFor(model => model.Year, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Year)</td>
                                 </tr>
@@ -207,10 +207,9 @@
                                 </tr>
                                 <tr>
                                     <th>&nbsp;</th>
-                                    <td valign="top">
-                                        <input type="submit" value="" class="form-submit" />
-                                        <input type="reset" value="" class="form-reset" />
-
+                                    <td>
+                                        <input type="submit" value="Tạo" class="btn" />
+                                        <input type="reset" value="Hủy" class="btn" />
                                     </td>
                                     <td></td>
                                 </tr>
