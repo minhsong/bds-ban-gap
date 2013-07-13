@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VuongMinhQuoc.Models.Product>
 
 @{
-    ViewBag.Title = "ProductList";
+    ViewBag.Title = "Dự án |";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style type="text/css">
@@ -27,13 +27,15 @@
         <ul class="projectList">
             @foreach (var item in Model)
             {
+                var des = Html.Raw(VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description)) ;
                 <li>
                     <p>
-                        <img src="@item.Imanges.First().Link" alt="@item.Description" />
+                        <img src="@item.Imanges.First().Link" alt="@Html.Raw(des)" />
                     </p>
                     <h3>@item.Title</h3>
-                    <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(@item.Description)</p>
-                    <p class="link"><a href="/product/details/@item.Id">More</a></p>
+                    
+                    <p class="detail">@Html.Raw(des.ToHtmlString().Length>=300? des.ToHtmlString().Substring(0,230)+"..." : des.ToHtmlString())</p>
+                    <p class="link"><a href="/product/details/@item.Id">Chi tiết</a></p>
                 </li>                
             }
         </ul>

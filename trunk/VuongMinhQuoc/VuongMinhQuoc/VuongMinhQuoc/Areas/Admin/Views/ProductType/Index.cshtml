@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý loại dự án";
     int count = 1;
 }
 
@@ -27,8 +27,7 @@
 
                     <table border="0" width="100%" id="product-table">
                         <tr>
-                            <th class="table-header-repeat line-left"><a>STT</a></th>
-                            <th class="table-header-repeat line-left minwidth-1"><a href="#">Mã loại dự án</a></th>
+                            <th class="table-header-repeat line-left"><a>STT</a></th>                          
                             <th class="table-header-repeat line-left minwidth-1"><a href="#">Tên loại dự án</a></th>
                             <th class="table-header-repeat line-left"><a href="#">Mô tả</a></th>
                             <th class="table-header-options line-left"><a href="#">Options</a></th>
@@ -36,10 +35,9 @@
                         @foreach (var item in Model)
                         { 
                             <tr>
-                                <td>@(count++)</td>
-                                <td>@item.Id</td>
+                                <td>@(count++)</td>                              
                                 <td>@item.name</td>
-                                <td>@VuongMinhQuoc.Utils.StringHelper.StripHTML(@item.Description)</td>
+                                <td>@Html.Raw(VuongMinhQuoc.Utils.StringHelper.StripHTML(@item.Description))</td>
                                 <td class="options-width">
                                     <a href="/Admin/productType/edit/@item.Id" title="Edit" class="icon-1 info-tooltip"></a>                                    
                                 </td>

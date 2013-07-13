@@ -1,102 +1,102 @@
 ﻿@model VuongMinhQuoc.Models.Post
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Sửa bài viết |";
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Post</legend>
-
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Title)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Title)
-            @Html.ValidationMessageFor(model => model.Title)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Image)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Image)
-            @Html.ValidationMessageFor(model => model.Image)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Conclusion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Conclusion)
-            @Html.ValidationMessageFor(model => model.Conclusion)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Body)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Body)
-            @Html.ValidationMessageFor(model => model.Body)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CategoryId)
-            @Html.ValidationMessageFor(model => model.CategoryId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreatedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CreatedBy)
-            @Html.ValidationMessageFor(model => model.CreatedBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CreatedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.CreatedDate)
-            @Html.ValidationMessageFor(model => model.CreatedDate)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedBy)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedBy)
-            @Html.ValidationMessageFor(model => model.UpdatedBy)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedDate)
-            @Html.ValidationMessageFor(model => model.UpdatedDate)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
+<link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
+<div id="page-heading">
+    <h2>Sửa Bài Viết</h2>
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+<table border="0" width="100%" id="content-table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left"></td>
+        <td>
+            <!--  start content-table-inner -->
+            @Html.BeginForm("Edit", "PostManagement", FormMethod.Post, new { enctype = "multipart/form-data" }){
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+            <div id="content-table-inner">
+                <table border="0" width="100%">
+                    <tr>
+                        <td>
+                            <!-- start id-form -->
+                            <table border="0" id="id-form">
+                                <tr>
+                                    <th>Tiêu đề:</th>
+                                    <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
+                                        @Html.ValidationMessageFor(model => model.Title)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Loại bài viết:</th>
+                                    <td>@Html.DropDownListFor(model => model.CategoryId, ViewBag.TypeList as SelectList, new { @class = "styledselect_form_1" })
+                                        @Html.ValidationMessageFor(model => model.CategoryId)</td>
+                                </tr>
+                    </tr>
+                    <tr>
+                        <th>Hình ảnh:</th>
+                        <td>
+                            <input type="file" name="files" class="file_1" />
+                        </td>
+                        <td>Ghi chú:
+                                        <input type="text" name="caption9" class="inp-form" />
+                        </td>
+                        <td>
+                            <div class="bubble-left"></div>
+                            <div class="bubble-inner">JPEG, GIF 5MB max per images</div>
+                            <div class="bubble-right"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tóm tắt:</th>
+                        <td colspan="3">@Html.TextAreaFor(model => model.Conclusion, new { @class = "ckeditor" })
+                            @Html.ValidationMessageFor(model => model.Conclusion)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Nội dung:</th>
+                        <td colspan="3" class="nd">@Html.TextAreaFor(model => model.Body, new { @class = "ckeditor" })
+                            @Html.ValidationMessageFor(model => model.Body)</td>
+                    </tr>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <td>
+                            <input type="submit" value="Lưu" class="btn" />
+                            @Html.ActionLink("Quay lại trang trước", "Index")
+                        </td>
+                    </tr>
+                </table>
+                <!-- end id-form  -->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="~/Content/images/shared/blank.gif" width="695" height="1" alt="blank" /></td>
+        <td></td>
+    </tr>
+</table>
+<div class="clear"></div>
+</div>
+            <!--  end content-table-inner  -->
 }
+        </td>
+        <td id="tbl-border-right"></td>
+</tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+<div class="clear">&nbsp;</div>

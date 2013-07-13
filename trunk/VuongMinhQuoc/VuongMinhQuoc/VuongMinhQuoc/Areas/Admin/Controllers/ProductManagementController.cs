@@ -181,11 +181,9 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
                         db.SaveChanges();
 
                         orderCaption++;// update order
-                    }
-
-
-                    return RedirectToAction("Index");
+                    }                    
                 }
+                return RedirectToAction("Index");
             }
             ViewBag.TypeList = new SelectList(db.Types.ToList(), "Id", "name", product.TypeId);
             return View(product);

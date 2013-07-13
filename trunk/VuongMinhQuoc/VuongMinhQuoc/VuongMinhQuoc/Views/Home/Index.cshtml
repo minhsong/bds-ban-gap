@@ -40,12 +40,13 @@
                 <ul class="listProject">
                     @foreach (var item in Model)
                     {
+                        var des = VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description);
                         <li>
                         <h3>@item.Title</h3>
                         <p>
-                            <img src="@item.Imanges.First().Link" alt="@item.Description" /></p>
-                        <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description)</p>
-                        <p class="link"><a href="/product/details/@item.Id">More</a></p>
+                            <img src="@item.Imanges.First().Link" alt="@Html.Raw(VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description))" /></p>
+                        <p class="detail">@Html.Raw(des.Length>=300? des.Substring(0,230)+"..." : des)</p>
+                        <p class="link"><a href="/product/details/@item.Id">Chi tiết</a></p>
                     </li>
                     }                    
                 </ul>
@@ -54,11 +55,11 @@
                 <h3>Liên hệ</h3>
                 <dl>
                     <dt class="phone">Tel:</dt>
-                    <dd class="phone">0988 999 999</dd>
+                    <dd class="phone">09 1234 1267</dd>
                     <dt>Adress:</dt>
-                    <dd>27/26 Trường Chinh - Phường Tân Thới Nhất - Quận 12 - Thành Phố Hồ Chí Minh</dd>
+                    <dd>05 Đường Số 1, Khu Phố 1, Phường Bình Hưng Hòa, Quận Bình Tân, TP Hồ Chí Minh</dd>
                     <dt>Email:</dt>
-                    <dd>abc@gmail.com</dd>
+                    <dd>truongminhquoc@gmail.com</dd>
                 </dl>                
             </div>
         </div>

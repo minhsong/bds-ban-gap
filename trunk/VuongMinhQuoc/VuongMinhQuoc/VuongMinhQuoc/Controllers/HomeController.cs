@@ -21,7 +21,9 @@ namespace VuongMinhQuoc.Controllers
 
         public ActionResult Services()
         {
-            return View();
+            int categoryID = db.Categories.Where(s => s.Type == "post").FirstOrDefault().Id;
+            var result = from s in db.Posts where s.CategoryId == categoryID select s;
+            return View(result);
         }
 
         public ActionResult Prices()

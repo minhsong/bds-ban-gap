@@ -1,7 +1,7 @@
 ﻿@model VuongMinhQuoc.Models.Category
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo loại bài viết";
 }
 <script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
 <link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
@@ -11,7 +11,7 @@ $(document).ready(function(){
 });
 </script>
 <div id="page-heading">
-    <h1>Tạo Loại Dự Án</h1>
+    <h2>Tạo Loại Bài Viết</h2>
 </div>
 <table border="0" width="100%" id="content-table">
     <tr>
@@ -37,27 +37,25 @@ $(document).ready(function(){
                             <!-- start id-form -->
                             <table border="0" id="id-form">
                                 <tr>
-                                    <th valign="top" style="width:100px;">Mã loại dự án:</th>
+                                    <th style="width:100px;">Kiểu bài viết:</th>
                                     <td>@Html.TextBoxFor(model => model.Type, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Type)</td>
-                                    <td></td>
-                                </tr>
+                                </tr>                               
                                 <tr>
-                                    <th valign="top style="width:100px;">Tên loại dự án:</th>
+                                    <th style="width:100px;">Loại bài viết:</th>
                                     <td>@Html.TextBoxFor(model => model.Name, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Name)</td>
                                 </tr>
                                 <tr>                             
-                                    <th valign="top style="width:100px;">Mô tả:</th>
+                                    <th style="width:100px;">Mô tả:</th>
                                     <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
                                         @Html.ValidationMessageFor(model => model.Description)</td>
                                 </tr>
                                 <tr>
                                     <th>&nbsp;</th>
-                                    <td valign="top">
-                                        <input type="submit" value="" class="form-submit" />
-                                        <input type="reset" value="" class="form-reset" />
-
+                                    <td>
+                                        <input type="submit" value="Tạo" class="btn" />
+                                        <input type="reset" value="Hủy" class="btn" />
                                     </td>
                                     <td></td>
                                 </tr>

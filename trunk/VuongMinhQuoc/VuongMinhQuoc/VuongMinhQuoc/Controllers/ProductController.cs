@@ -22,7 +22,6 @@ namespace VuongMinhQuoc.Controllers
         }
        
         // GET: /Product/Details/5
-
         public ActionResult Details(int id = 0)
         {
             Product product = db.Products.Find(id);

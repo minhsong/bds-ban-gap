@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +188,7 @@
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CategoryTypesHelper.cs" />
     <Compile Include="Utils\StringHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -410,12 +412,10 @@
     <Content Include="Content\css\themes\light\Thumbs.db" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\PostManagement\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PostManagement\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\CategoryManagement\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\CategoryManagement\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductType\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductType\Create.cshtml" />
@@ -577,10 +577,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Home\Prices.cshtml" />
-    <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\Post\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
