@@ -13,7 +13,13 @@ div#content ul.box li {
 
 div#content ul.box li p.image {
     float: left;
+    width: auto;
 	margin-right: 20px;
+}
+
+div#content ul.box li .detailItem {
+    float: right;
+    width: 595px;
 }
 
 div#content ul.box li p.image img {
@@ -93,7 +99,7 @@ div#content.reset ul.listProject li p img {
 
 div#content.reset ul.listProject li h3 {
 	color: #dad2d1;
-	font-size: 12px;
+	font-size: 14px;
 	margin-bottom: 7px;
 }
 
@@ -146,6 +152,7 @@ div#content.reset ul.projectList li h3 {
 div#content ul.projectList li p {
 	color: #787271;
 	font-size: 12px;
+    text-align: justify;
 }
 
 div#content ul.projectList li p.link {
@@ -197,7 +204,7 @@ div#content.reset.index .block .blockLeft {
 }
 
 div#content.reset.index .block .blockLeft h2 {
-	margin: 25px 0 20px;
+	margin: 30px 0 25px;
     padding-left:20px;
     color: #dad2d1;
 }
@@ -216,20 +223,23 @@ div#content.reset.index .block .blockLeft ul.listProject li p img {
 	height: 134px;
 }
 
+div#content.reset.index .block .blockLeft ul.listProject li p.detail {
+    text-align: justify;
+}
+
 div#content.reset.index .block .contact {
     background: #292621;
+    border-radius: 20px 20px 20px 20px;
     float: right;
-    width: 240px;
-    padding-right: 40px;
-    padding-bottom: 20px;
     margin: 10px;
-    border-radius: 20px;
+    padding: 0 15px 25px 0;
+    width: 263px;   
 }
 
 div#content.reset.index .block .contact h3 {
     color: #787271;
     font-size: 20px;
-    margin: 15px 0 35px;
+    margin: 30px 0 35px;
     padding-left: 15px;
 }
 

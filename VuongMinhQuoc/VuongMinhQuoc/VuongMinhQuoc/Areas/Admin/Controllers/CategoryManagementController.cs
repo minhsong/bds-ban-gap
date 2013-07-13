@@ -56,7 +56,7 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
             if (category == null)
             {
                 return HttpNotFound();
-            }
+            }           
             return View(category);
         }
 
@@ -64,7 +64,7 @@ namespace VuongMinhQuoc.Areas.Admin.Controllers
         // POST: /Admin/CategoryManagement/Edit/5
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(Category category)
         {
             if (ModelState.IsValid)

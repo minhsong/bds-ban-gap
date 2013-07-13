@@ -1,12 +1,12 @@
 ﻿@model VuongMinhQuoc.Models.Category
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Sửa loại bài viết";
 }
 <script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
 <link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
 <div id="page-heading">
-    <h1>Sửa Loại Dự Án</h1>
+    <h1>Sửa Loại Bài Viết</h1>
 </div>
 <table border="0" width="100%" id="content-table">
     <tr>
@@ -24,35 +24,34 @@
             <!--  start content-table-inner -->
 
             @Html.BeginForm("Edit", "CategoryManagement", FormMethod.Post, new { enctype = "multipart/form-data" }){
-<div id="content-table-inner">
+            <div id="content-table-inner">
+                @Html.AntiForgeryToken()
                 <table border="0" width="100%">
                     <tr valign="top">
                         <td>
                             <!-- start id-form -->
                             <table border="0" id="id-form">
-                                 @Html.HiddenFor(model => model.Id)
+                                @Html.HiddenFor(model => model.Id)
                                 <tr>
-                                    <th valign="top" style="width:100px;">Mã loại dự án:</th>
+                                    <th style="width: 100px;">Kiểu bài viết:</th>
                                     <td>@Html.TextBoxFor(model => model.Type, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Type)</td>
-                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <th valign="top style="width:100px;">Tên loại dự án:</th>
+                                    <th style="width: 100px;">Loại bài viết:</th>
                                     <td>@Html.TextBoxFor(model => model.Name, new { @class = "inp-form" })
                                         @Html.ValidationMessageFor(model => model.Name)</td>
                                 </tr>
-                                <tr>                             
-                                    <th valign="top style="width:100px;">Mô tả:</th>
+                                <tr>
+                                    <th style="width: 100px;">Mô tả:</th>
                                     <td colspan="3">@Html.TextAreaFor(model => model.Description, new { @class = "ckeditor" })
                                         @Html.ValidationMessageFor(model => model.Description)</td>
                                 </tr>
                                 <tr>
                                     <th>&nbsp;</th>
-                                    <td valign="top">
-                                        <input type="submit" value="" class="form-submit" />
-                                        <input type="reset" value="" class="form-reset" />
-
+                                    <td>
+                                        <input type="submit" value="Lưu" class="btn" />
+                                        <input type="reset" value="Hủy" class="btn" />
                                     </td>
                                     <td></td>
                                 </tr>
@@ -79,7 +78,7 @@
         <th class="sized bottomright"></th>
     </tr>
 </table>
-<div class="clear">&nbsp;</div>       
+<div class="clear">&nbsp;</div>
 <div>
     @Html.ActionLink("Trở lại trang trước", "Index")
 </div>

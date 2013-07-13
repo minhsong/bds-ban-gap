@@ -1,8 +1,9 @@
 ﻿@model VuongMinhQuoc.Models.Product
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Title + " | Dự án |" ;
+    Layout = "~/Views/Shared/_Layout.cshtml";  
+    
 }
 <style type="text/css">
     div#header ul.gNav li.products a {
@@ -39,13 +40,13 @@
 <div id="pageProductDetail">
     <div id="content" class="reset">
         <h2>@Model.Title</h2>
-        <p>@VuongMinhQuoc.Utils.StringHelper.StripHTML(@Model.Description)</p>
+        <p>@Html.Raw(@Model.Description)</p>
         <div id="inner">
             <ul id="myGallery">
                 @foreach (var i in ViewBag.listImage)
                 {
                     <li>
-                        <img src="@i.Link" alt="@i.Caption" title="Lone Tree Yellowstone" data-description="@i.Caption" />
+                        <img src="@i.Link" alt="@i.Caption" title="@Model.Title" data-description="@i.Caption" />
                     </li>
                 }
             </ul>

@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Admin</title>
+    <title>@ViewBag.Title Công ty TNHH Xây dựng Thương Mại Vương Minh Quốc</title>
+    <meta name="description" content="Công ty TNHH Xây dựng Thương Mại Vương Minh Quốc" />
+    <meta name="keywords" content="Công ty TNHH Xây dựng Thương Mại Vương Minh Quốc" />
     <link rel="stylesheet" href="/content/css/screen.css" type="text/css" media="screen" title="default" />
     <!--[if IE]>
-<link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
-<![endif]-->
+        <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
+    <![endif]-->
 
     <!--  jquery core -->
     <script type="text/javascript" src="/scripts/jquery-1.8.2.min.js"></script>
@@ -154,7 +156,7 @@
                             <div class="select_sub">
                                 <ul class="sub">
                                     <li><a href="/Admin/productType/">Các loại dự án hiện tại</a></li>
-                                    <li><a href="/Admin/productType/create">Thêm loại dự án mới</a></li>
+                                    <li><a href="/Admin/productType/create">Thêm loại dự án</a></li>
                                 </ul>
                             </div>
                             <!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -162,12 +164,25 @@
                     </ul>
                     <div class="nav-divider">&nbsp;</div>
                     <ul id="post" class="select">
-                        <li><a href="#nogo"><b>Post</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                        <li><a href="/Admin/postManagement/"><b>Quản lý bài viết</b><!--[if IE 7]><!--></a><!--<![endif]-->
                             <!--[if lte IE 6]><table><tr><td><![endif]-->
                             <div class="select_sub">
                                 <ul class="sub">
-                                    <li><a href="#nogo">View All</a></li>
-                                    <li><a href="#nogo">Create Post</a></li>
+                                    <li><a href="/Admin/postManagement/">Xem tất cả bài viết</a></li>
+                                    <li><a href="/Admin/postManagement/create">Tạo bài viết</a></li>
+                                </ul>
+                            </div>
+                            <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+                        </li>
+                    </ul>
+                    <div class="nav-divider">&nbsp;</div>
+                    <ul id="post" class="select">
+                        <li><a href="/Admin/categoryManagement/"><b>Quản lý loại bài viết</b><!--[if IE 7]><!--></a><!--<![endif]-->
+                            <!--[if lte IE 6]><table><tr><td><![endif]-->
+                            <div class="select_sub">
+                                <ul class="sub">
+                                    <li><a href="/Admin/categoryManagement/">Xem tất cả loại bài viết</a></li>
+                                    <li><a href="/Admin/categoryManagement/create">Tạo loại bài viết</a></li>
                                 </ul>
                             </div>
                             <!--[if lte IE 6]></td></tr></table></a><![endif]-->

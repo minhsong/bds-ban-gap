@@ -1,82 +1,71 @@
 ﻿@model VuongMinhQuoc.Models.Post
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xóa bài viết |";
 }
 
-<h2>Delete</h2>
+<script type="text/javascript" src="/scripts/ckeditor/ckeditor.js"></script>
+<link href="/content/css/ckeditor.css" rel="stylesheet" type="text/css" media="print" />
+<div id="page-heading">
+    <h2>Xóa Bài Viết</h2>
+</div>
+<table border="0" width="100%" id="content-table">
+    <tr>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+    </tr>
+    <tr>
+        <td id="tbl-border-left"></td>
+        <td>
+            <!--  start content-table-inner -->
+            <div id="content-table-inner">
+                <table border="0" id="id-form" style="position: relative;">
+                    <tr>
+                        <th style="width: 100px;">Tiêu đề:</th>
+                        <td>@Html.TextBoxFor(model => model.Title, new { @class = "inp-form" })
+                            <img class="imagesthumb" src="@Model.Image" />
+                    </tr>
+                    <tr>
+                        <th style="width: 100px;">Loại bài viết:</th>
+                        <td>@Html.TextBoxFor(model => model.CategoryId, new { @class = "inp-form" })</td>
+                    </tr>
+                    <tr>
+                        <th style="width: 100px;">Tóm tắt:</th>
+                        <td>@Html.TextAreaFor(model => model.Conclusion, new { @class = "ckeditor" })
+                    </tr>
+                    <tr>
+                        <th>Nội dung:</th>
+                        <td class="nd" colspan="3">
+                        @Html.TextAreaFor(model => model.Body, new { @class = "ckeditor" })
+                    <tr>
+                        @using (Html.BeginForm())
+                        {
+                            <tr>
+                                <th>&nbsp;</th>
+                                <td>
+                                    <input type="submit" value="Xóa" class="btn" />
+                                    @Html.ActionLink("Quay lại trang trước", "Index")
+                                </td>
+                            </tr>
+                        }
+                    </tr>
+                </table>
+                <div class="clear"></div>
+            </div>
+            <!--  end content-table-inner  -->
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Post</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Image)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Image)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Conclusion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Conclusion)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Body)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Body)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CategoryId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CategoryId)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CreatedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CreatedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CreatedDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CreatedDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedBy)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedBy)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedDate)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+        </td>
+        <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
+</table>
+<div class="clear">&nbsp;</div>

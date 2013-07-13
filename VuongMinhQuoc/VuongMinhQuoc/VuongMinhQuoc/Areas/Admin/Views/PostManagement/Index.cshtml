@@ -1,81 +1,58 @@
 ﻿@model IEnumerable<VuongMinhQuoc.Models.Post>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý bài viết |";
+    int count = 1;
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+<table border="0" width="100%" id="content-table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Conclusion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </th>
-        <th></th>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+        <th class="topleft"></th>
+        <td id="tbl-border-top">&nbsp;</td>
+        <th class="topright"></th>
+        <th rowspan="3" class="sized">
+            <img src="~/Content/images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
     </tr>
-
-@foreach (var item in Model) {
     <tr>
+        <td id="tbl-border-left"></td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Conclusion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <!--  start content-table-inner ...................................................................... START -->
+            <div id="content-table-inner">
 
+                <!--  start table-content  -->
+                <div id="table-content">
+                    <!--  start product-table ..................................................................................... -->
+
+                    <table border="0" width="100%" id="product-table">
+                        <tr>
+                            <th class="table-header-repeat line-left"><a>STT</a></th>
+                            <th class="table-header-repeat line-left minwidth-1"><a href="#">Tiêu đề</a></th>
+                            <th class="table-header-repeat line-left minwidth-1"><a href="#">Tóm tắt</a></th>                           
+                            <th class="table-header-options line-left"><a href="#">Options</a></th>
+                        </tr>
+                        @foreach (var item in Model)
+                        { 
+                            <tr>
+                                <td>
+                                    @(count++)</td>
+                                <td>@item.Title</td>
+                                <td>@Html.Raw(VuongMinhQuoc.Utils.StringHelper.StripHTML(@item.Conclusion))</td>                             
+                                <td class="options-width">
+                                    <a href="/Admin/postManagement/edit/@item.Id" title="Sửa" class="icon-1 info-tooltip"></a>
+                                    <a href="/Admin/postManagement/delete/@item.Id" title="Xóa" class="icon-2 info-tooltip"></a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <!--  end product-table................................... -->
+                </div>
+            </div>
+            <td id="tbl-border-right"></td>
+    </tr>
+    <tr>
+        <th class="sized bottomleft"></th>
+        <td id="tbl-border-bottom">&nbsp;</td>
+        <th class="sized bottomright"></th>
+    </tr>
 </table>
