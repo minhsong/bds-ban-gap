@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<VuongMinhQuoc.Models.Post>
+
+@{
     ViewBag.Title = "Dịch vụ |";
 }
 <style type="text/css">
@@ -20,7 +22,7 @@
                     <div class="detailItem">
                         <h3 class="mHead">@item.Title</h3>
                         <p class="content">@Html.Raw(VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Conclusion))</p>
-                        <p class="link"><a href="/post/id/@item.Id">Chi tiết</a></p>
+                        <p class="link"><a href="/post/details/@item.Id">Chi tiết</a></p>
                     </div>
                 </li>   
             }

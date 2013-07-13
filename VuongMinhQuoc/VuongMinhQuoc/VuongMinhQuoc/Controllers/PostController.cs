@@ -10,19 +10,9 @@ using VuongMinhQuoc.Models.DBContext;
 
 namespace VuongMinhQuoc.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
-        private ProjectDbContextcs db = new ProjectDbContextcs();
 
-        //
-        // GET: /Post/
-
-        public ActionResult Index()
-        {
-            return View(db.Posts.ToList());
-        }
-
-        //
         // GET: /Post/Details/5
 
         public ActionResult Details(int id = 0)
