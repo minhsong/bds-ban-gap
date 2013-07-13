@@ -1,6 +1,19 @@
 ﻿@model VuongMinhQuoc.Models.Post
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.Title + " | Dịch vụ |";
+    Layout = "~/Views/Shared/_Layout.cshtml";  
 }
+<style type="text/css">
+    div#header ul.gNav li.service a {
+        background: #d27040;
+        color: #fff;
+    }
+</style>
 
+<<div id="pageProductDetail">
+    <div id="content" class="reset">
+        <h2>@Model.Title</h2>
+        <p>@Html.Raw(@Model.Body)</p>        
+    </div>
+</div>
