@@ -1,63 +1,39 @@
 ﻿@model NhaChoThue.Models.SearchModel
-<style type="text/css">
-    #District {
-        width: 140px;
-    }
-    .pt5 td {padding: 0px 5px}
-</style>
-<div class="search-detail">
-<div class="search-detail-header">
-		<h3 class="search-detail-header-content">
-			<div style="float:left;">
-				<img src="/Content/images/TimKiemNangCao.png" alt="">
-			</div>
-			<div>
-				&nbsp; Tìm kiếm
-			</div>
-		</h3>
-	</div> <!--end div .search-detail-header -->
-    <form action="/Home/Search" method="get" name="adv-search">
-    <input type="hidden" name="show" value="15" />
-    <input type="hidden" name="pg" value="1" />
-    <div class="search-content">
-    <div class="search-content-padding">
-    <!-- cmt layout div
-    <div class="item-search-content" id="price-search">
 
+<div class="boxSearch">
+    <div class="boxHead">
+        <h3 class="textSearch">Tìm kiếm</h3>
     </div>
-    <div class="item-search-content" id="place-search">
-
+    <div class="boxBody">
+        <form action="/Home/Search" method="get" name="adv-search" class="form-horizontal">
+            <input type="hidden" name="show" value="15" />
+            <input type="hidden" name="pg" value="1" />
+            <div class="control-group">
+                <label class="control-label">Khu vực</label>
+                <div class="controls">
+                    @Html.DropDownListFor(s => s.Dis, ViewBag.DisctrictSearch as SelectList, "Tất cả")
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Giá từ</label>
+                <div class="controls">
+                    @Html.DropDownListFor(s => s.From, ViewBag.pricesFrom as SelectList, "Tất cả")
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Đến</label>
+                <div class="controls">
+                    @Html.DropDownListFor(s => s.To, ViewBag.PricesTo as SelectList, "Tất cả")
+                </div>
+            </div>
+            <div class="control-group reset">
+                <label class="control-label"><a href="/home/search">Tìm nâng cao</a></label>
+                <div class="controls">
+                    <input type="submit" value="Search" class="btn" />
+                </div>
+            </div>
+        </form>
     </div>
-    -->
-    <table class="pt5" style="border: none">
-    <tr>
-        <td style="font-weight:bold; border: none">
-        Khu vực
-        </td>
-        <td style="border: none">
-        @Html.DropDownListFor(s=>s.Dis, ViewBag.DisctrictSearch as SelectList,"Tất cả")
-        </td>
-    </tr>
-    <tr>
-        <td style="font-weight:bold; border: none">Giá từ:
-        </td>
-        <td class="left w60 pt2" style="border: none">
-        @Html.DropDownListFor(s => s.From, ViewBag.pricesFrom as SelectList, "Tất cả", new { style = "width: 140px;" })
-         
-    </tr>
-    <tr>
-    <td style="font-weight:bold; border: none"> đến:
-    </td>
-    <td class="left w60 pt2" style="border: none">
-        @Html.DropDownListFor(s => s.To, ViewBag.PricesTo as SelectList, "Tất cả", new { style = "width: 140px;" })
-    </td>
-    </tr>
-    </table>
-    <div class="border-bot-dashed"></div>
-    <a class="Search-Advance" href="/home/search">Tìm nâng cao</a>
-    <input name="" type="image" class="btn-search-content right" src="/Content/images/btn-search-content.gif" />
-    <div class="clearRight"></div>
-    </div>
-    </div>
-    </form>
-</div> <!-- end div .search-detail -->
+    <!-- / class boxBody -->
+</div>
+<!-- / class boxSearch -->

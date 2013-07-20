@@ -1,40 +1,37 @@
 ﻿@model IEnumerable<NhaChoThue.Models.DBContext.Product>
-           @{
-               var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
-            }
-<div class="house-priority">
-    	<div class="house-priority-header">
-        	<h3 class="house-priority-header-content">
-            	<div style="float:left">
-                	<img src="/Content/images/icon-priority.jpg" />
-                </div>
-            	<div><a href="">Nhà ưu tiên</a></div>
-            </h3>
-            <br class="clearBoth"/>
-            <div style="height:3px"></div>
-        </div> <!-- end .house-priority-header -->
-        <div class="house-priority-content">
-        @foreach (var item in Model)
-        {
-            <div class="house-priority-ele pt10">
-            <h3 class="house-priority-intro-title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 80 ? item.Title.Substring(0, 80) : item.Title),"")</a></h3>
-            	<div class="house-priority-intro">
-                <a class="Img-link" href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
-                @if (item.Images.Count > 0)
-                {
-                    <img src="@item.Images.First().ThumblLink" alt="@item.Title"/>
-                }
-                else
-                {
-                    <img src="/Content/images/priority-hou.jpg" alt="@item.Title"/>
-                }
-                </a>
-                <div class="house-priority-item-Right">
-                    <div class="house-priority-intro-content">@Html.Raw(reg.Replace((item.Description.Length > 100 ? item.Description.Substring(0, 100) : item.Description), ""))</div>
-                    <span class="house-priority-intro-price blue">@(item.Price)tr/Tháng</span>
-                </div>
-            </div>
-            </div> <!-- .house-priority-ele -->
-        }
-        </div><!-- end .house-priority-content -->
+@{
+    var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
+}
+
+
+<div class="boxSearch">
+    <div class="boxHead">
+        <h3 class="priority">Nhà ưu tiên</h3>
     </div>
+    @foreach (var item in Model)
+    {
+        <div class="boxBody">
+            <p class="title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+            <p>
+                <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
+                    @if (item.Images.Count > 0)
+                    {
+                        <img src="@item.Images.First().ThumblLink" alt="@item.Title"/>
+                    }
+                    else
+                    {
+                        <img src="/Content/images/priority-hou.jpg" alt="@item.Title"/>
+                    }
+                </a>
+            </p>
+            <p class="detail">
+                Rộng: @item.Ngan<br />
+                Dài: @item.Dai<br />
+                Số tầng : @item.SoLau<br />
+                Phòng ngủ : @item.SoPhongNgu
+            </p>
+            <p class="price">Giá: @(item.Price)tr/Tháng</p>
+        </div>
+        <!-- / class boxBody -->
+    }
+</div>

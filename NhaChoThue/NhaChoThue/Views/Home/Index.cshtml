@@ -6,196 +6,110 @@
     int count = (int)ViewBag.count;
     var reg = new System.Text.RegularExpressions.Regex(@"<.*?>");
 }
-<div class="list-house-content mt5 pt5">
-    <div class="list-house-header-left left pb10">
-        <h3 class="blue bold left">@((pg-1)*show+1) đến @(pg*show) trong <span class="list-house-count" id="house-sell-count">@count</span> nhà cho thuê
-        </h3>
-        <br class="clearBoth" />
-    </div>
-    <!-- end .house-sell-header-left -->
-    <div class="list-house-header-right right">
-        <div class="paginator_number" style="width: auto;">
-            @if (count > show)
-            {
-                int pages = count % show == 0 ? count / show : count / show + 1;
-                if (pg != 1)
-                {        
-                <div class="prev_link">
-                    <a href="/home/index?pg=@(pg - 1)&show=@show">
-                        <img src="/Content/images/paging/p_prev.gif" align="middle">
-                    </a>
-                </div>
-                }
-
-
-
-                for (int i = 1; i <= pages; i++)
+<style type="text/css">
+    div#gNav ul li#home {
+        background: url(/Content/common/images/bg_gnav_o.jpg) top left repeat-x !important;
+    }
+</style>
+<div id="content">
+    <div class="group">
+        <p><strong>@((pg - 1) * show + 1)</strong> đến <strong>@(pg * show)</strong> trong <strong>@count</strong> nhà cho thuê</p>
+        <div class="pagination">
+            <ul>
+                @if (count > show)
                 {
-                    if ((int)ViewBag.pg == i)
-                    {
-                        
-                <div class="current-page">
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
-                </div>
+                    int pages = count % show == 0 ? count / show : count / show + 1;
+                    if (pg != 1)
+                    {  
+                    <li><a href="/home/index?pg=@(pg - 1)&show=@show">&laquo;</a></li>
                     }
-                    else
+                    for (int i = 1; i <= pages; i++)
                     {
-                <div>
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
-                </div>
+                        if ((int)ViewBag.pg == i)
+                        {
+                    <li class="active"><a href="/home/index?pg=@(i)&show=@(show)">@i</a></li>
+                        }
+                        else
+                        {
+                    <li><a href="/home/index?pg=@(i)&show=@(show)">@i</a></li>
+                        }
+                    }
+                    if (pg != pages)
+                    {               
+                    <li><a href="/home/index?pg=@(pg + 1)&show=@(show)">&raquo;</a></li>
                     }
                 }
-                if (pg != pages)
-                {
-                <div class="next_link">
-                    <a href="/home/index?pg=@(pg + 1)&show=@(show)">
-                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a>
-                </div>
-                <div class="last_link">
-                    <a href=""></a>
-                </div>
-                }
-            }
-            <div class="clearBoth">
-            </div>
+            </ul>
         </div>
-        <!-- end .paginator-number -->
     </div>
-    <!-- end .house-sell-header-right -->
-    <br class="clearBoth" />
-    <div class="list-items">
+    <ul class="listHouse">
         @foreach (var item in Model)
         {
-             <div class="item">
-                <div class="item-info">
-                    <div class="item-left">
-                        <div class="item-id">MS: @item.GetID()</div>
-                        <div class="item-image">
-                            <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
-                            @if (item.Images.Count == 0)
-                            {
-                                <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
-                            }
-                            else
-                            {
-                                <img src="@item.Images.First().ThumblLink" alt="@item.Title" />
-                            }
-                        </a>
-                        </div>
-                   @if (item.IsHired)
+            <li>
+                <p class="image">
+                    <span>MS @item.GetID()</span>
+                    <a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">
+                        @if (item.Images.Count == 0)
+                        {
+                            <img src="/Content/images/Default-image.jpg" alt="@item.Title"/>
+                        }
+                        else
+                        {
+                            <img src="@item.Images.First().ThumblLink" alt="@item.Title" />
+                        }
+                    </a>
+                    @if (item.IsHired)
                     {
                         <img src="/Content/images/daban_small.png" style="position: absolute; margin-top: -55px" />
                     }
-                    </div>
-                    <div class="item-right-content">
-                        <div class="item-right">
-                            <div class="item-title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 100 ? item.Title.Substring(0, 100) + "..." : item.Title), "")</a></div>
-                            <div class="item-description">@Html.Raw(reg.Replace(item.Description,""))</div>
-
-                        </div>
-                        <div class="item-bottom">
-                            <div class="bottom-item">
-                             Giá: 
-                                                    <p class="bottom-item-value">
-                                                    @if (item.Price < 0)
-                                                        {
-                                                            <text>Thỏa thuận
-                                                        </text>
-                                                        }
-                                                        else
-                                                        {
-                                                        <text>@(item.Price)tr/Tháng
-                                                        </text>
-                                                }
-                                                    </p>
-                            </div>
-                            <div class="bottom-item">
-                                Đc:
-                                                    <p class="bottom-item-value">P. @item.Ward.WardName, Q. @item.Ward.District.DistrictName</p>
-                            </div>
-                            <div class="bottom-item">
-                                DT:
-                                                    <p class="bottom-item-value">@(item.Dai*item.Ngan)m&sup2</p>
-                            </div>
-                            <div class="bottom-item">
-                                Lầu:
-                                                    <p class="bottom-item-value">@item.SoLau</p>
-                            </div>
-                            <div class="bottom-item">
-                                PN:
-                                                    <p class="bottom-item-value">@item.SoPhongNgu</p>
-                            </div>
-                            <div class="bottom-item">
-                                WC:
-                                                    <p class="bottom-item-value">@item.SoPhongTam</p>
-                            </div>
-                            <div class="clearBoth"></div>
-                        </div>
-                    </div>
-                   
-                    <div class="clearBoth"></div>
+                </p>
+                <div class="detail">
+                    <p class="title"><a href="/Home/Detail/@item.ProductID/@NhaChoThue.Helpers.DataConvertHelper.Titletransform(item.Title)">@reg.Replace((item.Title.Length > 100 ? item.Title.Substring(0, 100) + "..." : item.Title), "")</a></p>
+                    <p class="content">@Html.Raw(reg.Replace(item.Description, ""))</p>
+                    <p class="info">
+                        <span>Giá: <em>@if (item.Price < 0)
+                                       {
+                            <span>Thỏa thuận</span>
+                                       }
+                                       else
+                                       {
+                            <span>@(item.Price)tr/Tháng</span>
+                                       }</em></span>
+                        <span>Đc: <em>P. @item.Ward.WardName, Q. @item.Ward.District.DistrictName</em></span>
+                        <span>DT: <em>@(item.Dai * item.Ngan)m&sup2</em></span>
+                        <span>Lầu: <em>@item.SoLau</em></span>
+                        <span>PN: <em>@item.SoPhongNgu</em></span>
+                        <span>WC: <em>@item.SoPhongTam</em></span>
+                    </p>
                 </div>
-
-            </div>
+            </li>
         }
-    </div>
-    <!-- end .list-items -->
-        <!-- end .house-sell-header-left -->
-    <div class="list-house-header-right right">
-    <div class="paginator_number" style="width: auto;">
+    </ul>
+    <div class="pagination">
+        <ul>
             @if (count > show)
             {
                 int pages = count % show == 0 ? count / show : count / show + 1;
                 if (pg != 1)
-                {        
-                <div class="prev_link">
-                    <a href="/home/index?pg=@(pg - 1)&show=@show">
-                        <img src="/Content/images/paging/p_prev.gif" align="middle">
-                    </a>
-                </div>
+                {  
+                <li><a href="/home/index?pg=@(pg - 1)&show=@show">&laquo;</a></li>
                 }
-
-
-
                 for (int i = 1; i <= pages; i++)
                 {
                     if ((int)ViewBag.pg == i)
                     {
-                        
-                <div class="current-page">
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
-                </div>
+                <li class="active"><a href="/home/index?pg=@(i)&show=@(show)">@i</a></li>
                     }
                     else
                     {
-                <div>
-                    <a href="/home/index?pg=@(i)&show=@(show)">@i</a>
-                </div>
+                <li><a href="/home/index?pg=@(i)&show=@(show)">@i</a></li>
                     }
                 }
                 if (pg != pages)
-                {
-                <div class="next_link">
-                    <a href="/home/index?pg=@(pg + 1)&show=@(show)">
-                        <img src="/Content/images/paging/p_next.gif" align="absmiddle"></a>
-                </div>
-                <div class="last_link">
-                    <a href=""></a>
-                </div>
+                {               
+                <li><a href="/home/index?pg=@(pg + 1)&show=@(show)">&raquo;</a></li>
                 }
             }
-            <div class="clearBoth">
-            </div>
-        </div>
-        <!-- end .paginator-number -->
+        </ul>
     </div>
-    <div class="border-top-end">
-    </div>
-    <div class="pagin-end right">
-        <div class="paginator-number">
-        </div>
-        <!-- end .paginator-number -->
-    </div>
-    <!-- end .pagin-end -->
 </div>
-<!-- end .house-sell-content -->

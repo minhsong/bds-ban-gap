@@ -7,115 +7,75 @@
     <meta name="description" content="@ViewBag.Title" />
     <meta name="keywords" content="@ViewBag.Title" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/common/css/import.css")" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="@Url.Content("~/Content/common/css/print.css")" rel="stylesheet" type="text/css" media="print" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/common/css/bootstrap.min.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/common/jsImgSlider/js-image-slider.css")"/>
     <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="Stylesheet" type="text/css" />
-    <link href="/Content/styles/home.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/styles/menu.css" rel="stylesheet" type="text/css" />
 </head>
 
-    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
-@*<script src="/Scripts/menu.js" type="text/javascript"></script>*@
+<script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
 
-    <body>
+
+<body>
+    <div id="layout">
         <div id="header">
-	<div class="site-width margin-auto" style="padding-top:20px;">
-		<a href=""><img src="/Content/images/BDS_logo.png" height="100px"  class="png left" style="margin-left:20px;width:450px;"></a>
-        @*<div class="top-menu">
-			<div class="navigator-house-rent mauto">
-				<ul class="clearfix">
-					<li class="home"><a href=""><p>&nbsp;</p></a></li>
-					<li class="house-sell"><a href=""><p>&nbsp;</p></a></li>
-					<li class="house-rent"><a href=""><p>&nbsp;</p></a></li>
-					<li class="infomation"><a href=""><p>&nbsp;</p></a></li>
-
-				</ul>
-			</div>
-		</div>*@
-    <div style="width: 975px; height: 115px;">
-            <ul class="menuTemplate1 decor1_1"  style="margin-top: 15px; margin-left: 246px; clear: both;">
-                <li><a href="/">Trang chủ</a></li>
-                <li class="separator"></li>
-                <li><a href="/Home/Search" class="arrow">Tìm kiếm</a>
-                   </li>
-                <li class="separator"></li>
-                <li><a href="/Home/Consignment">Ký gởi nhà</a></li>
-                <li class="separator"></li>
-                <li><a href="/Home/About">Giới thiệu</a></li>
-            </ul>
-        
-        </div>
-	</div>
-	<div class="sub-top-menu">
-		</div>
-</div>
-<div class="container site-width">
-<div class="content">
-
-<div class="left w235" id="colum-left">
-<div class="element-left search">
-@Html.Partial("SearchPanel", new NhaChoThue.Models.SearchModel())
-</div> <!-- end div .element-left-->
-<div class="element-left">
-	@Html.Partial("NhaUuTien", ViewBag.NhaUuTien as IEnumerable<NhaChoThue.Models.DBContext.Product>) <!-- end .house-priority -->
-</div> <!--end .element-left -->
-</div> <!-- end div #colum-left-->
-<div class="right" id="colum-right">
-<div class="element-right">
-	@RenderBody()
-</div> <!-- end element-right -->
-</div> <!-- end .right #colum-right -->
-<div class="clearBoth"></div>
-</div> <!--end content-->
-</div> <!--end container-->
-        @*<div class="footer">
-<!--end footer--></div>*@
-        <div id="footer_rail">
-            <div id="footer_top_bg">
-                <img src="/Content/images/footer-slogan.png" />
+            <h1 id="logo"><a href="/">
+                <img src="/Content/common/images/logo.jpg" alt="BDSChoThue Thuê nhà ưng ý, Giá cả hợp lý" /></a></h1>
+            <div class="banner">
+                <p>
+                    <img src="/Content/common/images/banner.jpg" alt="Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1..." /></p>
             </div>
-            <div id="bot-footter">
-                <div id="logo-footter">
-                    <a href="#"><img src="/Content/images/BDS_logo.png" width="190"></a>
-                    <br />
-                    <p>
-                        14 Hoa Sứ, Phường 2 <br/>
-                                            Quận Phú Nhuận, HCM <br/>
-                                                                Hotline: 0938.500.866(Mr. Toàn)<br/>
-                                                                                          Email: minhtoan@bdschothue.net <br>
-                    </p>
-                </div>
-                <div class="menu-footter">
-			<ul> 
-				<li><a href="#"><img src="/Content/images/BDS_logo.png" width="460"></a></li>
-			</ul>
-		</div>
-                <div class="copyright-footer">
-                    <ul>
-                        <p>Designed and developed by MinhSong<br/>
-                    </ul>
-                    
-                </div>
-		
-		
-		
-	</div>
         </div>
-        
-        <script type="text/javascript">
+        <!-- / id header -->
+        <div id="gNav">
+            <ul>
+                <li id="home"><a href="/">Trang chủ</a></li>
+                <li id="search"><a href="/Home/Search">Tìm kiếm</a></li>
+                <li id="consignment"><a href="/Home/Consignment">Ký gởi nhà</a></li>
+                <li id="about"><a href="/Home/About">Giới thiệu</a></li>
+            </ul>
+        </div>
+        <!-- / id gNav -->
+        <div id="pageBody">
+            @RenderBody()
+            <div id="sidebar">
+                @Html.Partial("SearchPanel", new NhaChoThue.Models.SearchModel())
+                @Html.Partial("NhaUuTien", ViewBag.NhaUuTien as IEnumerable<NhaChoThue.Models.DBContext.Product>)
+                <!-- end .house-priority -->
+            </div>
+        </div>
+        <div id="fotter">
+            <div class="contact">
+                <p>
+                    <img src="/Content/common/images/logo.jpg" alt="BDSChoThue Thuê nhà ưng ý, Giá cả hợp lý" /></p>
+                <p>
+                    <strong>Adress:</strong> 14 Hoa Sứ - Phường 2 - Quận Phú Nhuận - Hồ Chí Minh<br />
+                    <strong>Hotline:</strong> 0938.500.866 (Mr. Toàn)<br />
+                    <strong>Email:</strong> minhtoan@bdschothue.net
+                </p>
+            </div>
+            <p id="copyright">Copyright &copy;2013 ABC Ltd. All rights reserved.</p>
+        </div>
+        <!-- / id fotter -->
+    </div>
+    <!-- /id /layout -->
+<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38163634-3']);
-  _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38163634-3']);
+    _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
-    </body>
+</body>
 </html>

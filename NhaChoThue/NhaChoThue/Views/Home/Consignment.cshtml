@@ -6,81 +6,64 @@
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-<script src="/Scripts/ckeditor/ckeditor.js"></script>
-
+<style type="text/css">
+    div#gNav ul li#consignment {
+        background: url(/Content/common/images/bg_gnav_o.jpg) top left repeat-x !important;
+    }
+</style>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Ký gởi nhà</legend>
-        <div>
-            <p>Bạn có nhà, bât động sản cần cho thuê và muốn tìm được khách hàng (người thuê nhà) nhanh nhất để mau chóng thu lại lợi nhuận một cách nhanh nhất!</p>
-            <p> Hãy gởi thông tin bất động sản của bạn đến với chúng tôi cùng với thông tin liên hệ. Chúng tôi sẽ mau chóng tìm khách hàng cho bạn. Chúng tôi đảm bảo với các công nghệ, kỹ thuật mà chúng tôi có sẽ mau chóng tìm được khách hàng cho bạn với giá cả hợp lý nhất!</p>
-        </div>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        Tên đầy đủ:
-                    </td>
-                    <td>
-                        @Html.EditorFor(model => model.FullName)
-                        @Html.ValidationMessageFor(model => model.FullName)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Số điện thoại:
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(model => model.Phone)
-                        @Html.ValidationMessageFor(model => model.Phone)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Email:
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(model => model.Email, new { type="email"})
-                        @Html.ValidationMessageFor(model => model.Email)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Địa chỉ:
-                    </td>
-                    <td>
-                        @Html.EditorFor(model => model.Address)
-                        @Html.ValidationMessageFor(model => model.Address)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Giá mong muốn:
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(model => model.Price, new { style="text-align:right;"}) triệu/Tháng
-                        @Html.ValidationMessageFor(model => model.Price)
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="editor-label">Mô tả chi tiết</div>
-                        @Html.TextAreaFor(model => model.Description)
-                        @Html.ValidationMessageFor(model => model.Description)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p>
-            <input type="submit" value="Ký gởi nhà" />
-        </p>
-    </fieldset>
-    <script type="text/javascript">
-        CKEDITOR.replace('Description', {
-            toolbar: 'Basic',
-            uiColor: '#9AB8F3'
-        });
-    </script>
+        <div id="content" class="reset"> 
+            <div class="introduction">   
+              <h2 class="bHead">Ký gởi nhà</h2>
+              <p>Bạn có nhà, bât động sản cần cho thuê và muốn tìm được khách hàng (người thuê nhà) nhanh nhất để mau chóng thu lại lợi nhuận một cách nhanh nhất!</p>
+              <p>Hãy gởi thông tin bất động sản của bạn đến với chúng tôi cùng với thông tin liên hệ. Chúng tôi sẽ mau chóng tìm khách hàng cho bạn. Chúng tôi đảm bảo với các công nghệ, kỹ thuật mà chúng tôi có sẽ mau chóng tìm được khách hàng cho bạn với giá cả hợp lý nhất!</p>
+              <form action="#" method="post" class="form-horizontal reset">
+                     <div class="control-group">
+                        <label class="control-label reset">Tên đầy đủ:</label>
+                        <div class="controls">
+                        	 @Html.EditorFor(model => model.FullName)
+                             @Html.ValidationMessageFor(model => model.FullName)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Số điện thoại:</label>
+                        <div class="controls">
+                        	@Html.TextBoxFor(model => model.Phone)
+                            @Html.ValidationMessageFor(model => model.Phone)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset" for="inputEmail">Email:</label>
+                        <div class="controls">
+                        	@Html.TextBoxFor(model => model.Email, new { type="email"})
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Địa chỉ:</label>
+                        <div class="controls">
+                        	 @Html.EditorFor(model => model.Address)
+                             @Html.ValidationMessageFor(model => model.Address)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Giá mong muốn:</label>
+                        <div class="controls">
+                        	@Html.TextBoxFor(model => model.Price)<label class="control-label" style="display:inline">triệu/Tháng</label>
+                            @Html.ValidationMessageFor(model => model.Price)                            
+                        </div>                        
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label reset">Mô tả chi tiết:</label>
+                        <div class="controls">
+                            @Html.TextAreaFor(model => model.Description, new {row="5"})
+                            @Html.ValidationMessageFor(model => model.Description)                        	
+                        </div>                       
+                    </div>
+                    <input type="submit" class="btn" value="Ký gởi nhà" />                  
+                </form>
+        	</div>                  
+      </div><!-- / id content -->
 }
-
+ 
