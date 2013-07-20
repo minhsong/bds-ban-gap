@@ -1,0 +1,371 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.block {
+	background: #eff7ff;
+	border: 1px solid #B1BDC9;
+	margin-bottom: 15px;
+}
+
+.block p {
+	padding: 10px 0 0 10px;
+	text-align: center;
+}
+
+.block form {
+	padding: 10px;
+	width: 699px;
+}
+
+textarea#Description {
+    height:150px;
+}
+
+div#content ul.listHouse li {
+	border: 1px solid #b1bdc9;
+	margin-bottom: 10px;
+}
+
+div#content ul.listHouse li:hover {
+	background: #eff7ff;
+}
+
+div#content ul.listHouse li p.image {
+	float: left;
+	padding: 5px;
+	text-align: center;
+	width: 100px;
+}
+
+div#content ul.listHouse li p.image span {
+	font-size: 12px;
+	font-weight: bold;
+	margin-top: 5px;
+	text-transform: uppercase;	
+}
+
+div#content ul.listHouse li .detail {	
+	float: right;
+	width: 580px;
+}
+
+div#content ul.listHouse li .detail p.title {
+	font-size: 15px;
+	margin: 7px 0;
+}
+
+div#content ul.listHouse li .detail p.title a {
+	color: #098ea4;
+	text-decoration: underline;
+}
+
+div#content ul.listHouse li .detail p.content {
+	font-size: 14px;
+	margin-bottom: 7px;
+}
+
+div#content ul.listHouse li .detail p.info span {
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+div#content ul.listHouse li .detail p.info span em {
+	color: #f00;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;	
+}
+
+div#content.reset {
+	border: 1px solid #b1bdc9;
+}
+
+div#content.reset .introduction {
+	padding: 15px 20px 20px;
+}
+
+div#content.reset .introduction h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;	
+}
+
+div#content.reset .introduction h3 {
+	color: #f00;	
+	margin-bottom: 5px;
+}
+
+div#content.reset .introduction p {
+	font-size: 14px;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+	text-align: justify;
+}
+
+div#content.reset .introduction p.focus {
+	padding-left: 20px;
+	text-indent: -20px;
+}
+
+div#content.reset .introduction p em {
+	color: #f00;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+div#content.reset .introduction p.contact {
+	color: #098ea4;
+}
+
+div#content.reset .introduction h2.bHead {
+	text-align: left;
+}
+
+div#content .section {
+	border: 1px solid #b1bdc9;
+	margin-bottom: 20px;
+}
+
+div#content .section .sectionInner {
+	padding: 10px 10px 0 10px;
+}
+
+div#content .section .sectionInner h2 {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+div#content .section .sectionInner p {
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+div#content .section .sectionInner .box {
+	font-size: 14px;
+}
+
+div#content .section .sectionInner .box .boxImage {
+	float: left;
+	width: 450px;
+}
+
+div#content .section .sectionInner .box .boxImage .imgtop {
+	background:url(../common/images/defaulthouse.jpg) top center no-repeat;
+	border: 1px solid #646464;
+	float: left;
+	height: 345px;
+	margin-bottom: 10px;
+	width: 450px;
+}
+
+div#content .section .sectionInner .box .boxImage ul.listImage {
+	clear: both;
+    margin-right: -28px;
+    width: 480px;
+}
+
+div#content .section .sectionInner .box .boxImage ul.listImage li {	
+	float: left;
+	margin-right: 28px;
+}
+
+div#content .section .sectionInner .box .boxImage ul.listImage li a img {	
+	width: 130px;
+	border: 1px solid #b1bdc9;
+}
+
+div#content .section .sectionInner .box .boxImage ul.listImage li a:hover img {	
+	width: 130px;
+	border: 1px solid #646464;
+}
+
+div#content .section .sectionInner .box .boxImage ul.listImage li a.selected img {	
+	width: 130px;
+	border: 1px solid #646464;
+}
+
+div#content .section .sectionInner .box .boxContent {
+	float: right;
+	margin-bottom: 20px;
+	width: 230px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxDetail {
+	border: 1px solid #b1bdc9;
+	margin-bottom: 10px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxDetail p.price {
+	text-align: center;
+	font-size: 18px;
+	padding: 10px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxDetail dl {
+	padding: 7px 10px 0 10px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxDetail dl dt {
+	
+}
+
+div#content .section .sectionInner .box .boxContent .boxDetail dl dd {
+	border-bottom: 1px dotted #B1BDC9;
+    margin: -17px 0 6px;
+    padding: 0 0 9px 89px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxContact {
+	border: 1px solid #b1bdc9;
+	background: #eff7ff;
+}
+
+div#content .section .sectionInner .box .boxContent .boxContact h3 {
+	text-align: center;
+	font-size: 16px;
+	font-weight: normal;
+	padding: 10px 10px 5px 10px;
+}
+
+div#content .section .sectionInner .box .boxContent .boxContact p {
+	text-align: left;
+	font-size: 12px;
+	padding: 5px 0 5px 5px;
+}
+
+div#content .section .sectionInner .box .description {
+	border: 1px solid #b1bdc9;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+div#content .section .sectionInner .box .description h3 {
+	padding: 10px;
+}
+
+div#content .section .sectionInner .box .description p {
+	font-size: 12px;
+	padding: 0 5px 0 10px;
+	text-align: justify;
+}
+
+div#content .section .sectionInner ul.listItem {
+	margin-right: -8px;
+}
+
+div#content .section .sectionInner ul.listItem li {
+	border: 1px solid #b1bdc9;
+	float: left;
+	margin: 0 8px 8px 0;
+	width: 225px;
+}
+
+div#content .section .sectionInner ul.listItem li p.image {
+	float: left;
+	margin: 5px 5px 0 0;
+}
+
+div#content .section .sectionInner ul.listItem li p.image image {
+	width: 75px;
+	height: 75px;
+	float: left;
+}
+
+div#content .section .sectionInner ul.listItem li p.title {
+
+}
+
+div#content .section .sectionInner ul.listItem li p.title a {
+	color: #098EA4;
+}
+
+div#content .section .sectionInner ul.listItem li p.title a:hover {
+	text-decoration: underline;
+}
+
+div#content .section .sectionInner ul.listItem li p.price {
+	color: #f00;
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+#inner {
+	width: 450px !important;
+	padding-bottom: 50px;
+	position: relative;
+}
+#carousel-wrapper {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #fff;
+	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+	width: 450px;
+	height: 400px !important;
+}
+#carousel {
+	width: 450px;
+	height: 400px !important;
+	overflow: hidden;
+}
+#carousel img {
+	display: block;
+	float: left;
+	height: 400px !important;
+}
+#pager-wrapper {
+	height: 120px;
+	width: 450px;
+	overflow: hidden;
+	position: absolute;
+	top: 346px;
+	left: 0;
+	z-index: 2;
+}
+#pager img {
+	cursor: pointer;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	display: block;
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	margin: 10px;
+	float: left;
+}
+#pager img:hover {
+	background: #eff;
+}
+#pager img.selected {
+	background: #dff;
+}
+
+
+/* # clearfix
+---------------------------------------------------------------------------- */
+
+div#content ul.listHouse,
+div#content ul.listHouse li,
+div#content .section .box,
+div#content .section .box .boxContent,
+div#content .section .sectionInner ul.listItem,
+div#content .section .sectionInner .box .boxImage ul.listImage {
+	zoom: 1;
+}
+
+div#content ul.listHouse:after,
+div#content ul.listHouse li:after,
+div#content .section .box:after,
+div#content .section .box .boxContent:after,
+div#content .section .sectionInner ul.listItem:after,
+div#content .section .sectionInner .box .boxImage ul.listImage:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
