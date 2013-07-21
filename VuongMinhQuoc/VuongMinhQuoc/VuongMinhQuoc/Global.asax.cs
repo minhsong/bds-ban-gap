@@ -18,7 +18,7 @@ namespace VuongMinhQuoc
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<ProjectDbContextcs>(new DBInitializer());
+            //Database.SetInitializer<ProjectDbContextcs>(new DBInitializer());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
