@@ -24,7 +24,7 @@
             <input type="hidden" name="show" value="15" />
             <input type="hidden" name="pg" value="1" />
             <div class="control-group">
-                <label class="control-label fix">Tiêu đề:</label>
+                <label class="control-label fix">Tiêu đề/Mã Số:</label>
                 <div class="controls">
                     @Html.TextBoxFor(model => model.Title, new { @class = "input-xxlarge" })
                 </div>
@@ -61,7 +61,9 @@
         </form>
     </div>
     <div class="group">
-        <p><strong>@((pagging - 1) * show + 1)</strong> đến <strong>@(pagging * show)</strong> trong <strong>@count</strong> nhà cho thuê</p>
+        <p>
+        <strong>@((pagging - 1) * show + 1)</strong> đến <strong>@(pagging * show)</strong> trong <strong>@count</strong> nhà cho thuê
+        </p>
         <div class="pagination">
             <ul>
                 @if (count > show)
@@ -77,11 +79,11 @@
                         url = @System.Text.RegularExpressions.Regex.Replace(url, @"pg=\d+", "pg=" + i);
                         if (pagging == i)
                         {
-                    <li><a "@url">@i</a></li>
+                            <li class="active"><a "@url">@i</a></li>
                         }
                         else
                         {
-                    <li><a href="@url">@i</a></li>
+                            <li><a href="@url">@i</a></li>
                         }
                     }
                     if (pagging != pages)
@@ -92,7 +94,8 @@
                 }
             </ul>
         </div>
-        <ul class="listHouse">
+    </div>
+    <ul class="listHouse">
             @foreach (var item in result)
             {
                 <li>
@@ -135,7 +138,7 @@
                 </li>
             }
         </ul>
-        <div class="pagination">
+    <div class="pagination">
             <ul>
                 @if (count > show)
                 {
@@ -150,11 +153,11 @@
                         url = @System.Text.RegularExpressions.Regex.Replace(url, @"pg=\d+", "pg=" + i);
                         if (pagging == i)
                         {
-                    <li><a "@url">@i</a></li>
+                            <li class="active"><a "@url">@i</a></li>
                         }
                         else
                         {
-                    <li><a href="@url">@i</a></li>
+                            <li><a href="@url">@i</a></li>
                         }
                     }
                     if (pagging != pages)
@@ -165,5 +168,5 @@
                 }
             </ul>
         </div>
-    </div>
+   
 </div>
