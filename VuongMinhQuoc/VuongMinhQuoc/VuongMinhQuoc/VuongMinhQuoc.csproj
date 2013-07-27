@@ -271,6 +271,8 @@
     <Content Include="Content\css\themes\light\play-big.png" />
     <Content Include="Content\css\themes\light\play.png" />
     <Content Include="Content\css\themes\light\prev.png" />
+    <Content Include="Content\images\BAO-GIA-XAY-NHA-HOAN-THIEN-2013-05.jpg" />
+    <Content Include="Content\images\BAO-GIA-XAY-NHA-PHAN-THO-2013-05.jpg" />
     <Content Include="Content\images\bg_bottom.jpg" />
     <Content Include="Content\images\body-bg.jpg" />
     <Content Include="Content\images\date-bg.png" />
@@ -317,6 +319,8 @@
     <Content Include="Content\images\img_product08.jpg" />
     <Content Include="Content\images\img_product09.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\service01.jpg" />
+    <Content Include="Content\images\service02.jpg" />
     <Content Include="Content\images\shared\blank.gif" />
     <Content Include="Content\images\shared\border_bit.jpg" />
     <Content Include="Content\images\shared\cal_th_repeat.jpg" />
@@ -629,6 +633,8 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Home\ServicesKienTruc.cshtml" />
+    <Content Include="Views\Home\ServicesXayDung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

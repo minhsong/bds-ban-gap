@@ -2,7 +2,7 @@
 /* CSS Document */
 
 div#content ul.box {
-	padding-right: 40px;
+	padding: 10px 40px 0 0;
 }
 
 div#content ul.box li {
@@ -30,7 +30,7 @@ div#content ul.box li p.image img {
 
 div#content ul.box li h3.mHead {
 	color: #fff;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	font-size: 14px;
 	text-transform: uppercase;
 }
@@ -40,6 +40,7 @@ div#content ul.box li p.content {
 	font-size: 12px;
     padding-top: 10px;
 	text-align: justify;
+    line-height: 1.6;
 }
 
 div#content ul.box li p.link {
@@ -379,4 +380,37 @@ div#content.reset.index ul.listProject:after {
 
 .cke_chrome {
     width: 800px !important;
+}
+
+.pageKienTruc {
+    padding:0 45px 20px 0;
+    text-align: justify;
+}
+
+.pageKienTruc p {
+    color: #787271;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.pageKienTruc h2 {
+    color: #dad2d1;
+}
+
+.pageKienTruc h3 {
+    font-size: 14px;
+    color: #ADB3AA;
+    margin: 0 0 10px; 
+}
+
+.pageKienTruc ul {
+    margin-top: 5px;
+    padding-left: 30px;
+    color: #787271;
+    font-size: 14px;
+}
+
+.pageKienTruc ul li {
+   margin-bottom:10px;
 }
