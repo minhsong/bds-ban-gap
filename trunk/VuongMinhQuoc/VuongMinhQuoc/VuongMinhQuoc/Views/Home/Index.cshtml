@@ -8,6 +8,7 @@
         color: #fff;
     }
 </style>
+<script src="/Scripts/fixHeight.js"></script>
 <div id="pageBody" style="background: none;">
     <div id="content" class="reset index">
         <div id="sliderFrame">
@@ -23,21 +24,21 @@
             </div>
             <div id="htmlcaption" style="display: none;">
                 <h3>Thiết kế công trình</h3>
-                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                <p>Thiết kế công trình theo yêu cầu chi tiết của khách hàng</p>
             </div>
             <div id="htmlcaption1" style="display: none;">
                 <h3>Kế hoạch thi công</h3>
-                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                <p>Kế hoạch thi công chi tiết và bám sát thực tế</p>
             </div>
             <div id="htmlcaption2" style="display: none;">
                 <h3>Thi công dự án</h3>
-                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                <p>Thi công mới, sử chữa nâng cấp</p>
             </div>
         </div>
         <div class="block">
             <div class="blockLeft">
                 <h2>Dự án thực hiện gần đây</h2>
-                <ul class="listProject">
+                <ul class="listProject fixHeight">
                     @foreach (var item in Model)
                     {
                         var des = VuongMinhQuoc.Utils.StringHelper.StripHTML(item.Description);
@@ -54,12 +55,14 @@
             <div class="contact">
                 <h3>Liên hệ</h3>
                 <dl>
-                    <dt class="phone">Tel:</dt>
+                    <dt class="phone">Tel 1:</dt>
                     <dd class="phone">09 1234 1267</dd>
+                    <dt class="phone">Tel 2:</dt>
+                    <dd class="phone">0903 075 793</dd>
                     <dt>Adress:</dt>
                     <dd>05 Đường Số 1, Khu Phố 1, Phường Bình Hưng Hòa, Quận Bình Tân, TP Hồ Chí Minh</dd>
                     <dt>Email:</dt>
-                    <dd>truongminhquoc@gmail.com</dd>
+                    <dd>quocvuong.co@gmail.com</dd>
                 </dl>                
             </div>
         </div>
