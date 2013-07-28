@@ -414,3 +414,12 @@ div#content.reset.index ul.listProject:after {
 .pageKienTruc ul li {
    margin-bottom:10px;
 }
+
+.pagePrices #content {
+    background: #fff;
+}
+
+.pagePrices p {
+    padding-bottom: 30px;
+    text-align: center;
+}

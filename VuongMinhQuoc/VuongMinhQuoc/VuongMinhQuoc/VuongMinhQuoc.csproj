@@ -271,6 +271,7 @@
     <Content Include="Content\css\themes\light\play-big.png" />
     <Content Include="Content\css\themes\light\play.png" />
     <Content Include="Content\css\themes\light\prev.png" />
+    <Content Include="Content\images\02.jpg" />
     <Content Include="Content\images\BAO-GIA-XAY-NHA-HOAN-THIEN-2013-05.jpg" />
     <Content Include="Content\images\BAO-GIA-XAY-NHA-PHAN-THO-2013-05.jpg" />
     <Content Include="Content\images\bg_bottom.jpg" />
