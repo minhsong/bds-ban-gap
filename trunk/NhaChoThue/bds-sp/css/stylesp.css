@@ -8,22 +8,26 @@
 }
 
 .block p {
-	padding: 10px 0 0 10px;
+	padding: 10px 0 0 0;
+	margin-bottom: -5px;
+	text-shadow: 1px 1px 1px #ddd;
 	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
 }
 
 .block form {
 	padding: 10px;
-	width: 699px;
+	width: 100%;
 }
 
-textarea#Description {
-    height:150px;
+div#content ul.listHouse {
+	
 }
 
 div#content ul.listHouse li {
-	border: 1px solid #b1bdc9;
-	margin-bottom: 10px;
+	border-bottom: 1px solid #b1bdc9;
+	padding-bottom:10px;
 }
 
 div#content ul.listHouse li:hover {
@@ -32,26 +36,31 @@ div#content ul.listHouse li:hover {
 
 div#content ul.listHouse li p.image {
 	float: left;
-	padding: 5px;
+	padding: 0 5px;
 	text-align: center;
-	width: 100px;
 }
 
 div#content ul.listHouse li p.image span {
 	font-size: 12px;
 	font-weight: bold;
-	margin-top: 5px;
-	text-transform: uppercase;	
+	float: left;
+	margin-bottom: 5px;
+	text-transform: uppercase;
 }
 
-div#content ul.listHouse li .detail {	
-	float: right;
-	width: 580px;
+div#content ul.listHouse li p.image img {
+	clear: both;
+	float: left;
+}
+
+div#content ul.listHouse li .detail {
+	padding: 0 5px;
 }
 
 div#content ul.listHouse li .detail p.title {
 	font-size: 15px;
 	margin: 7px 0;
+	padding: 20px 0 0 0;
 }
 
 div#content ul.listHouse li .detail p.title a {
@@ -62,6 +71,7 @@ div#content ul.listHouse li .detail p.title a {
 div#content ul.listHouse li .detail p.content {
 	font-size: 14px;
 	margin-bottom: 7px;
+	text-align: left;
 }
 
 div#content ul.listHouse li .detail p.info span {
@@ -82,7 +92,7 @@ div#content.reset {
 }
 
 div#content.reset .introduction {
-	padding: 15px 20px 20px;
+	padding:15px 10px;
 }
 
 div#content.reset .introduction h2 {
@@ -92,20 +102,23 @@ div#content.reset .introduction h2 {
 }
 
 div#content.reset .introduction h3 {
-	color: #f00;	
-	margin-bottom: 5px;
+	color: #FF0000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 div#content.reset .introduction p {
 	font-size: 14px;
-	line-height: 1.5em;
+	line-height: 1.4em;
 	margin-bottom: 10px;
-	text-align: justify;
+	text-align:justify;
 }
 
 div#content.reset .introduction p.focus {
-	padding-left: 20px;
-	text-indent: -20px;
+	padding-left: 5px;
+	text-indent: -5px;
+	text-align: left;
 }
 
 div#content.reset .introduction p em {
@@ -123,9 +136,11 @@ div#content.reset .introduction h2.bHead {
 	text-align: left;
 }
 
+
+/* Detail */
+
 div#content .section {
-	border: 1px solid #b1bdc9;
-	margin-bottom: 20px;
+	clear: both;
 }
 
 div#content .section .sectionInner {
@@ -135,6 +150,7 @@ div#content .section .sectionInner {
 div#content .section .sectionInner h2 {
 	font-size: 16px;
 	margin-bottom: 15px;
+	font-weight: bold;
 }
 
 div#content .section .sectionInner p {
@@ -148,22 +164,22 @@ div#content .section .sectionInner .box {
 
 div#content .section .sectionInner .box .boxImage {
 	float: left;
-	width: 450px;
+	width: 100%;;
 }
 
 div#content .section .sectionInner .box .boxImage .imgtop {
 	background:url(../common/images/defaulthouse.jpg) top center no-repeat;
 	border: 1px solid #646464;
 	float: left;
-	height: 345px;
+	height: 200px;
 	margin-bottom: 10px;
-	width: 450px;
+	width: 100%;
 }
 
 div#content .section .sectionInner .box .boxImage ul.listImage {
 	clear: both;
     margin-right: -28px;
-    width: 480px;
+    width: 100%;
 }
 
 div#content .section .sectionInner .box .boxImage ul.listImage li {	
@@ -187,30 +203,29 @@ div#content .section .sectionInner .box .boxImage ul.listImage li a.selected img
 }
 
 div#content .section .sectionInner .box .boxContent {
-	float: right;
-	margin-bottom: 20px;
-	width: 230px;
+	margin-bottom: 5px;
+	width: 100%;
+	clear: both;
 }
 
 div#content .section .sectionInner .box .boxContent .boxDetail {
 	border: 1px solid #b1bdc9;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+	border-radius: 8px;
 }
 
 div#content .section .sectionInner .box .boxContent .boxDetail p.price {
+	text-align: center;
 	font-size: 18px;
-    margin-bottom: 0;
-    padding: 10px 10px 0;
-    text-align: center;
+	padding-top: 5px;
+	color: #E41E26;
+	font-weight: bold;
+	margin-bottom: 0;
 }
 
 div#content .section .sectionInner .box .boxContent .boxDetail dl {
-	clear: both;
-    padding: 0 10px;
-}
-
-div#content .section .sectionInner .box .boxContent .boxDetail dl dt {
-	
+	padding: 7px 10px 0 10px;
+	font-size: 13px;
 }
 
 div#content .section .sectionInner .box .boxContent .boxDetail dl dd {
@@ -222,33 +237,37 @@ div#content .section .sectionInner .box .boxContent .boxDetail dl dd {
 div#content .section .sectionInner .box .boxContent .boxContact {
 	border: 1px solid #b1bdc9;
 	background: #eff7ff;
+	border-radius: 8px;
 }
 
 div#content .section .sectionInner .box .boxContent .boxContact h3 {
 	text-align: center;
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: bold;
+	color: #E41E26;
 	padding: 10px 10px 5px 10px;
 }
 
 div#content .section .sectionInner .box .boxContent .boxContact p {
 	text-align: left;
-	font-size: 12px;
-	padding: 5px 0 5px 5px;
+	font-size: 13px;
+	padding: 0 0 0 5px;
 }
 
 div#content .section .sectionInner .box .description {
 	border: 1px solid #b1bdc9;
 	clear: both;
 	margin-bottom: 10px;
+	border-radius: 8px;
 }
 
 div#content .section .sectionInner .box .description h3 {
 	padding: 10px;
+	font-weight: bold;
 }
 
 div#content .section .sectionInner .box .description p {
-	font-size: 12px;
+	font-size: 13px;
 	padding: 0 5px 0 10px;
 	text-align: justify;
 }
@@ -258,16 +277,16 @@ div#content .section .sectionInner ul.listItem {
 }
 
 div#content .section .sectionInner ul.listItem li {
-	border: 1px solid #B1BDC9;
-    float: left;
-    margin: 0 8px 8px 0;
-    position: relative;
-    width: 225px;
+	border: 1px solid #b1bdc9;
+	border-radius: 5px;
+	float: left;
+	margin: 0 8px 8px 0;
+	width: 100%;
 }
 
 div#content .section .sectionInner ul.listItem li p.image {
 	float: left;
-	margin: 5px 5px 0 0;
+	margin: 5px;
 }
 
 div#content .section .sectionInner ul.listItem li p.image image {
@@ -277,7 +296,7 @@ div#content .section .sectionInner ul.listItem li p.image image {
 }
 
 div#content .section .sectionInner ul.listItem li p.title {
-
+	padding-top: 5px;
 }
 
 div#content .section .sectionInner ul.listItem li p.title a {
@@ -289,18 +308,19 @@ div#content .section .sectionInner ul.listItem li p.title a:hover {
 }
 
 div#content .section .sectionInner ul.listItem li p.price {
-	bottom: -19px;
-    color: #FF0000;
-    font-size: 14px;
-    font-weight: bold;
-    position: absolute;
-    right: 32px;
+	color: #f00;
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 5px;
 }
 
 #inner {
-	width: 450px !important;
+	width: 100% !important;
 	padding-bottom: 50px;
 	position: relative;
+}
+.caroufredsel_wrapper {	
+	width: 100% !important;
 }
 #carousel-wrapper {
 	-webkit-box-sizing: border-box;
@@ -308,25 +328,26 @@ div#content .section .sectionInner ul.listItem li p.price {
 	box-sizing: border-box;
 	background: #fff;
 	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-	width: 450px;
-	height: 400px !important;
+	width: 100% !important;
 }
 #carousel {
-	width: 450px;
+	width: 100% !important;
 	height: 400px !important;
 	overflow: hidden;
 }
 #carousel img {
 	display: block;
 	float: left;
-	height: 400px !important;
+	width: 100% !important;
+	height: 230px !important;
 }
+
 #pager-wrapper {
 	height: 120px;
-	width: 450px;
+	width: 300px;
 	overflow: hidden;
 	position: absolute;
-	top: 346px;
+	top: 200px;
 	left: 0;
 	z-index: 2;
 }
@@ -335,11 +356,38 @@ div#content .section .sectionInner ul.listItem li p.price {
 	background: #fff;
 	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 	display: block;
-	width: 80px;
-	height: 80px;
-	padding: 10px;
-	margin: 10px;
+	width: 60px;
+	height: 60px;
+	padding: 2px;
+	margin: 2px;
 	float: left;
+}
+
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+	#carousel img {
+		height: 270px !important;
+	}
+	
+	#pager-wrapper {
+		height: 120px;
+		width: 450px;
+		overflow: hidden;
+		position: absolute;
+		top: 240px;	
+		left: 0;
+		z-index: 2;
+	}
+	
+	#pager img {
+		display: block;
+		width: 70px;
+		height: 70px;
+	}
+	
+	div#content .section .sectionInner ul.listItem li {
+		width: 49%;
+		margin-right: 0.5%;
+	}
 }
 #pager img:hover {
 	background: #eff;
@@ -348,33 +396,25 @@ div#content .section .sectionInner ul.listItem li p.price {
 	background: #dff;
 }
 
-
+select {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    width: 240px !important;
+}
 /* # clearfix
 ---------------------------------------------------------------------------- */
 
 div#content ul.listHouse,
-div#content ul.listHouse li,
-div#content .section .box,
-div#content .section .box .boxContent,
-div#content .section .sectionInner ul.listItem,
-div#content .section .sectionInner .box .boxImage ul.listImage {
+div#content ul.listHouse li {
 	zoom: 1;
 }
 
 div#content ul.listHouse:after,
-div#content ul.listHouse li:after,
-div#content .section .box:after,
-div#content .section .box .boxContent:after,
-div#content .section .sectionInner ul.listItem:after,
-div#content .section .sectionInner .box .boxImage ul.listImage:after {
+div#content ul.listHouse li:after {
 	clear: both;
 	content: ".";
 	display: block;
 	height: 0;
 	line-height: 0;
 	visibility: hidden;
-}
-.group {
-    clear:both;
-padding-top:8px;
 }
