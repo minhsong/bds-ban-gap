@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<title>Index</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="common/css/import.css" rel="stylesheet" type="text/css" media="screen,print" class="importPC"/>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen,print" class="stylePC" />
+<link href="common/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<link rel="stylesheet" type="text/css" href="common/css/bootstrap.min.css"/>
+<script type="text/javascript" src="common/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="common/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script type="text/javascript" src="common/js/biggerLink.js"></script>
+<script type="text/javascript" src="common/js/script.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var $carousel = $('#carousel'),
+			$pager = $('#pager');
+
+		function getCenterThumb() {
+			var $visible = $pager.triggerHandler( 'currentVisible' ),
+				center = Math.floor($visible.length / 2);
+			
+			return center;
+		}
+
+		$carousel.carouFredSel({
+			responsive: true,
+			items: {
+				visible: 1,
+				width: 800,
+				height: (500/800*100) + '%'
+			},
+			scroll: {
+				fx: 'crossfade',
+				onBefore: function( data ) {
+					var src = data.items.visible.first().attr( 'src' );
+					src = src.split( '/large/' ).join( '/small/' );
+
+					$pager.trigger( 'slideTo', [ 'img[src="'+ src +'"]', -getCenterThumb() ] );
+					$pager.find( 'img' ).removeClass( 'selected' );
+				},
+				onAfter: function() {
+					$pager.find( 'img' ).eq( getCenterThumb() ).addClass( 'selected' );
+				}
+			}
+		});
+		$pager.carouFredSel({
+			width: '100%',
+			auto: false,
+			height: 120,
+			items: {
+				visible: 'odd'
+			},
+			onCreate: function() {
+				var center = getCenterThumb();
+				$pager.trigger( 'slideTo', [ -center, { duration: 0 } ] );
+				$pager.find( 'img' ).eq( center ).addClass( 'selected' );
+			}
+		});
+		$pager.find( 'img' ).click(function() {
+			var src = $(this).attr( 'src' );
+			src = src.split( '/small/' ).join( '/large/' );
+			$carousel.trigger( 'slideTo', [ 'img[src="'+ src +'"]' ] );
+		});
+	});
+</script>
+<link rel="contents" href="/" title="" />
+</head>
+
+<body>
+<div id="layout">
+	<div id="header">
+    	<h1 id="logo"><a href="index.html"><img src="common/images/logo.jpg" alt="BDS ChoThue Thuê nhà ưng ý, Giá cả hợp lý" /></a></h1>
+        <div class="banner">
+        	<p><img src="common/images/banner.jpg" alt="Cho thuê nhà, Cho thuê bất động sản quận bình thạnh, Q3, Phú Nhuận, Q1..." /></p>
+        </div>
+    </div><!-- / id header -->
+    <div id="gNav">
+    	<ul>
+        	<li class="active"><a href="index.html">Trang chủ</a></li>
+            <li><a href="search.html">Tìm kiếm</a></li>
+            <li><a href="consignment.html">Ký gởi nhà</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+        </ul>
+    </div><!-- / id gNav -->
+    <div id="pageBody">
+    	<div id="content">
+        	<div class="section">
+            	<div class="sectionInner">
+                    <h2>Cho thuê căn hộ lớn, đầy đủ tiện nghi, Lô B CC Nhiêu Tứ, Phan Xích Long</h2>
+                    <p>Vị trí: nhựa 12m , phường 7, Quận Phú Nhuận, TP.HCM </p>
+                    <div class="box">
+                        <div class="boxImage">
+                        	<div id="inner">
+                                <div id="carousel-wrapper">
+                                    <div id="carousel">
+                                        <img src="images/slide01.jpg" />
+                                        <img src="images/slide02.jpg" />
+                                        <img src="images/slide03.jpg" />
+                                        <img src="images/slide04.jpg" />
+                                        <img src="images/slide05.jpg" />
+                                        <img src="images/slide01.jpg" />
+                                        <img src="images/slide02.jpg" />
+                                        <img src="images/slide03.jpg" />
+                                        <img src="images/slide04.jpg" />
+                                        <img src="images/slide05.jpg" />                                                 
+                                    </div>
+                                </div>
+                                <div id="pager-wrapper">
+                                    <div id="pager">
+                                        <img src="images/slide01.jpg" />
+                                        <img src="images/slide02.jpg" />
+                                        <img src="images/slide03.jpg" />
+                                        <img src="images/slide04.jpg" />
+                                        <img src="images/slide05.jpg" />
+                                        <img src="images/slide01.jpg" />
+                                        <img src="images/slide02.jpg" />
+                                        <img src="images/slide03.jpg" />
+                                        <img src="images/slide04.jpg" />
+                                        <img src="images/slide05.jpg" />           						
+                                    </div>
+                                </div>
+                            </div>                      
+                        </div>
+                        <div class="boxContent">
+                            <div class="boxDetail">
+                                <p class="price">Giá: 10tr/Tháng</p>
+                                <dl>
+                                    <dt>Rộng:</dt>
+                                    <dd>4m</dd>
+                                    <dt>Dài:</dt>
+                                    <dd>20m</dd>
+                                    <dt>Phòng ngủ:</dt>
+                                    <dd>3</dd>
+                                    <dt>WC:</dt>
+                                    <dd>2</dd>
+                                    <dt>Sân thượng:</dt>
+                                    <dd>Có</dd>   
+                                    <dt>Số tầng:</dt>
+                                    <dd>2</dd>                                   
+                                </dl>
+                            </div>
+                            <div class="boxContact">
+                                <h3>Thông tin liên hệ</h3>
+                                <p class="contact">Trương Minh Toàn</p>
+                                <p><span>ĐT: 0938 500 866 </span></p>
+                                <p><span>Email: truongminhtoanqtm@gmail.com</span></p>
+                                <p><span>ĐC: 14 Hoa Sứ, P 2, Q Phú Nhuận, HCM</span></p>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <h3>Mô tả chi tiết</h3>
+                            <p>Cho thuê căn hộ lớn, full nội thất, Lô B, CC Nhiêu Tứ (Phan Xích Long), Phường 7, Phú Nhuận. DT: 80m2. Gồm PK, bếp, 2PN.,2WC. Nhà nằm ở chung cư đẹp, an ninh, lịch sự. Nằm trên đường lớn, gần trung tâm thành phố, gần trường học, bệnh viện, chợ. Thích hợp cho gia đình ở. Giá 10tr/tháng. Hợp đồng lâu dài. Liên hệ để được hướng dãn xem nhà miễn phí</p>
+                        </div>
+                    </div><!-- / class box -->
+                </div><!-- / class sectionInner -->
+            </div><!-- / class section --> 
+            <div class="section">
+            	<div class="sectionInner">
+                	<h2>Bất động sản cùng giá</h2>
+                    <ul class="listItem">
+                    	<li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- / class section -->
+            <div class="section">
+            	<div class="sectionInner">
+                	<h2>Bất động sản khu vực Phú Nhuận</h2>
+                    <ul class="listItem">
+                    	<li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                        <li>
+                        	<p class="image"><img src="images/img_house.jpg" alt="" width="75" height="75"/></p>
+                           	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                            <p class="price">Giá: 10tr/Tháng</p>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- / class section -->               
+        </div>
+                  
+        <div id="sidebar">
+        	<div class="boxSearch">
+            	<div class="boxHead">
+                	<h3 class="textSearch">Tìm kiếm</h3>
+                </div>
+                <div class="boxBody">
+                    <form action="#" method="post" class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">Khu vực</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>Quận 1</option>
+                                    <option>Quận 2</option>
+                                    <option>Quận 3</option>
+                                    <option>Quận 4</option>
+                                    <option>Quận 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Giá từ</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Đến</label>
+                            <div class="controls">
+                                <select>
+                                	<option>Tất cả</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group reset">
+                            <label class="control-label"><a href="#">Tìm nâng cao</a></label>
+                            <div class="controls">
+                                <input type="submit" value="Search" class="btn" />
+                            </div>
+                        </div>                
+                    </form>
+                </div><!-- / class boxBody -->
+            </div><!-- / class boxSearch --> 
+            <div class="boxSearch">
+            	<div class="boxHead">
+                	<h3 class="priority">Nhà ưu tiên</h3>
+                </div>
+                <div class="boxBody">
+                	<p class="title"><a href="#">Cho thuê nhà đẹp, Hẽm XH Phan Xích Long, Phú Nhuận</a></p>
+                    <p><img src="images/img_house.jpg" alt="" /></p>
+                    <P class="detail">Rộng: 4m <br />
+                    	Dài: 20m<br />
+                    	Số tầng : 3<br />
+                        Phòng ngủ : 4</p>
+                    <p class="price">Giá: 10tr/Tháng</p>
+                </div><!-- / class boxBody -->
+            </div>        	      
+        </div>
+    </div><!-- / id pageBody -->
+    <div id="fotter">
+    	<div class="contact">  
+			<p><img src="common/images/logo.jpg" alt="" /></p>
+        	<p><strong>Adress:</strong> 14 Hoa Sứ - Phường 2 - Quận Phú Nhuận - Hồ Chí Minh<br />
+            <strong>Hotline:</strong> 0938.500.866 (Mr. Toàn)<br />
+            <strong>Email:</strong> minhtoan@bdschothue.net</p>
+        </div>
+    	<p id="copyright">Copyright &copy;2013 ABC Ltd. All rights reserved.</p>
+    </div><!-- / id fotter -->    
+</div><!-- /id /layout -->
+</body>
+</html>

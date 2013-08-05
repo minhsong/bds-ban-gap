@@ -24,8 +24,9 @@
 a    { text-decoration: none; transition: all 0.2s ease-in 0s;}
 a:hover   { text-decoration: none; }
 
-h2 {
-	
+h1#logo a img {
+	width: 269px;
+	height: 49px;
 }
 
 /* # body
@@ -53,8 +54,7 @@ body {
 
 div#layout {
 	background: #fff;
-	margin: 0 auto;
-	width: 1000px;
+	width:100%;
 }
 
 
@@ -62,38 +62,42 @@ div#layout {
 ---------------------------------------------------------------------------- */
 
 div#header {
-	margin: 0 0 10px;
 	width: 100%;
 }
 
 div#header h1#logo {
-	float: left;
-	padding: 30px 0 0 20px;
-	width: 250px;	
+	text-align: center;
+	padding: 10px 0 15px;
 }
 
 div#header .banner {
-	float: right;
-	padding: 10px 15px 0 0;	
+	display: none;
+}
+div#header .banner img {
+	width: 100%;
 }
 
 
 /* # gNav
 ---------------------------------------------------------------------------- */
 
-div#gNav ul {	
-	background: url(../images/bg_gnav.jpg) top left repeat-x;
-	height: 42px;
-	margin: 0 auto;
-	width: 970px;
+div#gNav ul {
+	width: 100%;
 }
-	
+
 div#gNav ul li {
+	background: url(../images/bg_gnav.jpg) top left repeat-x;
+	border-right: 1px solid #2ab0cd;
+	height:40px;
+	line-height:40px;
+	width:25%;
 	float: left;
-    line-height: 42px;
-    padding: 0 35px;
     position: relative;
     text-align: center;
+}
+
+div#gNav ul li:last-child {
+	border-right: none;
 }
 
 div#gNav ul li a {
@@ -110,20 +114,6 @@ div#gNav ul li:hover {
 
 div#gNav ul li.active {
 	background: url(../images/bg_gnav_o.jpg) top left repeat-x;
-}
-
-
-/* # body
----------------------------------------------------------------------------- */
-
-div#pageBody {
-	margin: 30px auto;
-	width: 970px;	
-}
-
-div#pageBody #content {
-	float: right;
-	width: 720px;
 }
 
 .group {
@@ -190,17 +180,30 @@ div#pageBody #content {
     background-color: #F5F5F5;
 }
 
+
+/* # body
+---------------------------------------------------------------------------- */
+
+div#pageBody {
+	width: 100%;
+}
+
+div#pageBody #content {
+	width:100%;
+}
 /* # sidebar
 ---------------------------------------------------------------------------- */
 
 div#pageBody #sidebar {
 	float: left;
-	width: 235px;	
+	width:100%;
 }
 
 div#pageBody #sidebar .boxSearch {
 	border: 1px solid #b1bdc9;
 	margin-bottom: 15px;
+	padding-bottom: 5px;
+	background: #eff7ff;
 }
 
 div#pageBody #sidebar .boxSearch .boxHead {
@@ -212,17 +215,18 @@ div#pageBody #sidebar .boxSearch .boxHead {
 }
 
 div#pageBody #sidebar .boxSearch .boxHead h3 {
-	margin-left: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #ddd;
 }
 
 div#pageBody #sidebar .boxSearch .boxHead h3.textSearch {
-	background: url(../images/icon-search.png) left center no-repeat;
-	padding-left: 30px;
+	background: url(../images/icon-search.png) 10px center no-repeat;
+	padding-left: 40px;
 }
 
 div#pageBody #sidebar .boxSearch .boxHead h3.priority {
-	background: url(../images/icon-priority.png) left center no-repeat;
-	padding-left: 30px;
+	background: url(../images/icon-priority.png) 10px center no-repeat;
+	padding-left: 40px;
 }
 
 div#pageBody #sidebar .boxSearch .boxBody {
@@ -245,40 +249,12 @@ div#pageBody #sidebar .boxSearch .boxBody ul.nav-list li a {
 	padding-left: 10px;
 }
 
-div#pageBody #sidebar .boxSearch .boxBody p.title {
-	font-size: 15px;
-	padding: 0 0 5px 5px;
-}
-
-div#pageBody #sidebar .boxSearch .boxBody p.title a {
-	color: #098EA4;	
-}
-
-div#pageBody #sidebar .boxSearch .boxBody p.title a:hover {
-	text-decoration: underline;
-}
-
-div#pageBody #sidebar .boxSearch .boxBody p img {
-	float: left;
-	padding: 0 5px 8px 5px;
-}
-
-div#pageBody #sidebar .boxSearch .boxBody p.detail {
-	font-size: 12px;
-}
-
-div#pageBody #sidebar .boxSearch .boxBody p.price {
-	color: #f00;
-	font-size: 14px;
-	margin-top: 3px;
-}
-
 form {
     margin: 0 !important;
 }
 
 form.reset {
-    margin-top: 30px !important;
+    margin-top: 20px !important;
 }
 
 .form-horizontal .control-group {
@@ -296,26 +272,60 @@ form.reset {
 	font-size: 14px;
 	margin-right: 10px;
 	text-align: left;
-    width: 105px !important;
+	width: 250px !important;
 }
 
 .form-horizontal .control-label.last {
-	float: right;
-	padding-right: 275px;
+	width: 200px !important;
+	text-align:left;
 }
 
 .form-horizontal .controls {
     margin-left: 70px !important;
 }
 
+form.reset .controls,
+form.reset .control-group,
+form.sp .controls,
+form.sp .control-group {
+    margin:0 !important;
+	clear: both;
+}
+
+form.reset .controls input,
+form.sp .controls input,
+form.sp .controls select {
+    width: 100% !important;
+	height: 30px;
+	padding: 5px;
+}
+
+form.sp .control-group label.control-label {
+	width: 90px !important;
+	text-align: left !important;
+	font-size: 13px;
+}
+
+form.reset input.btn,
+form.sp input.btn.reset {
+	margin-top: 10px !important;
+}
+form.sp .control-group .input-append {
+	width: 100% !important;
+	display: block !important;
+}
+
+form.reset .controls textarea {
+	width: 100%;
+}
+
 select {
 	width: 150px !important;
 }
 
-.form-horizontal .control-group.reset {
+.form-horizontal .control-group.reset, {
     border-top: 1px dotted #b1bdc9;
 	margin: 0 10px 5px !important;
-	padding-top: 5px;
 }
 
 .form-horizontal .control-group.reset label.control-label {
@@ -335,24 +345,37 @@ select {
     float: right;
 }
 
-.form-horizontal .control-group label.control-label.fix {
-    width: 100px !important;
-	margin-right: 10px;
-	font-size: 13px;
-}
-
-.form-horizontal .control-group .input-append.fix {
-    float: right !important;
-	padding-right: 85px;
-}
-
-.btn.reset {
-	margin-left: 110px;
-}
-
 textarea {
-	width: 530px !important;
 	resize: none !important;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p.title {
+	font-size: 15px;
+	padding: 0 0 5px 5px;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p.title a {
+	color: #098EA4;	
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p.title a:hover {
+	text-decoration: underline;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p img {
+	float: left;
+	padding: 0 5px 8px 5px;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p.detail {
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+div#pageBody #sidebar .boxSearch .boxBody p.price {
+	color: #f00;
+	font-size: 14px;
+	margin-top: 3px;
 }
 
 /* # fotter
@@ -361,18 +384,10 @@ textarea {
 #fotter {
 	clear: both;
 	border-top: 5px solid #0d80ac;
-	margin: 0 auto;
-	padding: 10px 0;
-	width: 970px;
 }
-
-#fotter .contact {
-	float: left;
-	width: 400px;	
-}
-
 #fotter .contact p {
 	font-size: 13px;
+	padding-left: 5px;
 }
 
 #fotter .contact p img {
@@ -392,9 +407,6 @@ div#header,
 div#gNav ul,
 div#pageBody,
 div#pageBody #sidebar .boxSearch .boxBody ul.nav-list,
-.group,
-.group .pagination ul,
-div#pageBody #sidebar .boxSearch .boxBody ,
 #fotter {
 	zoom: 1;
 }
@@ -403,9 +415,6 @@ div#header:after,
 div#gNav ul:after,
 div#pageBody:after,
 div#pageBody #sidebar .boxSearch .boxBody ul.nav-list:after,
-.group:after,
-.group .pagination ul:after,
-div#pageBody #sidebar .boxSearch .boxBody:after,
 #fotter:after {
 	clear: both;
 	content: ".";
