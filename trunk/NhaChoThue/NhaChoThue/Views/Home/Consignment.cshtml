@@ -11,14 +11,13 @@
         background: url(/Content/common/images/bg_gnav_o.jpg) top left repeat-x !important;
     }
 </style>
-@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
         <div id="content" class="reset"> 
             <div class="introduction">   
               <h2 class="bHead">Ký gởi nhà</h2>
               <p>Bạn có nhà, bât động sản cần cho thuê và muốn tìm được khách hàng (người thuê nhà) nhanh nhất để mau chóng thu lại lợi nhuận một cách nhanh nhất!</p>
               <p>Hãy gởi thông tin bất động sản của bạn đến với chúng tôi cùng với thông tin liên hệ. Chúng tôi sẽ mau chóng tìm khách hàng cho bạn. Chúng tôi đảm bảo với các công nghệ, kỹ thuật mà chúng tôi có sẽ mau chóng tìm được khách hàng cho bạn với giá cả hợp lý nhất!</p>
-              <form action="#" method="post" class="form-horizontal reset">
+              <form method="post" class="form-horizontal reset">
                      <div class="control-group">
                         <label class="control-label reset">Tên đầy đủ:</label>
                         <div class="controls">
@@ -50,7 +49,7 @@
                     <div class="control-group">
                         <label class="control-label reset">Giá mong muốn:</label>
                         <div class="controls">
-                        	@Html.TextBoxFor(model => model.Price)<label class="control-label" style="display:inline">triệu/Tháng</label>
+                        	@Html.TextBoxFor(model => model.Price)<label class="control-label last" style="display:inline">triệu/Tháng</label>
                             @Html.ValidationMessageFor(model => model.Price)                            
                         </div>                        
                     </div>
@@ -65,5 +64,3 @@
                 </form>
         	</div>                  
       </div><!-- / id content -->
-}
- 

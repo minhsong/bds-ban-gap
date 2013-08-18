@@ -1,0 +1,17 @@
+﻿@model Exception
+
+@{
+    ViewBag.Title = "Error";
+}
+<article id="content2">
+<article id="content">
+<h2>
+    Sorry, an error occurred while processing your request.<br />
+    <h4>@Model.Message</h4>
+    Inner : @Model.InnerException<br />
+    Source: @Model.Source<br />
+    Target: @Model.TargetSite<br />
+    Stack: @Model.StackTrace<br />
+</h2>
+</article>
+</article>
