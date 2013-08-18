@@ -24,6 +24,9 @@ textarea#Description {
 div#content ul.listHouse li {
 	border: 1px solid #b1bdc9;
 	margin-bottom: 10px;
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 3px 1px #BBBBBB;
 }
 
 div#content ul.listHouse li:hover {
@@ -139,7 +142,7 @@ div#content .section .sectionInner h2 {
 
 div#content .section .sectionInner p {
 	font-size: 12px;
-	margin-bottom: 10px;
+	margin:5px 0 10px;
 }
 
 div#content .section .sectionInner .box {
@@ -289,7 +292,7 @@ div#content .section .sectionInner ul.listItem li p.title a:hover {
 }
 
 div#content .section .sectionInner ul.listItem li p.price {
-	bottom: -19px;
+	bottom: -5px;
     color: #FF0000;
     font-size: 14px;
     font-weight: bold;
@@ -373,4 +376,18 @@ div#content .section .sectionInner .box .boxImage ul.listImage:after {
 	height: 0;
 	line-height: 0;
 	visibility: hidden;
+}
+div#content ul.listHouse li {
+ border: 1px solid #b1bdc9;
+ margin-bottom: 10px;
+ background: #FFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 3px 1px #BBBBBB;
+}
+
+div#content.reset .introduction {
+    padding: 15px 20px 20px;
+ background: #FFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 3px 1px #BBBBBB;
 }

@@ -5,31 +5,8 @@
 }
 <meta name="description" content="@Model.Title" />
 <meta name="keywords" content=""@Model.Title" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="/Content/styles/general.css?134612" rel="stylesheet" type="text/css" />
-<!--[if IE 7]>
-    <link href="css/ie7.css" rel="stylesheet" type="text/css" />
-    <![endif]-->
-<link href="/Content/styles/asset_detail.css" rel="stylesheet" type="text/css" />
-<link href="/Content/styles/Asset.css" rel="stylesheet" type="text/css" />
-<link href="/Content/styles/slides.css" rel="stylesheet" type="text/css" />
-<link href="/Content/styles/tools.css" rel="stylesheet" s type="text/css" />
-<link href="/Content/styles/uniform.default.css" rel="stylesheet" type="text/css" />
-<link href="/Content/styles/doolv3.css" rel="stylesheet" type="text/css" />
-<link href="/Content/styles/home.css" rel="stylesheet" type="text/css" />
-<script src="/Scripts/slideshow/jquery.ad-gallery.js" type="text/javascript"></script>
-<link href="/Scripts/slideshow/jquery.ad-gallery.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="/content/common/jsImgSlider/js-image-slider.css"/>
 <script type="text/javascript" src="/content/common/js/jquery.carouFredSel-6.1.0-packed.js"></script>
-<script type="text/javascript">
-    $(function () {
-        if (@Model.Images.Count() != 0) {
-            var galleries = $('.ad-gallery').adGallery();
-        } else {
-            document.getElementById("gallery").style.backgroundImage = "url('http://www.texasrealestate.com/images/defaultHouse.jpg')";
-        }
-    });
-</script>
+<script type="text/javascript" src="/content/common/js/biggerLink.js"></script>
 <style type="text/css">
     div#gNav ul li#home {
         background: url(/Content/common/images/bg_gnav_o.jpg) top left repeat-x !important;
@@ -98,17 +75,25 @@
                     <div id="inner">
                         <div id="carousel-wrapper">
                             <div id="carousel">
-                                @foreach (var item in Model.Images)
-                                {
-                                    <img src="@item.ImageLink" alt="@item.Caption" alt="@Model.Title" />
+                                @if(Model.Images.Count>0){
+                                    foreach (var item in Model.Images)
+                                    {
+                                        <img src="@item.ImageLink" alt="@item.Caption" alt="@Model.Title" />
+                                    }
+                                }else{
+                                    <img src="http://www.texasrealestate.com/images/defaultHouse.jpg" alt="alt="@Model.Title"" />
                                 }
                             </div>
                         </div>
                         <div id="pager-wrapper">
                             <div id="pager">
-                                @foreach (var item in Model.Images)
-                                {
-                                    <img src="@item.ImageLink" alt="@item.Caption" alt="@Model.Title" />
+                                 @if(Model.Images.Count>0){
+                                    foreach (var item in Model.Images)
+                                    {
+                                        <img src="@item.ImageLink" alt="@item.Caption" alt="@Model.Title" />
+                                    }
+                                }else{
+                                    <img src="http://www.texasrealestate.com/images/defaultHouse.jpg" alt="alt="@Model.Title"" />
                                 }
                             </div>
                         </div>
