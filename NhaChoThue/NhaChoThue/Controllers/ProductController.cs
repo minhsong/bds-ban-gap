@@ -11,7 +11,7 @@ using System.IO;
 using NhaChoThue.Models;
 
 namespace NhaChoThue.Controllers
-{ 
+{
     [ValidateInput(false)]
     [Authorize]
     public class ProductController : BaseController
@@ -30,8 +30,8 @@ namespace NhaChoThue.Controllers
             var product = from product1 in db.Products
                           where product1.IsDelete == false
                           select product1;
-            
-            return View(product.ToList().OrderByDescending(s=>s.CreatedDate));
+
+            return View(product.ToList().OrderByDescending(s => s.CreatedDate));
         }
 
         //
@@ -51,9 +51,9 @@ namespace NhaChoThue.Controllers
             var fisrtDis = db.Districts.First();
             ViewBag.WardID = new SelectList(fisrtDis.Wards, "WardID", "WardName", fisrtDis.Wards.First().WardID);
             ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName");
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",fisrtDis.DistrictID);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName", fisrtDis.DistrictID);
             return View("Create");
-        } 
+        }
 
         //
         // POST: /Product/Create
@@ -77,7 +77,7 @@ namespace NhaChoThue.Controllers
 
                 db.Products.Add(product);
                 db.SaveChanges();
-               
+
                 productID = product.ProductID;
 
 
@@ -129,8 +129,8 @@ namespace NhaChoThue.Controllers
                     }
 
                 }
-                 var consignID = Helpers.SessionHelper.GetSession("ConsignmentId");
-                if (consignID!=null)
+                var consignID = Helpers.SessionHelper.GetSession("ConsignmentId");
+                if (consignID != null)
                 {
                     var consign = db.Consignments.Find(Helpers.DataConvertHelper.ToInt(consignID));
                     consign.ProductId = productID;
@@ -140,18 +140,18 @@ namespace NhaChoThue.Controllers
                     db.SaveChanges();
                     Helpers.SessionHelper.ClearSession("ConsignmentId");
                 }
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
             int districtid = db.Wards.Find(product.WardID).DistrictID;
-            ViewBag.WardID = new SelectList(db.Wards.Where(w=>w.DistrictID==districtid) , "WardID", "WardName", product.WardID);
+            ViewBag.WardID = new SelectList(db.Wards.Where(w => w.DistrictID == districtid), "WardID", "WardName", product.WardID);
             ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",districtid);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName", districtid);
             return View(product);
         }
-        
+
         //
         // GET: /Product/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             Product product = db.Products.Find(id);
@@ -180,7 +180,7 @@ namespace NhaChoThue.Controllers
 
                     producrsave.ContactId = product.ContactId;
                     producrsave.Description = product.Description;
-                    producrsave.DuongTruocNha = product.DuongTruocNha; 
+                    producrsave.DuongTruocNha = product.DuongTruocNha;
                     producrsave.Price = product.Price;
                     producrsave.SoLau = product.SoLau;
                     producrsave.SoPhongNgu = product.SoPhongNgu;
@@ -243,19 +243,19 @@ namespace NhaChoThue.Controllers
                         }
 
                     }
-                    
+
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName",product.WardID);
-            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName",product.ContactId);
-            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName",product.Ward.DistrictID);
+            ViewBag.WardID = new SelectList(db.Wards, "WardID", "WardName", product.WardID);
+            ViewBag.Contact = new SelectList(db.Contacts, "ContactID", "FullName", product.ContactId);
+            ViewBag.District = new SelectList(db.Districts.ToList(), "DistrictID", "DistrictName", product.Ward.DistrictID);
             return View(product);
         }
 
         //
         // GET: /Product/Delete/5
- 
+
         public ActionResult Delete(int id, string page)
         {
             Product product = db.Products.Find(id);
@@ -293,7 +293,7 @@ namespace NhaChoThue.Controllers
 
                 FileInfo image = new FileInfo(pathImage);
                 FileInfo imageThumb = new FileInfo(pathImageThumb);
-                
+
                 if (image.Exists)
                 {
                     image.Delete();
@@ -349,24 +349,34 @@ namespace NhaChoThue.Controllers
             {
                 ProductID = id
             };
-            return PartialView("SetPriority",pr);
+            return PartialView("SetPriority", pr);
         }
 
         [HttpPost]
         public ActionResult SetPriority(PriorityProduct hp)
         {
-            if (ModelState.IsValid)
+            try
             {
-                hp.CreatedBy = User.Identity.Name;
-                hp.CreatedDate = DateTime.Now;
-                hp.UpdatedBy = User.Identity.Name;
-                hp.UpdatedDate = DateTime.Now;
                 hp.IsActive = true;
                 hp.IsDelete = false;
-                db.Entry(hp).State = EntityState.Added;
-                db.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    hp.CreatedBy = User.Identity.Name;
+                    hp.CreatedDate = DateTime.Now;
+                    hp.UpdatedBy = User.Identity.Name;
+                    hp.UpdatedDate = DateTime.Now;
+                    db.Entry(hp).State = EntityState.Added;
+                    db.SaveChanges();
+                    return Json(new { success = true });
+                }
             }
-            return View(hp);
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("errorExp",ex.Message);
+                
+            }
+
+            return PartialView(hp);
         }
 
         public ActionResult RemovePriority(int id)
@@ -382,7 +392,7 @@ namespace NhaChoThue.Controllers
         {
             var result = from s in db.Products.AsEnumerable()
                          where s.IsCurrentPriority()
-                         && s.IsHired ==false
+                         && s.IsHired == false
                          select s;
             return View(result.OrderByDescending(s => s.CreatedDate));
         }
@@ -452,7 +462,7 @@ namespace NhaChoThue.Controllers
             var img = db.ProductImages.Find(ProductImageID);
             if (HasFile(file))
             {
-                
+
                 img.Caption = caption;
                 FileInfo image = new FileInfo(Server.MapPath(img.ImageLink));
                 FileInfo imageThumb = new FileInfo(Server.MapPath(img.ThumblLink));
@@ -484,13 +494,13 @@ namespace NhaChoThue.Controllers
 
                 db.SaveChanges();
             }
-            return RedirectToAction("Edit", new {id= img.ProductID});
+            return RedirectToAction("Edit", new { id = img.ProductID });
         }
 
         public ActionResult SoldProductGet(int id)
         {
             SoldModel sd = new SoldModel() { ProductID = id };
-            return PartialView("SoldProduct",sd);
+            return PartialView("SoldProduct", sd);
         }
 
         [HttpPost]

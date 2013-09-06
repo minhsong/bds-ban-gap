@@ -78,7 +78,13 @@
                            data: $("#Priority-Form").serialize(),
                            type: 'POST',
                            success: function (result) {
-                               document.location.reload();
+                               if (!!result.success) {
+                                   document.location.reload();
+                               } else {
+                                   $(this).dialog("close")
+                                   $('#Set-Priority').html(result);
+                                   $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+                               }
                            }
                        });
                    },

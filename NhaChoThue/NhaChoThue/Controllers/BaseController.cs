@@ -32,11 +32,15 @@ namespace NhaChoThue.Controllers
             
             
             ViewBag.DisctrictSearch = new SelectList(db.Districts, "DistrictID", "DistrictName");
-            ViewBag.NhaUuTien = (from s in db.Products.AsEnumerable()
+            var list = (from s in db.Products
+                        where !s.IsHired
+                        && s.IsActive
+                        && !s.IsDelete
+                        && s.Priorities.Count>0
+                        select s).ToList();
+            ViewBag.NhaUuTien = (from s in list.AsEnumerable()
                                  where s.IsCurrentPriority()
-                                 && s.IsDelete == false
-                                 && s.IsHired == false
-                                 select s).OrderByDescending(s => s.ProductID).Take(6);
+                                 select s).OrderByDescending(s => s.ProductID).Take(6).ToList();
 
             try
             {

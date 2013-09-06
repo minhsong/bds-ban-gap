@@ -66,6 +66,7 @@
 
     </div>
 <div id="sold-prpduct-form"></div>
+<div id="Set-Priority"></div>
 <div class="deleteProduct">
     <p>
         Bạn có muốn xóa bài đăng này không?
@@ -98,6 +99,41 @@
             success: function (result) {
                 $('#sold-prpduct-form').html(result);
                 $('#sold-prpduct-form').dialog("option", "title", "Bán Nhà").dialog("open");
+            }
+        });
+    }
+    $(function () {
+        $("#Set-Priority").dialog({
+            autoOpen: false, width: 400, height: 220, modal: true,
+            buttons: {
+                "Lưu": function () {
+                    $.ajax({
+                        url: '/Product/SetPriority',
+                        data: $("#Priority-Form").serialize(),
+                        type: 'POST',
+                        success: function (result) {
+                            if (!!result.success) {
+                                document.location.reload();
+                            } else {
+                                $(this).dialog("close")
+                                $('#Set-Priority').html(result);
+                                $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
+                            }
+                        }
+                    });
+                },
+                "Hủy": function () { $(this).dialog("close"); }
+            }
+        });
+    });
+    function ShowPriorityForm(idin) {
+        $.ajax({
+            url: '/Product/SetPriorityGet',
+            data: { id: idin },
+            type: 'POST',
+            success: function (result) {
+                $('#Set-Priority').html(result);
+                $('#Set-Priority').dialog("option", "title", "Thiết lập ưu tiên").dialog("open");
             }
         });
     }
