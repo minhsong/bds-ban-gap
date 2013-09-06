@@ -12,13 +12,13 @@
         myCalendar = new dhtmlXCalendarObject(["EndDate", "StarDate"]);
         myCalendar.hideTime();
         var t = new Date();
-        t.setDate(t.getDate() + 1);
+        t.setDate(t.getDate());
         byId("StarDate").value = myCalendar.getFormatedDate(null, t);
     });
     function setSens(id, k) {
         if (k == "min") {
             var t = new Date();
-            t.setDate(t.getDate() + 1);
+            t.setDate(t.getDate());
             myCalendar.setSensitiveRange(t, null);
         } else {
             myCalendar.setSensitiveRange(null, byId(id).value);
@@ -29,7 +29,7 @@
     }
 </script>
 @using (Html.BeginForm("","",FormMethod.Post,new {id="Priority-Form"})) {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(false)
     <fieldset>
         <table>
 
